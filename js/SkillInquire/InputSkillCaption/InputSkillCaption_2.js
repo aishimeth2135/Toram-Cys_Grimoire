@@ -1697,7 +1697,7 @@
 								{
 									case '技能效果':
 										all_SI[5].SI_name = '暴擊率+';
-										all_SI[5].SI_value = 20 + Lv_skill;
+										all_SI[5].SI_value = 20 + 2*Lv_skill;
 										all_SI[5].SI_unit = '。';
 										all_SI[6].SI_name = '暴擊傷害-';
 										all_SI[6].SI_value = input_SI_value_bySelection(WeapType_Cur, ['拔刀劍'], [0, 15 - Lv_skill]);
