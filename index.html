@@ -1,0 +1,1412 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>ToramOnline - Cy's Grimoire</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+
+<link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/Base.css">
+<link rel="stylesheet" type="text/css" href="css/InformationInquire_Base.css">
+<link rel="stylesheet" type="text/css" href="css/OtherInformation_Base.css">
+<link rel="stylesheet" type="text/css" href="css/Media.css">
+
+<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillInquire_Base.css">
+<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTreeType.css">
+<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTree.css">
+<link rel="stylesheet" type="text/css" href="css/SkillInquire/Skill.css">
+<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillLv.css">
+<link rel="stylesheet" type="text/css" href="css/SkillInquire/Arm.css">
+
+
+
+<body>
+
+
+	<header>
+		<ul>
+			<li id="Menu_1" onclick="Upadate_Menu(this)">
+				<a>技能資料</a>
+			</li>
+			<li id="Menu_2" onclick="Upadate_Menu(this)">
+				<a>資料查詢</a>
+			</li>
+			<li id="Menu_3" onclick="Upadate_Menu(this)">
+				<a>版本資訊</a>
+			</li>
+		</ul>
+	</header>
+
+	<div id="Btn_ToTop" onclick="ToTop()">Top</div>
+	
+	<section id="Section_1">
+		
+		<div id="site_SkillTreeType">
+			<ul>
+				<li id="li_skilltree_type_1" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+					<a id="skilltree_type_1" class="SkillTreeType_button">武器技能</a>
+				</li>
+				<li id="li_skilltree_type_2" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+					<a id="skilltree_type_2" class="SkillTreeType_button">強化技能</a>
+				</li>
+				<li id="li_skilltree_type_3" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+					<a id="skilltree_type_3" class="SkillTreeType_button">輔助技能</a>
+				</li>
+				<li id="li_skilltree_type_4" class="SkillTreeType_li" style="display:none;"onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+					<a id="skilltree_type_4" class="SkillTreeType_button">？？？？</a>
+				</li>
+			</ul>
+		</div>
+		<div id="SkillTreeType_Caption">
+		</div>
+		<div id="site_SkillTree">
+			<ul>
+				<li>
+					<a id = "skilltree_1" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
+				</li>
+				<li>
+					<a id = "skilltree_2" class="SkillTree_button" onclick ='update_of_skilltree(this)'></a>
+				</li>
+				<li>
+					<a id = "skilltree_3" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
+				</li>
+				<li>
+					<a id = "skilltree_4" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
+				</li>
+				<li>
+					<a id = "skilltree_5" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
+				</li>
+				<li>
+					<a id = "skilltree_6" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
+				</li>
+				<li>
+					<a id = "skilltree_7" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
+				</li>
+			</ul>
+			<div id='SkillTree_Caption'>
+			</div>
+		</div>
+		<div id="site_Skill">
+		</div>
+		<div id="ShowCaption_Body_1">
+			<div id='ShowCaption_2'>
+			</div>
+			<div id='ShowCaption_3'>
+			</div>
+		</div>
+		<div id="Section_1_Block_1">
+			<div id="Section_1_Block_1_1">
+				<hr class="hr_2" />
+				<ul id="site_SkillLv">
+					<li id = "Lv_skill_1" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.1
+					</li>
+					<li id = "Lv_skill_2" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.2
+					</li>
+					<li id = "Lv_skill_3" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.3
+					</li>
+					<li id = "Lv_skill_4" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.3
+					</li>
+					<li id = "Lv_skill_5" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.5
+					</li>
+					<li id = "Lv_skill_6" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.6
+					</li>
+					<li id = "Lv_skill_7" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.7
+					</li>
+					<li id = "Lv_skill_8" class="SkillLv_button"  onclick="update_of_Lv_skill(this)">
+					Lv.8
+					</li>
+					<li id = "Lv_skill_9" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
+					Lv.9
+					</li>
+					<li id = "Lv_skill_10" class="SkillLv_button_current" onclick="update_of_Lv_skill(this)">
+					Lv.10
+					</li>
+				</ul>
+				<hr class="hr_2" />
+				<div id="site_SkillBranch">
+					<div id='SkillBranch_1' class= "button_SkillBranch" onclick='update_of_skill_branch(this)'>
+					
+					</div>
+					<div id='SkillBranch_2' class= "button_SkillBranch"  onclick='update_of_skill_branch(this)'>
+					
+					</div>
+					<div id='SkillBranch_3' class= "button_SkillBranch" onclick='update_of_skill_branch(this)'>
+					
+					</div>
+					<div id='SkillBranch_4' class= "button_SkillBranch"  onclick='update_of_skill_branch(this)'>
+					
+					</div>
+					<div id='SkillBranch_5' class= "button_SkillBranch"  onclick='update_of_skill_branch(this)'>
+					
+					</div>
+				</div>
+				<div>
+					
+					<div style="float:left;">
+						<div id='ShowCaption_1'>
+						</div>
+						<div id="ShowCaption_Site_2">
+							<div id='ShowCaption_4'>
+							</div>
+							<div id='ShowCaption_5'>
+							</div>
+							<div id='ShowCaption_6'>	
+							</div>
+						</div>
+					</div>
+					<div id="site_Arm">
+						<div class="Arm_Block">
+							<div id = "armtitle_1" class="Arm_Title" style="margin-top:-1rem;">
+							主手武器
+							</div>
+							<div class= "Arm_Body">
+								<div id = "armO" class="Arm_button" onclick ='update_of_arm(this)'>未選擇</div>
+								<div id = "arm_1" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "arm_2" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "arm_3" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "arm_4" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+							</div>	
+						</div>
+						<div class="Arm_Block">
+							<div id = "armtitle_2"  class="Arm_Title">
+							副手裝備
+							</div>
+							<div class= "Arm_Body">
+								<div id = "au_armO" class="Arm_button" onclick ='update_of_arm(this)'>未選擇</div>
+								<div id = "au_arm_1" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "au_arm_2" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "au_arm_3" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "au_arm_4" class="Arm_button" onclick ='update_of_arm(this)'>
+								</div>
+							</div>
+						</div>
+						<div class="Arm_Block">
+							<div id = "armtitle_2" class="Arm_Title" style="top:10.938rem;">
+							身體裝備
+							</div>
+							<div class= "Arm_Body">
+								<div id = "body_armO" class="Arm_button" onclick ='update_of_arm(this)'>未選擇</div>
+								<div id = "body_arm_1" class="Arm_button" style="top:12.5rem;"onclick ='update_of_arm(this)'>
+								</div>
+								<div id = "body_arm_2" class="Arm_button" style="top:12.5rem;left:4.688rem;" onclick ='update_of_arm(this)'>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="site_ShowCaption">
+				
+			</div>
+		</div>
+		<div style="clear:left;"></div>
+	</section>
+	
+	
+	<div id="Picture_TheStar" style="position:absolute;top:46rem;left:6rem;opacity:0.78;display:none;" onclick="onclickOf_TheStar(this)">
+		<img src="https://i.imgur.com/3AwYp99.png">
+	</div>
+	<div id="Picture_TheStick" style="position:absolute;top:11.3rem;left:34.5rem;opacity:0.6;display:none;" onclick="onclickOf_TheStick(this)">
+		<img src="https://i.imgur.com/SPhrKxO.png">
+	</div>
+	
+	
+	<section id='Section_2'>
+	
+		<div id="Section_2_Menu">
+		</div>
+		<hr class="hr_1" />
+		<article id="Description_Site_1">
+			<div id="Desc_Page_0" class="Desc_Page">
+				<ul class="Desc_ul_1"><li>傷害類型分成物理傷害與魔法傷害。各有各不同的特性。</li></ul>
+				<table>
+					<tr>
+						<td class="Table_Title_1">物理傷害</td>
+						<td>可以發生暴擊，但會被迴避及閃躲。其值會受目標的Def與物理抗性減免。</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1">魔法傷害</td>
+						<td>無法發生暴擊，但不會被迴避及閃躲，可視為必定命中成功。其值會受目標的Mdef與魔法抗性減免。<br />(有NPC說迴避夠高時就能迴避魔法傷害，但至今依然沒有實例)</td>
+					</tr>
+				</table>
+			</div>
+			<div id="Desc_Page_1" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>慣性類型分為三種，分別為普通攻擊、物理攻擊、魔法攻擊。</li>
+					<li>在造成某種慣性類型的傷害時，該傷害的量值會受該慣性類型的當前比率影響。</li>
+				</ul>
+					可大致由下列表格呈現：
+				<p><table>
+					<tr><td class="Table_Title_1" rowspan="2">普通攻擊</td><td>即角色的普通攻擊。</td></tr>
+					<tr><td>造成傷害：「原傷害×普攻慣性率%」<br /></td></tr>
+					<tr><td class="Table_Title_1" rowspan="2">物理攻擊</td><td>任何物理傷害的技能。</td></tr>
+					<tr><td>造成傷害：「原傷害×物理慣性率%」</td></tr>
+					<tr><td class="Table_Title_1" rowspan="2">魔法攻擊</td><td>任何魔法傷害的技能。</td></tr>
+					<tr><td>造成傷害：「原傷害×魔法慣性率%」</td></tr>
+				</table></p>
+				<ul>
+					<li>不同敵人在受到某種傷害後，會減少其慣性類型的慣性率，並使其它兩種類型的慣性率增加。</li>
+					<li>每個敵人在三個種類的慣性率都不盡相同。</li>
+				</ul>
+				上述可大致由下列表格呈現。
+				<p><table>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">普通攻擊</td>
+						<td>本次傷害：原傷害×普攻慣性率%</td>
+					</tr>
+					<tr>
+						<td>
+							下次普攻傷害：原傷害×(普攻慣性率-普攻慣性增減率)%<br />
+							下次物理傷害：原傷害×(物理慣性率+物理慣性增減率)%<br />
+							下次魔法傷害：原傷害×(魔法慣性率+魔法慣性增減率)%
+						</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">物理攻擊</td>
+						<td>本次傷害：原傷害×物理慣性率%</td>
+					</tr>
+					<tr>
+						<td>
+							下次普攻傷害：原傷害×(普攻慣性率+普攻慣性增減率)%<br />
+							下次物理傷害：原傷害×(物理慣性率-物理慣性增減率)%<br />
+							下次魔法傷害：原傷害×(魔法慣性率-魔法慣性增減率)%
+						</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">魔法攻擊</td>
+						<td>本次傷害：原傷害×魔法慣性率%</td>
+					</tr>
+					<tr>
+						<td>
+							下次普攻傷害：原傷害×(普攻慣性率+普攻慣性增減率)%<br />
+							下次物理傷害：原傷害×(物理慣性率+物理慣性增減率)%<br />
+							下次魔法傷害：原傷害×(魔法慣性率-魔法慣性增減率)%
+						</td>
+					</tr>
+				</table></p>
+				<ul>
+					<li>一敵人在未受到任何傷害時，三種慣性率皆為100%，也就是會造成原傷害。</li>
+					<li>而各慣性率的上限都是250%，下限都是50%。</li>
+					<li>組隊時，同一名敵人的慣性是受所有隊伍成員影響的。</li>
+					<li>某些傷害可能雖為物理傷害(會根據物理慣性率造成傷害)，但不一定是物理慣性(被減少的不會是物理慣性率)。</li>
+					<li>無慣性的傷害不受慣性率影響，也就是無論如何都是100%。也當然不會影響任何種類的慣性率。追加類傷害則會依循原傷害的慣性率。</li>
+				</ul>
+				<p>這邊附上慣性類型範例。</p>
+			</div>
+			<div id="Desc_Page_2" class="Desc_Page">
+				<ul class="Desc_ul_1"><li>目前的特殊技能類型有_@光環和_@陷阱兩種。</li></ul>
+				<br />點擊可查看各項說明。
+				<p><table>
+					<tr>
+						<td class="Table_Title_1">_@光環</td>
+						<td>產生的區域會跟著角色移動，而友方只有在區域範圍內才會受到光環增益。極容易被中斷。</td></tr>
+					<tr>
+						<td class="Table_Title_1">_@陷阱</td>
+						<td>設置後會停留在原地，而且無法主動發動。而目標進入觸發範圍時，陷阱便會自動發動。</td>
+					</tr>
+				</table></p>
+			</div>
+			<div id="Desc_Page_3" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>所有異常狀態中，玩家所能造成的僅占一部分。</li>
+					<li>只有_@膽怯、_@翻覆、_@昏厥可以進行部位破壞。又稱「控制狀態」。</li>
+					<li>部分Boss遭受特定控制狀態後，會進行特殊的反擊。每種Boss的反擊方式不盡相同。</li>
+				</ul>
+				以下列出所有異常狀態。點擊可查看各項說明。
+				<p><table>
+					<tr>
+						<td class="Table_Title_1">_@膽怯</td>
+						<td class="Table_Title_1">_@翻覆</td>
+						<td class="Table_Title_1">_@昏厥</td>
+						<td class="Table_Title_1">_@逼退</td>
+						<td class="Table_Title_1">_@畏懼</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1">_@降防</td>
+						<td class="Table_Title_1">_@遲緩</td>
+						<td class="Table_Title_1">_@盲目</td>
+						<td class="Table_Title_1">_@乏力</td>
+						<td class="Table_Title_1">_@猛毒</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1">_@著火</td>
+						<td class="Table_Title_1">_@停止</td>
+						<td class="Table_Title_1">_@麻痺</td>
+						<td class="Table_Title_1">_@睡眠</td>
+						<td class="Table_Title_1">_@冰凍</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1">_@出血</td>
+						<td class="Table_Title_1">_@沉默</td>
+						<td class="Table_Title_1">_@眩暈</td>
+						<td class="Table_Title_1">_@閃光</td>
+						<td class="Table_Title_1">_@疲勞</td>
+					</tr>
+				</table></p>
+			</div>
+			<div id="Desc_Page_4" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>為一些遊戲中的基本公式及名詞說明。</li>
+					<li>任意式子在全部計算完畢後皆會無條件捨棄小數。</li>
+					<li>建議可先查看_@公式表示補述。</li>
+				</ul>
+				
+				<p><table>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">有效Atk</td>
+						<td>意即Atk在各項因素影響後，最後有效的部分有多少。<br />裝備雙劍時的有效Atk式子較特殊。</td>
+					</tr>
+					<tr>
+						<td>「Atk+(角色Lv-目標Lv)-目標Def×(100-物理貫穿%)%」<br />(角色Lv-目標Lv)又稱作「等級差距(等差)」。</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">有效Matk</td>
+						<td>意即Matk在各項因素影響後，最後有效的部分有多少。</td>
+					</tr>
+					<tr>
+						<td>「Matk+(角色Lv-目標Lv)-目標Mdef×(100-魔法貫穿%)%」<br />(角色Lv-目標Lv)又稱作「等級差距(等差)」。</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">雙劍-有效Atk</td>
+						<td>雙劍的有效Atk多了副手攻擊力的影響。<br />裝備雙劍時的有效Atk式子較特殊。</td>
+					</tr>
+					<tr>
+						<td>「Atk+副手Atk×_@副手倍率+(角色Lv-目標Lv)-目標Def×(100-物理貫穿%)%」<br />(角色Lv-目標Lv)又稱作「等級差距(等差)」。</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">普通攻擊傷害</td>
+						<td>常簡稱為「普攻」，遊戲中又稱「一般攻擊」。<br />普通攻擊可恢復MP，並可造成不同於技能的慣性類型。</td>
+					</tr>
+					<tr>
+						<td>「有效Atk×(100-目標物理抗性)%×額外增幅」</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">物理技能傷害</td>
+						<td>即物理技能所造成的傷害。<br />相較於普通攻擊，技能多了常數及倍率的加成。</td>
+					</tr>
+					<tr>
+						<td>「(有效Atk+技能常數)×技能倍率×(100-目標物理抗性%)%×_@額外增幅」</td></tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">魔法技能傷害</td>
+						<td>即魔法技能所造成的傷害。<br />相較於普通攻擊，技能多了常數及倍率的加成。</td></tr>
+					<tr>
+						<td>「(有效Matk+技能常數)×技能倍率×(100-目標魔法抗性%)%×額外增幅」</td>
+					</tr>
+				</table></p>
+			</div>
+			<div id="Desc_Page_5" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>為一些遊戲中每項能力的公式及名詞說明。</li>
+					<li>任意式子在全部計算完畢後皆會無條件捨棄小數。</li>
+					<li>建議可先查看_@公式表示補述。</li>
+				</ul>
+				
+				<p><table>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">一般能力數值</td>
+						<td>即Str、Dex、Int、Agi、Vit五種能力。<br />以下以Abil.表示任一項能力。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+Abil.%)%+Abil.」<br />基礎值：分配能力數值的部分所顯示的值</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">選擇能力數值</td>
+						<td>即Tec、Crt、Men、Luk，只能擇一的四種能力。</td>
+					</tr>
+					<tr>
+						<td>「基礎值」<br />基礎值：分配能力數值的部分所顯示的值<br />(選擇能力數值目前沒有任何裝備或技能有提供加成)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">HP上限</td>
+						<td>生命上限。受到傷害時會減少HP，HP為0時角色會_@不支倒地。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+HP上限%)%+HP上限」<br />基礎值：93+角色Lv×(127/17+Vit/3)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">MP上限</td>
+						<td>魔力上限。使用大部分的技能會消耗MP。</td>
+					</tr>
+					<tr>
+						<td>「基礎值+MP上限」<br />基礎值：99+角色Lv+Int×10%+Tec</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">HP自然恢復</td>
+						<td>非戰鬥狀態時，會每3秒恢復部分HP。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+HP自然恢復%)%+HP自然恢復」<br />基礎值：10+HP上限×4%</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">MP自然恢復</td>
+						<td>非戰鬥狀態時，會每3秒恢復部分MP。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+MP自然恢復%)%+MP自然恢復」<br />基礎值：1+MP上限×1%</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">攻擊MP恢復</td>
+						<td>普通攻擊若_@命中成功，將會恢復的MP量值。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+攻擊MP恢復%)%+攻擊MP恢復」<br />基礎值：10+MP上限/100</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">Atk</td>
+						<td>物理攻擊力。主要影響物理技能及普通攻擊傷害。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+Atk%)%+Atk」<br />基礎值：_@武器性能+角色Lv+_@能力Atk</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">Matk</td>
+						<td>魔法攻擊力。主要影響魔法技能傷害，及某些恢復技能的治癒量。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+Matk%)%+Matk」<br />基礎值：_@武器性能×_@魔法倍率+角色Lv+_@能力Matk</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">穩定率</td>
+						<td>造成傷害時，會因為穩定率而造成傷害浮動。</td>
+					</tr>
+					<tr>
+						<td>「基礎值+穩定率%」<br />基礎值：_@武器穩定率+_@能力穩定率</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">Def</td>
+						<td>物理防禦力。會與敵方的Atk互抵，而減少受到的物理傷害。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+Def%)%+Def」<br />基礎值：_@裝備防禦+_@能力Def</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">Mdef</td>
+						<td>魔法防禦力。會與敵方的Matk互抵，而減少受到的魔法傷害。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+Mdef%)%+Mdef」<br />基礎值：_@裝備防禦+_@能力Mdef</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">命中</td>
+						<td>能力面板中的Hit。與之相對應的是迴避。<br />會影響造成傷害前，發生MISS(被迴避)的機率。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+命中%)%+命中」<br />基礎值：角色Lv+Dex</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">迴避</td>
+						<td>能力面板中的Flee。與之相對應的是命中。<br />會影響受到傷害前，出現MISS(迴避)的機率。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+迴避%)%+迴避」<br />基礎值：角色Lv+_@能力迴避</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">攻擊速度</td>
+						<td>能力面板中的ASPD。會影響普通攻擊間隔。<br />若其值大於1000，超出的值會增加行動速度%。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+攻擊速度%)%+攻擊速度」<br />基礎值：角色Lv+_@能力攻擊速度</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">詠唱速度</td>
+						<td>能力面板中的CSPD。會影響須詠唱/蓄力的技能所需的詠唱/蓄力時間。部分技能的詠唱/蓄力時間不受詠唱速度影響。<br />關於詠唱時間減少的比率，可查看詠唱時間詳述。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+詠唱速度%)%+詠唱速度」<br />基礎值：角色Lv+Agi×1.16+Dex×2.94</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">暴擊率</td>
+						<td>能力面板中未顯示。為物理攻擊發生暴擊的機率。暴擊時必定不發生MISS(被迴避)。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+暴擊率%)%+暴擊率」<br />基礎值：25+Crt/3.4</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">暴擊傷害</td>
+						<td>能力面板中未顯示。為物理攻擊發生暴擊時所造成的傷害比率。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+暴擊傷害%)%+暴擊傷害」<br />基礎值：150+Str/5.1</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">行動速度</td>
+						<td>能力面板中未顯示。為角色進行普通攻擊、施放技能、閃躲......等動作，動作從開始到結束所需時間減少的比率。<br />簡單來說，行動速度+1% = 行動時間-1%。<br />上限為50%。意即行動時間最快會是原本時間的一半。</td>
+					</tr>
+					<tr>
+						<td>「(基礎值+行動速度%)%」<br />基礎值：(攻擊速度-1000)/180</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">物理抗性</td>
+						<td>能力面板中未顯示。為受到物理傷害時，所減少之傷害的比率。<br />上限為75%。</td>
+					</tr>
+					<tr>
+						<td>「(物理抗性%)%」<br />(物理抗性之基礎值為0%，完全受裝備及技能影響)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">魔法抗性</td>
+						<td>能力面板中未顯示。為受到魔法傷害時，所減少之傷害的比率。<br />上限為75%。</td>
+					</tr>
+					<tr>
+						<td>「(魔法抗性%)%」<br />(魔法抗性之基礎值為0%，完全受裝備及技能影響)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">物理貫穿</td>
+						<td>能力面板中未顯示。為造成物理傷害時，所無視之目標Def的比率。</td>
+					</tr>
+					<tr>
+						<td>「(物理貫穿%)%」<br />(物理貫穿之基礎值為0%，完全受裝備及技能影響)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">魔法貫穿</td>
+						<td>能力面板中未顯示。為造成魔法傷害時，所無視之目標Mdef的比率。</td>
+					</tr>
+					<tr>
+						<td>「(魔法貫穿%)%」<br />(魔法貫穿之基礎值為0%，完全受裝備及技能影響)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">近/遠距離威力</td>
+						<td>能力面板中未顯示。為與目標為近/遠距離時所造成的傷害比率。<br />與目標距離8m以下(不含)的傷害會受近距離威力影響。<br />與目標距離8m以上(含)的傷害會受遠距離威力影響。</td>
+					</tr>
+					<tr>
+						<td>「(100+近/遠距離威力%)%」</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">對__屬性傷害%</td>
+						<td>能力面板中未顯示。當目標為__屬性時造成的傷害。<br />若不清楚__會有哪些屬性，可查看_@屬性剋制。</td>
+					</tr>
+					<tr>
+						<td>「(100+對__屬性傷害%+屬性剋制)%」</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">拔刀傷害</td>
+						<td>能力面板中未顯示。會影響_@拔刀術時造成的傷害。</td>
+					</tr>
+					<tr>
+						<td>「(100+拔刀傷害%)%+拔刀傷害」</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">閃躲率</td>
+						<td>能力面板中未顯示。為受到物理傷害時發生閃躲的機率。<br />上限為75%。</td>
+					</tr>
+					<tr>
+						<td>「(閃躲率%)%」<br />(閃躲率之基礎值為0%，完全受裝備及技能影響)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">阻擋率</td>
+						<td>能力面板中未顯示。為受到傷害時發生阻擋的機率。</td>
+					</tr>
+					<tr>
+						<td>「(阻擋率%)%」<br />(阻擋率之基礎值為0%，完全受裝備及技能影響)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">阻擋力</td>
+						<td>能力面板中未顯示。為發生阻擋時，所減少之傷害的比率。<br />上限為75%。</td>
+					</tr>
+					<tr>
+						<td>「(基礎值+阻擋力%)%」<br />基礎值：(目前尚無資料)</td>
+					</tr>
+					<tr>
+						<td class="Table_Title_1" rowspan="2">仇恨值</td>
+						<td>能力面板中未顯示。普通攻擊或施放技能都會產生仇恨值。敵人會優先鎖定仇恨值最高的目標。</td>
+					</tr>
+					<tr>
+						<td>「基礎值×(100+仇恨值%)%」<br />基礎值：視情況而定。可查看_@仇恨表。</td>
+					</tr>
+				</table></p>
+			</div>
+		</article>
+		
+		
+		<div style="display:none;">
+			<div id='open_VersionInformation' style='cursor:pointer;background-color:rgba(219,255,255,0.9);color:#009393;text-align:center;border-width:0.125rem;border-color:#FFFFFF #FFFFFF #FFFFFF rgba(0,204,204,0.9);border-style:solid;padding:0.313rem;width:7.5rem;height:1.25rem;position:absolute;left:0.625rem;top:35.313rem;' onclick='Information_enter(this)'>
+			版本資訊
+			</div>
+			<div id='open_AuthorInformation' style='cursor:pointer;background-color:rgba(235,255,255,0.85);color:#005757;text-align:center;border-width:0.125rem;border-color:#FFFFFF #FFFFFF #FFFFFF rgba(132,219,0,0.85);border-style:solid;padding:0.313rem;width:7.5rem;height:1.25rem;position:absolute;left:0.625rem;top:37.813rem;' onclick='Information_enter(this)'>
+			製作名單
+			</div>
+			<div id='open_Bag' style='box-shadow:0.5rem 0.3rem 0.7rem #FFDCB9;cursor:pointer;background-color:rgba(255, 252, 235,0.85);color:#AE8F00;text-align:center;border-width:0.125rem;border-color:#FFFFFF #FFFFFF #FFFFFF rgba(255, 176, 97,0.85);border-style:solid;padding:0.313rem;width:7.5rem;height:1.25rem;position:absolute;left:0.625rem;top:1rem;' onclick='OpenBag(this)'>
+			道具欄
+			</div>
+		</div>
+		
+		<div id="TheBag" style="display:none;position:absolute;top:3.3rem;left:1rem;background-color:#FFFCEC;border:0.2rem #FFED97 solid;padding:0.3rem;min-width:14rem;">
+			<div id="BagItemField_1" class="BagItemField" style="float:left;">
+			</div>
+			<div id="BagItemField_2" class="BagItemField" style="float:left;">
+			</div>
+			<div id="BagItemField_3" class="BagItemField" style="float:left;">
+			</div>
+			<div id="BagItemField_4" class="BagItemField" style="float:left;">
+			</div>
+			
+			<div id="BagItem_Desc" style="max-width:15rem;display:none;position:absolute;opacity:0.95;border-radius:1rem;background-color:#FFFCEC;border:0.2rem #FFE66F solid;padding:0.6rem;color:#C6A300;">
+			</div>
+		</div>
+	</section>
+	
+	<section id="Description_Site_2">
+		<span class="Close_Desc2" onclick="Close_Desc2_Site()">&gt; Close</span>
+		<div class="Desc_2_Title_1" id="Desc_2_PageTitle"></div><hr class="hr_1" />
+		<div id="Desc2_Page_0"  class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：會中斷動作及技能。期間內無法作任何行動。</li>
+				<li>持續時間：1秒。</li>
+				<li>抗性時間：1.5秒。</li>
+				<li>控制狀態之一。定點BOSS可進行部位破壞。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_1" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：會中斷動作及技能。期間內無法作任何行動。</li>
+				<li>持續時間：3秒。</li>
+				<li>抗性時間：5秒。</li>
+				<li>控制狀態之一。定點BOSS可進行部位破壞。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_2" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：會中斷動作及技能。期間內無法作任何行動。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：30秒。</li>
+				<li>控制狀態之一。定點BOSS可進行部位破壞。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_3" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：會中斷動作及部分技能。期間無法作任何行動，並後退一段距離。</li>
+				<li>持續時間：視被逼退的距離而定。</li>
+				<li>抗性時間：1秒。</li>
+				<li>格檔時將免疫此效果。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_4" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：作用期間內，進行普通攻擊或發動技能都有一定機率被中斷。</li>
+				<li>持續時間：視施放者而定。</li>
+				<li>抗性時間：無。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_5" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內Def-50%、Mdef-50%。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：5秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_6" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內移動速度將大幅降低。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：10秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_7" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內命中降低。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：10秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_8" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內Atk-30%、Matk-30%。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：5秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_9" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果(玩家)：期間內每次進行普通攻擊或施放技能，都會受到當前生命一定比例的傷害。</li>
+				<li>效果(怪物)：期間內每次進行普通攻擊或施放技能，都會受到(1+Atk×1%+Dex×50%)的傷害。</li>
+				<li>持續時間：視施放者而定。</li>
+				<li>抗性時間：10秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_10" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內總行動時間變為兩倍。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：5秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_11" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果(玩家)：期間內每3秒受到(當前HP×15%)的傷害。</li>
+				<li>效果(怪物)：期間內每3秒受到少量傷害。</li>
+				<li>持續時間：視施放者而定。</li>
+				<li>抗性時間：？秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_12" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內無法移動。</li>
+				<li>持續時間：10秒。</li>
+				<li>抗性時間：60秒。</li>
+				<li>部分BOSS單位免疫此效果。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_13" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內普通攻擊或施放技能，總動作時間多1秒。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：10秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_14" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果(玩家)：期間內無法作任何行動，每3秒恢復少量MP。</li>
+				<li>效果(怪物)：期間內無法作任何行動，每3秒恢復(最大生命×3%)的HP。</li>
+				<li>持續時間：視施放者而定。</li>
+				<li>抗性時間：？秒。</li>
+				<li>受到任意傷害效果將立即中斷。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_15" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內無法使用任何物理傷害技能。</li>
+				<li>持續時間：視施放者而定。</li>
+				<li>抗性時間：？秒。</li>
+				<li>目前玩家還沒有能造成此狀態的技能。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_16" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內無法使用任何魔法傷害技能。</li>
+				<li>持續時間：視施放者而定。</li>
+				<li>抗性時間：？秒。</li>
+				<li>目前玩家還沒有能造成此狀態的技能。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_17" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內迴避降低。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：5秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_18" class="Desc2_Page">
+			<ul  class="Desc_ul_2 Desc_ul_one">
+				<li>陷阱只有在敵人進入觸發範圍才會自動發動。</li>
+				<li>陷阱持續時間為無限，但同一種陷阱同時間最多只能放置一個。</li>
+				<li>以下任意情況發生時，都會使陷阱消失。
+					<ul class="Desc_ul_2 Desc_ul_second">
+						<li>切換地圖。</li>
+						<li>一角色設置了兩個同樣的陷阱。則第一個將會消失。</li>
+						<li>陷阱本體受到過量傷害。</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_19" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>光環將在自身周圍產生一個區域，且該區域會隨著角色移動。</li>
+				<li>所有進入區域的隊伍成員(包括施術者)都會立即獲得該光環提供的狀態，而離開區域時該狀態會立即結束。</li>
+				<li>光環在施術者受到任意傷害後將會立即消失。</li>
+				<li>光環通常都對施術者有副作用。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_20" class="Desc2_Page">
+			以下用表格呈現，一敵人在受到各種傷害後，各慣性類型的「本次傷害」與「下次傷害」的變化。
+			<br />假設一敵人的慣性增減率分別為普攻：50%、物理：30%、魔法：100%。
+			<p><table class="Desc_td_special_1">
+				<tr>
+					<td rowspan="2" >#</td>
+					<td rowspan="2">情況</td>
+					<td colspan="2">普通攻擊</td>
+					<td colspan="2">物理</td>
+					<td colspan="2">魔法</td>
+				</tr>
+				<tr>
+					<td>本次</td><td>下次</td>
+					<td>本次</td><td>下次</td>
+					<td>本次</td><td>下次</td>
+				</tr>
+				<tr>
+					<td>0</td><td>(初始狀態)</td>
+					<td>-</td><td>100%</td>
+					<td>-</td><td>100%</td>
+					<td>-</td><td>100%</td>
+				</tr>
+				<tr>
+					<td>1</td><td>受到<br />物理攻擊/物理慣性</td>
+					<td>-</td><td>150%</td>
+					<td>100%</td><td>70%</td>
+					<td>-</td><td>200%</td>
+				</tr>
+				<tr>
+					<td>2</td><td>受到普通攻擊</td>
+					<td>150%</td><td>100%</td>
+					<td>-</td><td>100%</td>
+					<td>-</td><td>250%</td>
+				</tr>
+				<tr>
+					<td>3</td><td>受到<br />魔法攻擊/魔法慣性</td>
+					<td>-</td><td>150%</td>
+					<td>-</td><td>130%</td>
+					<td>250%</td><td>150%</td>
+				</tr>
+				<tr>
+					<td>4</td><td>受到<br />物理攻擊/魔法慣性</td>
+					<td>-</td><td>200%</td>
+					<td>130%</td><td>160%</td>
+					<td>-</td><td>50%</td>
+				</tr>
+				<tr>
+					<td>5</td><td>受到<br />魔法攻擊/魔法慣性</td>
+					<td>-</td><td>250%</td>
+					<td>-</td><td>190%</td>
+					<td>50%</td><td>50%</td>
+				</tr>
+				<tr>
+					<td>6</td><td>受到<br />物理攻擊/無慣性</td>
+					<td>-</td><td>250%</td>
+					<td>100%</td><td>190%</td>
+					<td>-</td><td>50%</td>
+				</tr>
+			</table></p>
+		</div>
+		<div id="Desc2_Page_21" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>即武器受到精煉、技能效果等影響後，總共提供的攻擊力加成。</li>
+				<li>公式：「武器素質×(100+武器Atk%)+武器Atk+精煉效果」</li>
+				<li>武器素質：武器上標示的Atk。</li>
+				<li>精煉效果：武器素質×(精煉值²)%+精煉值。</li>
+				<li>雙劍副手的精煉效果：武器素質×(精煉值²)%/2+精煉值。</li>
+			</ul>
+			<p>(例子)武器素質100，精煉值9。<br />則精煉效果為100×(9²)%+9<br />=100×81%+9<br />=81+9=90</p>
+			<br />也就是在無武器Atk%及武器Atk加成下，這把的武器性能為100+90=190。
+		</div>
+		<div id="Desc2_Page_22" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的Atk。會根據所裝備的主手武器不同而有所差別。</li>
+				<li>裝備或技能所提供的能力數值也會包含在內。</li>
+			</ul>
+			<br />以下是各主手武器的能力Atk。
+			<p><table>
+				<tr><td class="Table_Title_1">空手</td><td>1+Str</td></tr>
+				<tr><td class="Table_Title_1">單手劍</td><td>Str×2+Dex×2</td></tr>
+				<tr><td class="Table_Title_1">雙手劍</td><td>Str×3+Dex</td></tr>
+				<tr><td class="Table_Title_1">弓</td><td>Dex×3+Str</td></tr>
+				<tr><td class="Table_Title_1">連弩</td><td>Dex×4</td></tr>
+				<tr><td class="Table_Title_1">法杖</td><td>Str×3+Int</td></tr>
+				<tr><td class="Table_Title_1">魔導具</td><td>Int×2+Agi×2</td></tr>
+				<tr><td class="Table_Title_1">拳套</td><td>Agi×2+Dex×0.5</td></tr>
+				<tr><td class="Table_Title_1">旋風槍</td><td>Str×2.5+Agi×1.5</td></tr>
+				<tr><td class="Table_Title_1">拔刀劍</td><td>Dex×2.5+Agi×1.5</td></tr>
+			</table></p>
+			<p>裝備雙劍時較特殊，有分為主手及副手攻擊力。</p>
+			<table>
+				<tr><td class="Table_Title_1">雙劍(主手)</td><td>Dex×2+Str+Agi</td></tr>
+				<tr><td class="Table_Title_1">雙劍(副手)</td><td>Agi×3+Str</td></tr>
+			</table>
+		</div>
+		<div id="Desc2_Page_23" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>顧名思義，可以解釋成武器所能傳遞的魔力多寡會影響該武器所提供的魔法攻擊力。</li>
+				<li>簡單來說，並不是所有武器的攻擊力都能提供完整的Matk加成。</li>
+			</ul>
+			<p>以下是各主手武器的魔法倍率。</p>
+			<table>
+				<tr><td class="Table_Title_1">法杖</td><td>100%</td></tr>
+				<tr><td class="Table_Title_1">魔導具</td><td>100%</td></tr>
+				<tr><td class="Table_Title_1">拳套</td><td>50%</td></tr>
+				<tr><td class="Table_Title_1">其它武器</td><td>0%</td></tr>
+			</table>
+			<br />也就是說，除了法杖、魔導具、拳套，其它武器的武器性能是完全不會增加Matk的。
+		</div>
+		<div id="Desc2_Page_24" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的Matk。會根據所裝備的主手武器不同而有所差別。</li>
+				<li>裝備所提供的能力數值也會包含在內。</li>
+			</ul>
+			<p>以下是各主手武器的能力Matk。</p>
+			<p><table>
+				<tr><td class="Table_Title_1">空手</td><td>1+Int×3+Dex</td></tr>
+				<tr><td class="Table_Title_1">單手劍</td><td>Int×3+Dex</td></tr>
+				<tr><td class="Table_Title_1">雙手劍</td><td>Int×3+Dex</td></tr>
+				<tr><td class="Table_Title_1">弓</td><td>Int×3+Dex</td></tr>
+				<tr><td class="Table_Title_1">弩</td><td>Int×3+Dex</td></tr>
+				<tr><td class="Table_Title_1">法杖</td><td>Int×4+Dex</td></tr>
+				<tr><td class="Table_Title_1">魔導具</td><td>Int×4+Dex</td></tr>
+				<tr><td class="Table_Title_1">拳套</td><td>Int×4+Dex</td></tr>
+				<tr><td class="Table_Title_1">旋風槍</td><td>Int×2+Dex+Agi</td></tr>
+				<tr><td class="Table_Title_1">拔刀劍</td><td>Int×1.5+Dex</td></tr>
+			</table></p>
+			<br />裝備雙劍時的能力Matk同單手劍。
+		</div>
+		<div id="Desc2_Page_25" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>即盾牌、身體裝備、追加裝備、特殊裝備上方標示的防禦力的加總。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_26" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的Def。主要受Vit、身體裝備的類型及角色Lv影響。</li>
+				<li>裝備所提供的能力數值也會包含在內。</li>
+			</ul>
+			<p>以下是各身體裝備類型的能力Def。</p>
+			<table>
+				<tr><td class="Table_Title_1">無裝備</td><td>Vit×0.1+角色Lv×0.4</td></tr>
+				<tr><td class="Table_Title_1">一般</td><td>Vit+角色Lv</td></tr>
+				<tr><td class="Table_Title_1">重量化</td><td>Vit×2+角色Lv×1.2</td></tr>
+				<tr><td class="Table_Title_1">輕量化</td><td>Vit×0.25+角色Lv×0.8</td></tr>
+			</table>
+		</div>
+		<div id="Desc2_Page_27" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的Mdef。主要受Int、身體裝備的類型及角色Lv影響。</li>
+				<li>裝備所提供的能力數值也會包含在內。</li>
+			</ul>
+			<p>以下是各身體裝備類型的能力Mdef。</p>
+			<table>
+				<tr><td class="Table_Title_1">無裝備</td><td>Int×0.1+角色Lv×0.4</td></tr>
+				<tr><td class="Table_Title_1">一般</td><td>Int+角色Lv</td></tr>
+				<tr><td class="Table_Title_1">重量化</td><td>Int×2+角色Lv×1.2</td></tr>
+				<tr><td class="Table_Title_1">輕量化</td><td>Int×0.25+角色Lv×0.8</td></tr>
+			</table>
+		</div>
+		<div id="Desc2_Page_28" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>可視為角色瀕死。會跪在地上，無法作任何行動，也不會受到任何傷害。</li>
+				<li>基本的復活時間為300秒，可透過技能「裝死」減少。</li>
+				<li>其它玩家使用「急救」可大幅減少復活剩餘的秒數，也有部分技能可小幅減少復活所需時間。</li>
+				<li>剩餘的時間越少，急救所減少的秒數就越少。</li>
+				<li>急救基本消耗MP為100。連續使用急救下，每次急救的MP消耗皆會比上一次多100。而每過一分鐘急救的MP消耗都會減少100，直到變回100為止。</li>
+				<li>透過點擊「藉著意志力復活」可以不斷少量減少時間。每秒鐘只能減少一次，每次減少1~3秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_29" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>為主手武器上標示的穩定率。</li>
+				<li>在裝備弓或弩時，副手裝備的箭矢上標示的穩定率也有效果。</li>
+			</ul>
+			<p>上述以下列表格呈現：</p>
+			<table>
+				<tr><td class="Table_Title_1">弓</td><td>武器穩定率+箭矢穩定率</td></tr>
+				<tr><td class="Table_Title_1">連弩</td><td>武器穩定率+箭矢穩定率/2</td></tr>
+				<tr><td class="Table_Title_1">其它武器</td><td>武器穩定率</td></tr>
+			</table>
+		</div>
+		<div id="Desc2_Page_30" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的穩定率。會根據所裝備的主手武器不同而有所差別。</li>
+				<li>裝備所提供的能力數值也會包含在內。</li>
+			</ul>
+			<p>以下是各主手武器所提供的能力穩定率：</p>
+			<table>
+				<tr><td class="Table_Title_1">空手</td><td>1+Dex×0.175</td></tr>
+				<tr><td class="Table_Title_1">單手劍</td><td>Dex×0.075+Str×0.025</td></tr>
+				<tr><td class="Table_Title_1">雙手劍</td><td>Dex×0.1</td></tr>
+				<tr><td class="Table_Title_1">弓</td><td>Dex×0.05+Str×0.05</td></tr>
+				<tr><td class="Table_Title_1">弩</td><td>Str×0.05</td></tr>
+				<tr><td class="Table_Title_1">法杖</td><td>Str×0.05</td></tr>
+				<tr><td class="Table_Title_1">魔導具</td><td>Dex×0.1</td></tr>
+				<tr><td class="Table_Title_1">拳套</td><td>Dex×0.025</td></tr>
+				<tr><td class="Table_Title_1">旋風槍</td><td>Dex×0.05+Str×0.05</td></tr>
+				<tr><td class="Table_Title_1">拔刀劍</td><td>Dex×0.075+Str×0.025</td></tr>
+			</table>
+			<br />裝備雙劍時的能力穩定率同單手劍。
+		</div>
+		<div id="Desc2_Page_31" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>在造成傷害時，傷害會根據穩定率而在一定範圍內浮動。</li>
+				<li>物理傷害及魔法傷害的浮動範圍並不一樣。</li>
+			</ul>
+			<p><table class="Desc_td_special_1">
+				<tr><td class="Table_Title_1">-</td><td style="width:40%;">物理傷害</td><td style="width:40%;">魔法傷害</td></tr>
+				<tr><td class="Table_Title_1">浮動上限</td><td>100%</td><td>100%</td></tr>
+				<tr><td class="Table_Title_1">浮動下限</td><td>(穩定率)%</td><td>(穩定率/2+50)%</td></tr>
+			</table></p>
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>魔法傷害的浮動下限最高90%，也就是說穩定率達到80%時浮動下限就是最高值了。(80/2+50)=90)</li>
+				<li>傷害浮動是以1%為單位的。</li>
+			</ul>
+			<br />(例子)初始傷害為900，而穩定率為90%。
+			<br />則在造成物理傷害時只有可能出現900×(100%~90%)，共11個數字。
+			<p><table class="Desc_td_special_1">
+				<tr style="background-color:rgba(255, 255, 255, 0.25);"><td>浮動率</td><td>100%</td><td>99%</td><td>98%</td><td>97%</td><td>96%</td><td>95%</td></tr>
+				<tr><td>浮動值</td><td>900</td><td>891</td><td>882</td><td >873</td><td>864</td><td >855</td></tr>
+				<tr style="background-color:rgba(255, 255, 255, 0.25);"><td>浮動率</td><td>-</td><td>94%</td><td>93%</td><td>92%</td><td>91%</td><td>90%</td></tr>
+				<tr><td>浮動值</td><td>-</td><td>846</td><td >837</td><td >828</td><td>819</td><td >810</td></tr>
+			</table></p>
+		</div>
+		<div id="Desc2_Page_32" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>公式：「原普通攻擊間隔×((1000-攻擊速度)/1000)%」</li>
+				<li>原普通攻擊間隔：攻擊速度為0時的普通攻擊間隔。</li>
+				<li>最小值為0。也就是說，攻擊速度(ASPD)達到1000以上後，普通攻擊就無間隔了。不過普攻還是有所謂的動作時間。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_33" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的迴避。主要受Agi、身體裝備的類型及角色Lv影響。</li>
+				<li>裝備所提供的能力數值也會包含在內。</li>
+			</ul>
+			<p>以下為各身體裝備的類型下的能力迴避：</p>
+			<table>
+				<tr><td class="Table_Title_1">無裝備</td><td>Agi×2+角色Lv×1.5+75</td></tr>
+				<tr><td class="Table_Title_1">一般</td><td>Agi+角色Lv</td></tr>
+				<tr><td class="Table_Title_1">重量化</td><td>Agi×7.5+角色Lv×0.5-15</td></tr>
+				<tr><td class="Table_Title_1">輕量化</td><td>Agi×1.75+角色Lv×1.25+30</td></tr>
+			</table>
+		</div>
+		<div id="Desc2_Page_34" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>意即角色的能力數值所提供的攻擊速度。會根據所裝備的主手武器不同而有所差別。</li>
+				<li>裝備所提供的能力數值也會包含在內。</li>
+			</ul>
+			<br />裝備所提供的能力數值也會包含在內。
+			<p><table>
+				<tr><td class="Table_Title_1">空手</td><td>Agi×9.6+1000</td></tr>
+				<tr><td class="Table_Title_1">單手劍</td><td>Agi×4.2+Str×0.2+100</td></tr>
+				<tr><td class="Table_Title_1">雙手劍</td><td>Agi×2.1+Str×0.2+50</td></tr>
+				<tr><td class="Table_Title_1">弓</td><td>Agi×3.1+Dex×0.2+75</td></tr>
+				<tr><td class="Table_Title_1">弩</td><td>Agi×2.2+Dex×0.2+30</td></tr>
+				<tr><td class="Table_Title_1">法杖</td><td>Agi×1.8+Int×0.2+60</td></tr>
+				<tr><td class="Table_Title_1">魔導具</td><td>Agi×4+Int×0.2+90</td></tr>
+				<tr><td class="Table_Title_1">拳套</td><td>Agi×4.6+Dex×0.2+120</td></tr>
+				<tr><td class="Table_Title_1">旋風槍</td><td>Agi×3.5+Str×0.2+25</td></tr>
+				<tr><td class="Table_Title_1">拔刀劍</td><td>Agi×3.9+Str×0.3+200</td></tr>
+			</table></p>
+			<br />裝備雙劍時的能力攻擊速度同單手劍。
+		</div>
+		<div id="Desc2_Page_35" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>屬性包含無、火、地、風、水、光、暗。</li>
+				<li>目標的屬性與自身武器或技能的屬性之間會有剋制的情形。</li>
+				<li>火&gt;地&gt;風&gt;水&gt;火、光&lt;&gt;暗。(表示法：例如火&gt;地表示火剋地。光暗則是互剋。)</li>
+				<li>自身的武器或技能屬性剋制敵方屬性時，對目標造成的傷害會獲得中幅的上升；而敵方屬性剋制自身時，不會影響造成的傷害。</li>
+				<li>無屬性不剋制任何屬性，也不被任何屬性剋制。</li>
+				<li>當武器或技能擁有屬性，可視為對於剋制屬性的增傷。以下方表格呈現。</li>
+			</ul>
+			<p><table>
+				<tr><td class="Table_Title_1">火屬性</td><td>對地屬性傷害+25%。</td></tr>
+				<tr><td class="Table_Title_1">地屬性</td><td>對風屬性傷害+25%。</td></tr>
+				<tr><td class="Table_Title_1">風屬性</td><td>對水屬性傷害+25%。</td></tr>
+				<tr><td class="Table_Title_1">水屬性</td><td>對火屬性傷害+25%。</td></tr>
+				<tr><td class="Table_Title_1">光屬性</td><td>對暗屬性傷害+25%。</td></tr>
+				<tr><td class="Table_Title_1">暗屬性</td><td>對光屬性傷害+25%。</td></tr>
+			</table></p>
+		</div>
+		<div id="Desc2_Page_36" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>拔刀術為特定狀況的普攻攻擊及特定技能。</li>
+				<li>拔刀術皆會受拔刀傷害加成。</li>
+				<li>拔刀術公式：「原傷害×(100+拔刀傷害%)%+拔刀傷害」</li>
+			</ul>
+			<br />以下列出拔刀術發生的條件：
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>戰鬥開始時若直接進行普通攻擊，則該次普通攻擊為拔刀術。</li>
+				<li>施放某些技能後的第一次普通攻擊。</li>
+				<li>閃躲後若直接進行普通攻擊，則該次普通攻擊為拔刀術。(裝備雙劍或拔刀劍時，閃躲的同時會直接自動進行一次普攻，也就是拔刀術)</li>
+				<li>雙劍技能中的「猛爆斬」，該技能可視為一拔刀術。其傷害會受拔刀傷害影響。(傷害式亦相同)</li>
+				<li>拔刀劍的每招技能都可視為拔刀術。其傷害會受拔刀傷害影響。(傷害式亦相同)</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_37" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>額外增幅是多種額外倍率連續相乘後的結果，而每種倍率都有其發生的條件。</li>
+				<li>以下表格盡量列出一些常見的額外倍率(不敢保證全部)。</li>
+			</ul>
+			<p><table>
+				<tr><td class="Table_Title_1">額外倍率</td><td class="Table_Title_2">發生條件</td></tr>
+				<tr><td class="Table_Title_1">暴擊傷害</td><td>暴擊發生，且未被閃躲。</td></tr>
+				<tr><td class="Table_Title_1">近/遠距離威力</td><td>符合近/遠距離的條件。<br />(這部分可查看「能力說明與公式」)</td></tr>
+				<tr><td class="Table_Title_1">拔刀傷害</td><td>發動拔刀術時。</td></tr>
+				<tr><td class="Table_Title_1">對__屬性傷害</td><td>攻擊的目標為__屬性。</td></tr>
+				<tr><td class="Table_Title_1">(被動)遠程狙擊</td><td>符合「(被動)遠程狙擊」的條件。<br />(這部分可查看技能資訊)</td></tr>
+				<tr><td class="Table_Title_1">(被動)強打</td><td>觸發「(被動)強打」的機率。<br />(這部分可查看技能資訊)</td></tr>
+				<tr><td class="Table_Title_1">(被動)大師級劍術</td><td>符合「(被動)大師級劍術」的條件。<br />(這部分可查看技能資訊)</td></tr>
+				<tr><td class="Table_Title_1">(被動)體術鍛鍊</td><td>符合「(被動)體術鍛鍊」的條件。<br />(這部分可查看技能資訊)</td></tr>
+			</table></p>
+		</div>
+		<div id="Desc2_Page_38" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>公式：「(副手穩定率/2+穩定率%+Str×0.06+Agi×0.04)%」</li>
+				<li>副手穩定率：即副手的單手劍上標示的穩定率。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_39" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>成功造成傷害即命中成功。意即未發生MISS(被迴避)或被閃躲。</li>
+				<li>一般而言，附帶增益效果的攻擊技能，如果MISS(被迴避)傷害和增益效果都會無效；被閃躲則是雖然沒傷害，卻會附帶增益效果。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_40" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>在能力的公式當中，「HP上限%」、「命中%」、「Atk」、「攻擊速度」等等都是類似代名詞的概念。</li>
+				<li>比方說遊戲中某項能力顯示為「HP上限+10%」，意思就是「HP上限%=10」，公式中就要代10進去；同理，「攻擊速度+200」意思就是「攻擊速度=200」，式子就要代200進去。</li>
+			</ul>
+			<br />(例子)HP上限基礎值為600，要計算HP上限+20%及HP上限+1000後的效果。
+			<p>從表中我們知道HP上限的公式是「基礎值×(100+HP上限%)%+HP上限」。
+			<br />則可以得知基礎值=600、HP上限%=20、HP上限=1000。</p>
+			<br />計算HP上限，結果會是600×(100+20)%+1000=1720。
+		</div>
+		<div id="Desc2_Page_41" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>仇恨值主要來自於技能消耗的MP。而由於目前未有明確的數據可表示仇恨值，因此以MP的消耗量作為仇恨值的單位。</li>
+				<li>例子：施放了MP消耗為300的技能，則產生的仇恨值為300。</li>
+				<li>無消耗的技能不會產生任何仇恨值。</li>
+				<li>(註：日網的仇恨值單位為這邊的1/5)</li>
+			</ul>
+			<p><table>
+				<tr><td class="Table_Title_1" rowspan="2">普通攻擊</td><td>仇恨值：10</td></tr>
+				<tr><td>每次普通攻擊，無論傷害次數，在造成傷害時(無論是否成功命中)都會對目標產生一次仇恨值。</td></tr>
+				<tr><td class="Table_Title_1" rowspan="2">攻擊技能</td><td>仇恨值：該技能的MP消耗</td></tr>
+				<tr><td>無論該技能為單體還是範圍傷害，也無論傷害次數有幾次，都只會在任意目標受到傷害後(無論是否命中成功)，對該目標產生一次仇恨值。</td></tr>
+				<tr><td class="Table_Title_1" rowspan="2">恢復/狀態技能</td><td>仇恨值：該技能的MP消耗</td></tr>
+				<tr><td>無論該技能的範圍為單體還是隊伍，也無論恢復次數有幾次，都只會在施放完畢時對所有鎖定隊員的敵人產生一次仇恨值。</td></tr>
+				<tr><td class="Table_Title_1" rowspan="2">光環技能</td><td>仇恨值：該技能的MP消耗</td></tr>
+				<tr><td>在任意隊員進入光環範圍，而獲得該光環給予的狀態時，會對所有鎖定該隊員的敵人產生一次仇恨值。而處於光環內的友方若被新的敵人鎖定，也會立即對該新敵人產生一次仇恨值。</td></tr>
+			</table>
+		</div>
+		<div id="Desc2_Page_42" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內無法造成Graze效果。</li>
+				<li>持續時間：5秒。</li>
+				<li>抗性時間：60秒。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_43" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>效果：期間內總穩定率降低一半。</li>
+				<li>持續時間：？秒。</li>
+				<li>抗性時間：？秒。</li>
+				<li>目前玩家還沒有能造成此狀態的技能。</li>
+				<li>施放任意技能後狀態消失。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_44" class="Desc2_Page">
+			<br />關於縮地法的觸發，基本上可以分成幾種情形。
+			<p>以下將普通攻擊(一般攻擊)簡稱為普攻。
+				<br />下文中的「主拔刀」，意思是主手裝備拔刀劍(不管副手裝什麼)。
+				<br />下文中的「弓拔刀」，意思是主手裝備弓、副手裝備拔刀劍。
+			</p>
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>經由普攻觸發。
+					<ul class="Desc_ul_2 Desc_ul_second">
+						<li>主拔刀時，會在2m處停下並自動進行較長的普攻(兩下)，該普攻期間無法移動角色。若在造成第二下傷害之前控制角色移動，可進行納刀。</li>
+						<li>主手裝備其他武器時，會在該武器的最大射程處停下，並自動進行一般的普攻。</li>
+						<li>若普攻尚在冷卻，則無法觸發縮地法。角色會自動跑向目標，且移動期間就算普攻冷卻完畢，也不會進行縮地法，必須手動讓角色停下後，再次進行普攻方可觸發。</li>
+					</ul>
+				</li>
+				<li>一般情況下，直接施放拔刀劍的攻擊技能。
+					<ul class="Desc_ul_2 Desc_ul_second">
+						<li>主拔刀時，會於技能最大射程處停下並自動施放該技能。</li>
+						<li>弓拔刀時，會於技能最大射程處處停下並自動施放該技能。若在縮地法發動到停下之前(也就是衝刺的過程)，按兩次以上(含)的動作鍵(戰鬥時按動作鍵就是普攻)，則技能會被取消，並在貼近至2m處後進行縮地法的普攻。意即可以利用這點在8或10m(弓的射程)內觸發縮地法的額外攻擊MP恢復。</li>
+						<li>發動距離不等於2m的拔刀技能也只有波動刃和三段突刺。</li>
+					</ul>
+				</li>
+				<li>連擊情況下。
+					<ul class="Desc_ul_2 Desc_ul_second">
+						<li>主拔刀時，若遇到拔刀的攻擊技能，會直接自動發動縮地法。不過可以在該技能的上一招結束時移動角色，來避免觸發縮地法。(沒取消掉的話，有時候角色會衝過去自殺)</li>
+						<li>若連擊因為某些原因而暫時停止(並非中斷)，主拔刀可以透過進行普攻或施放任意拔刀的攻擊技能來觸發縮地法；弓拔刀則只能透過施放任意拔刀的攻擊技能來觸發。觸發後會貼近至2m處，並繼續施放連擊，連擊並不會中斷。</li>
+						<li>關於第二點。若透過施放任意拔刀的攻擊技能來觸發縮地法，則施放時的距離不能小於3m(含)，否則會變成施放該招技能，連擊也因此中斷。</li>
+						<li>第二點的補充：觸發了縮地法後，如果到達2m處了，將要施放的技能依然射程不足，那角色就必須手動走近才會繼續連擊。例如射程只有1m的聖拳之裁。</li>
+					</ul>
+				</li>
+			</ul>
+			<p>納刀：朝指定的方向滑行一段距離。</p>註：主拔刀非縮地法的普攻一樣可以觸發納刀，不過得在「動作開始到傷害出來」之間移動角色才能觸發。對比於縮地法的普攻，可觸發納刀的時間就少很多，也相對更困難。</p>
+			
+		</div>
+		<div id="Desc2_Page_45" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>詠唱速度(CSPD)在1000以下時，CSPD每多20，詠唱時間就減少1%。</li>
+				<li>詠唱速度(CSPD)超出1000以上的部分，每多180，詠唱時間就減少1%。</li>
+				<li>詠唱時間被減少的上限為75%。也就是最快會是原本時間的四分之一。</li>
+				<li>例1：CSPD為1000時，詠唱時間會減少(1000/20)%=50%，也就是詠唱時間變成原本的(100-50)%=50%，意即原本的一半。</li>
+				<li>例2：CSPD為2800時，詠唱時間會減少[1000/20+(2800-1000)/180]%=60%，也就是詠唱時間變成原本的(100-60)%=40%。</li>
+				<li>例3：CSPD為5500時，詠唱時間會減少[1000/20+(5500-1000)/180]%=75%，也就是詠唱時間變成原本的(100-75)%=25%，意即原本的四分之一。75%即是上限，也就是說，CSPD超出5500後，不管怎麼增加都不會再減少詠唱時間了。</li>
+			</ul>
+		</div>
+		<div id="Desc2_Page_46" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>長槍各屬性的名稱及所造成的異常狀態都不相同。以下以表格呈現。</li>
+				<li>主手裝備弓、弩時，箭矢的屬性也有效果。</li>
+			</ul>
+			<p><table>
+				<tr><td class="Table_Title_1">無</td><td class="Table_Title_1">膽怯</td><td>法術/長槍</td></tr>
+				<tr><td class="Table_Title_1">火</td><td class="Table_Title_1">燃燒</td><td>火焰槍</td></tr>
+				<tr><td class="Table_Title_1">水</td><td class="Table_Title_1">冰凍</td><td>冰凍槍</td></tr>
+				<tr><td class="Table_Title_1">地</td><td class="Table_Title_1">遲緩</td><td>地岩槍</td></tr>
+				<tr><td class="Table_Title_1">風</td><td class="Table_Title_1">盲目</td><td>風動槍</td></tr>
+				<tr><td class="Table_Title_1">光</td><td class="Table_Title_1">眩暈</td><td>聖靈槍</td></tr>
+				<tr><td class="Table_Title_1">暗</td><td class="Table_Title_1">畏懼</td><td>幽冥槍</td></tr>
+			</table></p>
+		</div>
+		<div id="Desc2_Page_47" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>引爆各屬性的名稱及所造成的異常狀態都不相同。以下以表格呈現。</li>
+				<li>主手裝備弓、弩時，箭矢的屬性也有效果。</li>
+			</ul>
+			<p><table>
+				<tr><td class="Table_Title_1">無</td><td class="Table_Title_1">膽怯</td><td>法術/引爆</td></tr>
+				<tr><td class="Table_Title_1">火</td><td class="Table_Title_1">燃燒</td><td>#</td></tr>
+				<tr><td class="Table_Title_1">水</td><td class="Table_Title_1">冰凍</td><td>#</td></tr>
+				<tr><td class="Table_Title_1">地</td><td class="Table_Title_1">遲緩</td><td>#</td></tr>
+				<tr><td class="Table_Title_1">風</td><td class="Table_Title_1">盲目</td><td>#</td></tr>
+				<tr><td class="Table_Title_1">光</td><td class="Table_Title_1">眩暈</td><td>#</td></tr>
+				<tr><td class="Table_Title_1">暗</td><td class="Table_Title_1">畏懼</td><td>#</td></tr>
+			</table></p>
+		</div>
+		
+		<span class="Close_Desc2" onclick="Close_Desc2_Site()">&gt;&nbsp;Close</span>
+		
+		<div style="display:none;">
+			<div id='open_Bag' style='box-shadow:0.5rem 0.3rem 0.7rem #FFDCB9;cursor:pointer;background-color:rgba(255, 252, 235,0.85);color:#AE8F00;text-align:center;border-width:0.125rem;border-color:#FFFFFF #FFFFFF #FFFFFF rgba(255, 176, 97,0.85);border-style:solid;padding:0.313rem;width:7.5rem;height:1.25rem;position:absolute;left:0.625rem;top:1rem;' onclick='OpenBag(this)'>
+			道具欄
+			</div>
+		</div>
+		
+	</section>
+	<section id="Section_3">
+	
+		<div id="Section_3_Menu">
+		</div>
+		
+		<article id="Section_3_Page_0" class="MenuPage">
+			<div class="AuthorInfo_Title_1">作者資訊</div><hr class="hr_1" />
+			<p>暫時想不到要寫什麼。</p>
+		</article>
+			
+		<article id="Section_3_Page_1" class="MenuPage">
+			<div>
+				<div class="VerInfo_Title_1">3.0</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>移除舊版網址，並使用新的網址。</li>
+					<li>部分系統優化。</li>
+					<li>資料部分新增關鍵字。</li>
+					<li>使用新的數字及英文字型。(只是暫訂，還須得知使用者感想)</li>
+					<li>修正錯誤：特定情況下，不符合當前裝備的技能會變得可以選取。</li>
+					<li>調整部分內容：
+						<ul class="VerInfo_ul_ul">
+							<li>裝備的預設值只有在沒有選項時才會是「未選取」。</li>
+							<li>切換武器或更改技能等級時，分支不再會無條件跳回「技能效果」，而是會停在已選取的分支。(分支：例如橫掃千軍的分支有技能效果、力量灌注。)</li>
+							<li>文字部分，所有的乘法符號由「*」改成「×」。</li>
+							<li>部分文字說明方式的調整。</li>
+							<li>更改關鍵字的插入方式。</li>
+							<li>介面微調。</li>
+						</ul>
+					</li>
+					<li>更新部分技能資料：以下是有更動的技能名單。至於更動些什麼就不一一列出了。然後因為太多了，可能會漏掉，還請見諒。
+						<ul class="VerInfo_ul_ul">
+							<li>劍術技能：迅捷攻擊、橫掃千軍、猛爆斬、真空刃、(被動)大師級劍術。</li>
+							<li>射擊技能：威力射擊、渦輪射擊、弱點狙擊、箭雨、黏液射擊、麻痺射擊、煙霧彈、(被動)回氣。</li>
+							<li>魔法技能：法術/長槍、法術/魔法槍、法術/引爆、魔力充填。</li>
+							<li>格鬥技能：重擊、痛擊、穿甲、猛爆拳、音速波動、震地強襲、(被動)格鬥要領。</li>
+							<li>雙劍技能：破空刃、禦空破陣、劍影、(被動)雙劍鍛鍊、(被動)神速軌跡。</li>
+							<li>斧槍技能：鴻鵠一擲、龍尾、潛龍憾地、死亡斧槍、穿刺擊、懲戒之槍、(被動)凝聚心神、逆境怒吼。</li>
+							<li>新增武士技能。</li>
+							<li>防護技能：防禦界限、魔法庇護。</li>
+							<li>刀術技能：毒飛刃、裝甲破壞。</li>
+							<li>騎士技能：衝刺、憤怒的一擊、完善守備。</li>
+							<li>狩獵技能：腿踢、旭日之箭、沉睡陷阱、絆腳陷阱、猛爆地雷。</li>
+							<li>祭司技能：榮耀頌歌、強化祝福、聖拳之裁。</li>
+							<li>輔助技能：異常抗體、生命能源、勇氣泉源、高速詠域、魔力能源、魔法防護、異常防護。</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<div class="VerInfo_Title_1">3.0.Test.5</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>頂端選單新增了「版本資訊」。</li>
+					<li>頂端選單的「公式查詢」修改名稱。</li>
+					<li>現在可以在「資料查詢」、「版本資訊」的選單看到當前選取的選項是哪一個。</li>
+					<li>修正上次優化系統造成的Bug。</li>
+				</ul>
+			</div>
+			<div>
+				<div class="VerInfo_Title_1">3.0.Test.4</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>手機版的介面作微調。</li>
+					<li>把「遊戲資料查詢」的內容全放進去了。</li>
+					<li>「遊戲資料查詢」使用全新的版面。</li>
+					<li>新增「回到頂端」按鈕。</li>
+					<li>網頁的底部多了點東西。</li>
+					<li>部分系統優化。</li>
+				</ul>
+			</div>
+			<div>
+				<div class="VerInfo_Title_1">3.0.Test.2</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>全新的介面。包含手機版的介面。</li>
+					<li>利用表格把技能樹畫出來，不再依靠編號。
+						<ul class="VerInfo_ul_ul">
+							<li>武器選取部分，不符合條件的技能將會改變底色，且無法選取。</li>
+							<li>武器的預設值為「未選取」。(舊版本是無法手動跳回未選取的)</li>
+						</ul>
+					</li>
+					<li>黑色為主的背景。</li>
+					<li>一堆有的沒的介面調整。</li>
+				</ul>
+			</div>
+		</article>
+	</section>
+	
+	<footer>
+		Toram Online | 托蘭異世錄 | トーラムオンライン
+		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a> | <a href="https://twitter.com/toram_pr" target="_blank">官方Twitch</a>
+		<p>
+			ToramOnline - Cy's Grimoire<br />
+			By. Aishimeth
+		</p>
+		Ver: 3.0
+		<h6>版權所有，請勿盜用。保留一切權利。</h6>
+	</footer>
+	
+	<div id="Picture_HintDiv" style="display:none;position:absolute;opacity:0.95;border-radius:1rem;background-color:#FFFCEC;border:0.2rem #FFE66F solid;padding:0.6rem;color:#C6A300;">
+	</div>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/Base.js"></script>
+
+<script type="text/javascript" src="js/SkillInquire/SkillInquire_Base.js"></script>
+
+<script type="text/javascript" src="js/SkillInquire/Skill_List/Skill_List_0.js"></script>
+<script type="text/javascript" src="js/SkillInquire/Skill_List/Skill_List_1.js"></script>
+<script type="text/javascript" src="js/SkillInquire/Skill_List/Skill_List_2.js"></script>
+
+<script type="text/javascript" src="js/SkillInquire/SkillItemGain_List.js"></script>
+
+<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_SkillLv.js"></script>
+<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_SkillTreeType.js"></script>
+<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_SkillTree.js"></script>
+<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_Skill.js"></script>
+<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_Arm.js"></script>
+<script type="text/javascript" src="js/SkillInquire/UpdateFunction/InitializationFunction.js"></script>
+
+<script type="text/javascript" src="js/SkillInquire/InputSkillCaption/InputSkillCaption_1.js"></script>
+<script type="text/javascript" src="js/SkillInquire/InputSkillCaption/InputSkillCaption_2.js"></script>
+<script type="text/javascript" src="js/SkillInquire/InputSkillCaption/Other.js"></script>
+
+<script type="text/javascript" src="js/InformationInquire_Base.js"></script>
+<script type="text/javascript" src="js/HiddenEgg.js"></script>
+
+<script type="text/javascript" src="js/GetReady.js"></script>
+
+
+</html>

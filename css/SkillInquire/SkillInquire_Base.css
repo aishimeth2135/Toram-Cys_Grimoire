@@ -1,0 +1,69 @@
+
+
+	#Section_1_Block_1 {
+	}
+	
+	#Section_1_Block_1_1 {
+		display:none;
+	}
+	
+	/*========================================= */
+
+	/* [ ShowCaption_1 & 4 & 5 & 6 ]========================================= */
+	#ShowCaption_Site_2 {
+		max-width:23.5rem;
+		float:left;
+		margin-right:0.4rem;
+		padding-left:0rem;
+	}
+	
+	/* [ ShowCaption ]========================================= */
+	#site_ShowCaption {
+		/*width:51.25rem;
+		height:50rem;
+		position:absolute;
+		top:45rem;left:0rem;*/
+		/*display:none;*/
+	}
+	#ShowCaption_Body_1
+	{
+		margin-top:1.5rem;
+		display:none;
+	}
+	#ShowCaption_2 {
+		padding:0.7rem;
+		text-align:center;
+	}
+	#ShowCaption_3 {
+		font-size:0.75rem;
+		padding:0.625rem;
+		margin-top:1rem;
+		text-align:center;
+	}
+	
+	#ShowCaption_1, #ShowCaption_2, #ShowCaption_3, #ShowCaption_4, #ShowCaption_5, #ShowCaption_6 {
+		padding:0.6rem;
+	}
+	#ShowCaption_1 {
+		max-width:12.5rem;
+		float:left;
+	}
+	#ShowCaption_4 {
+		padding-left:0.5rem;
+	}
+	#ShowCaption_5 {
+		box-shadow:inset 0rem 0rem 0.7rem rgb(198, 198, 226);
+		display:none;
+		background-color:rgba(255, 255, 255, 0.25);
+		text-shadow:0.1rem 0.1rem 0.4rem #555;
+		min-height:2.6rem;
+		margin-left:0.2rem;
+	}
+	#ShowCaption_6 {
+		min-height:2rem;
+		margin-bottom:1rem;
+	}
+	#ShowCaption_5 a, #ShowCaption_6 a {
+		cursor: pointer;
+	}
+	

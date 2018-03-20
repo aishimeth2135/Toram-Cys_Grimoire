@@ -1,0 +1,42 @@
+
+	/* [ Arm ]========================================= */
+	
+	#site_Arm {
+		/*background-color:rgba(255, 255, 224, 0.7);*/
+		margin-left:0.6rem;
+		margin-top:0.5rem;
+		float:left;
+	}
+	.Arm_title {
+		font-size:0.8rem;
+		display:block;
+		padding:0.188rem;
+		margin:0.2rem;
+		padding-top:0.6rem;
+	}
+	.Arm_Block {
+		clear:left;
+	}
+	.Arm_Body {
+		width:11.5rem;
+	}
+	
+	.Arm_button, .Arm_button_current {
+		cursor:pointer;
+		width:3.3rem;height:3.3rem;
+		line-height:3.3rem;
+		box-shadow:inset 0rem 0rem 0.7rem #46A3FF;
+		text-align:center;
+		background-color:rgba(209, 233, 255, 0.5);
+		display:none;
+		transition: 0.81s;
+		border-radius:0.125rem;
+		margin:0.1rem;
+	}
+	.Arm_button:hover {
+		background-color:rgba(209, 233, 255, 0.8);
+	}
+	.Arm_button_current {
+		background-color:rgba(209, 233, 255, 0.8);
+		text-shadow:0.2rem 0.2rem 0.7rem #555;
+	}

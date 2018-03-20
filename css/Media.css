@@ -1,0 +1,32 @@
+	
+	
+	@media screen and (max-width: 35rem) {
+		#Description_Site_1, #Description_Site_2 {
+			padding:1rem 0.3rem 0.5rem 0.3rem;
+			margin:0.3rem;
+		}
+		#Description_Site_2 {
+			right:0rem;
+			max-width:100%;
+			margin-left:0rem;
+			margin-right:0rem;
+		}
+		#Description_Site_1 table, #Description_Site_2 table {
+			width:100%;
+			border-spacing:0.1rem;
+		}
+		#Description_Site_1 td, #Description_Site_2 td {
+			padding:0.4rem;
+		}
+		#Description_Site_1 ul, #Description_Site_2 ul, .VerInfo_ul {
+			padding:0.8rem 0.6rem;
+			border-radius:0.6rem;
+		}
+		#Btn_ToTop {
+			font-size:0.9rem;
+			width:2.8rem;
+			height:2.8rem;
+			line-height:2.8rem;
+			bottom:5%;
+		}
+	}

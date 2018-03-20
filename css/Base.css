@@ -1,0 +1,138 @@
+	
+	body {
+	font-family: 'Itim', Microsoft JhengHei, sans-serif; 
+	font-size:0.9rem;
+	background-color:#000000;
+	color:#FFF;
+	}
+	
+	* {
+		box-sizing: border-box;
+	}
+	/*z-index
+	10: Btn_ToTop
+	11: Description_Site_2
+	*/
+	
+	/*===============================================================*/
+	header {
+		max-width:50rem;
+		margin:0rem auto;
+	}
+	
+	header ul{
+		padding-left:0.6rem;
+		list-style:none;
+	}
+	header li {
+		list-style:none;
+		display:inline-block;
+		padding:0.5rem;
+		font-size:1rem;
+		transition:0.2s;
+		cursor:pointer;
+	}
+	header li:hover {
+		background:-webkit-linear-gradient(left top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.75));
+	}
+	
+	/*===============================================================*/
+	footer {
+		text-align:center;
+		padding:1.5rem 0.5rem;
+	}
+	footer a {
+		color:#FFF;
+	}
+	/*===============================================================*/
+	#Btn_ToTop {
+		background-color: #FFF;
+		color: #555;
+		font-size: 1.2rem;
+		width: 4rem;
+		height: 4rem;
+		line-height: 4rem;
+		text-align: center;
+		border-radius: 50%;
+		position: fixed;
+		right: 3%;
+		bottom: 30%;
+		box-shadow: 0.1rem 0.1rem 0.9rem #FFF;
+		font-weight: bold;
+		opacity: 0.4;
+		cursor: pointer;
+		display: none;
+		transition: 0.5s;
+		font-family: 'Patrick Hand', cursive;
+		z-index: 10;
+	}
+	#Btn_ToTop:hover {
+		opacity:1;
+	}
+	
+	/*===============================================================*/
+	#Section_1, #Section_2, #Section_3 {
+		box-shadow: inset -0.1rem -0.1rem 0.9rem #FFF;
+		padding: 1rem 0.6rem;
+		min-height: 20rem;
+		max-width: 50rem;
+		margin: 0rem auto;
+	}
+	#Section_2, #Section_3 {
+		display: none;
+	}
+	
+	/*hr ============================================================*/
+	.hr_1  {
+		border:0rem;
+		box-shadow:0rem 0rem 0.4rem 0.1rem rgb(255, 255, 255);
+	}
+	.hr_2 {
+		border:0rem;
+		box-shadow:0rem 0rem 0.2rem 0.07rem rgb(255, 255, 255);
+		margin:0.1rem 0rem;
+	}
+	/*===============================================================*/
+	
+	
+	.BagItemField {
+		border:0.15rem #ADFEDC solid;
+		border-radius:0.5rem;
+		width:2.8rem;
+		height:2.8rem;
+		margin:0.2rem;
+		background-color:#E8FFF5;
+	}
+	
+	/*===============================================================*/
+	#Section_2_Menu ul, #Section_3_Menu ul {
+		list-style:none;
+		padding:0.8rem 0.6rem;
+		margin-top:0rem;
+	}
+	#Section_2_Menu li, #Section_3_Menu li {
+		background-color:rgb(114, 127, 122);
+		margin:0.2rem;
+		padding:0.5rem;
+		border-radius:0.4rem;
+		display:inline-block;
+		transition:0.8s;
+		cursor:pointer;
+	}
+	#Section_2_Menu li:hover, #Section_3_Menu li:hover {
+		background-color:rgb(171, 190, 183);
+		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238);
+	}
+	#Section_2_Menu a, #Section_3_Menu a {
+		font-size:1.1rem;
+		color:rgb(229, 255, 244);
+	}
+	
+	.SectionMenu_CurBtn {
+		background-color:rgb(171, 190, 183)!important;
+		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238);
+	}
+	
+	.MenuPage {
+		display:none;
+	}

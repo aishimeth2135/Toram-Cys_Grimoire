@@ -1,0 +1,40 @@
+
+
+	.VerInfo_ul, .VerInfo_ul_ul {
+		text-shadow:0.1rem 0.1rem 0.5rem #444;
+		padding-top:0.6rem;
+		padding-bottom:1rem;
+		padding-right:1rem;
+		padding-left:1.3rem;
+		list-style:none;
+		counter-reset: VerInfo_ul_1;
+		margin:0rem;
+	}
+	.VerInfo_ul li:before, .VerInfo_ul_ul li:before {
+		content: counter(VerInfo_ul_1);
+		counter-increment: VerInfo_ul_1;
+		padding:0.07rem 0.4rem;
+		margin-right:0.4rem;
+		background-color:rgba(255, 255, 255, 0.3);
+		border-radius:0.3rem;
+		overflow:hidden;
+		font-size:0.7rem;
+	}
+	
+	.VerInfo_ul_ul {
+		margin:0rem;
+		margin-bottom:0.4rem;
+		padding:0rem;
+		padding-left:1rem;
+	}
+	
+	
+	.VerInfo_Title_1, .AuthorInfo_Title_1 {
+		font-size:1.3rem;
+		padding-left:0.2rem;
+		margin-bottom:0.4rem;	
+	}
+	.VerInfo_Title_1 {
+		font-family: 'Patrick Hand', Microsoft JhengHei, sans-serif;
+	}
+	
