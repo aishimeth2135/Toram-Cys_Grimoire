@@ -173,12 +173,16 @@
 		new the_skill(11,'(被動)凝聚心神'),	//8
 		new the_skill(12,'破風之勢'),
 		new the_skill(13,'逆境怒吼'));		//10
-	for (var i=0;i<=6;i++)
-	{
-		all_skilltree_type[0].STt_skilltree[5].ST_skill[i].Sk_W_type.push('旋風槍','單手劍');
-	}
+	
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[0].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[1].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[2].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[3].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[4].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[5].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[6].Sk_W_type.push('旋風槍', '單手劍');
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[7].Sk_W_type.push('旋風槍');
-	all_skilltree_type[0].STt_skilltree[5].ST_skill[8].Sk_W_type.push('旋風槍','旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[8].Sk_W_type.push('旋風槍');
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[9].Sk_W_type.push('旋風槍','其它');
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[10].Sk_W_type.push('旋風槍','其它');
 	

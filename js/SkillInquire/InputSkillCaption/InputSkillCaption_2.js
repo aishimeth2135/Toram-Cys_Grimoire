@@ -1268,7 +1268,7 @@
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '潛龍位置';
 										all_SI[23].SI_value = 2 + Math.floor((Lv_skill+1)/2);
-										all_SI[25].SI_value = 10;
+										all_SI[25].SI_value = 10*Lv_skill;
 										all_SI[26].SI_value = '受到_@閃光';
 										break;
 									}

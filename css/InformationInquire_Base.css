@@ -83,6 +83,12 @@
 		text-shadow:0.2rem 0.2rem 0.7rem #555;
 	}
 	
+	.Table_Head_1 {
+		background-color: rgba(255, 255, 255, 0.6);
+		color:rgb(57, 55, 56);
+		text-align: center;
+	}
+	
 	.Desc_Page, .Desc2_Page {
 		display:none;
 	}

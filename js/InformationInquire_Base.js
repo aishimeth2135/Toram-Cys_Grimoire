@@ -1,5 +1,5 @@
 	
-	var Section_2_Menu_List = ['傷害類型', '慣性類型', '特殊技能類型', '異常狀態', '基本公式、說明', '能力說明與公式'];
+	var Section_2_Menu_List = ['傷害類型', '慣性類型', '特殊技能類型', '異常狀態', '基本公式、說明', '能力說明與公式', '經驗值獲得量'];
 	function Desc_Page_InputTextButton(){
 		let i = 0;
 		while (document.getElementById('Desc_Page_' + String(i)))
