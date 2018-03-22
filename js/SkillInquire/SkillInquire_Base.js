@@ -35,13 +35,7 @@
 	SkillBranch_CurBtn = '';
 	
 	// ======
-	var R_of_OnclickText = '';
-	
-	// ======
 	var SkillLv_CurBtn = 'Lv_skill_10';
-	
-	// ======
-	
 	
 	// =============================== [ SkillItem ]
 	var skill_item = function(tSI_No, tSI_name, tSI_value, tSI_unit){
@@ -128,16 +122,16 @@
 		this.Sk_no = tSk_no;     //Int
 		this.Sk_name = tSk_name; //String
 		this.Sk_W_type  = [];   //Array of String<WeaponType>
-		this.Sk_AW_type = [];   //Array of String<AuxiliaryWeaponType>
+		this.Sk_Au_type = [];   //Array of String<AuxiliaryWeaponType>
 		this.Sk_B_type  = [];   //Array of String<BodyType>
 		this.Sk_branch  = ['技能效果'];   //Array of String<SkillBranch>
 		this.Sk_Gain = [];
 	}
 	
-	the_skill.prototype.arm_confirm = function(T_W, T_AW, T_B){
+	the_skill.prototype.arm_confirm = function(T_W, T_Au, T_B){
 		if (T_W != '')
 		{
-			for (let i=0;i<this.Sk_W_type.length;i++)
+			for (let i=0;i<this.Sk_W_type.length;++i)
 			{
 				if (T_W == this.Sk_W_type[i] || this.Sk_W_type[i] == '其它')
 				{
@@ -145,11 +139,11 @@
 				}
 			}
 		}
-		if (T_AW != '')
+		if (T_Au != '')
 		{
-			for (let i=0;i<this.Sk_AW_type.length;i++)
+			for (let i=0;i<this.Sk_Au_type.length;++i)
 			{
-				if (T_AW == this.Sk_AW_type[i] || this.Sk_AW_type[i] == '其它')
+				if (T_Au == this.Sk_Au_type[i] || this.Sk_Au_type[i] == '其它')
 				{
 					return true;
 				}
@@ -157,7 +151,7 @@
 		}
 		if (T_B != '')
 		{
-			for (let i=0;i<this.Sk_B_type.length;i++)
+			for (let i=0;i<this.Sk_B_type.length;++i)
 			{
 				if (T_B == this.Sk_B_type[i] || this.Sk_B_type[i] == '其它')
 				{
@@ -175,17 +169,6 @@
 		this.ST_skill = [];     	//Array of Object<Skill>
 	}
 	
-	the_skilltree.prototype.find_the_skillNo = function(temp){
-		for (let i=0; i<this.ST_skill.length; i++)
-		{
-			if ( temp.includes(this.ST_skill[i].Sk_name) )
-			{
-				return i;
-			}
-		}
-	}
-	
-	
 	var the_skilltree_type = function(){
 		this.STt_skilltree = []; 	//Array of Object<SkillTree>
 	}
@@ -202,7 +185,7 @@
 	function input_SI_value_bySelection(Tname, ArmName, value){
 		if (Tname != '')
 		{
-			for (var i=0;i<ArmName.length;i++)
+			for (let i=0; i<ArmName.length; ++i)
 			{
 				if (Tname == ArmName[i])
 				{
@@ -217,17 +200,17 @@
 	}
 	
 	/*======================================================*/
-	function build_branch_onclick(Tstring,BranchAry){
-		for (var i=0;i<BranchAry.length;i++)
+	function build_branch_onclick(Tstring, BranchAry){
+		for (var i=0;i<BranchAry.length;++i)
 			{
-			Tstring = replaceAll(Tstring,BranchAry[i],'<u><a style="cursor:pointer;" onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a></u>');
+			Tstring = replaceAll(Tstring, BranchAry[i], '<a onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a>');
 			}
 		return Tstring;
 	}
 	
 	function BranchText_onclick(BranchName){
-		var T_name = '';
-		for (var i=0;i<SkillBranch_Size;i++)
+		let T_name = '';
+		for (var i=0; i<SkillBranch_Size; ++i)
 			{
 			if (BranchName == document.getElementById('SkillBranch_'+String(i+1)).innerHTML)
 				{

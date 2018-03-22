@@ -1,5 +1,5 @@
 
-	var C_SkillTree_innerHTML = "";
+	var SkillTree_LastBtn = [-1, -1];
 	function update_of_skilltree_type(temp){
 		
 		//彩蛋觸發
@@ -23,7 +23,7 @@
 		{
 			document.getElementById(SkillTreeType_CurBtn).className = 'SkillTreeType_li';
 		}
-		document.getElementById(temp.id).className = 'SkillTreeType_li_current';
+		temp.className = 'SkillTreeType_li_current';
 		SkillTreeType_CurBtn = temp.id;
 		
 		No_SkillTreeType = parseInt(temp.id.charAt(temp.id.length - 1)) - 1;
@@ -32,27 +32,24 @@
 		document.getElementById('site_SkillTree').style.display = "inline-block";
 		onclick_of_SkillTreeType(temp);
 
-		for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree.length; i++)
+		for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree.length; ++i)
 		{
 			let doc = document.getElementById('skilltree_' + String(i+1));
 			doc.innerHTML = all_skilltree_type[No_SkillTreeType].STt_skilltree[i].ST_name;
 			doc.style.display = 'inline-block';
 		}
 		
-		for (let i=0; i<SkillTree_Size; i++)
+		if (SkillTree_LastBtn[0] == No_SkillTreeType)
 		{
-			let doc = document.getElementById('skilltree_' + String(i+1));
-			if ( doc.innerHTML == C_SkillTree_innerHTML )
-			{
-				doc.className = 'SkillTree_button_current';
-				SkillTree_CurBtn = doc.id;
-			}
+			let doc = document.getElementById('skilltree_' + String(No_SkillTree + 1));
+			doc.className = 'SkillTree_button_current';
+			SkillTree_CurBtn = doc.id;
 		}
 		document.getElementById('SkillTreeType_Caption').style.display = 'none';
 	}
 		
 	function onclick_of_SkillTreeType(temp){
-		var Ttext = '';
+		let Ttext = '';
 		temp = document.getElementById((temp.id).replace("li_", ""));
 		switch (temp.innerHTML)
 			{

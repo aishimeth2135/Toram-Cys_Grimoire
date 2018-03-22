@@ -18,8 +18,8 @@
 		new the_skill(9,'(被動)沉著以對')	//8
 		);
 	
-	all_skilltree_type[2].STt_skilltree[0].ST_skill[5].Sk_branch.push('技能效果','調息');
-	all_skilltree_type[2].STt_skilltree[0].ST_skill[8].Sk_branch.push('技能效果','寧神');
+	all_skilltree_type[2].STt_skilltree[0].ST_skill[5].Sk_branch.push('調息');
+	all_skilltree_type[2].STt_skilltree[0].ST_skill[8].Sk_branch.push('寧神');
 	
 /*======================================================================================
   ======================================================================================*/	
@@ -36,7 +36,7 @@
 		new the_skill(12,'異常防護')
 		);
 		
-	all_skilltree_type[2].STt_skilltree[1].ST_skill[3].Sk_branch.push('技能效果','守護聖域');
+	all_skilltree_type[2].STt_skilltree[1].ST_skill[3].Sk_branch.push('守護聖域');
 	
 /*======================================================================================
   ======================================================================================*/		
@@ -55,6 +55,6 @@
 		new the_skill(14,'(被動)守護要訣')
 		);
 	
-	all_skilltree_type[2].STt_skilltree[2].ST_skill[1].Sk_branch.push('技能效果','魔能高漲');
-	all_skilltree_type[2].STt_skilltree[2].ST_skill[5].Sk_branch.push('技能效果','弱點命中');
+	all_skilltree_type[2].STt_skilltree[2].ST_skill[1].Sk_branch.push('魔能高漲');
+	all_skilltree_type[2].STt_skilltree[2].ST_skill[5].Sk_branch.push('弱點命中');
 	

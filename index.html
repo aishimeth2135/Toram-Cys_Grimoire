@@ -4,30 +4,28 @@
 
 <head>
 	<title>ToramOnline - Cy's Grimoire</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<meta charset="utf-8" />
+	<meta name="description" content="對於遊戲「托蘭異世錄」，整合多方的資料作成的中文網站。目前主要功能為查詢技能資料以及遊戲內的一些公式、資料。" />
+	<meta name="keywords" content="Toram Online, 托蘭異世錄, トーラムオンライン" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+
+	<link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet" />
+	
+	<link rel="stylesheet" type="text/css" href="css/Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/InformationInquire_Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/OtherInformation_Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/Media.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillInquire_Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTreeType.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTree.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquire/Skill.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillLv.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquire/Arm.css" />
 </head>
 
-<link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet">
-
-<link rel="stylesheet" type="text/css" href="css/Base.css">
-<link rel="stylesheet" type="text/css" href="css/InformationInquire_Base.css">
-<link rel="stylesheet" type="text/css" href="css/OtherInformation_Base.css">
-<link rel="stylesheet" type="text/css" href="css/Media.css">
-
-<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillInquire_Base.css">
-<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTreeType.css">
-<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTree.css">
-<link rel="stylesheet" type="text/css" href="css/SkillInquire/Skill.css">
-<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillLv.css">
-<link rel="stylesheet" type="text/css" href="css/SkillInquire/Arm.css">
-
-
-
 <body>
-
-
 	<header>
 		<ul>
 			<li id="Menu_1" onclick="Upadate_Menu(this)">
@@ -45,7 +43,6 @@
 	<div id="Btn_ToTop" onclick="ToTop()">Top</div>
 	
 	<section id="Section_1">
-		
 		<div id="site_SkillTreeType">
 			<ul>
 				<li id="li_skilltree_type_1" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
@@ -57,7 +54,7 @@
 				<li id="li_skilltree_type_3" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
 					<a id="skilltree_type_3" class="SkillTreeType_button">輔助技能</a>
 				</li>
-				<li id="li_skilltree_type_4" class="SkillTreeType_li" style="display:none;"onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+				<li id="li_skilltree_type_4" class="SkillTreeType_li" style="display:none;" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
 					<a id="skilltree_type_4" class="SkillTreeType_button">？？？？</a>
 				</li>
 			</ul>
@@ -70,7 +67,7 @@
 					<a id = "skilltree_1" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
 				</li>
 				<li>
-					<a id = "skilltree_2" class="SkillTree_button" onclick ='update_of_skilltree(this)'></a>
+					<a id = "skilltree_2" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
 				</li>
 				<li>
 					<a id = "skilltree_3" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
@@ -153,7 +150,6 @@
 					</div>
 				</div>
 				<div>
-					
 					<div style="float:left;">
 						<div id='ShowCaption_1'>
 						</div>
@@ -214,14 +210,10 @@
 					</div>
 				</div>
 			</div>
-			
-			<div id="site_ShowCaption">
-				
-			</div>
+			<div id="site_ShowCaption"></div>
 		</div>
 		<div style="clear:left;"></div>
 	</section>
-	
 	
 	<div id="Picture_TheStar" style="position:absolute;top:46rem;left:6rem;opacity:0.78;display:none;" onclick="onclickOf_TheStar(this)">
 		<img src="https://i.imgur.com/3AwYp99.png">
@@ -230,11 +222,8 @@
 		<img src="https://i.imgur.com/SPhrKxO.png">
 	</div>
 	
-	
 	<section id='Section_2'>
-	
-		<div id="Section_2_Menu">
-		</div>
+		<div id="Section_2_Menu"></div>
 		<hr class="hr_1" />
 		<article id="Description_Site_1">
 			<div id="Desc_Page_0" class="Desc_Page">
@@ -370,8 +359,8 @@
 					<li>任意式子在全部計算完畢後皆會無條件捨棄小數。</li>
 					<li>建議可先查看_@公式表示補述。</li>
 				</ul>
-				
 				<p><table>
+					<tr><td class="Table_Head_1">名詞</td><td class="Table_Head_1">說明</td></tr>
 					<tr>
 						<td class="Table_Title_1" rowspan="2">有效Atk</td>
 						<td>意即Atk在各項因素影響後，最後有效的部分有多少。<br />裝備雙劍時的有效Atk式子較特殊。</td>
@@ -420,8 +409,8 @@
 					<li>任意式子在全部計算完畢後皆會無條件捨棄小數。</li>
 					<li>建議可先查看_@公式表示補述。</li>
 				</ul>
-				
 				<p><table>
+					<tr><td class="Table_Head_1">能力名稱</td><td class="Table_Head_1">說明</td></tr>
 					<tr>
 						<td class="Table_Title_1" rowspan="2">一般能力數值</td>
 						<td>即Str、Dex、Int、Agi、Vit五種能力。<br />以下以Abil.表示任一項能力。</td>
@@ -660,8 +649,27 @@
 					<li>差距3等和差距2等，經驗值量則少了22%左右。有些人會差到3等就換地方了。</li>
 				</ul>
 			</div>
+			<div id="Desc_Page_7" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>常常會聽到有人提問：閃躲和迴避差在哪裡？於是就打了這篇了。</li>
+					<li>閃躲和迴避在本質上有很大的差別，下面以表格呈現。</li>
+				</ul>
+				<p><table>
+					<tr><td class="Table_Head_1" colspan="2">~ 能力層面而言</td></tr>
+					<tr><td class="Table_Title_1">迴避</td><td>迴避就是角色的Flee，受Agi及身體裝備類型影響。(可查看_@能力迴避)</td></tr>
+					<tr><td class="Table_Title_1">閃躲</td><td>閃躲的量值於面板上是看不到的，而他的值基本上就是所有裝備、技能的閃躲率加起來就是了。<br />閃躲率的上限是75%。</td></tr>
+					<tr><td class="Table_Head_1" colspan="2">~ 發生的機率</td></tr>	
+					<tr><td class="Table_Title_1">迴避</td><td>發生迴避的機率與目標的命中(Hit)有關，攻擊方的命中越高，被攻擊方迴避的機率就越低。<br />攻擊方造成暴擊時，會直接無視迴避，也就是所謂的Graze。</td></tr>
+					<tr><td class="Table_Title_1">閃躲</td><td>閃躲的機率原則上就是他的量值，不受攻擊方的能力影響。</br>不過攻擊方發動「看穿」時，會直接無視閃躲。</td></tr>
+					<tr><td class="Table_Head_1" colspan="2">~ 發生的先決條件</td></tr>
+					<tr><td class="Table_Title_1">迴避</td><td>目前而言，只要是任意「物理傷害」都有機會觸發迴避。魔法傷害則是無條件無視迴避。<br />不過有NPC說迴避(Flee)夠高時，就能夠迴避魔法傷害。</td></tr>
+					<tr><td class="Table_Title_1">閃躲</td><td>只有「物理傷害」能觸發閃躲，且玩家必須是自己鎖定的目標的攻擊才能觸發。<br />簡單來說，同一時間只有單一目標的攻擊可以閃躲，旁邊的其他怪攻擊自己都不會閃躲。而怪物則沒有此限制(不管幾個人打他，全部都能觸發閃躲)。<br />魔法傷害一律不會被閃躲。</td></tr>
+					<tr><td class="Table_Head_1" colspan="2">~ 發生時的情形</td></tr>
+					<tr><td class="Table_Title_1">迴避</td><td>迴避攻擊的目標頭上會冒出「Miss」字樣。除此之外不會發生任何事。</td></tr>
+					<tr><td class="Table_Title_1">閃躲</td><td>閃躲攻擊的目標身上會冒出「閃躲」字樣。<br />玩家在閃躲時會有特效，並瞬間移動一段距離。一般來說，移動後角色與敵方的距離會跟移動前一樣。(這邊附上_@閃躲移動補述)<br />此外，在特別條件下，閃躲還可以觸發特別的普攻攻擊或技能。</td></tr>
+				</table></p>
+			</div>
 		</article>
-		
 		
 		<div style="display:none;">
 			<div id='open_VersionInformation' style='cursor:pointer;background-color:rgba(219,255,255,0.9);color:#009393;text-align:center;border-width:0.125rem;border-color:#FFFFFF #FFFFFF #FFFFFF rgba(0,204,204,0.9);border-style:solid;padding:0.313rem;width:7.5rem;height:1.25rem;position:absolute;left:0.625rem;top:35.313rem;' onclick='Information_enter(this)'>
@@ -1295,6 +1303,15 @@
 				<tr><td class="Table_Title_1">暗</td><td class="Table_Title_1">畏懼</td><td>#</td></tr>
 			</table></p>
 		</div>
+		<div id="Desc2_Page_48" class="Desc2_Page">
+			<ul class="Desc_ul_2 Desc_ul_one">
+				<li>閃躲時角色會移動一段距離，移動的方式則會因為配裝而有些微不同。</li>
+				<li>副手裝備小刀時，角色會向目標的反方向移動。</li>
+				<li>其他情況則都是移動後，角色與目標的距離會和移動前一樣。這部分下面會說明。</li>
+			</ul>
+			<p>基本上，以目標為中心，角色位置與目標的距離為半徑，畫出一個大概90度的扇形，而角色位置在扇形弧線的中間。
+			<br />閃躲後的位置就是該弧線上任一點。(基本上有個最小距離，不會瞬到原地)</p>
+		</div>
 		
 		<span class="Close_Desc2" onclick="Close_Desc2_Site()">&gt;&nbsp;Close</span>
 		
@@ -1311,11 +1328,36 @@
 		</div>
 		
 		<article id="Section_3_Page_0" class="MenuPage">
-			<div class="AuthorInfo_Title_1">作者資訊</div><hr class="hr_1" />
-			<p>暫時想不到要寫什麼。</p>
+			<div>
+				<div class="AuthorInfo_Title_1">作者資訊</div><hr class="hr_1" />
+				<div class="TextBlock">暫時想不到要寫什麼。</div>
+			</div>
+			<div>
+				<div class="AuthorInfo_Title_1">資料來源</div><hr class="hr_1" />
+				<div class="TextBlock">
+					<ul class="VerInfo_ul">
+						<li><a href="https://www.dopr.net/toramonline-wiki#game-menu">日本Wiki</a></li>
+						<li>巴哈姆特的玩家提供。</li>
+						<li>遊戲內的友人提供。</li>
+						<li>自行測試、個人經驗。</li>
+					</ul>
+					註：提供資料者若想在這裡放出自己的名稱或暱稱，可於巴哈或Twitter告知我。
+				</div>
+			</div>
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
+			<div>
+				<div class="VerInfo_Title_1">3.0.2</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>資料查詢部分新增「閃躲與迴避」。</li>
+					<li>新增一些關鍵字。</li>
+					<li>修正錯誤：特定情況下，技能樹介面的按鈕顏色顯示錯誤的問題。</li>
+					<li>小部分介面調整。</li>
+					<li>系統些微優化。</li>
+					<li>部分文字說明調整與新增。</li>
+				</ul>
+			</div>
 			<div>
 				<div class="VerInfo_Title_1">3.0.1</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
@@ -1406,12 +1448,10 @@
 		</p>
 		Ver: 3.0
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a> | <a href="https://twitter.com/Cyteria_w" target="_blank">Twitter</a></p>
-		
 	</footer>
 	
 	<div id="Picture_HintDiv" style="display:none;position:absolute;opacity:0.95;border-radius:1rem;background-color:#FFFCEC;border:0.2rem #FFE66F solid;padding:0.6rem;color:#C6A300;">
 	</div>
-
 
 </body>
 
@@ -1441,6 +1481,4 @@
 <script type="text/javascript" src="js/HiddenEgg.js"></script>
 
 <script type="text/javascript" src="js/GetReady.js"></script>
-
-
 </html>

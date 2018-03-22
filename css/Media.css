@@ -29,4 +29,7 @@
 			line-height:2.8rem;
 			bottom:5%;
 		}
+		.TextBlock {
+			padding: 0.3rem;
+		}
 	}

@@ -64,13 +64,13 @@
 		all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_W_type.push('弓','弩');
 		if (all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_name != '(被動)弓術鍛鍊')
 		{
-			all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_AW_type.push('箭矢');
+			all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_Au_type.push('箭矢');
 		}
 	}
 	for (var i=8;i<=10;i++)
 	{
 		all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_W_type.push('其它');
-		all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_AW_type.push('其它');
+		all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_Au_type.push('其它');
 	}
 	
 /*======================================================================================
@@ -118,13 +118,13 @@
 	for (var i=0;i<=6;i++)
 	{
 		all_skilltree_type[0].STt_skilltree[3].ST_skill[i].Sk_W_type.push('拳套','其它');
-		all_skilltree_type[0].STt_skilltree[3].ST_skill[i].Sk_AW_type.push('拳套','其它');
+		all_skilltree_type[0].STt_skilltree[3].ST_skill[i].Sk_Au_type.push('拳套','其它');
 	}
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[7].Sk_W_type.push('拳套');
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[8].Sk_W_type.push('拳套');
-	all_skilltree_type[0].STt_skilltree[3].ST_skill[8].Sk_AW_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[8].Sk_Au_type.push('拳套');
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[9].Sk_W_type.push('拳套');
-	all_skilltree_type[0].STt_skilltree[3].ST_skill[9].Sk_AW_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[9].Sk_Au_type.push('拳套');
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[10].Sk_W_type.push('拳套');
 	
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[3].Sk_branch.push('精確追擊');
@@ -210,12 +210,12 @@
 	for (let i=0; i<=6; ++i)
 	{
 		all_skilltree_type[0].STt_skilltree[6].ST_skill[i].Sk_W_type.push('拔刀劍');
-		all_skilltree_type[0].STt_skilltree[6].ST_skill[i].Sk_AW_type.push('拔刀劍');
+		all_skilltree_type[0].STt_skilltree[6].ST_skill[i].Sk_Au_type.push('拔刀劍');
 	}
 	for (let i=7; i<=10; ++i)
 	{
 		all_skilltree_type[0].STt_skilltree[6].ST_skill[i].Sk_W_type.push('拔刀劍', '其它');
-		all_skilltree_type[0].STt_skilltree[6].ST_skill[i].Sk_AW_type.push('拔刀劍', '其它');
+		all_skilltree_type[0].STt_skilltree[6].ST_skill[i].Sk_Au_type.push('拔刀劍', '其它');
 	}
 	
 	all_skilltree_type[0].STt_skilltree[6].ST_skill[0].Sk_branch.push('斬切', '收合');

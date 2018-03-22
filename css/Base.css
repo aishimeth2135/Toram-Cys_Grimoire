@@ -6,6 +6,10 @@
 	color:#FFF;
 	}
 	
+	a {
+		color: #FFF;
+	}
+	
 	* {
 		box-sizing: border-box;
 	}
@@ -81,7 +85,11 @@
 	#Section_2, #Section_3 {
 		display: none;
 	}
+	/*===============================================================*/
 	
+	.TextBlock {
+		padding: 0.6rem;
+	}
 	/*hr ============================================================*/
 	.hr_1  {
 		border:0rem;
@@ -136,3 +144,4 @@
 	.MenuPage {
 		display:none;
 	}
+	

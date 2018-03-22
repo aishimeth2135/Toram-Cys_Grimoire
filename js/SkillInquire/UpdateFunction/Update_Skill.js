@@ -61,13 +61,13 @@
 	
 	
 	function update_of_skill_branch(temp){
-		input_the_skillvalue_2(No_SkillTreeType, No_SkillTree,No_Skill, temp.innerHTML);
+		input_the_skillvalue_2(No_SkillTreeType, No_SkillTree,No_Skill, (parseInt(temp.id.charAt(temp.id.length - 1)) - 1));
 		show_discription_2();
 		
 		if (SkillBranch_CurBtn != '')
-			{
+		{
 			document.getElementById(SkillBranch_CurBtn).className = "button_SkillBranch";
-			}
+		}
 		SkillBranch_CurBtn = temp.id;
 		document.getElementById(SkillBranch_CurBtn).className = "button_SkillBranch_current";
 	}

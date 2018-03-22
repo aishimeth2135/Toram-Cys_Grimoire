@@ -1,5 +1,5 @@
 	
-	var Section_2_Menu_List = ['傷害類型', '慣性類型', '特殊技能類型', '異常狀態', '基本公式、說明', '能力說明與公式', '經驗值獲得量'];
+	var Section_2_Menu_List = ['傷害類型', '慣性類型', '特殊技能類型', '異常狀態', '基本公式、說明', '能力說明與公式', '經驗值獲得量', '閃躲與迴避'];
 	function Desc_Page_InputTextButton(){
 		let i = 0;
 		while (document.getElementById('Desc_Page_' + String(i)))
@@ -73,7 +73,7 @@
 	'拔刀術','額外增幅','副手倍率','命中成功',
 	'公式表示補述','仇恨表',
 	'閃光', '疲勞',
-	'縮地法補述', '詠唱時間詳述', '法術/長槍補述', '法術/引爆補述'];
+	'縮地法補述', '詠唱時間詳述', '法術/長槍補述', '法術/引爆補述', '閃躲移動補述'];
 	var Desc2_Page_Current = '';
 	function TextButton_Click(temp){
 		let T_No = temp.getAttribute('data-textbtnno');

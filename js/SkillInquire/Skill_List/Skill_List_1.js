@@ -33,17 +33,17 @@
 		new the_skill(8,'魔法庇護'),
 		new the_skill(9,'移花接木')
 		);
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[0].Sk_AW_type.push('盾牌');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[1].Sk_AW_type.push('盾牌');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[2].Sk_AW_type.push('盾牌');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[3].Sk_AW_type.push('盾牌','其它');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[4].Sk_AW_type.push('盾牌');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[5].Sk_AW_type.push('盾牌');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[6].Sk_AW_type.push('盾牌','其它');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[7].Sk_AW_type.push('盾牌','其它');
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[8].Sk_AW_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[0].Sk_Au_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[1].Sk_Au_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[2].Sk_Au_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[3].Sk_Au_type.push('盾牌','其它');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[4].Sk_Au_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[5].Sk_Au_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[6].Sk_Au_type.push('盾牌','其它');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[7].Sk_Au_type.push('盾牌','其它');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[8].Sk_Au_type.push('盾牌');
 	
-	all_skilltree_type[1].STt_skilltree[1].ST_skill[3].Sk_branch.push('技能效果','阻擋反擊');
+	all_skilltree_type[1].STt_skilltree[1].ST_skill[3].Sk_branch.push('阻擋反擊');
 	
 /*======================================================================================
   ======================================================================================*/	
@@ -60,10 +60,10 @@
 		);
 	for (var i=0;i<all_skilltree_type[1].STt_skilltree[2].ST_skill.length;i++)
 		{
-		all_skilltree_type[1].STt_skilltree[2].ST_skill[i].Sk_AW_type.push('小刀');
+		all_skilltree_type[1].STt_skilltree[2].ST_skill[i].Sk_Au_type.push('小刀');
 		}
-	all_skilltree_type[1].STt_skilltree[2].ST_skill[3].Sk_branch.push('技能效果','襲');
-	all_skilltree_type[1].STt_skilltree[2].ST_skill[6].Sk_branch.push('技能效果','無影追襲');
+	all_skilltree_type[1].STt_skilltree[2].ST_skill[3].Sk_branch.push('襲');
+	all_skilltree_type[1].STt_skilltree[2].ST_skill[6].Sk_branch.push('無影追襲');
 	
 /*======================================================================================
   ======================================================================================*/	
@@ -76,19 +76,19 @@
 		new the_skill(7,'繫影強襲')		//5
 		);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_AW_type.push('盾牌','其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_Au_type.push('盾牌','其它');
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_AW_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_Au_type.push('盾牌');
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[4].Sk_W_type.push('單手劍','雙手劍');
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[4].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[4].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_W_type.push('單手劍','雙手劍');
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_Au_type.push('其它');
 	
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_branch.push('技能效果','絕對防禦');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_branch.push('絕對防禦');
 	
 /*======================================================================================
   ======================================================================================*/	
@@ -104,15 +104,15 @@
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[1].Sk_W_type.push('弓','弩');
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[2].Sk_W_type.push('弓','弩');
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_AW_type.push('箭矢','其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_Au_type.push('箭矢','其它');
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_AW_type.push('箭矢','其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_Au_type.push('箭矢','其它');
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_AW_type.push('箭矢','其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_Au_type.push('箭矢','其它');
 	
-	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_branch.push('技能效果','觸發');
-	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_branch.push('技能效果','觸發');
-	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_branch.push('技能效果','觸發');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_branch.push('觸發');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_branch.push('觸發');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_branch.push('觸發');
 	
 /*======================================================================================
   ======================================================================================*/	
@@ -126,17 +126,17 @@
 		);
 	
 	all_skilltree_type[1].STt_skilltree[5].ST_skill[0].Sk_W_type.push('法杖','魔導具','其它');
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[0].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[0].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[5].ST_skill[1].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[1].Sk_AW_type.push('盾牌','其它');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[1].Sk_Au_type.push('盾牌','其它');
 	all_skilltree_type[1].STt_skilltree[5].ST_skill[2].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[2].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[2].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[5].ST_skill[3].Sk_W_type.push('法杖','拳套','其它');
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[3].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[3].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[5].ST_skill[4].Sk_W_type.push('法杖','魔導具','其它');
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[4].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[4].Sk_Au_type.push('其它');
 	all_skilltree_type[1].STt_skilltree[5].ST_skill[5].Sk_W_type.push('其它');
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[5].Sk_AW_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[5].Sk_Au_type.push('其它');
 	
-	all_skilltree_type[1].STt_skilltree[5].ST_skill[3].Sk_branch.push('技能效果','物理部分','魔法部分');
+	all_skilltree_type[1].STt_skilltree[5].ST_skill[3].Sk_branch.push('物理部分','魔法部分');
 	

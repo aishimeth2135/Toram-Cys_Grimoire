@@ -71,7 +71,7 @@
 	
 	function initialization_of_skilltree(){
 		//清空按鈕內容
-		for (var i=0;i<SkillTree_Size;i++)
+		for (let i=0; i<SkillTree_Size; ++i)
 		{
 			document.getElementById('skilltree_' + String(i+1)).innerHTML = '';
 			document.getElementById('skilltree_' + String(i+1)).style.display = 'none';

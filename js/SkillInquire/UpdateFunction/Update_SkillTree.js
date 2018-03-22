@@ -23,13 +23,15 @@
 		C_SkillTree_innerHTML = temp.innerHTML;
 		
 		No_SkillTree = parseInt(temp.id.charAt(temp.id.length-1)) - 1;
+		SkillTree_LastBtn[0] = No_SkillTreeType;
+		SkillTree_LastBtn[1] = No_SkillTree;
 		
 		document.getElementById('site_Skill').style.display = 'none';
 		document.getElementById('site_Skill').innerHTML = Build_SkillTree_TableText(No_SkillTreeType, No_SkillTree);
 		
 		let Skill_InputCt = 0;
 		let Skill_InputCt_max = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length;
-		for (let i=0; i<SkillTable_size; i++)
+		for (let i=0; i<SkillTable_size; ++i)
 		{
 			let T_obj = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[Skill_InputCt];
 			if (T_obj.Sk_no == i+1)
@@ -55,10 +57,10 @@
 		
 		//主手武器
 		let Tno_Weap = 1, WeapType_none = true;
-		for (let i=0;i<All_WeapType.length;i++)
+		for (let i=0; i<All_WeapType.length; ++i)
 		{
 			let no_repeat_W = true;
-			for (let j=0; ( j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_W ); ++j)
+			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_W ); ++j)
 			{
 				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_W_type.length; k++)
 				{
@@ -80,11 +82,11 @@
 		for (let i=0; i<All_AuType.length; ++i)
 		{
 			let no_repeat_AW = true;
-			for (let j=0;(j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_AW); ++j)
+			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_AW); ++j)
 			{
-				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_AW_type.length; ++k)
+				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_Au_type.length; ++k)
 				{
-					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_AW_type[k] == All_AuType[i])
+					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_Au_type[k] == All_AuType[i])
 					{
 						doc = document.getElementById('au_arm_' + String(Tno_Au));
 						doc.innerHTML = All_AuType[i];
@@ -102,7 +104,7 @@
 		for (let i=0;i<All_BodyType.length; ++i)
 		{
 			let no_repeat_B = true;
-			for (let j=0;(j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_B); ++j)
+			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_B); ++j)
 			{
 				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_B_type.length; ++k)
 				{
@@ -225,11 +227,11 @@
 		}
 	}
 	function Build_SkillTree_Table(T_Ary){
-		var SkillNo_ct = 1;
+		let SkillNo_ct = 1;
 	
-		var Ttext = "";
+		let Ttext = "";
 		Ttext += "<table>";
-		for (let i=0; i<T_Ary.length; i++)
+		for (let i=0; i<T_Ary.length; ++i)
 		{
 			Ttext += "<tr>";
 			for (let j=0; j<T_Ary[i].length; j++)
@@ -259,58 +261,58 @@
 	}
 		
 	function onclick_of_SkillTree(temp){
-		var Ttext = '';
+		let Ttext = '';
 		switch (temp.innerHTML)
 			{
 			case '劍術技能':
-				Ttext = '可使用劍士的強力戰鬥招式。<br>須裝備單手劍或雙手劍。';
+				Ttext = '可使用劍士的強力戰鬥招式。<br />須裝備單手劍或雙手劍。';
 				break;
 			case '射擊技能':
-				Ttext = '可使用弓箭手的強力戰鬥招式。<br>須裝備弓或連弩。';
+				Ttext = '可使用弓箭手的強力戰鬥招式。<br />須裝備弓或連弩。';
 				break;	
 			case '魔法技能':
-				Ttext = '可使用魔法師的強力戰鬥招式。<br>詠唱中遭到攻擊則發動失敗，<br>適合強者挑戰。';
+				Ttext = '可使用魔法師的強力戰鬥招式。<br />詠唱中遭到攻擊則發動失敗，<br />適合強者挑戰。';
 				break;
 			case '格鬥技能':
-				Ttext = '可使用空手打鬥時的強力戰鬥招式。<br>裝備拳套後威力更強。';
+				Ttext = '可使用空手打鬥時的強力戰鬥招式。<br />裝備拳套後威力更強。';
 				break;
 			case '雙劍技能':
-				Ttext = '可自由操控使用兩把劍。<br>使出強力招式。<br>發動技能需裝備兩把單手劍。';
+				Ttext = '可自由操控使用兩把劍。<br />使出強力招式。<br />發動技能需裝備兩把單手劍。';
 				break;
 			case '斧槍技能':
-				Ttext = '使用旋風槍時可用的強大戰鬥招式。<br>需裝備旋風槍。';
+				Ttext = '使用旋風槍時可用的強大戰鬥招式。<br />需裝備旋風槍。';
 				break;
 			case '武士技能':
-				Ttext = '可使用武士的強力戰鬥招式。<br>需裝備拔刀劍。';
+				Ttext = '可使用武士的強力戰鬥招式。<br />需裝備拔刀劍。';
 				break;
 				
 			case '防衛技能':
-				Ttext = '可將鐵匠鋪改造過的身體防具，<br>加以強化。';
+				Ttext = '可將鐵匠鋪改造過的身體防具，<br />加以強化。';
 				break;
 			case '防護技能':
-				Ttext = '可強化盾的性能，使用盾進行攻擊。<br需裝備盾。';
+				Ttext = '可強化盾的性能，使用盾進行攻擊。<br />需裝備盾。';
 				break;
 			case '刀術技能':
-				Ttext = '可強化小刀的性能，使用小刀進行攻擊。<br>需裝備小刀。';
+				Ttext = '可強化小刀的性能，使用小刀進行攻擊。<br />需裝備小刀。';
 				break;
 			case '騎士精神':
-				Ttext = '守護騎士技能可保護友軍。<br>容易被敵人鎖定，成為標靶。<br>發動此技能需裝備單手劍或雙手劍。';
+				Ttext = '守護騎士技能可保護友軍。<br />容易被敵人鎖定，成為標靶。<br />發動此技能需裝備單手劍或雙手劍。';
 				break;
 			case '狩獵技能':
-				Ttext = '善於射箭的狩獵者專用技能。<br>可使用陷阱攻擊、或牽制敵人行動。<br>可習得與弓、弩槍相輔相成的技能。';
+				Ttext = '善於射箭的狩獵者專用技能。<br />可使用陷阱攻擊、或牽制敵人行動。<br />可習得與弓、弩槍相輔相成的技能。';
 				break;
 			case '祭司技能':
-				Ttext = '懲罰惡徒的祭司技能！<br>可習得方便的小型恢復技能，<br>以及光屬性攻擊技能。';
+				Ttext = '懲罰惡徒的祭司技能！<br />可習得方便的小型恢復技能，<br />以及光屬性攻擊技能。';
 				break;
 				
 			case '生存本能':
-				Ttext = '可使用冒險路上的好用技能。<br>多與ＨＰ、ＭＰ有關。';
+				Ttext = '可使用冒險路上的好用技能。<br />多與ＨＰ、ＭＰ有關。';
 				break;
 			case '輔助技能':
-				Ttext = '可使用組隊打怪時的有用技能。<br>獨行俠可忽略此項...';
+				Ttext = '可使用組隊打怪時的有用技能。<br />獨行俠可忽略此項...';
 				break;
 			case '好戰份子':
-				Ttext = '可使用強化角色數值的技能。<br>效果不大、有多餘點數時<br>再嘗試看看吧。';
+				Ttext = '可使用強化角色數值的技能。<br />效果不大、有多餘點數時<br>再嘗試看看吧。';
 				break;
 			}
 		document.getElementById('SkillTree_Caption').innerHTML = Ttext;
@@ -320,10 +322,7 @@
 	}
 	function onmouseout_of_SkillTree(temp){
 		if (SkillTree_CurBtn != '')
-			{
-			onclick_of_SkillTree(document.getElementById(SkillTree_CurBtn));
-			}
-		else {
-			onclick_of_SkillTreeType(document.getElementById(SkillTreeType_CurBtn));
-			}
+		{
+		onclick_of_SkillTree(document.getElementById(SkillTree_CurBtn));
+		}
 	}	

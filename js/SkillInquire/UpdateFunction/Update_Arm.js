@@ -6,14 +6,14 @@
 		}
 		let T_a_have = false;
 		let T_au_have = false;
-		for (let i=0; i<Weap_Size; i++)
+		for (let i=0; i<Weap_Size; ++i)
 		{
 			if (T_name.id == "arm_" + String(i+1))
 			{
 				T_a_have = true;
 			}
 		}
-		for (let i=0; i<Au_Size; i++)
+		for (let i=0; i<Au_Size; ++i)
 		{
 			if (T_name.id == "au_arm_" + String(i+1))
 			{
@@ -133,7 +133,7 @@
 				return ;
 			}
 		}
-		for (let i=0;i<Body_Size;i++)
+		for (let i=0; i<Body_Size; ++i)
 		{
 			if (temp.id == 'body_arm_' + String(i+1) || temp.id == 'body_armO')
 			{
@@ -177,7 +177,7 @@
 		}
 		if (temp.innerHTML != '未選擇')
 		{
-			for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length; i++)
+			for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length; ++i)
 			{
 				let T_obj = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[i];
 				if ( !(T_obj.arm_confirm(WeapType_Cur, AuType_Cur, BodyType_Cur)) )
