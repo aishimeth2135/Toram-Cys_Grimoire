@@ -1,0 +1,67 @@
+
+	/* [ Skill ]========================================= */
+	
+	#site_Skill {
+		margin-bottom:1rem;
+	}
+	#site_Skill table {
+		background-color:rgba(255, 255, 194, 0.7);
+		box-shadow:inset 0rem 0rem 1.5rem rgb(255, 255, 224);
+		font-size:1rem;
+		color:#EEE;
+	}
+	#site_Skill td {
+		padding:0.5rem 0.2rem;
+		border-width:0.07rem;
+		border-style:solid;
+		border-color:transparent transparent #FFF transparent;
+		text-align:center;
+		width:8rem;
+	}
+	.Skill_td_default, .Skill_td_current {
+		text-shadow:0.1rem 0.1rem 1rem #555;
+		cursor:pointer;
+		transition:0.4s;
+	}
+	.Skill_td_default:hover {
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 168);
+		background-color:rgba(255, 255, 168, 0.3);
+	}
+	.Skill_td_current {
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 168);
+		background-color:rgba(255, 255, 168, 0.4);
+	}
+	.Skill_td_unable {
+		background-color:rgba(255, 179, 179, 0.25);
+		color:#EEE;
+		transition: 0s!important;
+	}
+	.Skill_td_unable:hover {
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 179, 179);
+		background-color:rgba(255, 179, 179, 0.35);
+	}
+	
+	/* [ SkillBranch ]========================================= */
+	
+	#site_SkillBranch {
+		min-height:5rem;
+		margin-top:0.5rem;
+	}
+	.button_SkillBranch, .button_SkillBranch_current {
+		cursor:pointer;
+		background-color: rgba(198, 198, 226, 0.3);
+		box-shadow:inset 0rem 0rem 0.7rem rgb(198, 198, 226);
+		text-align:center;width:4.5rem;height:4.5rem;
+		border-radius:2.4rem;
+		line-height:4.5rem;
+		color:#FFF;
+		display:none;
+		padding:0.15rem;
+		margin-bottom:0.15rem;
+	}
+	.button_SkillBranch:hover {
+		background-color: rgba(198, 198, 226, 0.6);
+	}
+	.button_SkillBranch_current {
+		background-color: rgba(198, 198, 226, 0.7);
+	}

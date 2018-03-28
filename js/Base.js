@@ -1,7 +1,6 @@
 	
-	
 	// ============================================== [ ReplaceAll ]
-	function replaceAll(Tstring,beReplace,ReplaceTo){
+	function replaceAll(Tstring, beReplace, ReplaceTo){
 		return Tstring.replace(new RegExp(beReplace, 'g'),ReplaceTo);
 	}
 	//===========================================================//
@@ -24,4 +23,5 @@
 	function ToTop(){
 		$('html, body').animate({scrollTop: 0}, 600);
 	}
+	
 	

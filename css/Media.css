@@ -1,6 +1,6 @@
 	
 	
-	@media screen and (max-width: 35rem) {
+	@media screen and (max-width: 35rem), screen and (max-height:  35rem) {
 		#Description_Site_1, #Description_Site_2 {
 			padding:1rem 0.3rem 0.5rem 0.3rem;
 			margin:0.3rem;
@@ -32,4 +32,23 @@
 		.TextBlock {
 			padding: 0.3rem;
 		}
+		.ATool_Menu {
+			right: 0rem!important;
+			bottom: 0rem!important;
+		}
+		#SkillAlloSimu_STList {
+			right: 0rem!important;
+			bottom: 3.5rem!important;
+		}
+		#SkillAlloSimu_MenuBlock {
+			right: 0rem!important;
+		}
 	}
+	
+	@media screen and (max-width: 20rem) {
+		#SkillAlloSimu_Menu_List {
+			width:100%;
+			left: 0%;
+		}
+	}
+		

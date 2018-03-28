@@ -1,0 +1,143 @@
+
+	.ATool_Menu {
+		position: fixed;
+		bottom: 8rem;
+		right:20%;
+		z-index: 13;
+		margin: 0rem auto;
+		background-color: #000;
+		border-radius: 0.2rem;
+		box-shadow:inset 0rem 0rem 0.4rem rgb(170, 170, 170);
+		font-size: 1rem;
+	}
+	
+	.ATool_Menu ul {
+		margin: 0rem;
+		padding: 0.2rem 0.2rem;
+	}
+	.ATool_Menu li {
+		display: inline-block;
+		padding: 0.3rem 0.1rem;
+	}
+	.ATool_Menu a, .ATool_Btn_5, .ATool_Btn_5_Cur {
+		cursor: pointer;
+		text-shadow:0.1rem 0.1rem 0.5rem #444;
+		transition: 0.35s;
+		display: inline-block;
+		text-align: center;
+	}
+	
+	.ATool_Btn_5 {
+		padding: 0rem 0.5rem;
+		height:2.2rem;
+		line-height:2.2rem;
+		background-color:rgb(64, 64, 64);
+		border-radius: 0.3rem;
+		color: rgb(235, 244, 255);
+	}
+	.ATool_Btn_5:hover {
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 255);
+		background-color:rgb(100, 100, 100);
+	}
+	.ATool_Btn_5_Cur {
+		padding: 0rem 0.5rem;
+		height:2.2rem;
+		line-height:2.2rem;
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 255);
+		background-color:rgb(100, 100, 100);
+		border-radius: 0.3rem;
+		color: rgb(235, 244, 255);
+	}
+	
+	
+	.ATool_Btn_1 {
+		padding: 0rem 0.5rem;
+		height:2.2rem;
+		line-height:2.2rem;
+		background-color:rgb(97, 111, 127);
+		border-radius: 0.3rem;
+		color: rgb(235, 244, 255);
+	}
+	.ATool_Btn_1:hover {
+		box-shadow:inset 0rem 0rem 1rem rgb(194, 223, 255);
+		background-color:rgb(131, 133, 159);
+	}
+	.ATool_Btn_1_Cur {
+		padding: 0rem 0.5rem;
+		height:2.2rem;
+		line-height:2.2rem;
+		box-shadow:inset 0rem 0rem 1rem rgb(194, 223, 255);
+		background-color:rgb(131, 133, 159);
+		border-radius: 0.3rem;
+		color: rgb(235, 244, 255);
+	}
+	
+	.ATool_Btn_1_1 {
+		padding: 0rem 0.5rem;
+		height:2.2rem;
+		line-height:2.2rem;
+		background-color:rgb(117, 0, 117);
+		border-radius: 0.3rem;
+		color: rgb(235, 244, 255);
+	}
+	.ATool_Btn_1_1:hover {
+		box-shadow:inset 0rem 0rem 1rem rgb(234, 0, 234);
+		background-color:rgb(175, 0, 175);
+	}
+	.ATool_Btn_1_1_Cur {
+		padding: 0rem 0.5rem;
+		height:2.2rem;
+		line-height:2.2rem;
+		box-shadow:inset 0rem 0rem 1rem rgb(234, 0, 234);
+		background-color:rgb(175, 0, 175);
+		border-radius: 0.3rem;
+		color: rgb(235, 244, 255);
+	}
+	
+	.ATool_Btn_2 {
+		width: 2.2rem;
+		height:2.2rem;
+	}
+	.ATool_Btn_2:hover {
+	}
+	
+	.ATool_Btn_3 {
+		width: 2.2rem;
+		line-height:2.2rem;
+		background-color:rgb(166, 166, 166);
+		color: rgb(32, 32, 32);
+		border-radius: 0.3rem;
+		text-shadow: none!important;
+	}
+	.ATool_Btn_3:hover {
+		background-color:rgb(255, 255, 255);
+	}
+	.ATool_Btn_3_Cur {
+		width: 2.2rem;
+		line-height:2.2rem;
+		background-color:rgb(255, 255, 255);
+		color: rgb(32, 32, 32);
+		border-radius: 0.3rem;
+		text-shadow: none!important;
+	}
+	
+	.ATool_Btn_4 {
+		width: 2.2rem;
+		line-height:2.2rem;
+		background-color:rgb(127, 108, 118);
+		color: rgb(255, 235, 244);
+		border-radius: 0.3rem;
+	}
+	.ATool_Btn_4:hover {
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 219, 237);
+		background-color:rgb(159, 135, 166);
+	}
+	.ATool_Btn_4_Cur {
+		width: 2.2rem;
+		line-height:2.2rem;
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 219, 237);
+		background-color:rgb(159, 135, 166);
+		color: rgb(255, 235, 244);
+		border-radius: 0.3rem;
+	}
+	

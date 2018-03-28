@@ -13,19 +13,25 @@
 	<link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet" />
 	
 	<link rel="stylesheet" type="text/css" href="css/Base.css" />
-	<link rel="stylesheet" type="text/css" href="css/InformationInquire_Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/InformationInquiry_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/OtherInformation_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/Media.css" />
 	
-	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillInquire_Base.css" />
-	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTreeType.css" />
-	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillTree.css" />
-	<link rel="stylesheet" type="text/css" href="css/SkillInquire/Skill.css" />
-	<link rel="stylesheet" type="text/css" href="css/SkillInquire/SkillLv.css" />
-	<link rel="stylesheet" type="text/css" href="css/SkillInquire/Arm.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillInquiry_Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillTreeType.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillTree.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/Skill.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillLv.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/Arm.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
+	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
 </head>
 
 <body>
+
+	<div id="Loading_Page">Loading...</div>
+	
 	<header>
 		<ul>
 			<li id="Menu_1" onclick="Upadate_Menu(this)">
@@ -36,6 +42,9 @@
 			</li>
 			<li id="Menu_3" onclick="Upadate_Menu(this)">
 				<a>版本資訊</a>
+			</li>
+			<li id="Menu_4" onclick="Upadate_Menu(this)">
+				<a>小工具</a>
 			</li>
 		</ul>
 	</header>
@@ -1323,10 +1332,8 @@
 		
 	</section>
 	<section id="Section_3">
-	
 		<div id="Section_3_Menu">
 		</div>
-		
 		<article id="Section_3_Page_0" class="MenuPage">
 			<div>
 				<div class="AuthorInfo_Title_1">作者資訊</div><hr class="hr_1" />
@@ -1347,6 +1354,19 @@
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
+			<div>
+				<div class="VerInfo_Title_1">3.1.0.Test</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>頂部選單新增「小工具」。</li>
+					<li>小工具中新增「技能配點」。此功能第一次釋出，先歸類為測試階段。</li>
+					<li>新增進入網頁時的讀取畫面，以避免一些預期外的錯誤。</li>
+					<li>網頁底部新增最後更新日期。</li>
+					<li>修正錯誤：拔刀劍的裝備限制未設定。</li>
+					<li>修正一些文字說明及資料上的錯誤。</li>
+					<li>各種優化系統。</li>
+					<li>部分介面微調。</li>
+				</ul>
+			</div>
 			<div>
 				<div class="VerInfo_Title_1">3.0.2</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
@@ -1439,6 +1459,60 @@
 		</article>
 	</section>
 	
+	<section id="Section_4">
+		<div id="Section_4_Menu">
+		</div>
+		<hr class="hr_3" />
+		<div id="Section_4_Page_0" class="MenuPage">
+			<div id="SkillAlloSimu_main"></div>
+			<div id="SkillAlloSimu_STList"></div>
+			<div id="SkillAlloSimu_MenuBlock">
+				<div id="SkillAlloSimu_skillLvSum">Point: 0</div>
+				<div class="ATool_Btn_2" id="SkillAlloSimu_Menu" onclick="open_SkillAlloSimu_Menu_List()">
+					<svg width="24" height="24">
+						<circle cx="4" cy="15" r="3" fill="white" />
+						<circle cx="12" cy="15" r="3" fill="white" />
+						<circle cx="20" cy="15" r="3" fill="white" />
+					</svg>
+				</div>
+			</div>
+			<div id="SkillAlloSimu_Menu_List">
+				<ul>
+					<li>
+						<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode" onclick="SkillAlloSimu_toRemoveMode()">移除技能樹模式</a>
+					</li>
+					<li>
+						<a class="ATool_Btn_5">(靜待更新)</a>
+					</li>
+					<li>
+						<a class="ATool_Btn_5">(靜待更新)</a>
+					</li>
+				</ul>
+				<div>
+					<input type="checkbox" value="0" class="checkbox_1" id="SkillAlloSimu_Setting_closeMenuList" checked /> 選取按鈕後關閉選單<br />
+					<input type="checkbox" value="0" class="checkbox_1" id="SkillAlloSimu_Setting_closeSTList" /> 選取任意技能樹後關閉清單
+				</div>	
+			</div>
+			
+			<div class="ATool_Menu">
+				<ul>
+					<li>
+						<a class="ATool_Btn_3" id="SkillAlloSimu_Mode_Add" onclick="SkillAlloSimu_SelMode(this)">+</a>
+						<a class="ATool_Btn_3" id="SkillAlloSimu_Mode_Div" onclick="SkillAlloSimu_SelMode(this)">-</a>
+					</li>
+					<li>
+						<a class="ATool_Btn_4" id="SkillAlloSimu_Step1" onclick="SkillAlloSimu_SelStep(this)">&plusmn;1</a>
+						<a class="ATool_Btn_4" id="SkillAlloSimu_Step5" onclick="SkillAlloSimu_SelStep(this)">&plusmn;5</a>
+						<a class="ATool_Btn_4" id="SkillAlloSimu_Step10" onclick="SkillAlloSimu_SelStep(this)">&plusmn;10</a>
+					</li>
+					<li>
+						<a class="ATool_Btn_1" id="SkillAlloSimu_AddMode" onclick="Update_SkillAlloSimu_STList(this)" data-modeno="0">新增技能樹</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	
 	<footer>
 		Toram Online | 托蘭異世錄 | トーラムオンライン
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a> | <a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
@@ -1446,7 +1520,7 @@
 			ToramOnline - Cy's Grimoire<br />
 			By. Aishimeth
 		</p>
-		Ver: 3.0
+		Ver: 3.1.0.Test | Update: 2018/3/28
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a> | <a href="https://twitter.com/Cyteria_w" target="_blank">Twitter</a></p>
 	</footer>
 	
@@ -1458,27 +1532,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/Base.js"></script>
 
-<script type="text/javascript" src="js/SkillInquire/SkillInquire_Base.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillInquiry_Base.js"></script>
 
-<script type="text/javascript" src="js/SkillInquire/Skill_List/Skill_List_0.js"></script>
-<script type="text/javascript" src="js/SkillInquire/Skill_List/Skill_List_1.js"></script>
-<script type="text/javascript" src="js/SkillInquire/Skill_List/Skill_List_2.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/Skill_List/Skill_List_0.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/Skill_List/Skill_List_1.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/Skill_List/Skill_List_2.js"></script>
 
-<script type="text/javascript" src="js/SkillInquire/SkillItemGain_List.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillItemGain_List.js"></script>
 
-<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_SkillLv.js"></script>
-<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_SkillTreeType.js"></script>
-<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_SkillTree.js"></script>
-<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_Skill.js"></script>
-<script type="text/javascript" src="js/SkillInquire/UpdateFunction/Update_Arm.js"></script>
-<script type="text/javascript" src="js/SkillInquire/UpdateFunction/InitializationFunction.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_SkillLv.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_SkillTreeType.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_SkillTree.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_Skill.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_Arm.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/InitializationFunction.js"></script>
 
-<script type="text/javascript" src="js/SkillInquire/InputSkillCaption/InputSkillCaption_1.js"></script>
-<script type="text/javascript" src="js/SkillInquire/InputSkillCaption/InputSkillCaption_2.js"></script>
-<script type="text/javascript" src="js/SkillInquire/InputSkillCaption/Other.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/InputSkillCaption/InputSkillCaption_1.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/InputSkillCaption/InputSkillCaption_2.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/InputSkillCaption/Other.js"></script>
 
-<script type="text/javascript" src="js/InformationInquire_Base.js"></script>
+<script type="text/javascript" src="js/InformationInquiry_Base.js"></script>
 <script type="text/javascript" src="js/HiddenEgg.js"></script>
+
+<script type="text/javascript" src="js/AdditionalTool/AdditionalTool_Base.js"></script>
+<script type="text/javascript" src="js/AdditionalTool/SkillAllocation_Simulator.js"></script>
 
 <script type="text/javascript" src="js/GetReady.js"></script>
 </html>

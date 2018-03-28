@@ -16,12 +16,29 @@
 	/*z-index
 	10: Btn_ToTop
 	11: Description_Site_2
+	12: SkillPoint
+	13: .ATool_Menu
+	14: SkillAlloSimu_STList
+	15: SkillAlloSimu_Menu_List
+	Loading_Page: 30
 	*/
+	
+	#Loading_Page {
+		position: fixed;
+		width:100%;
+		height: 100%;
+		top: 0%;
+		left: 0%;
+		line-height: 5rem;
+		text-align:center;
+		z-index: 30;
+		background-color:#000;
+	}
 	
 	/*===============================================================*/
 	header {
 		max-width:50rem;
-		margin:0rem auto;
+		margin:0 auto;
 	}
 	
 	header ul{
@@ -39,7 +56,9 @@
 	header li:hover {
 		background:-webkit-linear-gradient(left top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.75));
 	}
-	
+	header li>a {
+		white-space:nowrap;
+	}
 	/*===============================================================*/
 	footer {
 		text-align:center;
@@ -75,14 +94,14 @@
 	}
 	
 	/*===============================================================*/
-	#Section_1, #Section_2, #Section_3 {
+	#Section_1, #Section_2, #Section_3, #Section_4 {
 		box-shadow: inset -0.1rem -0.1rem 0.9rem #FFF;
 		padding: 1rem 0.6rem;
 		min-height: 20rem;
 		max-width: 50rem;
 		margin: 0rem auto;
 	}
-	#Section_2, #Section_3 {
+	#Section_2, #Section_3, #Section_4 {
 		display: none;
 	}
 	/*===============================================================*/
@@ -100,6 +119,13 @@
 		box-shadow:0rem 0rem 0.2rem 0.07rem rgb(255, 255, 255);
 		margin:0.1rem 0rem;
 	}
+	.hr_3 {
+		border:0rem;
+		box-shadow:0rem 0rem 0.2rem 0.07rem rgb(255, 255, 255);
+		margin: 0rem;
+		margin-bottom: 1.5rem;
+	}
+	
 	/*===============================================================*/
 	
 	
@@ -113,12 +139,12 @@
 	}
 	
 	/*===============================================================*/
-	#Section_2_Menu ul, #Section_3_Menu ul {
+	#Section_2_Menu ul, #Section_3_Menu ul, #Section_4_Menu ul {
 		list-style:none;
 		padding:0.8rem 0.6rem;
 		margin-top:0rem;
 	}
-	#Section_2_Menu li, #Section_3_Menu li {
+	#Section_2_Menu li, #Section_3_Menu li, #Section_4_Menu li {
 		background-color:rgb(114, 127, 122);
 		margin:0.2rem;
 		padding:0.5rem;
@@ -127,11 +153,11 @@
 		transition:0.8s;
 		cursor:pointer;
 	}
-	#Section_2_Menu li:hover, #Section_3_Menu li:hover {
+	#Section_2_Menu li:hover, #Section_3_Menu li:hover, #Section_4_Menu li:hover {
 		background-color:rgb(171, 190, 183);
 		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238);
 	}
-	#Section_2_Menu a, #Section_3_Menu a {
+	#Section_2_Menu a, #Section_3_Menu a, #Section_4_Menu a {
 		font-size:1.1rem;
 		color:rgb(229, 255, 244);
 	}

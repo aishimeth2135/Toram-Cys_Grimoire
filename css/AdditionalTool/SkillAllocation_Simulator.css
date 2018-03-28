@@ -1,0 +1,111 @@
+
+	#SkillAlloSimu_STList {
+		display:none;
+		padding:0.6rem;
+		box-shadow:inset 0rem 0rem 1.5rem rgb(214, 255, 238);
+		background-color: rgb(160, 191, 179);
+		border-radius:0.8rem;
+		position: fixed;
+		bottom: 3.5rem;
+		right:20%;
+		bottom:11.5rem;
+		overflow-y: auto;
+		max-width:48rem;
+		z-index: 14;
+	}
+	
+	#SkillAlloSimu_STList ul {
+		padding:0rem 0.6rem;
+		margin: 0rem;
+		list-style:none;
+	}
+	#SkillAlloSimu_STList li {
+		display:inline-block;
+	}
+	#SkillAlloSimu_STList a {
+		display:inline-block;
+		white-space:nowrap;
+		cursor:pointer;
+		font-size:1.3rem;
+		color:rgb(255, 255, 219);
+		text-align:center;
+		padding:0.2rem 0.35rem;
+		margin:0.1rem;
+		transition: 0.5s;
+		border-radius:0.20rem;
+		text-shadow:0.2rem 0.2rem 0.6rem #555;
+	}
+	#SkillAlloSimu_STList a:hover {
+		background-color:rgba(255, 255, 219, 0.3);
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 219);
+	}
+	
+	/* ======================================================= */
+	
+	#SkillAlloSimu_main table {
+		background-color:rgba(255, 255, 194, 0.7);
+		box-shadow:inset 0rem 0rem 1.5rem rgb(255, 255, 224);
+		font-size:0.95rem;
+		color:#EEE;
+		margin-top:0.5rem;
+	}
+	
+	#SkillAlloSimu_main td {
+		padding:0.3rem 0.15rem;
+		border-width:0.07rem;
+		border-style:solid;
+		border-color:transparent transparent #FFF transparent;
+		text-align:center;
+		width:8rem;
+		transition: 0.8s;
+	}
+	
+	
+	#SkillAlloSimu_skillLvSum {
+		font-size:1.1rem;
+		background-color:rgb(200, 200, 200);
+		color: rgb(0, 76, 153);
+		padding:0.5rem;
+		border-radius: 0.3rem;
+		clear: right;
+	}
+	#SkillAlloSimu_Menu {
+		float: right;
+		cursor: pointer;
+		text-shadow:0.1rem 0.1rem 0.5rem #444;
+		transition: 0.35s;
+		display: inline-block;
+		text-align: center;
+	}
+	
+	#SkillAlloSimu_MenuBlock {
+		position: fixed;
+		top:0.2rem;
+		right:20%;
+		z-index: 12;
+	}
+	
+	#SkillAlloSimu_Menu_List {
+		position: fixed;
+		width:20rem;
+		height: 80%;
+		top: 10%;
+		left: 50%;
+		margin-left: -10rem;
+		display: none;
+		background-color: #111;
+		box-shadow:inset 0rem 0rem 0.4rem rgb(170, 170, 170);
+		z-index: 15;
+		padding: 1rem;
+	}
+	#SkillAlloSimu_Menu_List ul {
+		list-style: none;
+		padding:0rem;
+	}
+	#SkillAlloSimu_Menu_List li {
+		margin-bottom:0.2rem;
+		display: inline-block;
+	}
+	#SkillAlloSimu_Menu_List a {
+		display: inline-block;
+	}
