@@ -3,7 +3,7 @@
 	var Section_4_Page_Current = '';
 	function Section_4_Update(temp) {
 		let T_No = temp.getAttribute('data-menuno');
-		if ( T_No == Desc_Page_Current )
+		if ( T_No == Section_4_Page_Current )
 		{
 			return;
 		}
