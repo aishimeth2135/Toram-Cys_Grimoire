@@ -1,5 +1,6 @@
 
 	var sum_SkillLv = 0;
+	var ATool_MenuList_Second_curBtn = '';
 	
 	function Sel_SkillAlloSimu(temp){
 		
@@ -12,7 +13,7 @@
 		let T_stno = parseInt(temp.getAttribute('data-stno'));
 		
 		if ( document.getElementById('SkillAlloSimu_AddMode').getAttribute('data-modeno') == "1" )
-		{
+		{	//移除技能樹模式
 			SkillAlloSimu_removeSkillTree(T_sttno, T_stno);
 			return;
 		}
@@ -21,151 +22,153 @@
 			return;
 		}
 		all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_beSel = true;
+		temp.className = 'skillAlloSimu_STList_cur';
 		
-		//(T_sttno, T_stno)
-		(function (SkillTreeType_No, SkillTree_No){
-			let Tsize = -1, T_Ary = [];
-			switch (SkillTreeType_No)
-			{
-				case 0:
-					switch (SkillTree_No)
-					{
-						case 0:
-							Tsize = 14;
-							T_Ary = [[4, 2, 2, 1], [1], [2, 2, 1], [1], [2, 2, -2], [1, 1]];
-							break;
-						case 1:
-							Tsize = 14;
-							T_Ary = [[3, 2, -3], [1, -2], [1, 1, 1, 1], [2, -4], [1, 1, -2]];
-							break;
-						case 2:
-							Tsize = 14;
-							T_Ary = [[2, 1, 1, 1, 1], [1, 1, 1, 1], [-5],[1, 1, 1, -2]];
-							break;
-						case 3:
-							Tsize = 14;
-							T_Ary = [[2, 1, 1, 1, 1], [1, 1, 1, 1], [1, 1, -3],[1, -4]];
-							break;
-						case 4:
-							Tsize = 11;
-							T_Ary = [[4, 1, 1, 1], [1, 1, 1], [1, -2],[1, -2]];
-							break;
-						case 5:
-							Tsize = 14;
-							T_Ary = [[4, 2, 2, 1], [1], [2, 1, 1], [-2], [1, -3], [1, 1, -2]];
-							break;
-						case 6:
-							Tsize = 14;
-							T_Ary = [[2, 2, 2, 2, 1], [1], [1, 1, -3], [2, -4], [1, 1, -2]];
-							break;
-					}
-					break;
-				case 1:
-					switch (SkillTree_No)
-					{
-						case 0:
-							Tsize = 8;
-							T_Ary = [[2, 1, 1], [-2], [2, 1, 1], [-2]];
-							break;
-						case 1:
-							Tsize = 9;
-							T_Ary = [[2, 1, 1, 1], [1, -2], [1, 1, -2]];
-							break;
-						case 2:
-							Tsize = 9;
-							T_Ary = [[2, 1, 1, 1], [1, -2], [1, 1, -2]];
-							break;
-						case 3:
-							Tsize = 8;
-							T_Ary = [[1, 1, 1, 1], [1, 1, 1, 1]];
-							break;
-						case 4:
-							Tsize = 8;
-							T_Ary = [[1, 1, 1, 1], [1, 1, 1, 1]];
-							break;
-						case 5:
-							Tsize = 8;
-							T_Ary = [[1, 1, 1, 1], [1, 1, 1, 1]];
-							break;
-					}
-					break;
-				case 2:
-					switch (SkillTree_No)
-					{
-						case 0:
-							Tsize = 9;
-							T_Ary = [[-2], [-2], [-2], [2, 1], [1], [2, 1], [1]];
-							break;
-						case 1:
-							Tsize = 13;
-							T_Ary = [[-4], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]];
-							break;
-						case 2:
-							Tsize = 15;
-							T_Ary = [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]];
-							break;
-					}
-					break;
-			}
-			//(T_Ary, SkillTreeType_No, SkillTree_No, Tsize)
-			(function (T_Ary, No_STT, No_ST, Table_Size){
-				let SkillNo_ct = 1;
-				let Ttext = "";
-				Ttext += `<table id="SkillAlloSimu_SkillTree_${No_STT}_${No_ST}" data-sttno="${No_STT}" data-stno="${No_ST}">`;
-				for (let i=0; i<T_Ary.length; ++i)
+		SkillAlloSimu_BuildSTTable(T_sttno, T_stno);
+	}
+	
+	function SkillAlloSimu_BuildSTTable(SkillTreeType_No, SkillTree_No){
+		let Tsize = -1, T_Ary = [];
+		switch (SkillTreeType_No)
+		{
+			case 0:
+				switch (SkillTree_No)
 				{
-					Ttext += "<tr>";
-					for (let j=0; j<T_Ary[i].length; j++)
-					{
-						if (T_Ary[i][j] > 1)
-						{
-							Ttext += `<td rowspan=${T_Ary[i][j]}`;
-						}
-						else {
-							Ttext += '<td';
-						}
-						Ttext += ` id="SkillAlloSimu_Skill_${No_STT}_${No_ST}_${SkillNo_ct}" data-sttno="${No_STT}" data-stno="${No_ST}" data-sno="-1" onclick="SkillAlloSimu_SkillPoint(this)"><span id="SkillAlloSimu_SkillLv_${No_STT}_${No_ST}_${SkillNo_ct}">&nbsp;Lv.</span></td>`;
-						if (T_Ary[i][j] < -1)
-						{
-							for (let t1=0; t1<(-T_Ary[i][j])-1; t1++)
-							{
-							Ttext += "<td></td>";
-							}
-						}
-						SkillNo_ct++;
-					}
-					Ttext += "</tr>";
+					case 0:
+						Tsize = 14;
+						T_Ary = [[4, 2, 2, 1], [1], [2, 2, 1], [1], [2, 2, -2], [1, 1]];
+						break;
+					case 1:
+						Tsize = 14;
+						T_Ary = [[3, 2, -3], [1, -2], [1, 1, 1, 1], [2, -4], [1, 1, -2]];
+						break;
+					case 2:
+						Tsize = 14;
+						T_Ary = [[2, 1, 1, 1, 1], [1, 1, 1, 1], [-5],[1, 1, 1, -2]];
+						break;
+					case 3:
+						Tsize = 14;
+						T_Ary = [[2, 1, 1, 1, 1], [1, 1, 1, 1], [1, 1, -3],[1, -4]];
+						break;
+					case 4:
+						Tsize = 11;
+						T_Ary = [[4, 1, 1, 1], [1, 1, 1], [1, -2],[1, -2]];
+						break;
+					case 5:
+						Tsize = 14;
+						T_Ary = [[4, 2, 2, 1], [1], [2, 1, 1], [-2], [1, -3], [1, 1, -2]];
+						break;
+					case 6:
+						Tsize = 14;
+						T_Ary = [[2, 2, 2, 2, 1], [1], [1, 1, -3], [2, -4], [1, 1, -2]];
+						break;
 				}
-				Ttext += "</table>";
-				
-				document.getElementById('SkillAlloSimu_main').innerHTML += Ttext;
-				
-				let InputCt = 0;
-				let InputCt_max = all_skilltree_type[No_STT].STt_skilltree[No_ST].ST_skill.length;
-				for (let i=0; i<Table_Size; ++i)
+				break;
+			case 1:
+				switch (SkillTree_No)
 				{
-					let T_obj = all_skilltree_type[No_STT].STt_skilltree[No_ST].ST_skill[InputCt];
-					if (T_obj.Sk_no == i+1)
+					case 0:
+						Tsize = 8;
+						T_Ary = [[2, 1, 1], [-2], [2, 1, 1], [-2]];
+						break;
+					case 1:
+						Tsize = 9;
+						T_Ary = [[2, 1, 1, 1], [1, -2], [1, 1, -2]];
+						break;
+					case 2:
+						Tsize = 9;
+						T_Ary = [[2, 1, 1, 1], [1, -2], [1, 1, -2]];
+						break;
+					case 3:
+						Tsize = 8;
+						T_Ary = [[1, 1, 1, 1], [1, 1, 1, 1]];
+						break;
+					case 4:
+						Tsize = 8;
+						T_Ary = [[1, 1, 1, 1], [1, 1, 1, 1]];
+						break;
+					case 5:
+						Tsize = 8;
+						T_Ary = [[1, 1, 1, 1], [1, 1, 1, 1]];
+						break;
+				}
+				break;
+			case 2:
+				switch (SkillTree_No)
+				{
+					case 0:
+						Tsize = 9;
+						T_Ary = [[-2], [-2], [-2], [2, 1], [1], [2, 1], [1]];
+						break;
+					case 1:
+						Tsize = 13;
+						T_Ary = [[-4], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]];
+						break;
+					case 2:
+						Tsize = 15;
+						T_Ary = [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]];
+						break;
+				}
+				break;
+		}
+		//(T_Ary, SkillTreeType_No, SkillTree_No, Tsize)
+		(function (T_Ary, No_STT, No_ST, Table_Size){
+			let SkillNo_ct = 1;
+			let Ttext = "";
+			Ttext += `<table id="SkillAlloSimu_SkillTree_${No_STT}_${No_ST}" data-sttno="${No_STT}" data-stno="${No_ST}">`;
+			for (let i=0; i<T_Ary.length; ++i)
+			{
+				Ttext += "<tr>";
+				for (let j=0; j<T_Ary[i].length; j++)
+				{
+					if (T_Ary[i][j] > 1)
 					{
-						let doc = document.getElementById(`SkillAlloSimu_Skill_${No_STT}_${No_ST}_${i+1}`);
-						doc.className = "Skill_td_default";
-						doc.innerHTML = `${T_obj.Sk_name}${doc.innerHTML}`;
-						doc.setAttribute('data-sno', String(InputCt));
-						document.getElementById(`SkillAlloSimu_SkillLv_${No_STT}_${No_ST}_${i+1}`).innerHTML = '&nbsp;Lv.' + T_obj.Sk_lv;
-						if (InputCt + 1 < InputCt_max )
-						{
-							InputCt++;
-						}
+						Ttext += `<td rowspan=${T_Ary[i][j]}`;
 					}
 					else {
-						let doc = document.getElementById(`SkillAlloSimu_Skill_${No_STT}_${No_ST}_${i+1}`);
-						doc.innerHTML = "(尚未開放)";
-						doc.onclick = '';
+						Ttext += '<td';
+					}
+					Ttext += ` id="SkillAlloSimu_Skill_${No_STT}_${No_ST}_${SkillNo_ct}" data-sttno="${No_STT}" data-stno="${No_ST}" data-sno="-1" onclick="SkillAlloSimu_SkillPoint(this)"><span id="SkillAlloSimu_SkillLv_${No_STT}_${No_ST}_${SkillNo_ct}">&nbsp;Lv.</span></td>`;
+					if (T_Ary[i][j] < -1)
+					{
+						for (let t1=0; t1<(-T_Ary[i][j])-1; t1++)
+						{
+						Ttext += "<td></td>";
+						}
+					}
+					SkillNo_ct++;
+				}
+				Ttext += "</tr>";
+			}
+			Ttext += "</table>";
+			
+			document.getElementById('SkillAlloSimu_main').innerHTML += Ttext;
+			
+			let InputCt = 0;
+			let InputCt_max = all_skilltree_type[No_STT].STt_skilltree[No_ST].ST_skill.length;
+			for (let i=0; i<Table_Size; ++i)
+			{
+				let T_obj = all_skilltree_type[No_STT].STt_skilltree[No_ST].ST_skill[InputCt];
+				if (T_obj.Sk_no == i+1)
+				{
+					let doc = document.getElementById(`SkillAlloSimu_Skill_${No_STT}_${No_ST}_${i+1}`);
+					doc.className = "Skill_td_default";
+					doc.innerHTML = `${T_obj.Sk_name}${doc.innerHTML}`;
+					doc.setAttribute('data-sno', String(InputCt));
+					document.getElementById(`SkillAlloSimu_SkillLv_${No_STT}_${No_ST}_${i+1}`).innerHTML = '&nbsp;Lv.' + T_obj.Sk_lv;
+					if (InputCt + 1 < InputCt_max )
+					{
+						InputCt++;
 					}
 				}
-			})(T_Ary, SkillTreeType_No, SkillTree_No, Tsize);
-			
-		})(T_sttno, T_stno);
+				else {
+					let doc = document.getElementById(`SkillAlloSimu_Skill_${No_STT}_${No_ST}_${i+1}`);
+					doc.innerHTML = "(尚未開放)";
+					doc.onclick = '';
+				}
+			}
+		})(T_Ary, SkillTreeType_No, SkillTree_No, Tsize);
+		
 	}
 	
 	function SkillAlloSimu_removeSkillTree(T_sttno, T_stno){
@@ -173,9 +176,11 @@
 		{
 			return;
 		}
-		$(`#SkillAlloSimu_SkillTree_${T_sttno}_${T_stno}`).remove();
 		
+		$(`#SkillAlloSimu_SkillTree_${T_sttno}_${T_stno}`).remove();
 		all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_beSel = false;
+		document.getElementById(`SkillAlloSimu_STList_${T_sttno}_${T_stno}`).className = '';
+		
 		for (let i=0; i<all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_skill.length; ++i)
 		{
 			let T_obj = all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_skill[i];
@@ -207,6 +212,7 @@
 				break;
 		}
 	}
+	
 	var SkillAlloSimu_CurStep = 0;
 	function SkillAlloSimu_SelStep(temp){ 
 		let TNo = parseInt(temp.id.charAt(temp.id.length-1));
@@ -306,16 +312,6 @@
 		}, 10);
 	}
 	
-	function open_SkillAlloSimu_Menu_List(){
-		let doc = document.getElementById('SkillAlloSimu_Menu_List');
-		if (doc.style.display == 'block')
-		{
-			$('#SkillAlloSimu_Menu_List').fadeOut(400);
-		}
-		else {
-			$('#SkillAlloSimu_Menu_List').fadeIn(400);
-		}
-	}
 	
 	function Update_SkillAlloSimu_STList(temp){
 		if (document.getElementById('SkillAlloSimu_STList').style.display != 'block')
@@ -343,6 +339,7 @@
 		}
 	}
 	
+	/* ================================================= */
 	function SkillAlloSimu_toRemoveMode(){
 		let addMode = document.getElementById('SkillAlloSimu_AddMode');
 		let removeMode = document.getElementById('SkillAlloSimu_RemoveMode');
@@ -369,6 +366,221 @@
 		}  
 		if ( document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked )
 		{
-			open_SkillAlloSimu_Menu_List();
+			open_ATool_MenuList();
 		}
-	}      
+	}
+	
+	/* ================================================= */
+	function SkillAlloSimu_ResetAll(){
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		{
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				let T_ST = all_skilltree_type[i].STt_skilltree[j];
+				if ( T_ST.ST_beSel )
+				{
+					$(`#SkillAlloSimu_SkillTree_${i}_${j}`).remove();
+					T_ST.ST_beSel = false;
+					for (let k=0; k<T_ST.ST_skill.length; ++k)
+					{
+						T_ST.ST_skill[k].Sk_lv = 0;
+					}
+				}
+			}
+		}
+		
+		let T_ary = document.getElementById('SkillAlloSimu_STList').getElementsByTagName('a');
+		for (let i=0; i<T_ary.length; ++i)
+		{
+			T_ary[i].className = '';
+		}
+		
+		sum_SkillLv = 0;
+		document.getElementById('SkillAlloSimu_skillLvSum').innerHTML = 'Point: ' + sum_SkillLv;
+		if ( document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked )
+		{
+			open_ATool_MenuList();
+		}
+	}
+	/* ================================================= */
+	function SkillAlloSimu_RemoveAllEmpty(){
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		{
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				let T_ST = all_skilltree_type[i].STt_skilltree[j];
+				let notEmpty = false;
+				for (let k=0; k<T_ST.ST_skill.length; ++k)
+				{
+					if (T_ST.ST_skill[k].Sk_lv != 0)
+					{
+						notEmpty = true;
+						break;
+					}
+				}
+				if ( !notEmpty )
+				{
+					SkillAlloSimu_removeSkillTree(i, j);
+				}
+			}
+		}
+		if ( document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked )
+		{
+			open_ATool_MenuList();
+		}
+	}
+	
+	/* ================================================= */
+	function SkillAlloSimu_open_Second(temp){
+		let T_menuno = parseInt(temp.getAttribute('data-menuno'));
+		ATool_toMenuListSecond();
+		if ( ATool_MenuList_Second_curBtn != '' )
+		{
+			document.getElementById(ATool_MenuList_Second_curBtn).style.display = 'none';
+		}
+		switch (T_menuno)
+		{
+			case 0:
+				ATool_MenuList_Second_curBtn = 'SkillAlloSimu_BuildText_Block';
+				break;
+			case 1:
+				ATool_MenuList_Second_curBtn = 'SkillAlloSimu_SaveCode_Block';
+				break;
+		}
+		document.getElementById(ATool_MenuList_Second_curBtn).style.display = 'block';
+	}
+	
+	function SkillAlloSimu_BuildText_selMode(temp){
+		let T_modeno = parseInt(temp.getAttribute('data-modeno'));
+		let Ttext = '';
+		
+		switch (T_modeno)
+		{
+			case 0:
+				for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+				{
+					Ttext += '~ ' + all_skilltree_type[i].STt_name + '\r\n';
+					for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+					{
+						let T_ST = all_skilltree_type[i].STt_skilltree[j];
+						let notEmpty = true;
+						if (document.getElementById('SkillAlloSimu_BuildText_ignoreEmpty').checked)
+						{
+							notEmpty = false;
+							for (let k=0; k<T_ST.ST_skill.length; ++k)
+							{
+								if (T_ST.ST_skill[k].Sk_lv != 0)
+								{
+									notEmpty = true;
+									break;
+								}
+							}
+						}
+						if ( T_ST.ST_beSel && notEmpty)
+						{
+							Ttext += '  - ' + T_ST.ST_name + '：';
+							let T_ary = [];
+							for (let k=0; k<T_ST.ST_skill.length; ++k)
+							{
+								
+								if (T_ST.ST_skill[k].Sk_lv != 0)
+								{
+									T_ary.push(T_ST.ST_skill[k].Sk_name + " Lv." + T_ST.ST_skill[k].Sk_lv);
+								}
+							}
+							Ttext += T_ary.join('、') + '。\r\n';
+						}
+					}
+					Ttext += '\r\n';
+				}
+				break;
+		}
+		document.getElementById('SkillAlloSimu_BuildText_textarea').value = Ttext + "\r\n(Copy from Cy's Grimoire)";
+	}
+	
+	function SkillAlloSimu_BuildText_Copy(){
+		 document.getElementById('SkillAlloSimu_BuildText_textarea').select();
+		 document.execCommand('copy');
+	}
+	
+	/* ================================================= */
+	
+	function SkillAlloSimu_SaveCode_Save(){
+		let T_code = '';
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		{
+			T_code += '[';
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				T_code += '[';
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				{
+					T_code += all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv;
+					if (k != all_skilltree_type[i].STt_skilltree[j].ST_skill.length - 1)
+					{
+						T_code += ',';
+					}
+				}
+				if (j != all_skilltree_type[i].STt_skilltree.length - 1)
+				{
+					T_code += '],';
+				}
+				else {
+					T_code += ']';
+				}
+			}
+			if (i != all_skilltree_type.length - HiddenEgg_controlNo - 1)
+			{
+				T_code += '],';
+			}
+			else {
+				T_code += ']';
+			}
+		}
+		document.getElementById('SkillAlloSimu_SaveCode_text').value = T_code;
+	}
+	
+	function SkillAlloSimu_SaveCode_Load(){
+		//初始化
+		SkillAlloSimu_ResetAll();
+		
+		let codeAry = eval( '[' + document.getElementById('SkillAlloSimu_SaveCode_text').value + ']' );
+		//console.log(codeAry);
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		{
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				{
+					if ( codeAry[i][j][k] != 0 )
+					{
+						all_skilltree_type[i].STt_skilltree[j].ST_beSel = true;
+						break;
+					}	
+				}
+			}
+		}
+		
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		{
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				if ( all_skilltree_type[i].STt_skilltree[j].ST_beSel )
+				{
+					for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+					{
+						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv = codeAry[i][j][k];
+						sum_SkillLv += codeAry[i][j][k];
+					}
+					SkillAlloSimu_BuildSTTable(i, j);
+				}
+			}
+		}
+		document.getElementById('SkillAlloSimu_skillLvSum').innerHTML = 'Point: ' + sum_SkillLv;
+	}
+	
+	function SkillAlloSimu_SaveCode_Copy(){
+		document.getElementById('SkillAlloSimu_SaveCode_text').select();
+		document.execCommand('copy');
+	}
+	

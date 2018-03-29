@@ -181,16 +181,15 @@
 			}
 	}
 	
-	var the_skilltree_type = function(){
-		this.STt_skilltree = []; 	//Array of Object<SkillTree>
+	var the_skilltree_type = function(tSTt_name){
+		this.STt_name = tSTt_name;
+		this.STt_skilltree = [];	//Array of Object<SkillTree>
 	}
 	
 	var all_skilltree_type = [];
 	
-	for (let i=0; i<4; ++i)
-	{
-		all_skilltree_type.push(new the_skilltree_type());
-	}
+	all_skilltree_type.push(new the_skilltree_type('武器技能'), new the_skilltree_type('強化技能'), new the_skilltree_type('輔助技能'), new the_skilltree_type('？？？？'));
+	
 	//SkillTreeType_List_0~2.js
 	
 	/*=============================================================*/

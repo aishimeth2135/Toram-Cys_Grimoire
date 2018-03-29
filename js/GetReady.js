@@ -1,4 +1,11 @@
 	
+	(function(){
+		for (let i=0; i<4; ++i)
+		{
+			document.getElementById('skilltree_type_' + String(i+1)).innerHTML = all_skilltree_type[i].STt_name;
+		}
+	})();
+	
 	/*=====================================================================*/
 	(function (){	//Input TextButton to Desc_Page
 		let i = 0;
@@ -60,7 +67,7 @@
 			}
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
-				Ttext += `<li><a data-sttno="${i}" data-stno="${j}" onclick="Sel_SkillAlloSimu(this)">${all_skilltree_type[i].STt_skilltree[j].ST_name}</a></li>`;
+				Ttext += `<li><a id="SkillAlloSimu_STList_${i}_${j}" data-sttno="${i}" data-stno="${j}" onclick="Sel_SkillAlloSimu(this)">${all_skilltree_type[i].STt_skilltree[j].ST_name}</a></li>`;
 			}
 		}
 		document.getElementById('SkillAlloSimu_STList').innerHTML = '<ul>' + Ttext + '</ul>';
@@ -75,11 +82,11 @@
 		if( $(window).scrollTop() <= 68.8)
 		{
 			$("#Btn_ToTop").hide(600);
-			document.getElementById("SkillAlloSimu_MenuBlock").style.top = 68.8 - parseFloat($(window).scrollTop()) + 'px';
+			document.getElementById("ATool_MenuBlock").style.top = 68.8 - parseFloat($(window).scrollTop()) + 'px';
 		}
 		else {
 			$("#Btn_ToTop").show(600);
-			document.getElementById("SkillAlloSimu_MenuBlock").style.top = "0.2rem";
+			document.getElementById("ATool_MenuBlock").style.top = "0.2rem";
 		}
 	});
 	

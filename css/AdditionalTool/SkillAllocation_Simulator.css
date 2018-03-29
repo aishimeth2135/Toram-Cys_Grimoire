@@ -39,6 +39,10 @@
 		background-color:rgba(255, 255, 219, 0.3);
 		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 219);
 	}
+	.skillAlloSimu_STList_cur {
+		background-color:rgba(255, 255, 219, 0.3)!important;
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 219)!important;
+	}
 	
 	/* ======================================================= */
 	
@@ -69,44 +73,17 @@
 		border-radius: 0.3rem;
 		clear: right;
 	}
-	#SkillAlloSimu_Menu {
-		float: right;
-		cursor: pointer;
-		text-shadow:0.1rem 0.1rem 0.5rem #444;
-		transition: 0.35s;
-		display: inline-block;
-		text-align: center;
-		z-index: 21;
+	
+	#SkillAlloSimu_BuildText_textarea {
+		max-width:100%;
+		min-width:100%;
+		width:100%;
+		padding:0.2rem;
+		font-family:Microsoft JhengHei, sans-serif;
+		font-size:0.85rem;
+		margin-bottom:0.3rem;
 	}
 	
-	#SkillAlloSimu_MenuBlock {
-		position: fixed;
-		top:0.2rem;
-		right:20%;
-		z-index: 12;
-	}
-	
-	#SkillAlloSimu_Menu_List {
-		position: fixed;
-		width:20rem;
-		height: 80%;
-		top: 10%;
-		left: 50%;
-		margin-left: -10rem;
-		display: none;
-		background-color: #111;
-		box-shadow:inset 0rem 0rem 0.4rem rgb(170, 170, 170);
-		z-index: 15;
-		padding: 1rem;
-	}
-	#SkillAlloSimu_Menu_List ul {
-		list-style: none;
-		padding:0rem;
-	}
-	#SkillAlloSimu_Menu_List li {
-		margin-bottom:0.2rem;
-		display: inline-block;
-	}
-	#SkillAlloSimu_Menu_List a {
-		display: inline-block;
+	#SkillAlloSimu_SaveCode_text {
+		width: 100%;
 	}

@@ -19,7 +19,7 @@
 		display: inline-block;
 		padding: 0.3rem 0.1rem;
 	}
-	.ATool_Menu a, .ATool_Btn_5, .ATool_Btn_5_Cur {
+	.ATool_Btn_1, .ATool_Btn_1_Cur, .ATool_Btn_1_1, .ATool_Btn_1_1_Cur, .ATool_Btn_3, .ATool_Btn_3_Cur, .ATool_Btn_4, .ATool_Btn_4_Cur, .ATool_Btn_5, .ATool_Btn_5_Cur {
 		cursor: pointer;
 		text-shadow:0.1rem 0.1rem 0.5rem #444;
 		transition: 0.35s;
@@ -141,3 +141,46 @@
 		border-radius: 0.3rem;
 	}
 	
+	/* ========================================== */
+	
+	#ATool_Menu {
+		float: right;
+		cursor: pointer;
+		text-shadow:0.1rem 0.1rem 0.5rem #444;
+		transition: 0.35s;
+		text-align: center;
+		z-index: 21;
+	}
+	
+	#ATool_MenuBlock {
+		position: fixed;
+		top:0.2rem;
+		right:20%;
+		z-index: 12;
+	}
+	
+	#ATool_MenuList {
+		position: fixed;
+		width:20rem;
+		height: 80%;
+		top: 10%;
+		left: 50%;
+		margin-left: -10rem;
+		display: none;
+		background-color: #111;
+		box-shadow:inset 0rem 0rem 0.4rem rgb(170, 170, 170);
+		z-index: 15;
+		padding: 1rem;
+		overflow-y:auto;
+	}
+	#ATool_MenuList ul {
+		list-style: none;
+		padding:0rem;
+	}
+	#ATool_MenuList li {
+		margin-bottom:0.2rem;
+		display: inline-block;
+	}
+	#ATool_MenuList a {
+		display: inline-block;
+	}

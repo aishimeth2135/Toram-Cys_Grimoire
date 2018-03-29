@@ -55,16 +55,16 @@
 		<div id="site_SkillTreeType">
 			<ul>
 				<li id="li_skilltree_type_1" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_1" class="SkillTreeType_button">武器技能</a>
+					<a id="skilltree_type_1" class="SkillTreeType_button"></a>
 				</li>
 				<li id="li_skilltree_type_2" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_2" class="SkillTreeType_button">強化技能</a>
+					<a id="skilltree_type_2" class="SkillTreeType_button"></a>
 				</li>
 				<li id="li_skilltree_type_3" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_3" class="SkillTreeType_button">輔助技能</a>
+					<a id="skilltree_type_3" class="SkillTreeType_button"></a>
 				</li>
 				<li id="li_skilltree_type_4" class="SkillTreeType_li" style="display:none;" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_4" class="SkillTreeType_button">？？？？</a>
+					<a id="skilltree_type_4" class="SkillTreeType_button"></a>
 				</li>
 			</ul>
 		</div>
@@ -1355,6 +1355,17 @@
 			
 		<article id="Section_3_Page_1" class="MenuPage">
 			<div>
+				<div class="VerInfo_Title_1">3.2.0.Test</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>小工具「技能配點」。新增「全部重設」、「清除空的技能樹」、「產生文本」、「存檔系統」四個功能。請自行體會～</li>
+					<li>小工具「技能配點」的技能樹清單，現在看得到哪些技能樹已被選取。</li>
+					<li>小工具的選單新增close按鈕。</li>
+					<li>優化小工具的選單系統。</li>
+					<li>部分介面微調。</li>
+					<li>由於技能配點這次新增不少系統，將此版本定為測試版本。</li>
+				</ul>
+			</div>
+			<div>
 				<div class="VerInfo_Title_1">3.1.0.Test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>頂部選單新增「小工具」。</li>
@@ -1463,12 +1474,11 @@
 		<div id="Section_4_Menu">
 		</div>
 		<hr class="hr_3" />
-		<div id="Section_4_Page_0" class="MenuPage">
-			<div id="SkillAlloSimu_main"><p class="TextBlock">請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。</p></div>
-			<div id="SkillAlloSimu_STList"></div>
-			<div id="SkillAlloSimu_MenuBlock">
-				<div id="SkillAlloSimu_skillLvSum">Point: 0</div>
-				<div class="ATool_Btn_2" id="SkillAlloSimu_Menu" onclick="open_SkillAlloSimu_Menu_List()">
+		<div id="ATool_MenuBlock">
+				<div id="ATool_MenuBlock_0" class="MenuPage">
+					<div id="SkillAlloSimu_skillLvSum">Point: 0</div>
+				</div>
+				<div class="ATool_Btn_2 MenuPage" id="ATool_Menu" onclick="open_ATool_MenuList()">
 					<svg width="24" height="24">
 						<circle cx="4" cy="15" r="3" fill="white" />
 						<circle cx="12" cy="15" r="3" fill="white" />
@@ -1476,24 +1486,79 @@
 					</svg>
 				</div>
 			</div>
-			<div id="SkillAlloSimu_Menu_List">
-				<div style="cursor:pointer;float:right;" onclick="open_SkillAlloSimu_Menu_List()">&gt;&nbsp;Close</div>
-				<ul>
-					<li>
-						<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode" onclick="SkillAlloSimu_toRemoveMode()">移除技能樹模式</a>
-					</li>
-					<li>
-						<a class="ATool_Btn_5">(靜待更新)</a>
-					</li>
-					<li>
-						<a class="ATool_Btn_5">(靜待更新)</a>
-					</li>
-				</ul>
-				<div>
-					<input type="checkbox" value="0" class="checkbox_1" id="SkillAlloSimu_Setting_closeMenuList" checked /> 選取按鈕後關閉此選單<br />
-					<input type="checkbox" value="0" class="checkbox_1" id="SkillAlloSimu_Setting_closeSTList" /> 選取任意技能樹後關閉清單
-				</div>	
+		<div id="ATool_MenuList">
+			<div id="ATool_MenuList_Main">
+				<div style="cursor:pointer;float:right;" onclick="open_ATool_MenuList()">&gt;&nbsp;Close</div>
+				<div id="ATool_MenuList_0" class="MenuPage">
+					<ul>
+						<li>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode" onclick="SkillAlloSimu_toRemoveMode()">移除技能樹模式</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_ResetAll()">全部重設</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_RemoveAllEmpty()">清除空的技能樹</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_5" data-menuno="0" onclick="SkillAlloSimu_open_Second(this)">產生文本</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_5" data-menuno="1" onclick="SkillAlloSimu_open_Second(this)">存檔系統</a>
+						</li>
+					</ul>
+					<div>
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" checked /> 選取按鈕後關閉此選單<br />
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" /> 選取任意技能樹後關閉清單
+					</div>
+				</div>
 			</div>
+			<div id="ATool_MenuList_Second" class="MenuPage">
+				<div style="cursor:pointer;" onclick="close_ATool_MenuList_Second()">&gt;&nbsp;Back</div>
+				<div id="SkillAlloSimu_BuildText_Block" class="MenuPage">
+					<ul>
+						<li>
+							<a class="ATool_Btn_5" data-modeno="0" onclick="SkillAlloSimu_BuildText_selMode(this)">基本格式-1</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_1" onclick="SkillAlloSimu_BuildText_Copy()">Copy</a>
+						</li>
+					</ul>
+					<textarea id="SkillAlloSimu_BuildText_textarea">
+					</textarea>
+					<div>
+						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" checked /> 產生時忽略空的技能樹<br />
+					</div>
+					<p class="TextBlock Text_Small_1">
+						- 可將點好的技能依照選定格式自動產生一段文字。
+						<br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。
+					</p>
+				</div>
+				<div id="SkillAlloSimu_SaveCode_Block" class="MenuPage">
+					<ul>
+						<li>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_SaveCode_Save()">產生代碼</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_SaveCode_Load()">讀取代碼</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_1" onclick="SkillAlloSimu_SaveCode_Copy()">Copy</a>
+						</li>
+					</ul>
+					<input type="text" id="SkillAlloSimu_SaveCode_text" />
+					<p class="TextBlock Text_Small_1">
+						- 按下「產生代碼」後，會將當前點好的技能變成一段代碼。下次進入此網頁時可將代碼複製貼上至輸入欄，按下「讀取代碼」後便可讀取出之前點好的技能。
+						<br />- 本網站沒有儲存功能，產生的代碼請自行保留，亦可分享給其它人。（一段代碼任何人皆可使用）
+					</p>
+				</div>
+			</div>
+		</div>
+		<div id="Section_4_Page_0" class="MenuPage">
+			<div id="SkillAlloSimu_main">
+				<p class="TextBlock">請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。</p>
+			</div>
+			<div id="SkillAlloSimu_STList"></div>
 			
 			<div class="ATool_Menu">
 				<ul>
@@ -1521,7 +1586,7 @@
 			ToramOnline - Cy's Grimoire<br />
 			By. Aishimeth
 		</p>
-		Ver: 3.1.0.Test | Update: 2018/3/28
+		Ver: 3.2.0.Test | Update: 2018/3/28
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a> | <a href="https://twitter.com/Cyteria_w" target="_blank">Twitter</a></p>
 	</footer>
 	

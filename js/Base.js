@@ -24,4 +24,4 @@
 		$('html, body').animate({scrollTop: 0}, 600);
 	}
 	
-	
+	HiddenEgg_controlNo = 1;
