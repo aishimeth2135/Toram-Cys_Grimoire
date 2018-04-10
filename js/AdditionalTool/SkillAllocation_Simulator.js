@@ -6,13 +6,19 @@
 		
 		if ( document.getElementById('SkillAlloSimu_Setting_closeSTList').checked )
 		{
-			Update_SkillAlloSimu_STList(document.getElementById('SkillAlloSimu_AddMode'));
+			if (document.getElementById('SkillAlloSimu_AddMode_0').style.display != 'none')
+			{
+				Update_SkillAlloSimu_STList(document.getElementById('SkillAlloSimu_AddMode_0'));
+			}
+			else {
+				Update_SkillAlloSimu_STList(document.getElementById('SkillAlloSimu_AddMode_1'));
+			}
 		}
 		
 		let T_sttno = parseInt(temp.getAttribute('data-sttno'));
 		let T_stno = parseInt(temp.getAttribute('data-stno'));
 		
-		if ( document.getElementById('SkillAlloSimu_AddMode').getAttribute('data-modeno') == "1" )
+		if ( document.getElementById('SkillAlloSimu_AddMode_1').style.display != 'none' )
 		{	//移除技能樹模式
 			SkillAlloSimu_removeSkillTree(T_sttno, T_stno);
 			return;
@@ -341,26 +347,29 @@
 	
 	/* ================================================= */
 	function SkillAlloSimu_toRemoveMode(){
-		let addMode = document.getElementById('SkillAlloSimu_AddMode');
-		let removeMode = document.getElementById('SkillAlloSimu_RemoveMode');
+		let addMode_0 = document.getElementById('SkillAlloSimu_AddMode_0');
+		let addMode_1 = document.getElementById('SkillAlloSimu_AddMode_1');
+		let removeMode = document.getElementById('SkillAlloSimu_RemoveMode_btn');
 		
-		if ( addMode.className.includes('Cur') )
+		if ( addMode_0.className.includes('Cur') )
 		{
-			Update_SkillAlloSimu_STList(addMode);
+			Update_SkillAlloSimu_STList(addMode_0);
+		}
+		if ( addMode_1.className.includes('Cur') )
+		{
+			Update_SkillAlloSimu_STList(addMode_1);
 		}
 		
-		if ( addMode.getAttribute('data-modeno') == "0" )
+		if ( addMode_0.style.display != 'none' )
 		{
-			addMode.innerHTML = "移除技能樹";
-			addMode.setAttribute('data-modeno', "1");
-			addMode.className = "ATool_Btn_1_1";
+			addMode_0.style.display = 'none';
+			addMode_1.style.display = 'block';
 			//removeMode.innerHTML = '新增技能樹模式';
 			removeMode.className = "ATool_Btn_5_Cur";
 		}
 		else {
-			addMode.innerHTML = "新增技能樹";
-			addMode.setAttribute('data-modeno', "0");
-			addMode.className = "ATool_Btn_1";
+			addMode_0.style.display = 'block';
+			addMode_1.style.display = 'none';
 			//removeMode.innerHTML = '移除技能樹模式';
 			removeMode.className = "ATool_Btn_5";
 		}  
@@ -494,6 +503,44 @@
 					Ttext += '\r\n';
 				}
 				break;
+			case 1:
+				for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+				{
+					Ttext += '~ ' + all_skilltree_type[i].STt_name + '\r\n';
+					for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+					{
+						let T_ST = all_skilltree_type[i].STt_skilltree[j];
+						let notEmpty = true;
+						if (document.getElementById('SkillAlloSimu_BuildText_ignoreEmpty').checked)
+						{
+							notEmpty = false;
+							for (let k=0; k<T_ST.ST_skill.length; ++k)
+							{
+								if (T_ST.ST_skill[k].Sk_lv != 0)
+								{
+									notEmpty = true;
+									break;
+								}
+							}
+						}
+						if ( T_ST.ST_beSel && notEmpty)
+						{
+							Ttext += '  - ' + T_ST.ST_name + '：';
+							let T_ary = [];
+							for (let k=0; k<T_ST.ST_skill.length; ++k)
+							{
+								
+								if (T_ST.ST_skill[k].Sk_lv != 0)
+								{
+									T_ary.push(T_ST.ST_skill[k].Sk_name + "Lv." + T_ST.ST_skill[k].Sk_lv);
+								}
+							}
+							Ttext += T_ary.join('、') + '。\r\n';
+						}
+					}
+					Ttext += '\r\n';
+				}
+				break;
 		}
 		document.getElementById('SkillAlloSimu_BuildText_textarea').value = Ttext + "\r\n(Copy from Cy's Grimoire)";
 	}
@@ -509,32 +556,25 @@
 		let T_code = '';
 		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
 		{
-			T_code += '[';
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
-				T_code += '[';
 				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 				{
-					T_code += all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv;
-					if (k != all_skilltree_type[i].STt_skilltree[j].ST_skill.length - 1)
+					switch (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv)
 					{
-						T_code += ',';
+						case 0: T_code += "C"; break;
+						case 1: T_code += "Y"; break;
+						case 2: T_code += "S"; break;
+						case 3: T_code += "G"; break;
+						case 4: T_code += "R"; break;
+						case 5: T_code += "I"; break;
+						case 6: T_code += "M"; break;
+						case 7: T_code += "O"; break;
+						case 8: T_code += "A"; break;
+						case 9: T_code += "R"; break;
+						case 10: T_code += "E"; break;
 					}
 				}
-				if (j != all_skilltree_type[i].STt_skilltree.length - 1)
-				{
-					T_code += '],';
-				}
-				else {
-					T_code += ']';
-				}
-			}
-			if (i != all_skilltree_type.length - HiddenEgg_controlNo - 1)
-			{
-				T_code += '],';
-			}
-			else {
-				T_code += ']';
 			}
 		}
 		document.getElementById('SkillAlloSimu_SaveCode_text').value = T_code;
@@ -544,7 +584,46 @@
 		//初始化
 		SkillAlloSimu_ResetAll();
 		
-		let codeAry = eval( '[' + document.getElementById('SkillAlloSimu_SaveCode_text').value + ']' );
+		let codeAry = [];
+		let Tstr = document.getElementById('SkillAlloSimu_SaveCode_text').value;
+		if ( Tstr.includes('[') )
+		{
+			codeAry = eval( '[' + document.getElementById('SkillAlloSimu_SaveCode_text').value + ']' );
+		}
+		else {
+			let strCnt = 0;
+			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+			{
+				codeAry.push([]);
+				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				{
+					codeAry[i].push([]);
+					for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+					{
+						let T = '';
+						switch ( Tstr.charAt(strCnt) )
+						{
+							case "C": T += 0; break;
+							case "Y": T += 1; break;
+							case "S": T += 2; break;
+							case "G": T += 3; break;
+							case "R": T += 4; break;
+							case "I": T += 5; break;
+							case "M": T += 6; break;
+							case "O": T += 7; break;
+							case "A": T += 8; break;
+							case "R": T += 9; break;
+							case "E": T += 10; break;
+							default:
+								alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom).');
+								return;
+						}
+						codeAry[i][j].push( parseInt(T) );
+						++strCnt;
+					}
+				}
+			}
+		}
 		//console.log(codeAry);
 		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
 		{
@@ -555,6 +634,7 @@
 					if ( codeAry[i][j][k] != 0 )
 					{
 						all_skilltree_type[i].STt_skilltree[j].ST_beSel = true;
+						document.getElementById(`SkillAlloSimu_STList_${i}_${j}`).className = "skillAlloSimu_STList_cur";
 						break;
 					}	
 				}

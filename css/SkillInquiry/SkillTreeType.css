@@ -27,11 +27,11 @@
 		background-color:rgb(161, 191, 179);
 	}
 	.SkillTreeType_button {
-		font-size:1.2rem;color:rgb(229, 255, 244);
-		line-height:6rem;
+		font-size:1.1rem;color:rgb(229, 255, 244);
 		text-align:center;
 		transition: 0.81s;
 		display:block;
+		line-height: 6rem;
 	}
 	
 	#SkillTreeType_Caption {

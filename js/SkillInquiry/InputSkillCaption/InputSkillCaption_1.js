@@ -69,6 +69,16 @@
 								all_SI[14].SI_value = '以凌厲攻勢連續攻擊。<br />10次一般攻擊呈現飛躍性成長。<br />十次攻擊結束後，發出強大攻擊。<br />無法重複使用。';
 								all_SI[15].SI_value = '狀態持續期間，可使普通攻擊附帶額外傷害及額外的攻擊MP恢復。';
 								break;
+							case 5:
+								all_SI[8].SI_value = '單手劍/雙手劍';
+								all_SI[9].SI_value = 600;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '狀態、瞬發';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 6:
 								all_SI[8].SI_value = '單手劍/雙手劍';
 								all_SI[9].SI_value = 200;
@@ -99,6 +109,16 @@
 								all_SI[14].SI_value = '劍之所及，暴風乃至。<br />產生龍捲風，給予持續性傷害。<br />風暴產生時，一度將四周敵人捲入。';
 								all_SI[15].SI_value = '總傷害高的範圍傷害技能，施放動作時間較久。';
 								break;
+							case 9:
+								all_SI[8].SI_value = '單手劍/雙手劍';
+								all_SI[9].SI_value = 300;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '狀態、瞬發、恢復';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 10:
 								all_SI[8].SI_value = '單手劍/雙手劍(主手)';
 								all_SI[11].SI_value = '被動、加成';
@@ -124,6 +144,15 @@
 								all_SI[11].SI_value = '狀態、瞬發、加成';
 								all_SI[14].SI_value = '提高戰意的咆哮。<br />增加ATK一段時間。<br />發動時，解除「畏懼」狀態。';
 								all_SI[15].SI_value = '可中幅提升物理攻擊力的狀態技能。裝備單手劍時持續時間大幅增加；裝備雙手劍時增加的攻擊力上升。';
+								break;
+							case 14:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 300;
+								all_SI[10].SI_value = '無限制';
+								all_SI[11].SI_value = '狀態、瞬發、加成、效果';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
 								break;
 						}
 						break;
@@ -170,6 +199,16 @@
 								all_SI[14].SI_value = '朝天空施放大量的箭。<br />每隔一定時間便落下箭雨。<br />給予敵人傷害。';
 								all_SI[15].SI_value = '可以遠距離施放的設置型範圍技能。裝備弓時的施放動作時間較長、作用次數較多。';
 								break;
+							case 5:
+								all_SI[8].SI_value = '弓/弩';
+								all_SI[9].SI_value = 400;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、瞬發、二段';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 6:
 								all_SI[8].SI_value = '弓/弩';
 								all_SI[9].SI_value = 100;
@@ -200,6 +239,16 @@
 								all_SI[14].SI_value = '夾帶麻痺毒性的攻擊。<br />一定機率使敵人「麻痺」。<br />技能發動成功後，一段時間內增加自身命中率。';
 								all_SI[15].SI_value = 'MP消耗高、傷害偏低、附帶獨有的盲目效果。技能命中後，能於短時間內提升自身命中。';
 								break;
+							case 9:
+								all_SI[8].SI_value = '弓/弩';
+								all_SI[9].SI_value = 700;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、瞬發';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 10:
 								all_SI[8].SI_value = '弓/弩(主手)';
 								all_SI[11].SI_value = '被動、加成';
@@ -209,7 +258,8 @@
 							case 11:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 400;
-								all_SI[11].SI_value = '狀態、瞬發';
+								all_SI[11].SI_value = '狀態、瞬發、效果';
+								all_SI[13].SI_value = '可以';
 								all_SI[14].SI_value = '隱身暗處，引開敵人注意。<br />發動後，遭受一定次數的攻擊時，<br />不會累積恨意值。';
 								all_SI[15].SI_value = '狀態持續期間，能讓施放的技能不會產生任何仇恨值。';
 								break;
@@ -224,6 +274,14 @@
 								all_SI[11].SI_value = '被動、效果';
 								all_SI[14].SI_value = '找尋空檔，蓄勢待發。<br />任一種技能成功攻擊敵人後，<br />一定機率回覆少量MP。';
 								all_SI[15].SI_value = '實際有消耗MP的技能施放完畢後，有機率恢復一定MP。';
+								break;
+							case 14:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 400;
+								all_SI[11].SI_value = '狀態、瞬發、效果';
+								all_SI[13].SI_value = '?';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
 								break;
 						}
 						break;
@@ -270,6 +328,16 @@
 								all_SI[14].SI_value = '產生魔法衝擊波，攻擊四週敵人。<br />下一個招式的消耗MP減半。<br />連續使用時，此技能威力將減弱。';
 								all_SI[15].SI_value = '能範圍造成翻覆狀態的技能。能夠使下一招技能的MP消耗減半。技能等級7以上時，此技能無詠唱時間。裝備魔導具時，傷害將大幅增加。';
 								break;
+							case 5:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 1600;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、須詠唱';
+								all_SI[12].SI_value = '魔法傷害/魔法慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 6:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 200;
@@ -300,6 +368,16 @@
 								all_SI[14].SI_value = '以魔法產生龍捲風。<br />給予傷害的同時，將敵人捲入中心。<br />有時無法移動強敵。';
 								all_SI[15].SI_value = '總傷害十分高、詠唱時間短的設置型範圍技能。';
 								break;
+							case 9:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 500;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、須詠唱';
+								all_SI[12].SI_value = '魔法傷害/魔法慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 10:
 								all_SI[8].SI_value = '法杖/魔導具(主手)';
 								all_SI[11].SI_value = '被動、加成';
@@ -310,6 +388,7 @@
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = '無消耗';
 								all_SI[11].SI_value = '恢復、須蓄力';
+								all_SI[13].SI_value = '可以';
 								all_SI[14].SI_value = '積蓄魔力，回復MP。<br />升級可縮短蓄力時間。';
 								all_SI[15].SI_value = '蓄力一段時間後，回復大量MP。裝備法杖或魔導具時，其蓄力時間將大幅降低。';
 								break;
@@ -326,6 +405,14 @@
 								all_SI[12].SI_value = '物理傷害/普通攻擊慣性。<p>(射程與傷害/慣性皆用於表示<u>魔法彈</u>。)';
 								all_SI[14].SI_value = '一般攻擊無法打中敵人時，則放出魔法彈攻擊敵人。<br />可於5M內的距離使用此攻擊，技能等級提昇後，<br />最遠射程可達10M。<br />此為一般攻擊，命中時可回復MP。';
 								all_SI[15].SI_value = '學習之後可改變(並非增加)自身普通攻擊的距離。雖然於原本的普攻距離之外攻擊敵人時，傷害會降低，但依然可用作攻擊MP恢復及疊加慣性。';
+								break;
+							case 14:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 300;
+								all_SI[11].SI_value = '恢復、須蓄力';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
 								break;
 						}
 						break;
@@ -372,6 +459,16 @@
 								all_SI[14].SI_value = '超強力痛擊。<br />一定機率使敵人「乏力」。<br />敵人處於降防状態時則產生追加攻擊。';
 								all_SI[15].SI_value = '可造成乏力狀態的通用技能，MP消耗高。施放時若目標處於降防時，將能造成高傷害的追加攻擊。動作時間長、傷害集中在追加傷害。';
 								break;	
+							case 5:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 500;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、瞬發';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;	
 							case 6:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 100;
@@ -402,6 +499,16 @@
 								all_SI[14].SI_value = '迅速發出三段攻擊。<br />有更高的暴擊率。';
 								all_SI[15].SI_value = '傷害高、速度不慢、具有高爆擊率的技能。未裝備拳套時，傷害和曓擊率加成將大幅減少。';
 								break;
+							case 9:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 400;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、瞬發、狀態、加成';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;	
 							case 10:
 								all_SI[8].SI_value = '拳套(主手)';
 								all_SI[11].SI_value = '被動、加成';
@@ -414,6 +521,15 @@
 								all_SI[14].SI_value = '對拳套瞭解地更透徹，實力再度提升。<br />裝備拳套時的攻擊速度增加，<br />並稍微提升格鬥技能的威力。';
 								all_SI[15].SI_value = '學習後可增加<u>格鬥技能</u>中所有主動技能的威力。主手裝備拳套時，可同時提升攻擊速度。';
 								break;
+							case 12:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 200;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '狀態、瞬發、效果、恢復';
+								all_SI[13].SI_value = '?';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;	
 							case 13:
 								all_SI[8].SI_value = '拳套';
 								all_SI[11].SI_value = '被動、效果/加成';
@@ -571,6 +687,16 @@
 								all_SI[14].SI_value = '斧槍的猛力攻擊下，連大地都碎裂。<br />發動技能後，<br />一段時間後在攻擊地點發生大爆炸，<br />造成追加傷害。';
 								all_SI[15].SI_value = '施放完畢後數秒，原地將會自動發出範圍極大的第二段傷害。為有兩段範圍傷害的高傷害技能。';
 								break;
+							case 5:
+								all_SI[8].SI_value = '旋風槍';
+								all_SI[9].SI_value = 500;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、瞬發';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 6:
 								all_SI[8].SI_value = '單手劍/旋風槍';
 								all_SI[9].SI_value = 100;
@@ -590,6 +716,15 @@
 								all_SI[13].SI_value = '可以';
 								all_SI[14].SI_value = '迅速發動的強力攻擊。<br />敵人處於異常狀態時，威力大幅增加。<br />難以產生暴擊。';
 								all_SI[15].SI_value = '低耗魔、速度快的技能。在敵人受到異常狀態影響時傷害將大幅增加。裝備旋風槍時，增加幅度更大。';
+								break;
+							case 8:
+								all_SI[8].SI_value = '旋風槍';
+								all_SI[9].SI_value = 400;
+								all_SI[10].SI_value = '無限制';
+								all_SI[11].SI_value = '狀態、瞬發、效果';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
 								break;
 							case 9:
 								all_SI[8].SI_value = '單手劍/旋風槍';
@@ -632,6 +767,15 @@
 								all_SI[14].SI_value = '被逼到絕境而大爆發。<br />回復少量MP。<br />當下HP越少，回復量越多。';
 								all_SI[15].SI_value = '可恢復MP的主動技能。隨著當前生命百分比越低，MP恢復量將大幅提升。';
 								break;
+							case 14:
+								all_SI[8].SI_value = '旋風槍';
+								all_SI[9].SI_value = 100;
+								all_SI[10].SI_value = '無限制';
+								all_SI[11].SI_value = '狀態、瞬發、加成';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 						}
 						break;
 					case 6:
@@ -671,6 +815,26 @@
 								all_SI[8].SI_value = '拔刀劍';
 								all_SI[9].SI_value = 500;
 								all_SI[10].SI_value = 2;
+								all_SI[11].SI_value = '傷害、瞬發';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
+							case 5:
+								all_SI[8].SI_value = '拔刀劍';
+								all_SI[9].SI_value = 300;
+								all_SI[10].SI_value = '?';
+								all_SI[11].SI_value = '傷害、瞬發、狀態、效果';
+								all_SI[12].SI_value = '物理傷害/物理慣性。';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
+							case 6:
+								all_SI[8].SI_value = '拔刀劍';
+								all_SI[9].SI_value = 500;
+								all_SI[10].SI_value = '?';
 								all_SI[11].SI_value = '傷害、瞬發';
 								all_SI[12].SI_value = '物理傷害/物理慣性。';
 								all_SI[13].SI_value = '可以';
@@ -729,6 +893,15 @@
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 200;
 								all_SI[11].SI_value = '狀態、加成';
+								all_SI[13].SI_value = '可以';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
+							case 14:
+								all_SI[8].SI_value = '?';
+								all_SI[9].SI_value = 200;
+								all_SI[11].SI_value = '狀態、加成、效果';
+								all_SI[13].SI_value = '可以';
 								all_SI[14].SI_value = '';
 								all_SI[15].SI_value = '';
 								break;
@@ -1203,6 +1376,15 @@
 								all_SI[14].SI_value = '產生守護聖域，保護夥伴。<br />待在聖域裡可減輕損傷。減輕程度受各角色HP上限影響。<br />高強度傷害將貫穿聖域，無視減輕效果。';
 								all_SI[15].SI_value = '施放後將會於原地產生一個區域，在區域內的友方將大幅減少受到的傷害。一角色受到的傷害超過該角色HP上限一定比例時，該傷害將不會被減少。';
 								break;
+							case 5:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 300;
+								all_SI[10].SI_value = '無限制';
+								all_SI[11].SI_value = '效果、瞬發、恢復';
+								all_SI[13].SI_value = '?';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
+								break;
 							case 6:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 300;
@@ -1228,6 +1410,15 @@
 								all_SI[13].SI_value = '無法';
 								all_SI[14].SI_value = '產生能縮短蓄力、詠唱時間的區域。<br />使用後MP回復能力降低。遭受攻擊後即失去效果。';
 								all_SI[15].SI_value = '此技能目前資料不足。施放後將會產生一光環。光環內友方施放技能的詠唱時間及蓄力時間將會減少。持續時間極長，期間內自身MP自然恢復將會降低，受到任意大於等於1的傷害時，此光環即消失。';
+								break;
+							case 9:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 600;
+								all_SI[10].SI_value = '無限制';
+								all_SI[11].SI_value = '狀態、瞬發、光環';
+								all_SI[13].SI_value = '無法';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
 								break;
 							case 10:
 								all_SI[8].SI_value = '無限制';
@@ -1255,6 +1446,15 @@
 								all_SI[13].SI_value = '無法';
 								all_SI[14].SI_value = '產生能抵抗異常狀態的區域。<br />使用後攻擊速度降低。遭受攻擊後即失去效果。';
 								all_SI[15].SI_value = '此技能目前資料不足。施放後將會產生一光環。在光環內的友方將會提升異常抗性。持續時間極長，期間內自身攻擊速度將會降低，受到任意大於等於1的傷害時，此狀態即消失。';
+								break;
+							case 13:
+								all_SI[8].SI_value = '無限制';
+								all_SI[9].SI_value = 600;
+								all_SI[10].SI_value = '無限制';
+								all_SI[11].SI_value = '狀態、瞬發、光環';
+								all_SI[13].SI_value = '無法';
+								all_SI[14].SI_value = '';
+								all_SI[15].SI_value = '';
 								break;
 						}
 						break;

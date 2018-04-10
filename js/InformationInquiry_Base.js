@@ -27,6 +27,7 @@
 	//===========================================================//
 	
 	function Build_TextButton_1(Tstring){
+		Tstring = Tstring || "";
 		for (let i=0; i<TextButton_List.length; ++i)
 		{
 			Tstring = replaceAll(Tstring, ('_@' + TextButton_List[i]),`<u><a onclick="TextButton_Click(this)" data-textbtnno="${i}">${TextButton_List[i]}</a></u>`);

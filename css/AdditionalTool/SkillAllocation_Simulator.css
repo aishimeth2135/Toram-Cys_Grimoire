@@ -52,6 +52,7 @@
 		font-size:0.95rem;
 		color:#EEE;
 		margin-top:0.5rem;
+		max-width: 100%;
 	}
 	
 	#SkillAlloSimu_main td {
@@ -78,10 +79,12 @@
 		max-width:100%;
 		min-width:100%;
 		width:100%;
+		height: 15rem;
 		padding:0.2rem;
 		font-family:Microsoft JhengHei, sans-serif;
 		font-size:0.85rem;
 		margin-bottom:0.3rem;
+		background-color: #EEE;
 	}
 	
 	#SkillAlloSimu_SaveCode_text {

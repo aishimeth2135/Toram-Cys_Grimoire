@@ -102,9 +102,9 @@
 	
 	InputGainToSkill('魔力充填', 0, 5, 50, '魔導具','','');
 	
-	InputGainToSkill('(被動)強射', 1, 10, 2, '法杖','','');
-	InputGainToSkill('(被動)強射', 1, 3, 40, '法杖','','');
-	InputGainToSkill('(被動)強射', 1, 3, 70, '魔導具','','');
+	InputGainToSkill('強射', 1, 10, 2, '法杖','','');
+	InputGainToSkill('強射', 1, 3, 40, '法杖','','');
+	InputGainToSkill('強射', 1, 3, 70, '魔導具','','');
 	
 	//格鬥
 	InputGainToSkill('重擊', 0, 10, 1,  '拳套', '拳套', '');
@@ -176,9 +176,9 @@
 	
 	//拔刀劍
 
-	InputGainToSkill('(被動)武士道', 0, 6, '並可精進對拔刀劍的熟練度。', '拔刀劍', '', '');
+	InputGainToSkill('武士道', 0, 6, '並可精進對拔刀劍的熟練度。', '拔刀劍', '', '');
 	
-	InputGainToSkill('(被動)雙手合持', 0, 27, '主手裝備拔刀劍時，將獲得心眼效果。', '拔刀劍', '', '');
+	InputGainToSkill('雙手合持', 0, 27, '主手裝備拔刀劍時，將獲得心眼效果。', '拔刀劍', '', '');
 	
 	InputGainToSkill('明鏡止水', 0, 5, 25, '拔刀劍', '', '');
 	

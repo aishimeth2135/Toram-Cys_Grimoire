@@ -111,7 +111,7 @@
 										all_SI[16].SI_value = '效果狀態';
 										all_SI[27].SI_value = '持續時間為無限。在發動二連閃擊或受到異常狀態後，此狀態結束。';
 										break;
-									case 2:
+									case 1:
 										all_SI[5].SI_name = '普通攻擊之傷害提升';
 										all_SI[5].SI_value = input_SI_value_bySelection(WeapType_Cur,['單手劍'],[10 + 9*Lv_skill, 10 + 4*Lv_skill]);
 										all_SI[5].SI_unit = '%。';
@@ -122,7 +122,7 @@
 										all_SI[17].SI_value = '同普通攻擊';
 										all_SI[20].SI_value = 1;
 										break;
-									case 3:
+									case 2:
 										all_SI[0].SI_value = '每次傷害：(共用判定)';
 										all_SI[1].SI_value = '有效Atk';
 										all_SI[2].SI_value = 300 + 20*Lv_skill;
@@ -130,7 +130,7 @@
 										all_SI[16].SI_value = '追加傷害';
 										all_SI[20].SI_value = 2;
 										break;
-									case 4:
+									case 3:
 										all_SI[0].SI_value = '傷害：';
 										all_SI[1].SI_value = '有效Atk';
 										all_SI[2].SI_value = 300 + 20*Lv_skill;
@@ -140,6 +140,13 @@
 										break;
 								}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 6:
 								switch (No_Branch)
 								{
@@ -228,6 +235,13 @@
 										break;
 								}
 								break;
+							case 9:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 10:
 								switch (No_Branch)
 								{
@@ -281,6 +295,13 @@
 										break;
 								}
 								break;
+							case 14:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							}
 						break;
 					case 1:
@@ -366,6 +387,13 @@
 										break;
 								}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 6:
 								switch (No_Branch)
 								{
@@ -422,6 +450,13 @@
 										break;
 								}
 								break;
+							case 9:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 10:
 								switch (No_Branch)
 								{
@@ -472,6 +507,13 @@
 										break;
 								}
 								break;
+							case 14:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 						}
 						break;						
 					case 2:
@@ -575,6 +617,13 @@
 										break;
 								}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 6:
 								switch (No_Branch)
 								{
@@ -637,6 +686,13 @@
 										break;
 								}
 								break;
+							case 9:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 10:
 								switch (No_Branch)
 								{
@@ -698,6 +754,13 @@
 										break;
 								}
 								break;
+							case 14:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							}
 							break;
 						case 3:
@@ -785,6 +848,13 @@
 										break;
 								}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 6:
 								switch (No_Branch)
 								{
@@ -840,6 +910,13 @@
 										break;
 								}
 								break;
+							case 9:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 10:
 								switch (No_Branch)
 								{
@@ -872,6 +949,13 @@
 										break;
 								}
 								break;
+							case 12:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 13:
 								switch (No_Branch)
 								{
@@ -1273,6 +1357,13 @@
 										break;
 									}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 6:
 								switch (No_Branch)
 								{
@@ -1330,6 +1421,13 @@
 										break;
 								}
 								break;
+							case 8:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 9:
 								switch (No_Branch)
 								{
@@ -1426,6 +1524,13 @@
 										break;
 								}
 								break;
+							case 14:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 						}
 						break;
 					case 6:
@@ -1540,6 +1645,20 @@
 										break;
 								}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
+							case 6:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 7:
 								switch (No_Branch)
 								{
@@ -1716,6 +1835,13 @@
 										break;
 								}
 								break;
+							case 14:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 						}
 				}
 				break;
@@ -2568,11 +2694,12 @@
 									case 0:
 										all_SI[5].SI_value = '使用後可解除目標身上最多2個異常狀態。最先受到的異常狀態會最先被解除。';
 										all_SI[6].SI_name = '並可獲得持續';
-										all_SI[6].SI_value = (Lv_skill-5)*Math.max(Lv_skill-5,0);
-										all_SI[6].SI_unit = '秒的預防效果。預防效果可抵擋所有控制技能以外的效果。';
+										all_SI[6].SI_value = 10 + 2*Lv_skill;
+										all_SI[6].SI_unit = '秒的預防效果。預防效果可抵擋所有控制狀態以外的異常狀態。';
 										all_SI[16].SI_value = '單體友方效果';
 										all_SI[17].SI_value = '快';
 										all_SI[21].SI_value = 1;
+										all_SI[27].SI_value = '成功解除或預防異常狀態時，施術者恢復100MP。';
 										break;
 								}
 								break;
@@ -2594,6 +2721,13 @@
 										break;
 								}
 								break;
+							case 5:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 6:
 								switch (No_Branch)
 								{
@@ -2647,6 +2781,13 @@
 										break;
 								}
 								break;
+							case 9:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 							case 10:
 								switch (No_Branch)
 								{
@@ -2706,6 +2847,13 @@
 										break;
 								}
 								break;
+							case 13:
+								switch (No_Branch)
+								{
+									case 0:
+										all_SI[5].SI_value = '(靜待更新)';
+										break;
+								}
 						}
 						break;
 					case 2:

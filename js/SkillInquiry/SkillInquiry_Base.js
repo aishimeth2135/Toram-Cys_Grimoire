@@ -108,7 +108,7 @@
 			{
 				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 				{
-					if (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_name == SName)
+					if ( all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_name.includes(SName) )
 					{
 						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_Gain.push(new SkillItem_Gain(SBranch, SINo, InputValue, W_type, Au_Type, B_Type));
 					}
