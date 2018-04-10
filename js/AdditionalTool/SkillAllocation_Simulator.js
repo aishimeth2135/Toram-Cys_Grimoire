@@ -586,41 +586,36 @@
 		
 		let codeAry = [];
 		let Tstr = document.getElementById('SkillAlloSimu_SaveCode_text').value;
-		if ( Tstr.includes('[') )
+		
+		let strCnt = 0;
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
 		{
-			codeAry = eval( '[' + document.getElementById('SkillAlloSimu_SaveCode_text').value + ']' );
-		}
-		else {
-			let strCnt = 0;
-			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+			codeAry.push([]);
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
-				codeAry.push([]);
-				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				codeAry[i].push([]);
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 				{
-					codeAry[i].push([]);
-					for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+					let T = '';
+					switch ( Tstr.charAt(strCnt) )
 					{
-						let T = '';
-						switch ( Tstr.charAt(strCnt) )
-						{
-							case "C": T += 0; break;
-							case "Y": T += 1; break;
-							case "S": T += 2; break;
-							case "G": T += 3; break;
-							case "R": T += 4; break;
-							case "I": T += 5; break;
-							case "M": T += 6; break;
-							case "O": T += 7; break;
-							case "A": T += 8; break;
-							case "R": T += 9; break;
-							case "E": T += 10; break;
-							default:
-								alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom).');
-								return;
-						}
-						codeAry[i][j].push( parseInt(T) );
-						++strCnt;
+						case "C": T += 0; break;
+						case "Y": T += 1; break;
+						case "S": T += 2; break;
+						case "G": T += 3; break;
+						case "R": T += 4; break;
+						case "I": T += 5; break;
+						case "M": T += 6; break;
+						case "O": T += 7; break;
+						case "A": T += 8; break;
+						case "R": T += 9; break;
+						case "E": T += 10; break;
+						default:
+							alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom).');
+							return;
 					}
+					codeAry[i][j].push( parseInt(T) );
+					++strCnt;
 				}
 			}
 		}

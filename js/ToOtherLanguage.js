@@ -1,5 +1,5 @@
 	
-	var languageNo_cur = 1;
+	var languageNo_cur = -1;
 	function selectLanguage(temp){
 		let T_langno = parseInt(temp.getAttribute("data-langno"));
 		/* 	0: English
@@ -63,7 +63,7 @@
 				ATool_SkillAlloSimu_ary = [
 					'New', 'Remove', "Please use the menu located on the bottom of this page to operate this Simulation System.<br />Click the '...'(Dot Button) at top-right-handed corner of this page to access advance functions.",
 					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
-					'Close this menu after selected any button.', 'Close this menu after selected any skill tree.',
+					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
 					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', '- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
 					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code. You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- Our site does not have save function, please keep the generated code carefully, feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
@@ -103,7 +103,7 @@
 				ATool_SkillAlloSimu_ary = [
 					'新增技能樹  ', '移除技能樹', "請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。",
 					'移除技能樹模式', '全部重設', '清除空的技能樹', '產生文本', '存檔系統',
-					'選取按鈕後關閉此選單', '選取任意技能樹後關閉清單',
+					'選取按鈕後關閉此選單', '選取任意技能樹後關閉技能樹清單',
 					'基本格式-1', '基本格式-2', '產生時忽略空的技能樹', '- 可將點好的技能依照選定格式自動產生一段文字。 <br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。',
 					'產生代碼', '讀取代碼', "- 按下「產生代碼」後，會將當前點好的技能變成一段代碼。下次進入此網頁時可將代碼複製貼上至輸入欄，按下「讀取代碼」後便可讀取出之前點好的技能。<br />- 本網站沒有儲存功能，產生的代碼請自行保留，亦可分享給其它人。（一段代碼任何人皆可使用）"
 				];
@@ -145,7 +145,7 @@
 				ATool_SkillAlloSimu_ary = [
 					'New', 'Remove', "Please use the menu located on the bottom of this page to operate this Simulation System.<br />Click the '...'(Dot Button) at top-right-handed corner of this page to access advance functions.",
 					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
-					'Close this menu after selected any button.', 'Close this menu after selected any skill tree.',
+					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
 					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', '- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
 					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code.You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- Our site does not have save function, please keep the generated code carefully, feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
@@ -204,8 +204,10 @@
 			document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked = Tc;
 			document.getElementById('SkillAlloSimu_SaveCode_text').value = T_code;
 		})();
-		
-		document.getElementById('selLang_' + String(languageNo_cur)).className = '';
+		if (languageNo_cur != -1)
+		{
+			document.getElementById('selLang_' + String(languageNo_cur)).className = '';
+		}
 		languageNo_cur = T_langno;
 		document.getElementById('selLang_' + String(languageNo_cur)).className = 'languageList_Cur';
 	}

@@ -47,11 +47,12 @@
 	/* ======================================================= */
 	
 	#SkillAlloSimu_main table {
-		background-color:rgb(178, 178, 136);
+		background-color:rgba(255, 255, 194, 0.7);
 		box-shadow:inset 0rem 0rem 1.5rem rgb(255, 255, 224);
 		font-size:0.95rem;
 		color:#EEE;
 		margin-top:0.5rem;
+		max-width: 100%;
 	}
 	
 	#SkillAlloSimu_main td {
@@ -60,9 +61,13 @@
 		border-style:solid;
 		border-color:transparent transparent #FFF transparent;
 		text-align:center;
+		width:8rem;
 		transition: 0.8s;
 	}
 	
+	#SkillAlloSimu_main td>span {
+		display:inline-block;
+	}
 	
 	#SkillAlloSimu_skillLvSum {
 		font-size:1.1rem;
