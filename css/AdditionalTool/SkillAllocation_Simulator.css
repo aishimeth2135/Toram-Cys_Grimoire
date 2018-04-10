@@ -47,12 +47,11 @@
 	/* ======================================================= */
 	
 	#SkillAlloSimu_main table {
-		background-color:rgba(255, 255, 194, 0.7);
+		background-color:rgba(178, 178, 194, 136);
 		box-shadow:inset 0rem 0rem 1.5rem rgb(255, 255, 224);
 		font-size:0.95rem;
 		color:#EEE;
 		margin-top:0.5rem;
-		max-width: 100%;
 	}
 	
 	#SkillAlloSimu_main td {
