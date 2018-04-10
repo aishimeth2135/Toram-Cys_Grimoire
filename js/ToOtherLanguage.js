@@ -109,7 +109,7 @@
 				];
 				break;
 			case 2:
-				HeaderMenu_list = ['Skills Information', 'Game Mechanics', 'Website Version', 'WEBツール'];
+				HeaderMenu_list = ['スキルインフォ', 'ゲーム関連資料', 'サイト更新履歴', 'WEBツール'];
 				Section_4_Menu_List = ['スキルシミュレーター'];
 				skillTreeTypeNameAry = ['武器スキル', '強化スキル', '補助スキル']; //スキル
 				skillTreeNameAry = [
