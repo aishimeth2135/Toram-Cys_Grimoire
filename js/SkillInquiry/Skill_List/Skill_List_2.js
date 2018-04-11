@@ -31,8 +31,8 @@
 		new the_skill(6, 	'生命能源', 	0),
 		new the_skill(7, 	'勇氣泉源', 	6),
 		new the_skill(8, 	'高速詠域', 	7),
-		new the_skill(9, 	'魔力能源', 		8),
-		new the_skill(10, 	'高速行動', 	0),
+		new the_skill(9, 	'高速行動', 	8),
+		new the_skill(10, 	'魔力能源', 	0),
 		new the_skill(11, 	'魔法防護', 	10),
 		new the_skill(12, 	'異常防護', 	11),
 		new the_skill(13, 	'神速反應', 	12));

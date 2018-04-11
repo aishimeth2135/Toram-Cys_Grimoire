@@ -91,7 +91,7 @@
 										all_SI[27].SI_name = '裝備單手劍時，';
 										all_SI[27].SI_value = '';
 										all_SI[27].SI_unit = '。<br />';
-										all_SI[28].SI_value = '若技能未被迴避，將獲得力量灌注狀態，強化下一招技能。';
+										all_SI[28].SI_value = '若技能未被迴避，將獲得_&1_狀態，強化下一招技能。';
 										break;
 									case 1:
 										all_SI[5].SI_name = '攻擊MP恢復+';
@@ -107,9 +107,9 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '狀態作用期間，固定次數內的普通攻擊獲得額外效果。<br />前10次普通攻擊轉為強化攻擊；第11次普通攻擊將附帶二連閃擊及劍光一閃。';
+										all_SI[5].SI_value = '狀態作用期間，固定次數內的普通攻擊獲得額外效果。<br />前10次普通攻擊轉為_&1_；第11次普通攻擊將附帶_&2_及_&3_。';
 										all_SI[16].SI_value = '效果狀態';
-										all_SI[27].SI_value = '持續時間為無限。在發動二連閃擊或受到異常狀態後，此狀態結束。';
+										all_SI[27].SI_value = '持續時間為無限。在發動_&2_或受到異常狀態後，此狀態結束。';
 										break;
 									case 1:
 										all_SI[5].SI_name = '普通攻擊之傷害提升';
@@ -147,6 +147,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -163,13 +164,13 @@
 										all_SI[27].SI_name = '此技能之暴擊率+';
 										all_SI[27].SI_value = input_SI_value_bySelection(WeapType_Cur,['單手劍'],[10*Lv_skill, Lv_skill]);
 										all_SI[27].SI_unit = '。';
-										all_SI[28].SI_value = '施放時將會迅速衝刺至敵人身旁，並對路徑上的所有敵人造成傷害。<br />施放完成後，獲得蓄勢待發狀態。';
+										all_SI[28].SI_value = '施放時將會迅速衝刺至敵人身旁，並對路徑上的所有敵人造成傷害。<br />施放完成後，獲得_&1_狀態。';
 										break;
 									case 1:
-										all_SI[5].SI_value = '狀態期間若施放「音速斬切」，該「音速斬切」將會轉為「超音速斬切」(強化效果)，並使此狀態結束。';
+										all_SI[5].SI_value = '狀態期間若施放「音速斬切」，該「音速斬切」將會轉為「超音速斬切」(_&2_)，並使此狀態結束。';
 										all_SI[16].SI_value = '效果狀態';
 										all_SI[24].SI_value = 5;
-										all_SI[27].SI_value = '無論施放「音速斬切」還是「超音速斬切」，都會獲得蓄勢待發效果。也就是說，如果時間控制得宜，「超音速斬切」是可以連續施放的。';
+										all_SI[27].SI_value = '無論施放「音速斬切」還是「超音速斬切」，都會獲得_&1_效果。也就是說，如果時間控制得宜，「超音速斬切」是可以連續施放的。';
 										break;
 									case 2:
 										all_SI[0].SI_value = '傷害：';
@@ -184,7 +185,7 @@
 										all_SI[27].SI_name = '此技能之暴擊率+';
 										all_SI[27].SI_value = input_SI_value_bySelection(WeapType_Cur,['單手劍'],[10*Lv_skill,Lv_skill]);
 										all_SI[27].SI_unit = '。';
-										all_SI[28].SI_value = '施放時將會迅速衝刺至敵人身後1m處，並對路徑上的所有敵人造成傷害。<br />施放完成後，獲得蓄勢待發狀態。';
+										all_SI[28].SI_value = '施放時將會迅速衝刺至敵人身後1m處，並對路徑上的所有敵人造成傷害。<br />施放完成後，獲得_&1_狀態。';
 										break;
 								}
 								break;
@@ -211,7 +212,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '向目標發射一道刃風，刃風將在造成傷害後消失，並隨即於目標位置產生風刃氣旋。';
+										all_SI[5].SI_value = '向目標發射一道_&1_，刃風將在造成傷害後消失，並隨即於目標位置產生_&2_。';
 										all_SI[17].SI_value = '稍慢';
 										break;
 									case 1:
@@ -242,6 +243,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 10:
 								switch (No_Branch)
 								{
@@ -302,6 +304,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							}
 						break;
 					case 1:
@@ -394,6 +397,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -457,6 +461,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 10:
 								switch (No_Branch)
 								{
@@ -514,6 +519,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 						}
 						break;						
 					case 2:
@@ -590,8 +596,8 @@
 										all_SI[25].SI_value = 7*Lv_skill;
 										all_SI[26].SI_value = '_@翻覆';	
 										
-										all_SI[27].SI_value = '<br />施放完畢後，將獲得魔能調節的狀態。強化下一招技能。';
-										all_SI[28].SI_value = '<br />在魔能調節的狀態下再次施展此技能，傷害及_@翻覆機率將轉為弱化效果。';
+										all_SI[27].SI_value = '<br />施放完畢後，將獲得_&1_的狀態。強化下一招技能。';
+										all_SI[28].SI_value = '<br />若在_&1_的狀態下施放此技能，此技能的傷害及_@翻覆機率將會_&2_。';
 										break;
 									case 1:
 										all_SI[0].SI_value = '使施放的技能MP消耗減少一半。<br />減半以格數為單位，且無條件進位。如：4格變2格、3格變2格、2格變1格。';
@@ -612,8 +618,8 @@
 										all_SI[25].SI_value = '？';
 										all_SI[26].SI_value = '_@翻覆';	
 										
-										all_SI[27].SI_value = '<br />施放完畢後，將獲得魔能調節的狀態。強化下一招技能。';
-										all_SI[28].SI_value = '<br />若在魔能調節的狀態下施放此技能，此技能的傷害及_@翻覆機率將會弱化。';
+										all_SI[27].SI_value = '<br />施放完畢後，將獲得_&1_的狀態。強化下一招技能。';
+										all_SI[28].SI_value = '<br />若在_&1_的狀態下施放此技能，此技能的傷害及_@翻覆機率將會_&2_。';
 										break;
 								}
 								break;
@@ -624,6 +630,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -693,6 +700,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 10:
 								switch (No_Branch)
 								{
@@ -723,7 +731,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_name = '使施放「法術/飛箭」後，能獲得快速詠唱狀態。強化下一招技能。';
+										all_SI[5].SI_name = '使施放「法術/飛箭」後，能獲得_&1_狀態。強化下一招技能。';
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
@@ -739,7 +747,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '進行普通攻擊時，若因為距離不足而無法進行攻擊，普通攻擊將替換為魔法彈。';
+										all_SI[5].SI_value = '進行普通攻擊時，若因為距離不足而無法進行攻擊，普通攻擊將替換為_&1_。';
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
@@ -750,7 +758,7 @@
 										all_SI[17].SI_value = '同普通攻擊';
 										all_SI[20].SI_value = 1;
 										
-										all_SI[27].SI_value = '魔法彈等同於普通攻擊，會觸發所有普通攻擊會觸發的效果。包括攻擊MP恢復、慣性、乘勝追擊等。';
+										all_SI[27].SI_value = '_&1_等同於普通攻擊，會觸發所有普通攻擊會觸發的效果。包括攻擊MP恢復、慣性、乘勝追擊等。';
 										break;
 								}
 								break;
@@ -761,6 +769,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							}
 							break;
 						case 3:
@@ -834,7 +843,7 @@
 										all_SI[25].SI_value = 40 + 4*Lv_skill;
 										all_SI[26].SI_value = '_@乏力';
 
-										all_SI[27].SI_value = '<br />發動技能時若目標處於_@降防狀態，將在造成傷害時附帶精確追擊。';									
+										all_SI[27].SI_value = '<br />發動技能時若目標處於_@降防狀態，將在造成傷害時附帶_&1_。';									
 										break;
 									case 1:
 										all_SI[0].SI_value = '傷害：';
@@ -855,6 +864,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -917,6 +927,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 10:
 								switch (No_Branch)
 								{
@@ -956,6 +967,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 13:
 								switch (No_Branch)
 								{
@@ -1034,7 +1046,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '施放迴旋斬將敵人_@逼退，並在原地殘留持續數秒的風壓，對經過的敵人造成持續的傷害與_@盲目效果。';
+										all_SI[5].SI_value = '施放_&1_將敵人_@逼退，並在原地殘留持續數秒的_&2_，對經過的敵人造成持續的傷害與_@盲目效果。';
 										all_SI[17].SI_value = '稍快';
 										break;
 									case 1:
@@ -1080,8 +1092,8 @@
 										all_SI[25].SI_value = 10*Lv_skill;
 										all_SI[26].SI_value = '_@冰凍';
 
-										all_SI[27].SI_value = '<br />造成第一下傷害後，獲得幻影迷蹤效果。';
-										all_SI[28].SI_value = '<br />若對非BOSS目標施放，在施放完畢後有機率發動即死。';										
+										all_SI[27].SI_value = '<br />造成第一下傷害後，獲得_&1_效果。';
+										all_SI[28].SI_value = '<br />若對非BOSS目標施放，在施放完畢後有機率發動_&2_。';										
 										break;
 									case 1:
 										all_SI[5].SI_value = '使自身能夠閃避所有傷害及效果。';
@@ -1109,12 +1121,12 @@
 										all_SI[25].SI_value = 5*Lv_skill;
 										all_SI[26].SI_value = '_@翻覆';
 
-										all_SI[27].SI_value = '<br />施放期間處於防守架勢，可以格檔一次物理傷害。格檔成功後獲得反擊之勢。';										
+										all_SI[27].SI_value = '<br />施放期間處於_&1_，可以格檔一次物理傷害。格檔成功後獲得_&2_。';										
 										break;
 									case 1:
 										all_SI[5].SI_name = '能夠格檔一次物理傷害，使該傷害減少';
 										all_SI[5].SI_value = 5 + 7*Lv_skill;
-										all_SI[5].SI_unit = '%。<br />格檔成功後將獲得反擊之勢。';
+										all_SI[5].SI_unit = '%。<br />格檔成功後將獲得_&2_。';
 										all_SI[16].SI_value = '效果狀態';
 										all_SI[27].SI_value = '此技能施放完畢後，此狀態結束。而如果格檔成功，此狀態會立即結束。';
 										break;
@@ -1152,7 +1164,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '施放後將閃身迅速移動到目標身後，同時獲得專注效果，強化下一次技能。';
+										all_SI[5].SI_value = '施放後將閃身迅速移動到目標身後，同時獲得_&1_效果，強化下一次技能。';
 										all_SI[16].SI_value = '效果';
 										
 										all_SI[27].SI_value = '若此技能施放完畢後沒有立即施放下一個技能，將會重置普攻並發動一次拔刀斬。';	
@@ -1197,7 +1209,7 @@
 										all_SI[6].SI_name = '武器Atk+';
 										all_SI[6].SI_value = 0;
 										all_SI[6].SI_unit = '%。';
-										all_SI[7].SI_value = '使閃躲反擊被替換為二重閃光。';
+										all_SI[7].SI_value = '使閃躲反擊被替換為_&1_。';
 										all_SI[16].SI_value = '自身加成/效果狀態';
 										all_SI[24].SI_value = 20;
 
@@ -1269,7 +1281,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '對目標進行挑擊後，順勢將槍猛擲出去，貫穿目標後方的所有敵人。';		
+										all_SI[5].SI_value = '對目標進行_&1_後，順勢將槍_&2_出去，貫穿目標後方的所有敵人。';		
 										all_SI[17].SI_value = '稍快';
 										break;
 									case 1:
@@ -1296,7 +1308,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '先在原地橫掃對範圍內敵人造成小幅傷害，緊接著迴旋造成更大範圍的傷害，並使非BOSS單位被_@翻覆。';		
+										all_SI[5].SI_value = '先在原地_&1_對範圍內敵人造成小幅傷害，緊接著_&2_造成更大範圍的傷害，並使非BOSS單位被_@翻覆。';		
 										all_SI[17].SI_value = '稍慢';
 										break;
 									case 1:
@@ -1328,7 +1340,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '在原地進行潛龍一擊，造成大範圍的傷害，並在地面留下潛龍。數秒後潛龍躍出，_@逼退更大範圍內的敵人，並造成巨大傷害。';		
+										all_SI[5].SI_value = '在原地進行_&1_，造成大範圍的傷害，並在地面留下潛龍。數秒後潛龍躍出，_@逼退更大範圍內的敵人，並造成巨大傷害。';		
 										all_SI[17].SI_value = '稍慢';
 										break;
 									case 1:
@@ -1341,7 +1353,7 @@
 										all_SI[22].SI_value = '自身位置';
 										all_SI[23].SI_value = 1 + Math.floor((Lv_skill+1)/2);
 										
-										all_SI[27].SI_value = '施放完畢後會在原處留下潛龍。3秒後潛龍消失，並造成憾地震盪。';
+										all_SI[27].SI_value = '施放完畢後會在原處留下潛龍。3秒後潛龍消失，並造成_&2_。';
 										break;
 									case 2:
 										all_SI[0].SI_value = '傷害：';
@@ -1364,6 +1376,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -1402,7 +1415,7 @@
 										all_SI[27].SI_name = '此技能計算暴擊率時，基礎暴擊率';
 										all_SI[27].SI_value = -50;
 										all_SI[27].SI_unit = '%。';	
-										all_SI[28].SI_value = '施放時若目標楚於任意異常狀態，此技能轉變為強化效果。(僅提升傷害)';
+										all_SI[28].SI_value = '施放時若目標楚於任意異常狀態，此技能轉變為_&1_。(僅提升傷害)';
 										break;
 									case 1:
 										all_SI[0].SI_value = '傷害：(共用判定)';
@@ -1417,7 +1430,7 @@
 										all_SI[27].SI_name = '此技能計算暴擊率時，基礎暴擊率';
 										all_SI[27].SI_value = -50;
 										all_SI[27].SI_unit = '%。';	
-										all_SI[28].SI_value = '強化效果僅在目標受到任意異常狀態影響時發生。';
+										all_SI[28].SI_value = '_&1_僅在目標受到任意異常狀態影響時發生。';
 										break;
 								}
 								break;
@@ -1428,6 +1441,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 9:
 								switch (No_Branch)
 								{
@@ -1441,7 +1455,7 @@
 										all_SI[18].SI_value = 2;
 										all_SI[20].SI_value = 1;
 
-										all_SI[27].SI_value = '施放完畢後，獲得懲戒效果。';
+										all_SI[27].SI_value = '施放完畢後，獲得_&1_效果。';
 										break;
 									case 1:
 										all_SI[5].SI_name = '施放技能時，使該技能的暴擊率+';
@@ -1503,8 +1517,8 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '發動成功後，恢復120MP。';
-										all_SI[6].SI_value = '當前HP每減少15%，將轉為逆境效果。';
-										all_SI[7].SI_value = '當前HP低於55%時，將轉為絕境效果。';
+										all_SI[6].SI_value = '當前HP每減少15%，將轉為_&1_效果。';
+										all_SI[7].SI_value = '當前HP低於55%時，將轉為_&2_效果。';
 										all_SI[16].SI_value = '自身恢復';
 										break;
 									case 1:
@@ -1531,6 +1545,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 						}
 						break;
 					case 6:
@@ -1540,7 +1555,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '斬切敵人後將刀收合，造成兩段傷害。兩段傷害分開判定，收合具有額外的暴擊率。';		
+										all_SI[5].SI_value = '_&1_敵人後將刀_&2_，造成兩段傷害。兩段傷害分開判定，收合具有額外的暴擊率。';		
 										all_SI[17].SI_value = '稍慢';
 										break;
 									case 1:
@@ -1575,8 +1590,8 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '稍快';
 										all_SI[20].SI_value = 3;
-										all_SI[27].SI_value = '此技能會因為與對方的距離而有波動弱化。';
-										all_SI[28].SI_value = '造成傷害時，第一下傷害最低，之後的兩下會進行段數波動。';
+										all_SI[27].SI_value = '此技能會因為與對方的距離而有_&1_。';
+										all_SI[28].SI_value = '造成傷害時，第一下傷害最低，之後的兩下會進行_&2_。';
 										break;
 									case 1:
 										all_SI[5].SI_value = '距離2m以內時，造成原傷害。';
@@ -1599,7 +1614,7 @@
 										all_SI[7].SI_value = 100 + 20*Lv_skill;
 										all_SI[7].SI_unit = '%。';
 										all_SI[16].SI_value = '補充說明';
-										all_SI[27].SI_value = '段數波動。意思是三段中每段的傷害會越來越高。';
+										all_SI[27].SI_value = '_&2_。意思是三段中每段的傷害會越來越高。';
 										all_SI[28].SI_value = '<br />總傷害的部分已經把三下的傷害加起來了，這邊只是補充說明。';
 										break;
 								}
@@ -1616,7 +1631,7 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '稍慢';
 										all_SI[20].SI_value = 3;
-										all_SI[27].SI_value = '若技能未被迴避，將獲得鋒芒隱現效果，強化下一招技能。';
+										all_SI[27].SI_value = '若技能未被迴避，將獲得_&1_效果，強化下一招技能。';
 										break;
 									case 1:
 										all_SI[5].SI_name = '施放任意技能時，該技能的傷害常數提升(角色等級/';
@@ -1652,6 +1667,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -1659,6 +1675,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 7:
 								switch (No_Branch)
 								{
@@ -1689,10 +1706,10 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '極慢';
 										all_SI[20].SI_value = 1;
-										all_SI[27].SI_value = '施放期間劃出半月弧，期間內可減免一次傷害。';
+										all_SI[27].SI_value = '施放期間劃出_&1_，期間內可減免一次傷害。';
 										break;
 									case 1:
-										all_SI[5].SI_name = '受到任意傷害後，會將敵人的攻擊靜止。此技能將立即中斷，並恢復';
+										all_SI[5].SI_name = '受到任意傷害後，會將敵人的攻擊_&2_。此技能將立即中斷，並恢復';
 										all_SI[5].SI_value = 100 + 10*Lv_skill;
 										all_SI[5].SI_unit = 'MP。';
 										all_SI[16].SI_value = '狀態效果';
@@ -1717,10 +1734,10 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '慢';
 										all_SI[20].SI_value = 1;
-										all_SI[27].SI_value = '施放期間將處於絕，期間內可抵擋一次傷害。抵擋成功後將會追加斷。';
+										all_SI[27].SI_value = '施放期間將處於_&1_，期間內可抵擋一次傷害。抵擋成功後將會追加_&2_。';
 										break;
 									case 1:
-										all_SI[5].SI_value = '受到任意傷害後，該傷害將變為0。並使技能施放完畢後會追加斷。';
+										all_SI[5].SI_value = '受到任意傷害後，該傷害將變為0。並使技能施放完畢後會追加_&2_。';
 										all_SI[16].SI_value = '狀態效果';
 										all_SI[27].SI_value = '只有成功抵擋任意傷害後，才會追加斷。';
 										break;
@@ -1739,7 +1756,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '修練心法，使身體和心靈都受到強化。';
+										all_SI[5].SI_value = '修練_&1_，使身體和心靈都受到強化。';
 										all_SI[6].SI_value = '';
 										all_SI[16].SI_value = '被動加成';
 										break;
@@ -1768,7 +1785,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '學習後，以下兩種情況將會發動瞬疾移行。';
+										all_SI[5].SI_value = '學習後，以下兩種情況將會發動_&1_。';
 										all_SI[6].SI_value = '1. 進行普通攻擊時，目標在距離之外。';
 										all_SI[7].SI_value = '2. 發動拔刀劍的攻擊技能時，目標在技能的施放距離外。';
 										all_SI[16].SI_value = '被動效果';
@@ -1818,7 +1835,7 @@
 										all_SI[6].SI_name = '暴擊傷害-';
 										all_SI[6].SI_value = input_SI_value_bySelection(WeapType_Cur, ['拔刀劍'], [0, 15 - Lv_skill]);
 										all_SI[6].SI_unit = '%。';
-										all_SI[7].SI_value = '持續時間內犧牲守備。防禦力大幅降低。';
+										all_SI[7].SI_value = '持續時間內_&1_。防禦力大幅降低。';
 										all_SI[16].SI_value = '狀態加成';
 										all_SI[17].SI_value = '快';
 										all_SI[24].SI_value = 30;
@@ -1842,6 +1859,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 						}
 				}
 				break;
@@ -1947,7 +1965,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '獲得阻擋反擊的能力。';
+										all_SI[5].SI_value = '獲得_&1_的能力。';
 										all_SI[6].SI_value = '未習得此技能時，阻擋時只會暫時中斷動作並重置普通攻擊。';
 										break;
 									case 1:
@@ -2091,7 +2109,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '使用刀術技能或發動小刀的閃躲反擊時，有50%機率發動影襲。';
+										all_SI[5].SI_value = '使用刀術技能或發動小刀的閃躲反擊時，有50%機率發動_&1_。';
 										all_SI[16].SI_value = '被動效果';
 										all_SI[27].SI_value = '僅限於刀術技能或小刀的閃躲反擊才有機率發動，包括刀術技能中的所有主、被動技能。而前述以外的其他技能或攻擊皆不會發動。';
 										break;
@@ -2137,7 +2155,7 @@
 									case 0:
 										all_SI[5].SI_name = '使得副手裝備小刀時，普通攻擊有';
 										all_SI[5].SI_value = 5*Lv_skill;
-										all_SI[5].SI_unit = '%機率附加無影追襲。';
+										all_SI[5].SI_unit = '%機率附加_&1_。';
 										all_SI[16].SI_value = '被動效果';
 										all_SI[27].SI_value = '僅限於裝備小刀時的普通攻擊才有機率發動。';
 										break;
@@ -2212,7 +2230,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '施放完畢後，將獲得絕對防禦狀態。絕對防禦期間角色無法作任何動作。';
+										all_SI[5].SI_value = '施放完畢後，將獲得_&1_狀態。_&1_期間角色無法作任何動作。';
 										all_SI[16].SI_value = '效果';
 										all_SI[17].SI_value = '快';
 										break;
@@ -2335,7 +2353,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '設置一個沉睡陷阱在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
+										all_SI[5].SI_value = '設置一個_&1_在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
 										all_SI[16].SI_value = '陷阱';
 										all_SI[17].SI_value = '慢';
 										all_SI[21].SI_value = 1;
@@ -2363,7 +2381,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '設置一個絆腳陷阱在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
+										all_SI[5].SI_value = '設置一個_&1_在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
 										all_SI[16].SI_value = '陷阱';
 										all_SI[17].SI_value = '慢';
 										all_SI[21].SI_value = 1;
@@ -2391,7 +2409,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '設置一個猛爆地雷在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
+										all_SI[5].SI_value = '設置一個_&1_在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
 										all_SI[16].SI_value = '陷阱';
 										all_SI[17].SI_value = '慢';
 										all_SI[21].SI_value = 1;
@@ -2482,7 +2500,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '此技能為複合傷害，包含物理部分與魔法部分。兩部分的傷害最後會相加，並只顯示一個數字。';
+										all_SI[5].SI_value = '此技能為複合傷害，包含_&1_與_&1_。兩部分的傷害最後會相加，並只顯示一個數字。';
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '稍快';
 										all_SI[20].SI_value = 1;
@@ -2608,9 +2626,9 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '使角色在戰鬥狀態時，獲得調息效果。';
+										all_SI[5].SI_value = '使角色在戰鬥狀態時，獲得_&1_效果。';
 										all_SI[16].SI_value = '被動效果';
-										all_SI[27].SI_value = '於非戰鬥狀態時，調息效果不會發動。';
+										all_SI[27].SI_value = '於非戰鬥狀態時，_&1_效果不會發動。';
 										break;
 									case 1:
 										all_SI[5].SI_name = '每3秒恢復(1+HP上限×';
@@ -2649,9 +2667,9 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '使角色在戰鬥狀態時，獲得寧神效果。';
+										all_SI[5].SI_value = '使角色在戰鬥狀態時，獲得_&1_效果。';
 										all_SI[16].SI_value = '被動效果';
-										all_SI[27].SI_value = '於非戰鬥狀態時，寧神效果不會發動。';
+										all_SI[27].SI_value = '於非戰鬥狀態時，_&1_效果不會發動。';
 										break;
 									case 1:
 										all_SI[5].SI_name = '每3秒恢復(1+MP上限×';
@@ -2707,7 +2725,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '使用後可於原地設置一個守護聖域。<br />(此技能尚無資料)';
+										all_SI[5].SI_value = '使用後可於原地設置一個_&1_。<br />(此技能尚無資料)';
 										all_SI[16].SI_value = '設置效果';
 										all_SI[17].SI_value = '慢';
 										all_SI[21].SI_value = 1;
@@ -2728,6 +2746,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 6:
 								switch (No_Branch)
 								{
@@ -2788,6 +2807,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 							case 10:
 								switch (No_Branch)
 								{
@@ -2854,6 +2874,7 @@
 										all_SI[5].SI_value = '(靜待更新)';
 										break;
 								}
+								break;
 						}
 						break;
 					case 2:
@@ -2874,7 +2895,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '造成魔法傷害時，有'+ Lv_skill + '%機率發動魔能高漲。';
+										all_SI[5].SI_value = '造成魔法傷害時，有'+ Lv_skill + '%機率發動_&1_。';
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
@@ -2918,7 +2939,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '造成物理傷害時，有'+ Lv_skill + '%機率發動弱點命中。';
+										all_SI[5].SI_value = '造成物理傷害時，有'+ Lv_skill + '%機率發動_&1_。';
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
@@ -3016,9 +3037,9 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '處於靈體狀態。';
-										all_SI[6].SI_value = '受魔力流動影響。';
-										all_SI[7].SI_value = '受誓約約束。';
+										all_SI[5].SI_value = '處於_&1_狀態。';
+										all_SI[6].SI_value = '受_&2_影響。';
+										all_SI[7].SI_value = '受_&3_約束。';
 										all_SI[16].SI_value = '天賦效果';
 										break;
 									case 1:
@@ -3065,7 +3086,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '指定一定點後開始詠唱，詠唱須至少1秒。詠唱完畢時將發生爆炸。<br />根據詠唱的時間將影響爆炸的效果。';
+										all_SI[5].SI_value = '指定一定點後開始詠唱，詠唱須至少1秒。詠唱完畢時將發生_&1_。<br />根據詠唱的時間將影響爆炸的效果。';
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = '1~5';
 										break;
@@ -3107,7 +3128,7 @@
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = 2 - 0.1*Lv_skill;
 										all_SI[24].SI_value = 3 + 0.2*Lv_skill;
-										all_SI[27].SI_value = '施放完畢後，目標獲得淨化光點的副作用。';
+										all_SI[27].SI_value = '施放完畢後，目標獲得_&1_的副作用。';
 										break;
 									case 1:
 										all_SI[5].SI_value = '在受到任何增益狀態時，將清除該狀態。';
@@ -3124,7 +3145,7 @@
 										all_SI[16].SI_value = '單體效果';
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = 2.2 - 0.1*Lv_skill;
-										all_SI[27].SI_value = '施放完畢後，目標將衰弱一段時間。';
+										all_SI[27].SI_value = '施放完畢後，目標將_&1_一段時間。';
 										break;
 									case 1:
 										all_SI[5].SI_value = '減少造成的傷害(恢復的HP百分比)%。<br />減少的傷害將在五秒內逐漸恢復。';
@@ -3151,7 +3172,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '詠唱須至少0.5秒。詠唱完畢時，將往角色前方穿梭一定距離。穿梭的距離與詠唱時間有關。';
+										all_SI[5].SI_value = '詠唱須至少0.5秒。詠唱完畢時，將往角色前方_&1_一定距離。_&1_的距離與詠唱時間有關。';
 										all_SI[16].SI_value = '效果';
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = '0.5~1.5';
@@ -3167,7 +3188,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '使目標進入隱身狀態。';
+										all_SI[5].SI_value = '使目標進入_&1_狀態。';
 										all_SI[16].SI_value = '單體效果';
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = 2.2 - 0.1*Lv_skill;
@@ -3184,7 +3205,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '在指定區域召喚一魔法陣，魔法陣內的生物都會受到重力影響<br />(不分敵我)。';
+										all_SI[5].SI_value = '在指定區域召喚一魔法陣，魔法陣內的生物都會受到_&1_影響<br />(不分敵我)。';
 										all_SI[16].SI_value = '效果設置';
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = 2.6 - 0.1*Lv_skill;
@@ -3201,7 +3222,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '在指定區域召喚一魔法陣，位於魔法陣內的隊伍成員都會受到霧氣保護。';
+										all_SI[5].SI_value = '在指定區域召喚一魔法陣，位於魔法陣內的隊伍成員都會受到_&1_保護。';
 										all_SI[16].SI_value = '效果設置';
 										all_SI[17].SI_value = '極快';
 										all_SI[18].SI_value = 2.6 - 0.1*Lv_skill;

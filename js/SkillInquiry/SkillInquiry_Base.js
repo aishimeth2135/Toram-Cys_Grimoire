@@ -212,25 +212,26 @@
 	
 	/*======================================================*/
 	function build_branch_onclick(Tstring, BranchAry){
-		for (var i=0;i<BranchAry.length;++i)
-			{
-			Tstring = replaceAll(Tstring, BranchAry[i], '<a onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a>');
-			}
+		for (let i=0; i<BranchAry.length; ++i)
+		{
+			Tstring = replaceAll(Tstring, '_&' + i + '_', '<a onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a>');
+		}
 		return Tstring;
 	}
 	
 	function BranchText_onclick(BranchName){
 		let T_name = '';
-		for (var i=0; i<SkillBranch_Size; ++i)
+		for (let i=0; i<SkillBranch_Size; ++i)
+		{
+			if ( BranchName == document.getElementById('SkillBranch_' + String(i+1)).innerHTML )
 			{
-			if (BranchName == document.getElementById('SkillBranch_'+String(i+1)).innerHTML)
-				{
-				T_name = document.getElementById('SkillBranch_'+String(i+1));
-				}
+				T_name = document.getElementById('SkillBranch_' + String(i+1));
+				break;
 			}
+		}
 		if (T_name != '')
-			{
+		{
 			update_of_skill_branch(T_name);
-			}
+		}
 	}
 	
