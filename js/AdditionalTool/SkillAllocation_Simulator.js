@@ -611,7 +611,7 @@
 						case "R": T += 9; break;
 						case "E": T += 10; break;
 						default:
-							alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom).');
+							alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom of this page).');
 							return;
 					}
 					codeAry[i][j].push( parseInt(T) );
