@@ -25,6 +25,8 @@
 		let skillTreeTypeNameAry = [];
 		let skillTreeNameAry = [];
 		let skillNameAry = [];
+		let armsTitleAry = [];
+		
 		let Section_4_Menu_List = [];
 		
 		let HeaderMenu_list = [];
@@ -48,6 +50,9 @@
 				All_WeapType = ['1h-S.', '2h-S.', 'Bow', 'Bowgun', 'Staff', 'Magic.', 'Knuck.', 'Halberd', 'Dual-S.', 'Katana', 'Other'];
 				All_AuType = ['Dagger', 'Shield', 'Arrow', 'Magic.', 'Knuck.', 'Katana', 'Other'];
 				All_bodyType = ['Norm.', 'Dodge', 'Defen.'];
+				
+				armsTitleAry = ['Main Weapon', 'Sub-Weapon', 'Body Armor'];
+				
 				HeaderMenu_list = ['Skills Information', 'Game Mechanics', 'Website Version', 'Web Tool'];
 				Section_4_Menu_List = ['SkillPoint Simulator'];
 				skillTreeTypeNameAry = ['Weapon', 'Buff', 'Assist'];
@@ -96,6 +101,9 @@
 				All_WeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '雙劍', '拔刀劍', '其它'];
 				All_AuType = ['小刀', '盾牌', '箭矢', '魔導具', '拳套', '拔刀劍', '其它'];
 				All_bodyType = ['一般', '輕量化', '重量化'];
+				
+				armsTitleAry = ['主手裝備', '副手裝備', '身體裝備'];
+				
 				HeaderMenu_list = ['技能資料', '資料查詢', '版本資訊', '小工具'];
 				Section_4_Menu_List = ['技能配點'];
 				skillTreeTypeNameAry = ['武器技能', '強化技能', '輔助技能'];
@@ -143,6 +151,9 @@
 				All_WeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '双剣', '抜刀剣', 'その他'];
 				All_AuType = ['短剣', '盾', '矢', '魔導具', '手甲', '抜刀剣', 'その他'];
 				All_bodyType = ['通常', '軽量化', '重量化'];
+				
+				armsTitleAry = ['メイン装備', 'サブ装備', '体装備'];
+				
 				HeaderMenu_list = ['スキルインフォ', 'ゲーム関連資料', 'サイト更新履歴', 'WEBツール'];
 				Section_4_Menu_List = ['スキルシミュレーター'];
 				skillTreeTypeNameAry = ['武器スキル', '強化スキル', '補助スキル']; //スキル
@@ -220,7 +231,10 @@
 				}
 			}
 		}
-		
+		for (let i=0; i<armsTitleAry.length; ++i)
+		{
+			document.getElementById('armsTitle_' + String(i)).innerHTML = armsTitleAry[i];
+		}
 		
 		update_HeaderMenu(HeaderMenu_list);			//重置頂部選單
 		update_ATool_MenuList(Section_4_Menu_List);	//重置小工具選單
