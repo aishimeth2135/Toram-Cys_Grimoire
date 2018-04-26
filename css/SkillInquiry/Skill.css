@@ -5,13 +5,13 @@
 		margin-bottom:1rem;
 	}
 	#site_Skill table {
-		background-color:rgba(255, 255, 194, 0.7);
-		box-shadow:inset 0rem 0rem 1.5rem rgb(255, 255, 224);
+		background-color:rgba(161, 161, 175);
+		box-shadow:inset 0rem 0rem 1.2rem rgb(255, 255, 255);
 		font-size:1rem;
 		color:#EEE;
 	}
 	#site_Skill td {
-		padding:0.5rem 0.2rem;
+		padding:0.4rem 0.2rem;
 		border-width:0.07rem;
 		border-style:solid;
 		border-color:transparent transparent #FFF transparent;
@@ -23,13 +23,9 @@
 		cursor:pointer;
 		transition:0.4s;
 	}
-	.Skill_td_default:hover {
-		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 168);
-		background-color:rgba(255, 255, 168, 0.3);
-	}
-	.Skill_td_current {
-		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 168);
-		background-color:rgba(255, 255, 168, 0.4);
+	.Skill_td_default:hover, .Skill_td_current {
+		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 255);
+		background-color:rgba(255, 255, 255, 0.3);
 	}
 	.Skill_td_unable {
 		background-color:rgba(255, 179, 179, 0.25);
@@ -55,9 +51,9 @@
 		border-radius:2.4rem;
 		line-height:4.5rem;
 		color:#FFF;
-		display:none;
+		display: inline-block;
 		padding:0.15rem;
-		margin-bottom:0.15rem;
+		margin:0.1rem;
 	}
 	.button_SkillBranch:hover {
 		background-color: rgba(198, 198, 226, 0.6);

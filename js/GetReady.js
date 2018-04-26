@@ -1,9 +1,20 @@
 	
 	(function(){
-		for (let i=0; i<4; ++i)
+		let Ttext = '';
+		for (let i=1; i<11; ++i)
 		{
-			document.getElementById('skilltree_type_' + String(i+1)).innerHTML = all_skilltree_type[i].STt_name;
+			Ttext += `<li id = "skillLv_${i}" class="SkillLv_button" onclick="updateSite_skillLv(this)">Lv.${i}</li>`;
 		}
+		document.getElementById('site_SkillLv').innerHTML = Ttext;
+		updateSite_skillLv( document.getElementById('skillLv_10') );
+	})();
+	
+	
+	update_skillTreeTypeBtnList();
+	
+	(function (){
+		let HeaderMenu_list = ['技能資料', '資料查詢', '版本資訊', '小工具'];
+		update_HeaderMenu(HeaderMenu_list);
 	})();
 	
 	/*=====================================================================*/
@@ -47,31 +58,11 @@
 	/*=====================================================================*/
 	(function (){
 		let Section_4_Menu_List = ['技能配點'];
-		let Ttext = '';
-		for (let i=0; i<Section_4_Menu_List.length; ++i)
-		{
-			Ttext += `<li data-menuno="${i}" onclick="Section_4_Update(this)" id="Section_4_Menu_${i}"><a>${Section_4_Menu_List[i]}</a></li>`;
-		}
-		
-		document.getElementById('Section_4_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
+		update_ATool_MenuList( Section_4_Menu_List );
 	})();
 	
 	/*=====================================================================*/
-	(function (){		//input Skill Allocation - Simulator Skill Tree List
-		let Ttext = '';
-		for (let i=0; i<all_skilltree_type.length-1; ++i)
-		{
-			if (i != 0)
-			{
-				Ttext += '<hr class="hr_2" />';
-			}
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
-			{
-				Ttext += `<li><a id="SkillAlloSimu_STList_${i}_${j}" data-sttno="${i}" data-stno="${j}" onclick="Sel_SkillAlloSimu(this)">${all_skilltree_type[i].STt_skilltree[j].ST_name}</a></li>`;
-			}
-		}
-		document.getElementById('SkillAlloSimu_STList').innerHTML = '<ul>' + Ttext + '</ul>';
-	})();
+	update_SkillAlloSimu_STList();
 	
 	/*=====================================================================*/
 	SkillAlloSimu_SelMode(document.getElementById('SkillAlloSimu_Mode_Add'));
@@ -90,9 +81,71 @@
 		}
 	});
 	
+	(function (){
+		let lang = (window.navigator.userLanguage || window.navigator.language).toLowerCase();
+		switch (lang)
+		{	
+			case 'zh-tw':	//Taiwan
+			case 'zh-cn':	//China
+			case 'zh-hk':	//Hong Kong
+			case 'zh-sg':	//Singapore
+				selectLanguage(document.getElementById('selLang_1'));
+				break;
+			case 'ja':		//Japan
+				selectLanguage(document.getElementById('selLang_2'));
+				break;
+			default:
+				selectLanguage(document.getElementById('selLang_0'));
+		}
+	})();
+	
 	/*=====================================================================*/
 	setTimeout( function(){
 		document.getElementById('Loading_Page').style.display = 'none';
-	}, 500);
+	}, 1500);
 	
-	
+	/* (function (){
+		let nameAry = '';
+		let unitAry = '';
+		for (let i=0; i<all_SI.length; ++i)
+		{
+			nameAry += `'${all_SI[i].SI_name}', `;
+			unitAry += `'${all_SI[i].SI_unit}', `;
+		}
+		console.log(nameAry);
+		console.log(unitAry);
+	})(); */
+	/* (function(){
+		let T_code = '';
+		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		{
+			T_code += "[";
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				T_code += "['";
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				{
+					T_code += all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_name;
+					if (k != all_skilltree_type[i].STt_skilltree[j].ST_skill.length - 1)
+					{
+						T_code += `', '`;
+					}
+				}
+				if (j != all_skilltree_type[i].STt_skilltree.length - 1)
+				{
+					T_code += "'],";
+				}
+				else {
+					T_code += "']";
+				}
+			}
+			if (i != all_skilltree_type.length - HiddenEgg_controlNo - 1)
+			{
+				T_code += '],';
+			}
+			else {
+				T_code += ']';
+			}
+		}
+		console.log(T_code);
+	})(); */

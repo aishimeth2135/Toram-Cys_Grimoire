@@ -5,12 +5,13 @@
 <head>
 	<title>ToramOnline - Cy's Grimoire</title>
 	<meta charset="utf-8" />
-	<meta name="description" content="對於遊戲「托蘭異世錄」，整合多方的資料作成的中文網站。目前主要功能為查詢技能資料以及遊戲內的一些公式、資料。" />
-	<meta name="keywords" content="Toram Online, 托蘭異世錄, トーラムオンライン" />
+	<meta name="description" content="對於遊戲「托蘭異世錄」，整合多方的資料作成的網站。目前主要功能為查詢技能資料以及遊戲內的一些公式、資料。" />
+	<meta name="keywords" content="Toram Online,托蘭異世錄,トーラムオンライン,Cy's Grimoire,技能配點模擬,SkillPoint Simulator,スキルシミュレーター" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
 
 	<link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet" />
 	
 	<link rel="stylesheet" type="text/css" href="css/Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/InformationInquiry_Base.css" />
@@ -22,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillTree.css" />
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/Skill.css" />
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillLv.css" />
-	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/Arm.css" />
+	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/Arms.css" />
 	
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
@@ -30,7 +31,12 @@
 
 <body>
 
-	<div id="Loading_Page">Loading...</div>
+	<div id="Loading_Page">Loading...
+		<p>可以在網頁下方更改語言。
+		<br />You can switch the language at the bottom of the page.
+		<br />ページの下に言語の切り替えができます。
+		</p>
+	</div>
 	
 	<header>
 		<ul>
@@ -99,6 +105,8 @@
 		</div>
 		<div id="site_Skill">
 		</div>
+
+		<div id="ShowCaption_Body_1_openBtn" onclick="open_ShowCaption_Body_1(this)" data-modeno="0">&gt;&nbsp;顯示遊戲內技能說明</div>
 		<div id="ShowCaption_Body_1">
 			<div id='ShowCaption_2'>
 			</div>
@@ -106,115 +114,30 @@
 			</div>
 		</div>
 		<div id="Section_1_Block_1">
-			<div id="Section_1_Block_1_1">
-				<hr class="hr_2" />
-				<ul id="site_SkillLv">
-					<li id = "Lv_skill_1" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.1
-					</li>
-					<li id = "Lv_skill_2" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.2
-					</li>
-					<li id = "Lv_skill_3" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.3
-					</li>
-					<li id = "Lv_skill_4" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.3
-					</li>
-					<li id = "Lv_skill_5" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.5
-					</li>
-					<li id = "Lv_skill_6" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.6
-					</li>
-					<li id = "Lv_skill_7" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.7
-					</li>
-					<li id = "Lv_skill_8" class="SkillLv_button"  onclick="update_of_Lv_skill(this)">
-					Lv.8
-					</li>
-					<li id = "Lv_skill_9" class="SkillLv_button" onclick="update_of_Lv_skill(this)">
-					Lv.9
-					</li>
-					<li id = "Lv_skill_10" class="SkillLv_button_current" onclick="update_of_Lv_skill(this)">
-					Lv.10
-					</li>
-				</ul>
-				<hr class="hr_2" />
-				<div id="site_SkillBranch">
-					<div id='SkillBranch_1' class= "button_SkillBranch" onclick='update_of_skill_branch(this)'>
-					
-					</div>
-					<div id='SkillBranch_2' class= "button_SkillBranch"  onclick='update_of_skill_branch(this)'>
-					
-					</div>
-					<div id='SkillBranch_3' class= "button_SkillBranch" onclick='update_of_skill_branch(this)'>
-					
-					</div>
-					<div id='SkillBranch_4' class= "button_SkillBranch"  onclick='update_of_skill_branch(this)'>
-					
-					</div>
-					<div id='SkillBranch_5' class= "button_SkillBranch"  onclick='update_of_skill_branch(this)'>
-					
-					</div>
-				</div>
+			<div id="Section_1_Block_1_1"><hr class="hr_2" />
+				<ul id="site_SkillLv"></ul><hr class="hr_2" />
+				<div id="site_SkillBranch"></div>
 				<div>
 					<div style="float:left;">
-						<div id='ShowCaption_1'>
-						</div>
+						<div id='ShowCaption_1'></div>
 						<div id="ShowCaption_Site_2">
-							<div id='ShowCaption_4'>
-							</div>
-							<div id='ShowCaption_5'>
-							</div>
-							<div id='ShowCaption_6'>	
-							</div>
+							<div id='ShowCaption_4'></div>
+							<div id='ShowCaption_5'></div>
+							<div id='ShowCaption_6'></div>
 						</div>
 					</div>
-					<div id="site_Arm">
-						<div class="Arm_Block">
-							<div id = "armtitle_1" class="Arm_Title" style="margin-top:-1rem;">
-							主手武器
-							</div>
-							<div class= "Arm_Body">
-								<div id = "armO" class="Arm_button" onclick ='update_of_arm(this)'>未選擇</div>
-								<div id = "arm_1" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "arm_2" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "arm_3" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "arm_4" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-							</div>	
+					<div id="site_Arms">
+						<div class="Arms_Block">
+							<div class="Arms_Title" style="margin-top:-1rem;">主手武器</div>
+							<div id="WeapArms_site" class= "Arms_Body"></div>	
 						</div>
-						<div class="Arm_Block">
-							<div id = "armtitle_2"  class="Arm_Title">
-							副手裝備
-							</div>
-							<div class= "Arm_Body">
-								<div id = "au_armO" class="Arm_button" onclick ='update_of_arm(this)'>未選擇</div>
-								<div id = "au_arm_1" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "au_arm_2" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "au_arm_3" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "au_arm_4" class="Arm_button" onclick ='update_of_arm(this)'>
-								</div>
-							</div>
+						<div class="Arms_Block">
+							<div class="Arms_Title">副手裝備</div>
+							<div id="AuArms_site" class= "Arms_Body"></div>
 						</div>
-						<div class="Arm_Block">
-							<div id = "armtitle_2" class="Arm_Title" style="top:10.938rem;">
-							身體裝備
-							</div>
-							<div class= "Arm_Body">
-								<div id = "body_armO" class="Arm_button" onclick ='update_of_arm(this)'>未選擇</div>
-								<div id = "body_arm_1" class="Arm_button" style="top:12.5rem;"onclick ='update_of_arm(this)'>
-								</div>
-								<div id = "body_arm_2" class="Arm_button" style="top:12.5rem;left:4.688rem;" onclick ='update_of_arm(this)'>
-								</div>
-							</div>
+						<div class="Arms_Block">
+							<div class="Arms_Title">身體裝備</div>
+							<div id="bodyArms_site" class= "Arms_Body"></div>
 						</div>
 					</div>
 				</div>
@@ -225,10 +148,10 @@
 	</section>
 	
 	<div id="Picture_TheStar" style="position:absolute;top:46rem;left:6rem;opacity:0.78;display:none;" onclick="onclickOf_TheStar(this)">
-		<img src="https://i.imgur.com/3AwYp99.png">
+		<!-- <img src="https://i.imgur.com/3AwYp99.png"> -->
 	</div>
 	<div id="Picture_TheStick" style="position:absolute;top:11.3rem;left:34.5rem;opacity:0.6;display:none;" onclick="onclickOf_TheStick(this)">
-		<img src="https://i.imgur.com/SPhrKxO.png">
+		<!-- <img src="https://i.imgur.com/SPhrKxO.png"> -->
 	</div>
 	
 	<section id='Section_2'>
@@ -309,7 +232,7 @@
 					<li>某些傷害可能雖為物理傷害(會根據物理慣性率造成傷害)，但不一定是物理慣性(被減少的不會是物理慣性率)。</li>
 					<li>無慣性的傷害不受慣性率影響，也就是無論如何都是100%。也當然不會影響任何種類的慣性率。追加類傷害則會依循原傷害的慣性率。</li>
 				</ul>
-				<p>這邊附上慣性類型範例。</p>
+				<p>這邊附上_@慣性類型範例。</p>
 			</div>
 			<div id="Desc_Page_2" class="Desc_Page">
 				<ul class="Desc_ul_1"><li>目前的特殊技能類型有_@光環和_@陷阱兩種。</li></ul>
@@ -527,7 +450,7 @@
 					</tr>
 					<tr>
 						<td class="Table_Title_1" rowspan="2">詠唱速度</td>
-						<td>能力面板中的CSPD。會影響須詠唱/蓄力的技能所需的詠唱/蓄力時間。部分技能的詠唱/蓄力時間不受詠唱速度影響。<br />關於詠唱時間減少的比率，可查看詠唱時間詳述。</td>
+						<td>能力面板中的CSPD。會影響須詠唱/蓄力的技能所需的詠唱/蓄力時間。部分技能的詠唱/蓄力時間不受詠唱速度影響。<br />關於詠唱時間減少的比率，可查看_@詠唱時間詳述。</td>
 					</tr>
 					<tr>
 						<td>「基礎值×(100+詠唱速度%)%+詠唱速度」<br />基礎值：角色Lv+Agi×1.16+Dex×2.94</td>
@@ -668,7 +591,7 @@
 					<tr><td class="Table_Title_1">迴避</td><td>迴避就是角色的Flee，受Agi及身體裝備類型影響。(可查看_@能力迴避)</td></tr>
 					<tr><td class="Table_Title_1">閃躲</td><td>閃躲的量值於面板上是看不到的，而他的值基本上就是所有裝備、技能的閃躲率加起來就是了。<br />閃躲率的上限是75%。</td></tr>
 					<tr><td class="Table_Head_1" colspan="2">~ 發生的機率</td></tr>	
-					<tr><td class="Table_Title_1">迴避</td><td>發生迴避的機率與目標的命中(Hit)有關，攻擊方的命中越高，被攻擊方迴避的機率就越低。<br />攻擊方造成暴擊時，會直接無視迴避，也就是所謂的Graze。</td></tr>
+					<tr><td class="Table_Title_1">迴避</td><td>發生迴避的機率與目標的命中(Hit)有關，攻擊方的命中越高，被攻擊方迴避的機率就越低。<br />攻擊方造成暴擊時，會直接無視迴避，為最常見的Graze。</td></tr>
 					<tr><td class="Table_Title_1">閃躲</td><td>閃躲的機率原則上就是他的量值，不受攻擊方的能力影響。</br>不過攻擊方發動「看穿」時，會直接無視閃躲。</td></tr>
 					<tr><td class="Table_Head_1" colspan="2">~ 發生的先決條件</td></tr>
 					<tr><td class="Table_Title_1">迴避</td><td>目前而言，只要是任意「物理傷害」都有機會觸發迴避。魔法傷害則是無條件無視迴避。<br />不過有NPC說迴避(Flee)夠高時，就能夠迴避魔法傷害。</td></tr>
@@ -680,7 +603,7 @@
 			</div>
 		</article>
 		
-		<div style="display:none;">
+		<!-- <div style="display:none;">
 			<div id='open_VersionInformation' style='cursor:pointer;background-color:rgba(219,255,255,0.9);color:#009393;text-align:center;border-width:0.125rem;border-color:#FFFFFF #FFFFFF #FFFFFF rgba(0,204,204,0.9);border-style:solid;padding:0.313rem;width:7.5rem;height:1.25rem;position:absolute;left:0.625rem;top:35.313rem;' onclick='Information_enter(this)'>
 			版本資訊
 			</div>
@@ -704,7 +627,7 @@
 			
 			<div id="BagItem_Desc" style="max-width:15rem;display:none;position:absolute;opacity:0.95;border-radius:1rem;background-color:#FFFCEC;border:0.2rem #FFE66F solid;padding:0.6rem;color:#C6A300;">
 			</div>
-		</div>
+		</div> -->
 	</section>
 	
 	<section id="Description_Site_2">
@@ -713,114 +636,87 @@
 		<div id="Desc2_Page_0"  class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：會中斷動作及技能。期間內無法作任何行動。</li>
-				<li>持續時間：1秒。</li>
-				<li>抗性時間：1.5秒。</li>
+				<li>持續時間(玩家)：1秒。</li>
 				<li>控制狀態之一。定點BOSS可進行部位破壞。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_1" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：會中斷動作及技能。期間內無法作任何行動。</li>
-				<li>持續時間：3秒。</li>
-				<li>抗性時間：5秒。</li>
+				<li>持續時間(玩家)：3秒。</li>
 				<li>控制狀態之一。定點BOSS可進行部位破壞。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_2" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：會中斷動作及技能。期間內無法作任何行動。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：30秒。</li>
+				<li>持續時間(玩家)：5秒。</li>
 				<li>控制狀態之一。定點BOSS可進行部位破壞。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_3" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：會中斷動作及部分技能。期間無法作任何行動，並後退一段距離。</li>
-				<li>持續時間：視被逼退的距離而定。</li>
-				<li>抗性時間：1秒。</li>
-				<li>格檔時將免疫此效果。</li>
+				<li>持續時間(玩家)：視被逼退的距離而定。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_4" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：作用期間內，進行普通攻擊或發動技能都有一定機率被中斷。</li>
-				<li>持續時間：視施放者而定。</li>
-				<li>抗性時間：無。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_5" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內Def-50%、Mdef-50%。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：5秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_6" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內移動速度將大幅降低。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：10秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_7" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內命中降低。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：10秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_8" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內Atk-30%、Matk-30%。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：5秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_9" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果(玩家)：期間內每次進行普通攻擊或施放技能，都會受到當前生命一定比例的傷害。</li>
 				<li>效果(怪物)：期間內每次進行普通攻擊或施放技能，都會受到(1+Atk×1%+Dex×50%)的傷害。</li>
-				<li>持續時間：視施放者而定。</li>
-				<li>抗性時間：10秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_10" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內總行動時間變為兩倍。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：5秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_11" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果(玩家)：期間內每3秒受到(當前HP×15%)的傷害。</li>
-				<li>效果(怪物)：期間內每3秒受到少量傷害。</li>
-				<li>持續時間：視施放者而定。</li>
-				<li>抗性時間：？秒。</li>
+				<li>效果(怪物)：期間內每3秒受到與施放者Matk、Int相關的傷害。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_12" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內無法移動。</li>
-				<li>持續時間：10秒。</li>
-				<li>抗性時間：60秒。</li>
 				<li>部分BOSS單位免疫此效果。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_13" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內普通攻擊或施放技能，總動作時間多1秒。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：10秒。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_14" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果(玩家)：期間內無法作任何行動，每3秒恢復少量MP。</li>
 				<li>效果(怪物)：期間內無法作任何行動，每3秒恢復(最大生命×3%)的HP。</li>
-				<li>持續時間：視施放者而定。</li>
-				<li>抗性時間：？秒。</li>
 				<li>受到任意傷害效果將立即中斷。</li>
 			</ul>
 		</div>
@@ -835,16 +731,12 @@
 		<div id="Desc2_Page_16" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
 				<li>效果：期間內無法使用任何魔法傷害技能。</li>
-				<li>持續時間：視施放者而定。</li>
-				<li>抗性時間：？秒。</li>
 				<li>目前玩家還沒有能造成此狀態的技能。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_17" class="Desc2_Page">
 			<ul class="Desc_ul_2 Desc_ul_one">
-				<li>效果：期間內迴避降低。</li>
-				<li>持續時間：5秒。</li>
-				<li>抗性時間：5秒。</li>
+				<li>效果：期間內總閃躲率及總阻擋率減半。</li>
 			</ul>
 		</div>
 		<div id="Desc2_Page_18" class="Desc2_Page">
@@ -955,7 +847,7 @@
 				<tr><td class="Table_Title_1">魔導具</td><td>Int×2+Agi×2</td></tr>
 				<tr><td class="Table_Title_1">拳套</td><td>Agi×2+Dex×0.5</td></tr>
 				<tr><td class="Table_Title_1">旋風槍</td><td>Str×2.5+Agi×1.5</td></tr>
-				<tr><td class="Table_Title_1">拔刀劍</td><td>Dex×2.5+Agi×1.5</td></tr>
+				<tr><td class="Table_Title_1">拔刀劍</td><td>Dex×2.5+Str×1.5</td></tr>
 			</table></p>
 			<p>裝備雙劍時較特殊，有分為主手及副手攻擊力。</p>
 			<table>
@@ -1337,7 +1229,27 @@
 		<article id="Section_3_Page_0" class="MenuPage">
 			<div>
 				<div class="AuthorInfo_Title_1">作者資訊</div><hr class="hr_1" />
-				<div class="TextBlock">暫時想不到要寫什麼。</div>
+				<div class="TextBlock">
+					<table>
+						<tr>
+							<td class="Info_td_title">名字｜</td><td>Cyteria</td>
+						</tr>
+						<tr>
+							<td class="Info_td_title">Toram年齡｜</td><td>2年~</td>
+						</tr>
+						<tr>
+							<td class="Info_td_title">目前常用角色｜</td><td>弓拔刀</td>
+						</tr>
+						<tr>
+							<td class="Info_td_title">近期愛用外觀｜</td><td>重化和服1、櫻花弓、雪兔、煎蛋貝蕾帽、餅乾</td>
+						</tr>
+						<tr>
+							<td class="Info_td_title">愛好的染料｜</td><td>白色、粉紅色、淡藍色</td>
+						</tr>
+					</table>
+					<p>Any advice or comments are welcome and would be much appreciated. (Link of Twitter is at the bottom of this page)</p>
+					<p>有事找我的話，可以到我的Twitter～</p>
+				</div>
 			</div>
 			<div>
 				<div class="AuthorInfo_Title_1">資料來源</div><hr class="hr_1" />
@@ -1348,12 +1260,59 @@
 						<li>遊戲內的友人提供。</li>
 						<li>自行測試、個人經驗。</li>
 					</ul>
-					註：提供資料者若想在這裡放出自己的名稱或暱稱，可於巴哈或Twitter告知我。
 				</div>
 			</div>
+			<div>
+				<div class="AuthorInfo_Title_1">翻譯提供</div><hr class="hr_1" />
+				<div class="TextBlock">
+					<ul class="VerInfo_ul">
+						<li>技能名稱｜英文、日文｜：迷路的蘋果 整理。</li>
+						<li>技能配點模擬器｜英文｜：阿止、迷路的蘋果、島主、Cyteria。</li>
+					</ul>
+				</div>
+			</div>
+			註：提供資料者若想在這裡放出自己的名稱或暱稱，可於Twitter告知我。
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
+			<div>
+				<div class="VerInfo_Title_1">3.4.0</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>技能查詢(Skill Information)：
+						<ul class="VerInfo_ul_ul">
+							<li>進一步做了部分的英文(English)翻譯。(翻譯好難...)</li>
+							<li>舊版的技能說明中，「遊戲內技能說明」與「簡易說明」回來了~(可以看到技能樹表格下面多一個按鈕)</li>
+							<li>更新了劍術技能的新技能資料。</li>
+							<li>把原本新技能開放前的日文名稱改成中文名稱。</li>
+						</ul>
+					</li>
+					<li>配合多語系，優化了技能查詢(Skill Information)中切換裝備部分的系統。現在可以看到三種語言(English、中文、日本語)的裝備了。</li>
+					<li>微調介面。現在手機的使用介面會比以前寬。</li>
+					<li>技能配點模擬的產生文本功能，新增「標出總共使用的技能點」功能。(The "build Text" function of SkillPoint Simulator add 'Show total skill point' function.)</li>
+				</ul>
+			</div>
+			<div>
+				<div class="VerInfo_Title_1">3.3.2.Test</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>修正上個版本新增技能時帶來的重大BUG。</li>
+					<li>配合多語系，優化技能查詢的分支系統。</li>
+				</ul>
+			</div>
+			<div>
+				<div class="VerInfo_Title_1">3.3.0.Test</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>技能名稱推出英文(English)、日文(日本語)版本。</li>
+					<li>小工具(Web Tool、WEBツール)中的技能配點模擬(SkillPoint Simulator、スキルシミュレーター)推出英文(English)版本。</li>
+					<li>部分介面先進行了英文(English)、日文(日本語)的翻譯。</li>
+					<li>技能配點模擬的產生文本功能，新增基本格式-2。(相較於基本格式-1，技能名稱與Lv之間沒有空一格)</li>
+					<li>預留了四階武器技能的位子。</li>
+					<li>因應四階技能的推出，順便優化存檔代碼的系統。舊的代碼全部不能用了，如果真的不想重點可以到twitter私信我，我可以手動轉換。</li>
+					<li>修正一些資料上的錯誤。</li>
+					<li>稍微優化系統。</li>
+					<li>部分介面微調。</li>
+					<li>多語系為第一次推出，翻譯部分可能隨時修改。</li>
+				</ul>
+			</div>
 			<div>
 				<div class="VerInfo_Title_1">3.2.0.Test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
@@ -1492,24 +1451,24 @@
 				<div id="ATool_MenuList_0" class="MenuPage">
 					<ul>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode" onclick="SkillAlloSimu_toRemoveMode()">移除技能樹模式</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode_btn" onclick="SkillAlloSimu_toRemoveMode()">移除技能樹模式</a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" onclick="SkillAlloSimu_ResetAll()">全部重設</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_ResetAll_btn" onclick="SkillAlloSimu_ResetAll()">全部重設</a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" onclick="SkillAlloSimu_RemoveAllEmpty()">清除空的技能樹</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveAllEmpty_btn" onclick="SkillAlloSimu_RemoveAllEmpty()">清除空的技能樹</a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" data-menuno="0" onclick="SkillAlloSimu_open_Second(this)">產生文本</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_open_Second_0_btn" data-menuno="0" onclick="SkillAlloSimu_open_Second(this)">產生文本</a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" data-menuno="1" onclick="SkillAlloSimu_open_Second(this)">存檔系統</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_open_Second_1_btn" data-menuno="1" onclick="SkillAlloSimu_open_Second(this)">存檔系統</a>
 						</li>
 					</ul>
 					<div>
-						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" checked /> 選取按鈕後關閉此選單<br />
-						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" /> 選取任意技能樹後關閉清單
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" checked /> <span id="SkillAlloSimu_Setting_closeMenuList_text">選取按鈕後關閉此選單</span><br />
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" /> <span id="SkillAlloSimu_Setting_closeSTList_text">選取任意技能樹後關閉清單</span>
 					</div>
 				</div>
 			</div>
@@ -1518,18 +1477,21 @@
 				<div id="SkillAlloSimu_BuildText_Block" class="MenuPage">
 					<ul>
 						<li>
-							<a class="ATool_Btn_5" data-modeno="0" onclick="SkillAlloSimu_BuildText_selMode(this)">基本格式-1</a>
+							<a class="ATool_Btn_5" data-modeno="0" id="SkillAlloSimu_BuildText_selMode_0_btn" onclick="SkillAlloSimu_BuildText_selMode(this)">基本格式-1</a>
+						</li>
+						<li>
+							<a class="ATool_Btn_5" data-modeno="1" id="SkillAlloSimu_BuildText_selMode_1_btn" onclick="SkillAlloSimu_BuildText_selMode(this)">基本格式-2</a>
 						</li>
 						<li>
 							<a class="ATool_Btn_1" onclick="SkillAlloSimu_BuildText_Copy()">Copy</a>
 						</li>
 					</ul>
-					<textarea id="SkillAlloSimu_BuildText_textarea">
-					</textarea>
+					<textarea id="SkillAlloSimu_BuildText_textarea"></textarea>
 					<div>
-						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" checked /> 產生時忽略空的技能樹<br />
+						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" checked /> <span id="SkillAlloSimu_BuildText_ignoreEmpty_text">產生時忽略空的技能樹</span><br />
+						<input type="checkbox" id="SkillAlloSimu_BuildText_showSkillPointSum" checked /> <span id="SkillAlloSimu_BuildText_showSkillPointSum_text">標出總共使用多少技能點</span><br />
 					</div>
-					<p class="TextBlock Text_Small_1">
+					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_2">
 						- 可將點好的技能依照選定格式自動產生一段文字。
 						<br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。
 					</p>
@@ -1537,17 +1499,17 @@
 				<div id="SkillAlloSimu_SaveCode_Block" class="MenuPage">
 					<ul>
 						<li>
-							<a class="ATool_Btn_5" onclick="SkillAlloSimu_SaveCode_Save()">產生代碼</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_SaveCode_Save_btn" onclick="SkillAlloSimu_SaveCode_Save()">產生代碼</a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" onclick="SkillAlloSimu_SaveCode_Load()">讀取代碼</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_SaveCode_Load_btn" onclick="SkillAlloSimu_SaveCode_Load()">讀取代碼</a>
 						</li>
 						<li>
 							<a class="ATool_Btn_1" onclick="SkillAlloSimu_SaveCode_Copy()">Copy</a>
 						</li>
 					</ul>
 					<input type="text" id="SkillAlloSimu_SaveCode_text" />
-					<p class="TextBlock Text_Small_1">
+					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_3">
 						- 按下「產生代碼」後，會將當前點好的技能變成一段代碼。下次進入此網頁時可將代碼複製貼上至輸入欄，按下「讀取代碼」後便可讀取出之前點好的技能。
 						<br />- 本網站沒有儲存功能，產生的代碼請自行保留，亦可分享給其它人。（一段代碼任何人皆可使用）
 					</p>
@@ -1556,7 +1518,7 @@
 		</div>
 		<div id="Section_4_Page_0" class="MenuPage">
 			<div id="SkillAlloSimu_main">
-				<p class="TextBlock">請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。</p>
+				<p class="TextBlock" id="SkillAlloSimu_Text_1">請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。</p>
 			</div>
 			<div id="SkillAlloSimu_STList"></div>
 			
@@ -1572,25 +1534,29 @@
 						<a class="ATool_Btn_4" id="SkillAlloSimu_Step10" onclick="SkillAlloSimu_SelStep(this)">&plusmn;10</a>
 					</li>
 					<li>
-						<a class="ATool_Btn_1" id="SkillAlloSimu_AddMode" onclick="Update_SkillAlloSimu_STList(this)" data-modeno="0">新增技能樹</a>
+						<a class="ATool_Btn_1" id="SkillAlloSimu_AddMode_0" onclick="Update_SkillAlloSimu_STList(this)">新增技能樹</a>
+						<a class="ATool_Btn_1_1" id="SkillAlloSimu_AddMode_1" onclick="Update_SkillAlloSimu_STList(this)" style="display: none;">移除技能樹</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</section>
+	<section id="languageList">
+		<a data-langno="0" id="selLang_0" onclick="selectLanguage(this)">English</a>｜<a data-langno="1" id="selLang_1" onclick="selectLanguage(this)">中文</a>｜<a data-langno="2" id="selLang_2" onclick="selectLanguage(this)">日本語</a>
+	</section>
 	
 	<footer>
-		Toram Online | 托蘭異世錄 | トーラムオンライン
-		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a> | <a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
+		<p>托蘭異世錄為<a href="https://asobimo.com/" target="_blank">アソビモ株式会社（ASOBIMO,Inc.）</a>所營運之遊戲。本網站僅作分享用途。</p>
+		Toram Online｜托蘭異世錄｜トーラムオンライン
+		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
-			ToramOnline - Cy's Grimoire<br />
-			By. Aishimeth
+			~ ToramOnline - Cy's Grimoire ~<br />
+			Ver: 3.3.2.Test｜Update: 2018/4/11
 		</p>
-		Ver: 3.2.0.Test | Update: 2018/3/29
-		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a> | <a href="https://twitter.com/Cyteria_w" target="_blank">Twitter</a></p>
+		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
 	
-	<div id="Picture_HintDiv" style="display:none;position:absolute;opacity:0.95;border-radius:1rem;background-color:#FFFCEC;border:0.2rem #FFE66F solid;padding:0.6rem;color:#C6A300;">
+	<div id="Picture_HintDiv">
 	</div>
 
 </body>
@@ -1610,12 +1576,18 @@
 <script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_SkillTreeType.js"></script>
 <script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_SkillTree.js"></script>
 <script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_Skill.js"></script>
-<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_Arm.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/UpdateFunction/Update_Arms.js"></script>
 <script type="text/javascript" src="js/SkillInquiry/UpdateFunction/InitializationFunction.js"></script>
 
-<script type="text/javascript" src="js/SkillInquiry/InputSkillCaption/InputSkillCaption_1.js"></script>
-<script type="text/javascript" src="js/SkillInquiry/InputSkillCaption/InputSkillCaption_2.js"></script>
-<script type="text/javascript" src="js/SkillInquiry/InputSkillCaption/Other.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/InputSkillCaption_en/en_InputSkillCaption_1.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/InputSkillCaption_en/en_InputSkillCaption_2.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/InputSkillCaption_zh/zh_InputSkillCaption_1.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/InputSkillCaption_zh/zh_InputSkillCaption_2.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/InputSkillCaption_jp/jp_InputSkillCaption_1.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/InputSkillCaption_jp/jp_InputSkillCaption_2.js"></script>
+<script type="text/javascript" src="js/SkillInquiry/SkillCaption/SkillCaption_Base.js"></script>
+
+<script type="text/javascript" src="js/ToOtherLanguage.js"></script>
 
 <script type="text/javascript" src="js/InformationInquiry_Base.js"></script>
 <script type="text/javascript" src="js/HiddenEgg.js"></script>

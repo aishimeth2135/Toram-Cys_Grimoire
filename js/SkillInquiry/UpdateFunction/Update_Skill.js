@@ -1,5 +1,5 @@
 
-	function update_of_skill(temp){
+	function update_of_skill(temp, callByArmsProg = false){
 		
 		let doc;
 		
@@ -12,7 +12,7 @@
 		
 		if (Skill_CurBtn != '')
 		{
-			let doc = document.getElementById(Skill_CurBtn);
+			doc = document.getElementById(Skill_CurBtn);
 			if (doc.className != 'Skill_td_unable')
 			{
 				doc.className = 'Skill_td_default';
@@ -20,56 +20,57 @@
 		}
 		document.getElementById(temp.id).className = 'Skill_td_current';
 		Skill_CurBtn = temp.id;
-		
-		//初始化分支
-		for (let i=0; i<SkillBranch_Size; ++i)
+		let T_curBtn_skillBranch;
+		if ( callByArmsProg )
 		{
-			doc = document.getElementById('SkillBranch_' + String(i+1));
-			doc.innerHTML = '';
-			doc.style.display = 'none';
+			T_curBtn_skillBranch_id = get_curBtn_skillBranch().id;
 		}
+		init_skillBranch();
 		
 		//填入分支
-		No_Skill = temp.getAttribute('data-skillno');
+		No_Skill = parseInt(temp.getAttribute('data-skillno'));
 		
-		if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch.length == 0)
+		let Ttext = '';
+		for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch.length; ++i)
 		{
-			doc = document.getElementById('SkillBranch_1');
-			doc.innerHTML = '技能效果';
-			doc.style.display = 'inline-block';
+			let T = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch[i];
+			Ttext += `<div id='skillBranch_${i+1}' class= "button_SkillBranch" onclick='updateSite_skillBranch(this)'>${T}</div>`;
+		}
+		document.getElementById('site_SkillBranch').innerHTML = Ttext;
+		
+		updateSite_skillCaption_1(No_SkillTreeType, No_SkillTree, No_Skill);
+		
+		if ( callByArmsProg )
+		{
+			updateSite_skillBranch( document.getElementById(T_curBtn_skillBranch_id) );
 		}
 		else {
-			for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch.length; ++i)
-			{
-				doc = document.getElementById('SkillBranch_' + String(i+1));
-				doc.innerHTML = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch[i];
-				doc.style.display = 'inline-block';
-			}
-		}
-		
-		input_the_skillvalue_1(No_SkillTreeType, No_SkillTree, No_Skill);
-		show_discription_1();
-		
-		if ( SkillBranch_CallBy_Update )
-		{
-			update_of_skill_branch(document.getElementById(SkillBranch_CurBtn));
-		}
-		else {
-			update_of_skill_branch(document.getElementById('SkillBranch_1'));
+			updateSite_skillBranch(document.getElementById('skillBranch_1'));
 		}
 	}
 	
-	
-	function update_of_skill_branch(temp){
-		input_the_skillvalue_2(No_SkillTreeType, No_SkillTree,No_Skill, (parseInt(temp.id.charAt(temp.id.length - 1)) - 1));
-		show_discription_2();
-		
-		if (SkillBranch_CurBtn != '')
+	function get_curBtn_skillBranch(){
+		let cnt = 1;
+		let doc = document.getElementById('skillBranch_' + String(cnt));
+		while ( doc )
 		{
-			document.getElementById(SkillBranch_CurBtn).className = "button_SkillBranch";
+			if ( doc.className == "button_SkillBranch_current" )
+			{
+				return doc;
+			}
+			++cnt;
+			doc = document.getElementById('skillBranch_' + String(cnt));
 		}
-		SkillBranch_CurBtn = temp.id;
-		document.getElementById(SkillBranch_CurBtn).className = "button_SkillBranch_current";
+		return document.getElementById('skillBranch_1');
+	}
+	
+	function updateSite_skillBranch(temp){
+		updateSite_skillCaption_2(No_SkillTreeType, No_SkillTree, No_Skill, parseInt(temp.id.charAt(temp.id.length - 1)) - 1);
+		
+		let doc = get_curBtn_skillBranch();
+		doc.className = 'button_SkillBranch';
+		
+		temp.className = "button_SkillBranch_current";
 	}
 	
 	function onmouseover_of_skill(temp){
@@ -82,8 +83,7 @@
 			return;
 		}
 		let Tno_skill = temp.getAttribute('data-skillno');
-		input_the_skillvalue_1(No_SkillTreeType, No_SkillTree, Tno_skill);
-		show_discription_1();
+		updateSite_skillCaption_1(No_SkillTreeType, No_SkillTree, Tno_skill);
 		
 		document.getElementById('ShowCaption_Site_2').style.opacity = '0.4';
 		document.getElementById('site_SkillBranch').style.opacity = '0.4';
@@ -104,8 +104,7 @@
 		}
 		else {
 			let Tno_skill = document.getElementById(Skill_CurBtn).getAttribute('data-skillno');
-			input_the_skillvalue_1(No_SkillTreeType, No_SkillTree, Tno_skill);
-			show_discription_1();
+			updateSite_skillCaption_1(No_SkillTreeType, No_SkillTree, Tno_skill);
 		}
 		
 		document.getElementById('ShowCaption_Site_2').style.opacity = '1';

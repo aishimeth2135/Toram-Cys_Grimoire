@@ -50,26 +50,18 @@
 	}
 	
 	
-	.ATool_Btn_1 {
+	.ATool_Btn_1, .ATool_Btn_1_Cur {
 		padding: 0rem 0.5rem;
 		height:2.2rem;
 		line-height:2.2rem;
 		background-color:rgb(97, 111, 127);
 		border-radius: 0.3rem;
 		color: rgb(235, 244, 255);
+		min-width: 3.5rem;
 	}
-	.ATool_Btn_1:hover {
+	.ATool_Btn_1:hover, .ATool_Btn_1_Cur {
 		box-shadow:inset 0rem 0rem 1rem rgb(194, 223, 255);
 		background-color:rgb(131, 133, 159);
-	}
-	.ATool_Btn_1_Cur {
-		padding: 0rem 0.5rem;
-		height:2.2rem;
-		line-height:2.2rem;
-		box-shadow:inset 0rem 0rem 1rem rgb(194, 223, 255);
-		background-color:rgb(131, 133, 159);
-		border-radius: 0.3rem;
-		color: rgb(235, 244, 255);
 	}
 	
 	.ATool_Btn_1_1 {
@@ -162,7 +154,7 @@
 	#ATool_MenuList {
 		position: fixed;
 		width:20rem;
-		height: 80%;
+		max-height: 80%;
 		top: 10%;
 		left: 50%;
 		margin-left: -10rem;
@@ -171,6 +163,7 @@
 		box-shadow:inset 0rem 0rem 0.4rem rgb(170, 170, 170);
 		z-index: 15;
 		padding: 1rem;
+		padding-bottom: 2.5rem;
 		overflow-y:auto;
 	}
 	#ATool_MenuList ul {

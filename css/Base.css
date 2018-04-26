@@ -1,9 +1,27 @@
 	
+	@font-face {
+		font-family: Tfont-1;
+		src: local(Microsoft JhengHei);
+	}
+	
+	@font-face {
+		font-family: Tfont-1;
+		font-style: normal;
+		font-weight: 400;
+		unicode-range: U+3040-30FF, U+31F0-31FF;
+		src: url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.eot);
+		src: url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.eot?#iefix) format('embedded-opentype'), 
+			 url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.woff2) format('woff2'),
+			 url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.woff) format('woff'),
+			 url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.ttf) format('truetype');
+	}
+	
 	body {
-	font-family: 'Itim', Microsoft JhengHei, sans-serif; 
-	font-size:0.9rem;
-	background-color:#000000;
-	color:#FFF;
+		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif; 
+		font-size:0.9rem;
+		background-color:#000000;
+		color:#FFF;
+		margin: 1px;
 	}
 	
 	a {
@@ -30,7 +48,8 @@
 		height: 100%;
 		top: 0%;
 		left: 0%;
-		line-height: 5rem;
+		padding-top: 3rem;
+		line-height: 2rem;
 		text-align:center;
 		z-index: 30;
 		background-color:#000;
@@ -53,11 +72,12 @@
 		font-size:1rem;
 		transition:0.2s;
 		cursor:pointer;
+		border-radius: 0.2rem;
 	}
 	header li:hover {
-		background:-webkit-linear-gradient(left top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.75));
+		background-color: rgba(255, 255, 255, 0.5);
 	}
-	header li>a {
+	header a {
 		white-space:nowrap;
 	}
 	/*===============================================================*/
@@ -95,9 +115,27 @@
 		opacity:1;
 	}
 	
+	#languageList {
+		max-width: 50rem;
+		margin: 0rem auto;
+		padding-top: 0.5rem;
+		text-align: right;
+	}
+	#languageList a {
+		cursor: pointer;
+		color: #999;
+		transition: 0.4s;
+	}
+	#languageList a:hover {
+		color: #FFF;
+	}
+	.languageList_Cur {
+		color: #FFF!important;
+	}
+	
 	/*===============================================================*/
 	#Section_1, #Section_2, #Section_3, #Section_4 {
-		box-shadow: inset -0.1rem -0.1rem 0.9rem #FFF;
+		box-shadow: inset -0.1rem -0.1rem 1.2rem #FFF;
 		padding: 1rem 0.6rem;
 		min-height: 20rem;
 		max-width: 50rem;

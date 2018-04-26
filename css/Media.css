@@ -1,8 +1,11 @@
 	
 	
 	@media screen and (max-width: 35rem), screen and (max-height:  35rem) {
+		#Section_1, #Section_2, #Section_3, #Section_4 {
+			padding: 0.8rem 0.2rem;
+		}
 		#Description_Site_1, #Description_Site_2 {
-			padding:1rem 0.3rem 0.5rem 0.3rem;
+			padding:0.5rem 0rem;
 			margin:0.3rem;
 		}
 		#Description_Site_2 {
@@ -42,6 +45,12 @@
 		}
 		#ATool_MenuBlock {
 			right: 0rem!important;
+		}
+		#site_Skill td, #SkillAlloSimu_main td {
+			padding: 0.3rem 0.1rem;
+		}
+		#site_Arms {
+			padding-top:1.2rem;
 		}
 	}
 	

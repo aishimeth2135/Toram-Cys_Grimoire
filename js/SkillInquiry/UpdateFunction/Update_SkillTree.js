@@ -56,106 +56,104 @@
 		//武器
 		
 		//主手武器
-		let Tno_Weap = 1, WeapType_none = true;
+		let WeapNum = 0, Weap_text = '';
 		for (let i=0; i<All_WeapType.length; ++i)
 		{
 			let no_repeat_W = true;
 			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_W ); ++j)
 			{
-				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_W_type.length; k++)
+				for (let k=0; k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_W_type.length; ++k)
 				{
-					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_W_type[k] == All_WeapType[i])
+					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_W_type[k] == i)
 					{
-						doc = document.getElementById('arm_' + String(Tno_Weap));
-						doc.innerHTML = All_WeapType[i];
-						doc.style.display = 'inline-block';
-						Tno_Weap++;
+						Weap_text += `<div id="WeapArms_${WeapNum}" data-armsno="${i}" class="Arm_button" onclick='updateSite_WeapArms(this)'>${All_WeapType[i]}</div>`;
+						++WeapNum;
 						no_repeat_W = false;
-						WeapType_none = false;
 					}
 				}
 			}
 		}
 		
 		//副手武器
-		let Tno_Au = 1, AuType_none = true;
+		let AuNum = 0, Au_text = '';
 		for (let i=0; i<All_AuType.length; ++i)
 		{
-			let no_repeat_AW = true;
-			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_AW); ++j)
+			let no_repeat_W = true;
+			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_W ); ++j)
 			{
-				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_Au_type.length; ++k)
+				for (let k=0; k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_Au_type.length; ++k)
 				{
-					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_Au_type[k] == All_AuType[i])
+					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_Au_type[k] == i)
 					{
-						doc = document.getElementById('au_arm_' + String(Tno_Au));
-						doc.innerHTML = All_AuType[i];
-						doc.style.display = 'inline-block';
-						Tno_Au++;
-						no_repeat_AW = false;
-						AuType_none = false;
+						Au_text += `<div id="AuArms_${AuNum}" data-armsno="${i}" class="Arm_button" onclick='updateSite_AuArms(this)'>${All_AuType[i]}</div>`;
+						++AuNum;
+						no_repeat_W = false;
 					}
 				}
 			}
 		}
 		
-		//身體裝備
-		let Tno_Body = 1, BodyType_none = true;
-		for (let i=0;i<All_BodyType.length; ++i)
+		//副手武器
+		let bodyNum = 0, body_text = '';
+		for (let i=0; i<All_AuType.length; ++i)
 		{
-			let no_repeat_B = true;
-			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_B); ++j)
+			let no_repeat_W = true;
+			for (let j=0; (j<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length && no_repeat_W ); ++j)
 			{
-				for (let k=0;k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_B_type.length; ++k)
+				for (let k=0; k<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_B_type.length; ++k)
 				{
-					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_B_type[k] == All_BodyType[i])
+					if (all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[j].Sk_B_type[k] == i)
 					{
-						doc = document.getElementById('body_arm_' + String(Tno_Body));
-						doc.innerHTML = All_BodyType[i];
-						doc.style.display = 'inline-block';
-						Tno_Body++;
-						no_repeat_B = false;
-						BodyType_none = false;
+						body_text += `<div id="bodyArms_${bodyNum}" data-armsno="${i}" class="Arm_button" onclick='updateSite_bodyArms(this)'>${All_bodyType[i]}</div>`;
+						++bodyNum;
+						no_repeat_W = false;
 					}
 				}
 			}
 		}
-		
+		let armsNone_text = 'none';
+		switch (getCur_languageNo())
+		{
+			case 0: armsNone_text = 'None'; break;
+			case 1: armsNone_text = '未選擇'; break;
+			case 2: armsNone_text = '未選択'; break;
+		}
 		//初始化裝備區塊
-		if (AuType_none)	//副手
+		if (Au_text == '')	//副手
 		{
-			doc = document.getElementById('au_armO');
-			doc.style.display = 'inline-block';
-			update_of_arm(doc);
+			document.getElementById('AuArms_site').innerHTML = `<div id="AuArmsO" class="Arm_button" data-armsno="-1" onclick='updateSite_AuArms(this)'>${armsNone_text}</div>`;
+			updateSite_AuArms(document.getElementById('AuArmsO'));
 		}
 		else {
-			update_of_arm(document.getElementById('au_arm_1'));
+			document.getElementById('AuArms_site').innerHTML = Au_text ;
+			updateSite_AuArms(document.getElementById('AuArms_0'));
 		}
 		
-		if (WeapType_none)	//主手優先
+		if (Weap_text == '')	//主手優先
 		{
-			doc = document.getElementById('armO');
-			doc.style.display = 'inline-block';
-			update_of_arm(doc);
+			document.getElementById('WeapArms_site').innerHTML = `<div id="WeapArmsO" class="Arm_button" data-armsno="-1" onclick='updateSite_WeapArms(this)'>${armsNone_text}</div>`;
+			updateSite_WeapArms(document.getElementById('WeapArmsO'));
 		}
 		else {
-			update_of_arm(document.getElementById('arm_1'));
+			document.getElementById('WeapArms_site').innerHTML = Weap_text ;
+			updateSite_WeapArms(document.getElementById('WeapArms_0'));
 		}
 		
-		if (BodyType_none)	//身體
+		if (body_text == '')	//身體
 		{
-			doc = document.getElementById('body_armO');
-			doc.style.display = 'inline-block';
-			update_of_arm(doc);
+			document.getElementById('bodyArms_site').innerHTML = `<div id="bodyArmsO" class="Arm_button" data-armsno="-1" onclick='updateSite_bodyArms(this)'>${armsNone_text}</div>`;
+			updateSite_bodyArms(document.getElementById('bodyArmsO'));
 		}
 		else {
-			update_of_arm(document.getElementById('body_arm_1'));
+			document.getElementById('bodyArms_site').innerHTML = body_text ;
+			updateSite_bodyArms(document.getElementById('bodyArms_0'));
 		}
 		
 		$("#site_SkillBranch__ShowCaption1456").fadeIn(400);
 		$("#site_SkillLv").fadeIn(400);
 	
 		document.getElementById('Section_1_Block_1_1').style.display = 'block';
+		document.getElementById('ShowCaption_Body_1_openBtn').style.display = 'block';
 	}
 	var SkillTable_size = 0;
 	function Build_SkillTree_TableText(SkillTreeType_No, SkillTree_No){

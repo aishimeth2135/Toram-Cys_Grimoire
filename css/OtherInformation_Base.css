@@ -30,11 +30,14 @@
 	
 	
 	.VerInfo_Title_1, .AuthorInfo_Title_1 {
-		font-size:1.3rem;
-		padding-left:0.2rem;
-		margin-bottom:0.4rem;	
+		font-size: 1.3rem;
+		padding-left: 1rem;
+		margin-bottom: 0.4rem;	
 	}
 	.VerInfo_Title_1 {
 		font-family: 'Patrick Hand', Microsoft JhengHei, sans-serif;
 	}
 	
+	.Info_td_title {
+		text-align: right;
+	}

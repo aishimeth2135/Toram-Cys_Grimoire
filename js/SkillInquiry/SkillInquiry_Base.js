@@ -1,24 +1,16 @@
-	
-	var Lv_skill = 10;  //紀錄技能等級
+
 	
 	var No_SkillTreeType = -1,  //編號, 紀錄當前SkillTreeType, for Array
 	No_SkillTree = -1,    //編號, 紀錄當前SkillTree, for Array
 	No_Skill = -1;          //編號, 紀錄當前Skill, for Array
 	
 	// ======= 各類按鈕, 預設欄位數量
-	var SkillTree_Size = 7,
-	SkillBranch_Size = 5,
-	size_of_ShowCaption = 6;
-	
-	var size_of_Lv_skill = 10,
-	Weap_Size = 4,
-	Au_Size = 4,
-	Body_Size = 2;
+	var SkillTree_Size = 7;
 	
 	// ====== Array for Search
-	var All_WeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '雙劍', '拔刀劍', '其它'],
-	All_AuType = ['小刀', '盾牌', '箭矢', '魔導具', '拳套', '拔刀劍', '其它'],
-	All_BodyType = ['一般', '輕量化', '重量化'];
+	var All_WeapType = [],
+	All_AuType = [],
+	All_bodyType = [];
 	
 	// ====== Record Of Current Arm
 	var WeapType_Cur = '',
@@ -31,11 +23,7 @@
 	Skill_CurBtn = '',
 	Weap_CurBtn = '',
 	Au_CurBtn = '',
-	Body_CurBtn = '',
-	SkillBranch_CurBtn = '';
-	
-	// ======
-	var SkillLv_CurBtn = 'Lv_skill_10';
+	body_CurBtn = '';
 	
 	// =============================== [ SkillItem ]
 	var skill_item = function(tSI_No, tSI_name, tSI_value, tSI_unit){
@@ -59,7 +47,7 @@
 		new skill_item(7, '', 0, ''), 						//7, BUFF-3
 		
 		//8~15
-		new skill_item(8, '適用：', '', ''),				//8
+		new skill_item(8, '適用｜', '', ''),				//8
 		new skill_item(9, 'MP消耗：', 0, ''),				//9
 		new skill_item(10, '射程：', '', 'm'),				//10
 		new skill_item(11, '類型：', '', ''),				//11
@@ -108,7 +96,7 @@
 			{
 				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 				{
-					if (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_name == SName)
+					if ( all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_name.includes(SName) )
 					{
 						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_Gain.push(new SkillItem_Gain(SBranch, SINo, InputValue, W_type, Au_Type, B_Type));
 					}
@@ -130,32 +118,32 @@
 		this.Sk_Gain = [];
 	}
 	
-	the_skill.prototype.arm_confirm = function(T_W, T_Au, T_B){
-		if (T_W != '')
+	the_skill.prototype.armsConfirm = function(T_W, T_Au, T_B){
+		if (T_W != -1)
 		{
 			for (let i=0;i<this.Sk_W_type.length;++i)
 			{
-				if (T_W == this.Sk_W_type[i] || this.Sk_W_type[i] == '其它')
+				if (T_W == this.Sk_W_type[i] || this.Sk_W_type[i] == 10)
 				{
 					return true;
 				}
 			}
 		}
-		if (T_Au != '')
+		if (T_Au != -1)
 		{
 			for (let i=0;i<this.Sk_Au_type.length;++i)
 			{
-				if (T_Au == this.Sk_Au_type[i] || this.Sk_Au_type[i] == '其它')
+				if (T_Au == this.Sk_Au_type[i] || this.Sk_Au_type[i] == 6)
 				{
 					return true;
 				}
 			}
 		}
-		if (T_B != '')
+		if (T_B != -1)
 		{
 			for (let i=0;i<this.Sk_B_type.length;++i)
 			{
-				if (T_B == this.Sk_B_type[i] || this.Sk_B_type[i] == '其它')
+				if (T_B == this.Sk_B_type[i])
 				{
 					return true;
 				}
@@ -193,12 +181,23 @@
 	//SkillTreeType_List_0~2.js
 	
 	/*=============================================================*/
-	function input_SI_value_bySelection(Tname, ArmName, value){
-		if (Tname != '')
+	function input_SI_value_bySelection(T_gear, ArmsName, value){
+		/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
+		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
+		if ( T_gear == 'Weap' )
 		{
-			for (let i=0; i<ArmName.length; ++i)
+			T_gear = WeapType_Cur;
+			T_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
+		}
+		else {
+			T_gear = AuType_Cur;
+			T_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6};
+		}
+		if ( T_gear != -1 )
+		{
+			for (let i=0; i<ArmsName.length; ++i)
 			{
-				if (Tname == ArmName[i])
+				if (T_gear == T_map[ArmsName[i]])
 				{
 					return value[i];
 				}
@@ -212,25 +211,55 @@
 	
 	/*======================================================*/
 	function build_branch_onclick(Tstring, BranchAry){
-		for (var i=0;i<BranchAry.length;++i)
-			{
-			Tstring = replaceAll(Tstring, BranchAry[i], '<a onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a>');
-			}
+		for (let i=0; i<BranchAry.length; ++i)
+		{
+			Tstring = replaceAll(Tstring, '_&' + i + '_', '<a onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a>');
+		}
 		return Tstring;
 	}
 	
 	function BranchText_onclick(BranchName){
-		let T_name = '';
-		for (var i=0; i<SkillBranch_Size; ++i)
+		let cnt = 1;
+		while ( document.getElementById('skillBranch_' + String(cnt)) )
+		{
+			if ( BranchName == document.getElementById('skillBranch_' + String(cnt)).innerHTML )
 			{
-			if (BranchName == document.getElementById('SkillBranch_'+String(i+1)).innerHTML)
-				{
-				T_name = document.getElementById('SkillBranch_'+String(i+1));
-				}
+				updateSite_skillBranch( document.getElementById('skillBranch_' + String(cnt)) );
+				return;
 			}
-		if (T_name != '')
-			{
-			update_of_skill_branch(T_name);
-			}
+			++cnt;
+		}
+		alert("Error <BranchText_onclick>");
 	}
 	
+	
+	function open_ShowCaption_Body_1(temp){
+		let T_modeno = parseInt(temp.getAttribute('data-modeno'));
+		let Ttext = '';
+		
+		switch (T_modeno)
+		{
+			case 0:
+				switch (getCur_languageNo())
+				{
+					case 0: Ttext = '&gt;&nbsp;隱藏遊戲內技能說明'; break;
+					case 1: Ttext = '&gt;&nbsp;隱藏遊戲內技能說明'; break;
+					case 2: Ttext = '&gt;&nbsp;隱藏遊戲內技能說明'; break;
+				}
+				document.getElementById('ShowCaption_Body_1').style.display = 'inline-block';
+				temp.setAttribute('data-modeno', "1");
+				break;
+			case 1:
+				switch (getCur_languageNo())
+				{
+					case 0: Ttext = '&gt;&nbsp;顯示遊戲內技能說明'; break;
+					case 1: Ttext = '&gt;&nbsp;顯示遊戲內技能說明'; break;
+					case 2: Ttext = '&gt;&nbsp;顯示遊戲內技能說明'; break;
+				}
+				document.getElementById('ShowCaption_Body_1').style.display = 'none';
+				temp.setAttribute('data-modeno', "0");
+				break;
+		}
+		temp.innerHTML = Ttext;
+	}
+		

@@ -1,16 +1,18 @@
 
 	function initialization_of_ShowCaption(){
-		for (let i=0; i<size_of_ShowCaption; ++i)
+		let cnt = 1;
+		while ( document.getElementById('ShowCaption_' + String(cnt)) )
 		{
-			document.getElementById('ShowCaption_' + String(i+1)).innerHTML = '';
+			document.getElementById('ShowCaption_' + String(cnt)).innerHTML = '';
+			++cnt;
 		}
-		document.getElementById('ShowCaption_Body_1').style.display = 'none';
+		/* document.getElementById('ShowCaption_Body_1').style.display = 'none'; */
 		document.getElementById('ShowCaption_5').style.display = 'none';
-		for (let i=0; i<SkillBranch_Size; ++i)
-		{
-			document.getElementById('SkillBranch_' + String(i+1)).innerHTML = '';
-			document.getElementById('SkillBranch_' + String(i+1)).style.display = 'none';
-		}
+		init_skillBranch();
+	}
+	
+	function init_skillBranch(){
+		document.getElementById('site_SkillBranch').innerHTML = '';
 	}
 	
 	function initialization_of_skill(){
@@ -24,49 +26,14 @@
 	}
 	
 	function initialization_of_arm(){
-		//清空按鈕內容
-		for (let i=0; i<Weap_Size; ++i)
-		{
-			document.getElementById('arm_' + String(i+1)).innerHTML = '';
-			document.getElementById('arm_' + String(i+1)).style.display = 'none';
-		}
-		for (let i=0; i<Au_Size; ++i)
-		{
-			document.getElementById('au_arm_' + String(i+1)).innerHTML = '';
-			document.getElementById('au_arm_' + String(i+1)).style.display = 'none';
-		}
-		for (let i=0; i<Body_Size; ++i)
-		{
-			document.getElementById('body_arm_' + String(i+1)).innerHTML = '';
-			document.getElementById('body_arm_' + String(i+1)).style.display = 'none';
-		}
-		//初始化背景顏色	
-		if (Weap_CurBtn != '')
-		{
-			document.getElementById(Weap_CurBtn).className = "Arm_button";
-		}
-		if (Au_CurBtn != '')
-		{
-			document.getElementById(Au_CurBtn).className = "Arm_button";
-		}
-		if (Body_CurBtn != '')
-		{
-			document.getElementById(Body_CurBtn).className = "Arm_button";
-		}
+		document.getElementById('WeapArms_site').innerHTML = '';
+		document.getElementById('AuArms_site').innerHTML = '';
+		document.getElementById('bodyArms_site').innerHTML = '';
 			
 		//初始化按鈕紀錄
 		Weap_CurBtn = '';
 		Au_CurBtn = '';
 		Body_CurBtn = '';
-		
-		WeapType_Cur = '';
-		AuType_Cur = '';
-		BodyType_Cur = '';
-		
-		//顯示初始按鈕
-		document.getElementById('armO').style.display = "none";
-		document.getElementById('au_armO').style.display = "none";
-		document.getElementById('body_armO').style.display = "none";
 	}
 	
 	function initialization_of_skilltree(){
@@ -85,4 +52,5 @@
 		SkillTree_CurBtn = '';
 		
 		document.getElementById('site_SkillTree').style.display = 'none';
+		document.getElementById('ShowCaption_Body_1_openBtn').style.display = 'none';
 	}
