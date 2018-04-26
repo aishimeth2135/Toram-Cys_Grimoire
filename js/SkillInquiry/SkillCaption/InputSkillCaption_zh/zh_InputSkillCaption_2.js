@@ -1917,7 +1917,7 @@
 										all_SI[5].SI_value = 20 + 2*T_skillLv;
 										all_SI[5].SI_unit = '。';
 										all_SI[6].SI_name = '暴擊傷害-';
-										all_SI[6].SI_value = input_SI_value_bySelection('Weap', ['Katana'], [0, 15 - T_skillLv]);
+										all_SI[6].SI_value = input_SI_value_bySelection('Weap_Au', ['Katana'], [0, 15 - T_skillLv]);
 										all_SI[6].SI_unit = '%。';
 										all_SI[7].SI_value = '持續時間內_&1_。防禦力大幅降低。';
 										all_SI[16].SI_value = '狀態加成';
@@ -1951,7 +1951,7 @@
 										all_SI[7].SI_unit = '%)。';
 										all_SI[17].SI_value = '快';
 										all_SI[16].SI_value = '狀態加成';
-										all_SI[24].SI_value = input_SI_value_bySelection('Weap', ['Katana'], [3*(5 + parseInt(T_skillLv/2)), 5 + parseInt(T_skillLv/2)]);
+										all_SI[24].SI_value = input_SI_value_bySelection('Weap_Au', ['Katana'], [3*(5 + parseInt(T_skillLv/2)), 5 + parseInt(T_skillLv/2)]);
 										all_SI[27].SI_value = '施放時將受到持續9秒的_@著火。由此技能造成的_@著火不會產生抗性時間。';
 										all_SI[28].SI_value = '<br />於技能作用期間內所施放的畫龍點睛，將獲得_&1_效果。';
 										break;

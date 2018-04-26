@@ -99,17 +99,17 @@
 		let typeAry = [];
 		switch ( parseInt(temp.getAttribute('data-armsno')) )
 		{
-			case 0: typeAry = [0, 3, 4, 6, 7, 9];
+			case 0: typeAry = [0, 3, 4, 6, 7, 9, 10];
 				break;
-			case 1: typeAry = [0, 3, 4, 6];
+			case 1: typeAry = [0, 3, 4, 6, 10];
 				break;
-			case 2: typeAry = [0, 2, 3, 4, 6, 7];
+			case 2: typeAry = [0, 2, 3, 4, 6, 7, 10];
 				break;
-			case 3: typeAry = [0, 6];
+			case 3: typeAry = [0, 6, 10];
 				break;
-			case 4: typeAry = [0, 3, 4];
+			case 4: typeAry = [0, 3, 4, 10];
 				break;
-			case 5: typeAry = [2];
+			case 5: typeAry = [2, 10];
 				break;
 			default: return;
 		}

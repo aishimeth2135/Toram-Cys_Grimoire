@@ -184,12 +184,40 @@
 	function input_SI_value_bySelection(T_gear, ArmsName, value){
 		/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
+		if ( T_gear == 'Weap_Au' )
+		{
+			T_gearAry = [WeapType_Cur, AuType_Cur];
+			T_mapAry = [
+				{'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10},
+				{'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}
+			];
+			if ( T_gearAry[0] == -1 && T_gearAry[1] == -1)
+			{
+				return value[value.length-1];
+			}
+			for (let T=0; T<T_gearAry.length; ++T)
+			{
+				if ( T_gearAry[T] != -1 )
+				{
+					for (let i=0; i<ArmsName.length; ++i)
+					{
+						if (T_gearAry[T] == T_mapAry[T][ArmsName[i]])
+						{
+							return value[i];
+						}
+					}
+				}
+			}
+			return value[value.length-1];
+		}
+		
 		if ( T_gear == 'Weap' )
 		{
 			T_gear = WeapType_Cur;
 			T_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		}
-		else {
+		if ( T_gear == 'Au' )
+		{
 			T_gear = AuType_Cur;
 			T_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6};
 		}
