@@ -1,7 +1,7 @@
 
 	/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
-	function en_input_skillCaptionSI_1(No_STT, No_ST, No_S){
+	function jp_input_skillCaptionSI_1(No_STT, No_ST, No_S){
 		
 		No_STT = Number(No_STT);	//0開始
 		No_ST = Number(No_ST);		//0開始
