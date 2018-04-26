@@ -1,4 +1,5 @@
 	
+<<<<<<< HEAD
 	(function(){
 		let Ttext = '';
 		for (let i=1; i<11; ++i)
@@ -10,6 +11,8 @@
 	})();
 	
 	
+=======
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	update_skillTreeTypeBtnList();
 	
 	(function (){
@@ -58,7 +61,11 @@
 	/*=====================================================================*/
 	(function (){
 		let Section_4_Menu_List = ['技能配點'];
+<<<<<<< HEAD
 		update_ATool_MenuList( Section_4_Menu_List );
+=======
+		update_ATool_MenuList(Section_4_Menu_List);
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	})();
 	
 	/*=====================================================================*/
@@ -102,6 +109,7 @@
 	/*=====================================================================*/
 	setTimeout( function(){
 		document.getElementById('Loading_Page').style.display = 'none';
+<<<<<<< HEAD
 	}, 1500);
 	
 	/* (function (){
@@ -115,6 +123,10 @@
 		console.log(nameAry);
 		console.log(unitAry);
 	})(); */
+=======
+	}, 2000);
+	
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	/* (function(){
 		let T_code = '';
 		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)

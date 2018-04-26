@@ -551,6 +551,44 @@
 					Ttext += T_sum_SkillLv_title[getCur_languageNo()] + sum_SkillLv;
 				}
 				break;
+			case 1:
+				for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+				{
+					Ttext += '~ ' + all_skilltree_type[i].STt_name + '\r\n';
+					for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+					{
+						let T_ST = all_skilltree_type[i].STt_skilltree[j];
+						let notEmpty = true;
+						if (document.getElementById('SkillAlloSimu_BuildText_ignoreEmpty').checked)
+						{
+							notEmpty = false;
+							for (let k=0; k<T_ST.ST_skill.length; ++k)
+							{
+								if (T_ST.ST_skill[k].Sk_lv != 0)
+								{
+									notEmpty = true;
+									break;
+								}
+							}
+						}
+						if ( T_ST.ST_beSel && notEmpty)
+						{
+							Ttext += '  - ' + T_ST.ST_name + '：';
+							let T_ary = [];
+							for (let k=0; k<T_ST.ST_skill.length; ++k)
+							{
+								
+								if (T_ST.ST_skill[k].Sk_lv != 0)
+								{
+									T_ary.push(T_ST.ST_skill[k].Sk_name + "Lv." + T_ST.ST_skill[k].Sk_lv);
+								}
+							}
+							Ttext += T_ary.join('、') + '。\r\n';
+						}
+					}
+					Ttext += '\r\n';
+				}
+				break;
 		}
 		let T_watermark = ["(Copy from Cy's Grimoire)", "(產生自Cy's Grimoire)", "(Copy from Cy's Grimoire)"];
 		document.getElementById('SkillAlloSimu_BuildText_textarea').value = Ttext + "\r\n" + T_watermark[getCur_languageNo()];
@@ -571,6 +609,7 @@
 			{
 				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 				{
+<<<<<<< HEAD
 					if ( !all_skilltree_type[i].STt_skilltree[j].ST_beSel )
 					{
 						T_code += "#";
@@ -578,6 +617,10 @@
 					}
 					switch (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv)
 					{
+=======
+					switch (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv)
+					{
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 						case 0: T_code += "C"; break;
 						case 1: T_code += "Y"; break;
 						case 2: T_code += "S"; break;
@@ -610,6 +653,7 @@
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
 				codeAry[i].push([]);
+<<<<<<< HEAD
 				for (let k=0, T_length=all_skilltree_type[i].STt_skilltree[j].ST_skill.length; k<T_length; ++k)
 				{
 					let T = 0;
@@ -627,15 +671,38 @@
 						case "A": T = 8; break;
 						case "R": T = 9; break;
 						case "E": T = 10; break;
+=======
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				{
+					let T = '';
+					switch ( Tstr.charAt(strCnt) )
+					{
+						case "C": T += 0; break;
+						case "Y": T += 1; break;
+						case "S": T += 2; break;
+						case "G": T += 3; break;
+						case "R": T += 4; break;
+						case "I": T += 5; break;
+						case "M": T += 6; break;
+						case "O": T += 7; break;
+						case "A": T += 8; break;
+						case "R": T += 9; break;
+						case "E": T += 10; break;
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 						default:
 							alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom of this page).');
 							return;
 					}
+<<<<<<< HEAD
 					codeAry[i][j].push(T);
 					if (Tstr.charAt(strCnt) != "#" || k == T_length - 1)
 					{
 						++strCnt;
 					}
+=======
+					codeAry[i][j].push( parseInt(T) );
+					++strCnt;
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 				}
 			}
 		}

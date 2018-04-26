@@ -53,11 +53,16 @@
 		
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[2].Sk_branch.push('力量灌注');
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[3].Sk_branch.push('強化攻擊','二連閃擊','劍光一閃');
+<<<<<<< HEAD
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[4].Sk_branch.push('流星一擊','星流爆破');
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[5].Sk_branch.push('蓄勢待發','強化效果');
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[7].Sk_branch.push('刃風','風刃氣旋');
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[8].Sk_branch.push('武器銳化');
 	all_skilltree_type[0].STt_skilltree[0].ST_skill[13].Sk_branch.push('狂暴化', '喪失沉著');
+=======
+	all_skilltree_type[0].STt_skilltree[0].ST_skill[5].Sk_branch.push('蓄勢待發','強化效果');
+	all_skilltree_type[0].STt_skilltree[0].ST_skill[7].Sk_branch.push('刃風','風刃氣旋');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 /*======================================================================================
   ======================================================================================*/	
@@ -66,19 +71,34 @@
 		new the_skill(2, 	'渦輪射擊', 		1),
 		new the_skill(3, 	'弱點狙擊', 		2),
 		new the_skill(4, 	'箭雨', 			2),
+<<<<<<< HEAD
 		new the_skill(5, 	'交叉火線', 	4),
 		new the_skill(6, 	'黏液射擊', 		1),
 		new the_skill(7, 	'麻痺射擊', 		6),
 		new the_skill(8, 	'煙霧彈', 			7),
 		new the_skill(9, 	'斷腕擊', 	8),	//
+=======
+		new the_skill(5, 	'クロスファイア', 	4),
+		new the_skill(6, 	'黏液射擊', 		1),
+		new the_skill(7, 	'麻痺射擊', 		6),
+		new the_skill(8, 	'煙霧彈', 			7),
+		new the_skill(9, 	'アームブレイク', 	8),	//
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 		new the_skill(10, 	'_#弓術鍛鍊',		0),	//9
 		new the_skill(11, 	'匿蹤', 			10),
 		new the_skill(12, 	'_#遠程狙擊', 		10),
 		new the_skill(13, 	'_#回氣',			12),//12
+<<<<<<< HEAD
 		new the_skill(14, 	'分身射手',	13));
 	for (let i=0; i<=9; ++i)
 	{
 		all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_W_type.push(WeapArms_map['Bow'], WeapArms_map['Bowgun']);
+=======
+		new the_skill(14, 	'デコイシューター',	13));
+	for (let i=0; i<=9; ++i)
+	{
+		all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_W_type.push('弓','弩');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 		if (all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_no != 10)
 		{
 			all_skilltree_type[0].STt_skilltree[1].ST_skill[i].Sk_Au_type.push(AuArms_map['Arrow']);
@@ -97,16 +117,28 @@
 		new the_skill(2,	'法術/長槍', 		1),        
 		new the_skill(3,	'法術/魔法槍', 		2),        
 		new the_skill(4,	'法術/衝擊波', 		3), 	// 3
+<<<<<<< HEAD
 		new the_skill(5,	'法術/終結', 	4), 	// 4
 		new the_skill(6,	'法術/障壁', 		1),        
 		new the_skill(7,	'法術/引爆', 		6),        
 		new the_skill(8,	'法術/暴風', 		7),
 		new the_skill(9,	'法術/爆能', 	8),
+=======
+		new the_skill(5,	'術式／フィナウ', 	4), 	// 4
+		new the_skill(6,	'法術/障壁', 		1),        
+		new the_skill(7,	'法術/引爆', 		6),        
+		new the_skill(8,	'法術/暴風', 		7),
+		new the_skill(9,	'術式／バースト', 	8),
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 		new the_skill(10,	'_#魔法要領', 		0),        
 		new the_skill(11,	'魔力充填', 		0),        
 		new the_skill(12,	'_#縮時詠唱', 		11),    // 11
 		new the_skill(13,	'_#強射', 			12),	// 12
+<<<<<<< HEAD
 		new the_skill(14,	'魔力灌充', 	13));
+=======
+		new the_skill(14,	'マキシマイザー', 	13));
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	for (var i=0;i<all_skilltree_type[0].STt_skilltree[2].ST_skill.length;i++)
 	{
 		if (all_skilltree_type[0].STt_skilltree[2].ST_skill[i].Sk_no != 10)
@@ -145,6 +177,7 @@
 		all_skilltree_type[0].STt_skilltree[3].ST_skill[i].Sk_Au_type.push(AuArms_map['Knuckles'], AuArms_map['Other']);
 	}
 	
+<<<<<<< HEAD
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[11].Sk_W_type.push(WeapArms_map['Knuckles'], WeapArms_map['Other']);
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[11].Sk_Au_type.push(AuArms_map['Knuckles'], AuArms_map['Other']);
 	
@@ -154,6 +187,17 @@
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[12].Sk_W_type.push(WeapArms_map['Knuckles']);
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[12].Sk_Au_type.push(AuArms_map['Knuckles']);
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[13].Sk_W_type.push(WeapArms_map['Knuckles']);
+=======
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[11].Sk_W_type.push('拳套','其它');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[11].Sk_Au_type.push('拳套','其它');
+	
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[9].Sk_W_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[10].Sk_W_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[10].Sk_Au_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[12].Sk_W_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[12].Sk_Au_type.push('拳套');
+	all_skilltree_type[0].STt_skilltree[3].ST_skill[13].Sk_W_type.push('拳套');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[3].Sk_branch.push('精確追擊');
 	all_skilltree_type[0].STt_skilltree[3].ST_skill[12].Sk_branch.push('追擊');
@@ -205,6 +249,7 @@
 		new the_skill(13, 	'逆境怒吼', 	12),	// 12
 		new the_skill(14, 	'神速掌握', 	13));
 	
+<<<<<<< HEAD
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[0].Sk_W_type.push(WeapArms_map['Halberd'], WeapArms_map['1hSword']);
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[1].Sk_W_type.push(WeapArms_map['Halberd']);
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[2].Sk_W_type.push(WeapArms_map['Halberd']);
@@ -218,6 +263,21 @@
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[10].Sk_W_type.push(WeapArms_map['Halberd']);
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[11].Sk_W_type.push(WeapArms_map['Halberd'], WeapArms_map['Other']);
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[12].Sk_W_type.push(WeapArms_map['Halberd'], WeapArms_map['Other']);
+=======
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[0].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[1].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[2].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[3].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[4].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[5].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[6].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[7].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[8].Sk_W_type.push('旋風槍', '單手劍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[9].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[10].Sk_W_type.push('旋風槍');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[11].Sk_W_type.push('旋風槍','其它');
+	all_skilltree_type[0].STt_skilltree[5].ST_skill[12].Sk_W_type.push('旋風槍','其它');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[1].Sk_branch.push('挑擊', '猛擲');
 	all_skilltree_type[0].STt_skilltree[5].ST_skill[2].Sk_branch.push('橫掃', '迴旋');
@@ -263,6 +323,10 @@
 	all_skilltree_type[0].STt_skilltree[6].ST_skill[10].Sk_branch.push('瞬疾移行');
 	all_skilltree_type[0].STt_skilltree[6].ST_skill[11].Sk_branch.push('心眼');
 	all_skilltree_type[0].STt_skilltree[6].ST_skill[12].Sk_branch.push('犧牲守備');
+<<<<<<< HEAD
 	all_skilltree_type[0].STt_skilltree[6].ST_skill[13].Sk_branch.push('潛能激發');
 	
 })();
+=======
+	
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b

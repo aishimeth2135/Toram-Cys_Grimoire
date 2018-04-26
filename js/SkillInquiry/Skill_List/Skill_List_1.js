@@ -78,6 +78,7 @@
 		new the_skill(5, '挑釁', 		0),
 		new the_skill(6, '憤怒的一擊', 	5),
 		new the_skill(7, '繫影強襲', 	6));	// 5
+<<<<<<< HEAD
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_W_type.push(WeapArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_Au_type.push(AuArms_map['Shield'],AuArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_W_type.push(WeapArms_map['Other']);
@@ -90,6 +91,20 @@
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[4].Sk_Au_type.push(AuArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_W_type.push(WeapArms_map['1hSword'], WeapArms_map['2hSword']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_Au_type.push(AuArms_map['Other']);
+=======
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_Au_type.push('盾牌','其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_Au_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_Au_type.push('盾牌');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_Au_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[4].Sk_W_type.push('單手劍','雙手劍');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[4].Sk_Au_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_W_type.push('單手劍','雙手劍');
+	all_skilltree_type[1].STt_skilltree[3].ST_skill[5].Sk_Au_type.push('其它');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_branch.push('絕對防禦');
 	
@@ -102,6 +117,7 @@
 		new the_skill(5, '沉睡陷阱', 	0),	// 3
 		new the_skill(6, '絆腳陷阱', 	5),	// 4
 		new the_skill(7, '猛爆地雷', 	6));// 5
+<<<<<<< HEAD
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[0].Sk_W_type.push(WeapArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[1].Sk_W_type.push(WeapArms_map['Bow'], WeapArms_map['Bowgun']);
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[2].Sk_W_type.push(WeapArms_map['Bow'], WeapArms_map['Bowgun']);
@@ -111,6 +127,17 @@
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_Au_type.push(AuArms_map['Arrow'], AuArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_W_type.push(WeapArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_Au_type.push(AuArms_map['Arrow'], AuArms_map['Other']);
+=======
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[0].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[1].Sk_W_type.push('弓','弩');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[2].Sk_W_type.push('弓','弩');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_Au_type.push('箭矢','其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_Au_type.push('箭矢','其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_W_type.push('其它');
+	all_skilltree_type[1].STt_skilltree[4].ST_skill[5].Sk_Au_type.push('箭矢','其它');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[3].Sk_branch.push('觸發');
 	all_skilltree_type[1].STt_skilltree[4].ST_skill[4].Sk_branch.push('觸發');

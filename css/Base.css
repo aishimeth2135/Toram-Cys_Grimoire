@@ -21,7 +21,10 @@
 		font-size:0.9rem;
 		background-color:#000000;
 		color:#FFF;
+<<<<<<< HEAD
 		margin: 1px;
+=======
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	}
 	
 	a {
@@ -135,7 +138,11 @@
 	
 	/*===============================================================*/
 	#Section_1, #Section_2, #Section_3, #Section_4 {
+<<<<<<< HEAD
 		box-shadow: inset -0.1rem -0.1rem 1.2rem #FFF;
+=======
+		box-shadow: inset -0.1rem -0.1rem 0.7rem #FFF;
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 		padding: 1rem 0.6rem;
 		min-height: 20rem;
 		max-width: 50rem;

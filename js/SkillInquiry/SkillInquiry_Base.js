@@ -219,6 +219,7 @@
 	}
 	
 	function BranchText_onclick(BranchName){
+<<<<<<< HEAD
 		let cnt = 1;
 		while ( document.getElementById('skillBranch_' + String(cnt)) )
 		{
@@ -261,5 +262,20 @@
 				break;
 		}
 		temp.innerHTML = Ttext;
+=======
+		let T_name = '';
+		for (let i=0; i<SkillBranch_Size; ++i)
+		{
+			if ( BranchName == document.getElementById('SkillBranch_' + String(i+1)).innerHTML )
+			{
+				T_name = document.getElementById('SkillBranch_' + String(i+1));
+				break;
+			}
+		}
+		if (T_name != '')
+		{
+			update_of_skill_branch(T_name);
+		}
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	}
 		

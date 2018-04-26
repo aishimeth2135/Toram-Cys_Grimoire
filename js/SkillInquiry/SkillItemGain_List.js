@@ -115,9 +115,15 @@
 	
 	InputGainToSkill('魔力充填', 0, 5, 50, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
 	
+<<<<<<< HEAD
 	InputGainToSkill('強射', 1, 10, 2, WeapArms_map['Staff'], -1, -1);
 	InputGainToSkill('強射', 1, 3, 40, WeapArms_map['Staff'], -1, -1);
 	InputGainToSkill('強射', 1, 3, 70, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
+=======
+	InputGainToSkill('強射', 1, 10, 2, '法杖','','');
+	InputGainToSkill('強射', 1, 3, 40, '法杖','','');
+	InputGainToSkill('強射', 1, 3, 70, '魔導具','','');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 	//格鬥
 	InputGainToSkill('重擊', 0, 10, 1,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
@@ -189,9 +195,15 @@
 	
 	//拔刀劍
 
+<<<<<<< HEAD
 	InputGainToSkill('武士道', 0, 6, '並可精進對拔刀劍的_&2_。', WeapArms_map['Katana'], -1, -1);
 	
 	InputGainToSkill('縮地法', 1, 5, 25, WeapArms_map['Katana'], AuArms_map['Katana'], -1);
+=======
+	InputGainToSkill('武士道', 0, 6, '並可精進對拔刀劍的_&2_。', '拔刀劍', '', '');
+	
+	InputGainToSkill('雙手合持', 0, 27, '主手裝備拔刀劍時，將獲得_&1_效果。', '拔刀劍', '', '');
+>>>>>>> b9039fe0951b9f58bff2e53ff7466b39e1bda16b
 	
 	InputGainToSkill('雙手合持', 0, 27, '主手裝備拔刀劍時，將獲得_&1_效果。', WeapArms_map['Katana'], -1, -1);
 	
