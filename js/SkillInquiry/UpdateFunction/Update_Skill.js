@@ -5,6 +5,7 @@
 		
 		if (temp.className == "Skill_td_unable")
 		{
+			initialization_of_ShowCaption();
 			return;
 		}
 		document.getElementById('ShowCaption_Site_2').style.opacity = '1';

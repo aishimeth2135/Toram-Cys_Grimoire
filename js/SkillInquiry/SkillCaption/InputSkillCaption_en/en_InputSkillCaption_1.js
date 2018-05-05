@@ -1118,7 +1118,7 @@
 								all_SI[15].SI_value = '此技能目前資料不足。';
 								break;
 							case 3:
-								all_SI[8].SI_value = 'All';
+								all_SI[8].SI_value = 'Shield';
 								all_SI[9].SI_value = 100;
 								all_SI[10].SI_value = 'Unlimited';
 								all_SI[11].SI_value = '狀態, 效果';

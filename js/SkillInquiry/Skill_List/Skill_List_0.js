@@ -27,7 +27,7 @@
 		new the_skill(6, 	'音速斬切', 	1),		// 5
 		new the_skill(7, 	'真空刃', 		6),        
 		new the_skill(8, 	'風暴氣流', 	7),		// 7
-		new the_skill(9, 	'破壞之刃', 	8),		
+		new the_skill(9, 	'破壞之刃', 	7),		
 		new the_skill(10, 	'_#劍術要領', 	0),
 		new the_skill(11, 	'_#劍速提升', 	10),
 		new the_skill(12, 	'_#大師級劍術', 11),

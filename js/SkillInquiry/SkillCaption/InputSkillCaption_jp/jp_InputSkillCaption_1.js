@@ -1,7 +1,7 @@
 
 	/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
-	function jp_input_skillCaptionSI_1(No_STT, No_ST, No_S){
+	function en_input_skillCaptionSI_1(No_STT, No_ST, No_S){
 		
 		No_STT = Number(No_STT);	//0開始
 		No_ST = Number(No_ST);		//0開始
@@ -1118,7 +1118,7 @@
 								all_SI[15].SI_value = '此技能目前資料不足。';
 								break;
 							case 3:
-								all_SI[8].SI_value = 'All';
+								all_SI[8].SI_value = 'Shield';
 								all_SI[9].SI_value = 100;
 								all_SI[10].SI_value = 'Unlimited';
 								all_SI[11].SI_value = '狀態, 效果';

@@ -1118,7 +1118,7 @@
 								all_SI[15].SI_value = '此技能目前資料不足。';
 								break;
 							case 3:
-								all_SI[8].SI_value = '無限制';
+								all_SI[8].SI_value = '盾牌';
 								all_SI[9].SI_value = 100;
 								all_SI[10].SI_value = '無限制';
 								all_SI[11].SI_value = '狀態、效果';

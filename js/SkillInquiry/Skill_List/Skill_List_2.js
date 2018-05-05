@@ -24,7 +24,7 @@
   ======================================================================================*/	
 	all_skilltree_type[2].STt_skilltree[1].ST_skill.push(
 		new the_skill(1, 	'_#急救',		0),
-		new the_skill(2, 	'治癒術', 		1),
+		new the_skill(2, 	'治癒術', 		0),
 		new the_skill(3, 	'異常抗體', 	2),
 		new the_skill(4, 	'聖域', 		3),	// 3
 		new the_skill(5, 	'癒合', 		4),

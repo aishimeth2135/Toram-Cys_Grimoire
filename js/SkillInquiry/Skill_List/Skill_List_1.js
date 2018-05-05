@@ -82,7 +82,6 @@
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[0].Sk_Au_type.push(AuArms_map['Shield'],AuArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_W_type.push(WeapArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[1].Sk_Au_type.push(AuArms_map['Other']);
-	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_W_type.push(WeapArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[2].Sk_Au_type.push(AuArms_map['Shield']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_W_type.push(WeapArms_map['Other']);
 	all_skilltree_type[1].STt_skilltree[3].ST_skill[3].Sk_Au_type.push(AuArms_map['Other']);
