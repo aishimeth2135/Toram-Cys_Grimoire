@@ -68,6 +68,28 @@
 	SkillAlloSimu_SelMode(document.getElementById('SkillAlloSimu_Mode_Add'));
 	SkillAlloSimu_SelStep(document.getElementById('SkillAlloSimu_Step5'));
 	
+	
+	(function(){
+		let CharaSimu_menu_list = [
+			'<img width="28" height="28" src="svg/stats.svg" />', 
+			'<img width="28" height="28" src="svg/Main-Weapon_1.svg" />', 
+			'<img width="28" height="28" src="svg/Sub-Weapon_1.svg" />', // 副手
+			'<img width="28" height="28" src="svg/Body_Armor_1.svg" />', 
+			'<img width="28" height="28" src="svg/Additional_Gear_3.svg" />', 
+			'<img width="28" height="28" src="svg/Special_Gear_1.svg" />']; //<img src="svg/Special_Gear_0.svg" />
+		let Ttext = '';
+		Ttext += `<li onclick="show_charaStats()">${CharaSimu_menu_list[0]}</li>`;
+		for (let i=1; i<CharaSimu_menu_list.length; ++i)
+		{
+			Ttext += `<li data-fieldno="${i-1}" onclick="sel_curEquipField(this)">${CharaSimu_menu_list[i]}</li>`;
+		}
+		document.getElementById('CharaSimu_menu').innerHTML = Ttext;
+	})();
+	
+	
+	
+	
+	
 	/*=====================================================================*/
 	$(window).scroll( function(){
 		if( $(window).scrollTop() <= 68.8)

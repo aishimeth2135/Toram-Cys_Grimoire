@@ -48,7 +48,7 @@
 	/* ======================================================= */
 	
 	#SkillAlloSimu_main table {
-		background-color:rgba(161, 161, 175);
+		background-color:rgb(161, 161, 175);
 		box-shadow:inset 0rem 0rem 1.2rem rgb(255, 255, 255);
 		font-size:0.95rem;
 		color:#EEE;
@@ -64,6 +64,7 @@
 		text-align:center;
 		width:8rem;
 		transition: 0.8s;
+		cursor: pointer;
 	}
 	
 	#SkillAlloSimu_main td>span {

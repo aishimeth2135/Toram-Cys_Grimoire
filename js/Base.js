@@ -33,7 +33,7 @@
 	function update_skillTreeTypeBtnList(){
 		for (let i=0; i<4; ++i)
 		{
-			document.getElementById('skilltree_type_' + String(i+1)).innerHTML = all_skilltree_type[i].STt_name;
+			document.getElementById('skilltree_type_' + i).innerHTML = all_skilltree_type[i].STt_name;
 		}
 	}
 	//===========================================================//

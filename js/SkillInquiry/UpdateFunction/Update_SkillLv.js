@@ -34,9 +34,17 @@
 		}
 		temp.className = 'SkillLv_button_current';
 		
-		if (Skill_CurBtn != '')
+		cnt = 0;
+		doc = document.getElementById('skill_' + cnt);
+		while ( doc )
 		{
-			document.getElementById('ShowCaption_5').style.display = 'none';
-			update_of_skill( document.getElementById(Skill_CurBtn), true);
+			if ( doc.className.includes('cur') )
+			{
+				document.getElementById('ShowCaption_5').style.display = 'none';
+				update_of_skill( doc, true);
+				break;
+			}
+			++cnt;
+			doc = document.getElementById('skill_' + cnt);
 		}
 	}

@@ -158,7 +158,7 @@
 				if (T_obj.Sk_no == i+1)
 				{
 					let doc = document.getElementById(`SkillAlloSimu_Skill_${No_STT}_${No_ST}_${i+1}`);
-					doc.className = "Skill_td_default";
+					doc.className = "";
 					doc.innerHTML = `${T_obj.Sk_name}${doc.innerHTML}`;
 					doc.setAttribute('data-sno', String(InputCt));
 					document.getElementById(`SkillAlloSimu_SkillLv_${No_STT}_${No_ST}_${i+1}`).innerHTML = '&nbsp;Lv.' + T_obj.Sk_lv;

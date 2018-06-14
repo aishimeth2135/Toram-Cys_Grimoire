@@ -52,6 +52,16 @@
 		#site_Arms {
 			padding-top:1.2rem;
 		}
+		#CharaSimu_main {
+			width: 100%!important;
+			margin: 10% 0!important;
+			height: 95%;
+			top: 2%;
+		}
+		#CharaSimu_setEquipAbility {
+			width: 100%;
+			left: 0rem;
+		}
 	}
 	
 	@media screen and (max-width: 20rem) {

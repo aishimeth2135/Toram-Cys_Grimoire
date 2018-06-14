@@ -1,0 +1,32 @@
+<svg width="50" height="40" xmlns="http://www.w3.org/2000/svg" stroke="null">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs stroke="null">
+  <filter stroke="null" height="200%" width="200%" y="-50%" x="-50%" id="svg_35_blur">
+   <feGaussianBlur stroke="null" stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g stroke="null">
+  <title stroke="null">background</title>
+  <rect stroke="null" fill="none" id="canvas_background" height="42" width="52" y="-1" x="-1"/>
+  <g stroke="null" display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect stroke="null" fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g stroke="null">
+    <text font-style="normal" font-weight="normal" stroke="#ffffff" transform="matrix(0.7983941228952787,0,0,0.7637916496610689,-187.3666448309799,-147.29401756660212) " xml:space="preserve" text-anchor="start" font-family="Tfont-1, serif" font-size="24" id="svg_45" y="237.066636" x="239.506707" fill="#ffffff">S</text>
+    <g stroke="null" transform="rotate(-15.677644729614258 25.72471618652344,19.409440994262702) " id="svg_51">
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_16" y2="28.16583" x2="24.995019" y1="10.409821" x1="9.914574" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_17" y2="20.868839" x2="33.751406" y1="3.356064" x1="18.427728" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_18" y2="0.680501" x2="9.428107" y1="10.653054" x1="10.157806" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_19" y2="0.680501" x2="9.184875" y1="3.599297" x1="18.427728" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_21" y2="17.463578" x2="37.399902" y1="32.30079" x1="20.616825" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_24" y2="37.895149" x2="25.724718" y1="32.30079" x1="20.860058" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_25" y2="23.057937" x2="42.264561" y1="17.463578" x1="37.643135" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_26" y2="23.30117" x2="42.264561" y1="38.138382" x1="25.724718" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_27" y2="37.408683" x2="36.42697" y1="32.544023" x1="32.292009" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_28" y2="33.516956" x2="41.29163" y1="28.409063" x1="36.913435" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_33" y2="33.273723" x2="41.29163" y1="37.408683" x1="36.670203" stroke-width="2" fill="none"/>
+     <line stroke="#ffffff" filter="url(#svg_35_blur)" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_35" y2="24.030869" x2="29.373213" y1="0.680501" x1="9.428107" stroke-width="2" fill="none"/>
+    </g>
+ </g>
+</svg>

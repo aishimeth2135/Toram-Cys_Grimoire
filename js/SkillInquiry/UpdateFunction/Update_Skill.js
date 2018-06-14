@@ -1,8 +1,6 @@
 
 	function update_of_skill(temp, callByArmsProg = false){
-		
-		let doc;
-		
+		if ( !temp ) return;
 		if (temp.className == "Skill_td_unable")
 		{
 			initialization_of_ShowCaption();
@@ -11,35 +9,52 @@
 		document.getElementById('ShowCaption_Site_2').style.opacity = '1';
 		document.getElementById('site_SkillBranch').style.opacity = '1';
 		
-		if (Skill_CurBtn != '')
+		let cnt = 0;
+		let doc = document.getElementById('skill_' + cnt);
+		while ( doc )
 		{
-			doc = document.getElementById(Skill_CurBtn);
-			if (doc.className != 'Skill_td_unable')
+			if ( doc.className.includes('cur') )
 			{
-				doc.className = 'Skill_td_default';
+				doc.className = '';
+				break;
 			}
+			++cnt;
+			doc = document.getElementById('skill_' + cnt);
 		}
-		document.getElementById(temp.id).className = 'Skill_td_current';
-		Skill_CurBtn = temp.id;
-		let T_curBtn_skillBranch;
+		
+		temp.className = 'Skill_td_cur';
+		
+		let T_curBtn_skillBranch_id;
 		if ( callByArmsProg )
 		{
 			T_curBtn_skillBranch_id = get_curBtn_skillBranch().id;
 		}
 		init_skillBranch();
 		
-		//填入分支
-		No_Skill = parseInt(temp.getAttribute('data-skillno'));
+		let _regObj;
+		if ( document.getElementById('site_Skill').getAttribute('data-skillcode').match(new RegExp("(\\d+)_(\\d+)")) )
+		{
+			_regObj = {exp: RegExp['$&'], no_stt: RegExp.$1, no_st: RegExp.$2};
+		}
+		else {
+			console.log('false skillcode');
+			return;
+		}
+		
+		let tno_stt = _regObj.no_stt;
+		let tno_st = _regObj.no_st;
+		let tno_s = parseInt(temp.getAttribute('data-skillno'));
+		document.getElementById('site_Skill').setAttribute('data-curskill', tno_s);
 		
 		let Ttext = '';
-		for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch.length; ++i)
+		for (let i=0; i<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch.length; ++i)
 		{
-			let T = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch[i];
+			let T = all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch[i];
 			Ttext += `<div id='skillBranch_${i+1}' class= "button_SkillBranch" onclick='updateSite_skillBranch(this)'>${T}</div>`;
 		}
 		document.getElementById('site_SkillBranch').innerHTML = Ttext;
 		
-		updateSite_skillCaption_1(No_SkillTreeType, No_SkillTree, No_Skill);
+		updateSite_skillCaption_1(tno_stt, tno_st, tno_s);
 		
 		if ( callByArmsProg )
 		{
@@ -66,7 +81,20 @@
 	}
 	
 	function updateSite_skillBranch(temp){
-		updateSite_skillCaption_2(No_SkillTreeType, No_SkillTree, No_Skill, parseInt(temp.id.charAt(temp.id.length - 1)) - 1);
+		let _regObj;
+		if ( document.getElementById('site_Skill').getAttribute('data-skillcode').match(new RegExp("(\\d+)_(\\d+)")) )
+		{
+			_regObj = {exp: RegExp['$&'], no_stt: RegExp.$1, no_st: RegExp.$2};
+		}
+		else {
+			console.log('false skillcode');
+			return;
+		}
+		
+		let tno_stt = _regObj.no_stt;
+		let tno_st = _regObj.no_st;
+		let tno_s = document.getElementById('site_Skill').getAttribute('data-curskill');
+		updateSite_skillCaption_2(tno_stt, tno_st, tno_s, parseInt(temp.id.charAt(temp.id.length - 1)) - 1);
 		
 		let doc = get_curBtn_skillBranch();
 		doc.className = 'button_SkillBranch';
@@ -79,12 +107,25 @@
 		{
 			return;
 		}
-		if (temp.id == Skill_CurBtn)
+		if ( temp.className.includes('cur') )
 		{
 			return;
 		}
-		let Tno_skill = temp.getAttribute('data-skillno');
-		updateSite_skillCaption_1(No_SkillTreeType, No_SkillTree, Tno_skill);
+		let _regObj;
+		if ( document.getElementById('site_Skill').getAttribute('data-skillcode').match(new RegExp("(\\d+)_(\\d+)")) )
+		{
+			_regObj = {exp: RegExp['$&'], no_stt: RegExp.$1, no_st: RegExp.$2};
+		}
+		else {
+			console.log('false skillcode');
+			return;
+		}
+		
+		let tno_stt = parseInt(_regObj.no_stt);
+		let tno_st = parseInt(_regObj.no_st);
+		let tno_s = parseInt(temp.getAttribute('data-skillno'));
+		
+		updateSite_skillCaption_1(tno_stt, tno_st, tno_s);
 		
 		document.getElementById('ShowCaption_Site_2').style.opacity = '0.4';
 		document.getElementById('site_SkillBranch').style.opacity = '0.4';
@@ -95,17 +136,43 @@
 		{
 			return;
 		}
-		if (temp.id == Skill_CurBtn)
+		if ( temp.id.includes('cur') )
 		{
 			return;
 		}
-		if (Skill_CurBtn == '')
+		
+		let haveSel = false;
+		let cnt = 0;
+		let doc = document.getElementById('skill_' + cnt);
+		while ( doc )
+		{
+			if ( doc.className.includes('cur') )
+			{
+				haveSel = true;
+				break;
+			}
+			++cnt;
+			doc = document.getElementById('skill_' + cnt);
+		}
+		
+		if ( !haveSel )
 		{
 			initialization_of_ShowCaption();
 		}
 		else {
-			let Tno_skill = document.getElementById(Skill_CurBtn).getAttribute('data-skillno');
-			updateSite_skillCaption_1(No_SkillTreeType, No_SkillTree, Tno_skill);
+			let _regObj;
+			if ( document.getElementById('site_Skill').getAttribute('data-skillcode').match(new RegExp("(\\d+)_(\\d+)")) )
+			{
+				_regObj = {exp: RegExp['$&'], no_stt: RegExp.$1, no_st: RegExp.$2};
+			}
+			else {
+				console.log('false skillcode');
+				return;
+			}
+			let tno_stt = parseInt(_regObj.no_stt);
+			let tno_st = parseInt(_regObj.no_st);
+			let tno_s = parseInt(document.getElementById('site_Skill').getAttribute('data-curskill'));
+			updateSite_skillCaption_1(tno_stt, tno_st, tno_s);
 		}
 		
 		document.getElementById('ShowCaption_Site_2').style.opacity = '1';

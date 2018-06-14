@@ -25,30 +25,23 @@
 	}
 	#site_SkillTree li {
 		display:inline-block;
-	}
-	#site_SkillTree a {
 		white-space:nowrap;
-	}
-	
-	.SkillTree_button, .SkillTree_button_current {
-		display:inline-block;
 		cursor:pointer;
 		font-size:1.3rem;
 		color:rgb(255, 255, 219);
 		text-align:center;
-		display:none;
 		padding:0.2rem 0.35rem;
 		margin:0.1rem;
 		transition: 0.5s;
 		border-radius:0.20rem;
 		text-shadow:0.2rem 0.2rem 0.6rem #555;
 	}
-	.SkillTree_button:hover {
-		background-color:rgba(255, 255, 219, 0.3);
-		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 219);
+	
+	.SkillTree_button_cur {
+		
 	}
-	.SkillTree_button_current {
-		background-color:rgba(255, 255, 219, 0.4);
+	#site_SkillTree li:hover, .SkillTree_button_cur {
+		background-color:rgba(255, 255, 219, 0.3);
 		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 219);
 	}
 	

@@ -25,6 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillLv.css" />
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/Arms.css" />
 	
+	<link rel="stylesheet" type="text/css" href="css/Character_Simulator/Character_Simulator_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
 </head>
@@ -37,6 +38,28 @@
 		<br />ページの下に言語の切り替えができます。
 		</p>
 	</div>
+	
+	<section id="CharaSimu_main_">
+		<div id="CharaSimu_main">
+			<ul id="CharaSimu_menu">
+			</ul>
+			<article id="CharaSimu_setEquip_page">
+				<div id="CharaSimu_setEquipAbility" data-fieldno="-1" data-setno="-1">
+					<div id="CharaSimu_setEquipAbility_header">
+						<div><span class="closeBtn_1" onclick="open_charaSimu_abilityListMain()">&gt;&nbsp;close</span></div><div style="clear:both;"></div>
+						<div>
+							<input id="CharaSimu_setEquipAbility_header_search" placeholder="搜尋..." /><a onclick="javascript:document.getElementById('CharaSimu_setEquipAbility_header_search').value='';">清除</a>
+						</div>
+					</div>
+					<ul id="CharaSimu_setEquipAbility_abilityList"></ul>
+				</div>
+				<div id="CharaSimu_setEquipBase"></div>
+			</article>
+			<div style="clear:both;"></div>
+		</div>
+	</section>
+	
+	<div id="Btn_ToTop" onclick="ToTop()">Top</div>
 	
 	<header>
 		<ul>
@@ -55,55 +78,30 @@
 		</ul>
 	</header>
 
-	<div id="Btn_ToTop" onclick="ToTop()">Top</div>
 	
 	<section id="Section_1">
 		<div id="site_SkillTreeType">
 			<ul>
-				<li id="li_skilltree_type_1" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_1" class="SkillTreeType_button"></a>
+				<li id="skilltree_type_0" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
 				</li>
-				<li id="li_skilltree_type_2" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_2" class="SkillTreeType_button"></a>
+				<li id="skilltree_type_1" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
 				</li>
-				<li id="li_skilltree_type_3" class="SkillTreeType_li" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_3" class="SkillTreeType_button"></a>
+				<li id="skilltree_type_2" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
 				</li>
-				<li id="li_skilltree_type_4" class="SkillTreeType_li" style="display:none;" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-					<a id="skilltree_type_4" class="SkillTreeType_button"></a>
+				<li id="skilltree_type_3" style="display:none;" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
 				</li>
 			</ul>
 		</div>
 		<div id="SkillTreeType_Caption">
 		</div>
-		<div id="site_SkillTree">
-			<ul>
-				<li>
-					<a id = "skilltree_1" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
-				<li>
-					<a id = "skilltree_2" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
-				<li>
-					<a id = "skilltree_3" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
-				<li>
-					<a id = "skilltree_4" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
-				<li>
-					<a id = "skilltree_5" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
-				<li>
-					<a id = "skilltree_6" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
-				<li>
-					<a id = "skilltree_7" class="SkillTree_button" onclick ='update_of_skilltree(this)' onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)"></a>
-				</li>
+		<div id="site_SkillTree" data-skillcode="-1" data-lastbtn="">
+			<ul id="ul_site_SkillTree">
+				
 			</ul>
 			<div id='SkillTree_Caption'>
 			</div>
 		</div>
-		<div id="site_Skill">
+		<div id="site_Skill" data-skillcode="">
 		</div>
 
 		<div id="ShowCaption_Body_1_openBtn" onclick="open_ShowCaption_Body_1(this)" data-modeno="0">&gt;&nbsp;顯示遊戲內技能說明</div>
@@ -146,6 +144,7 @@
 		</div>
 		<div style="clear:left;"></div>
 	</section>
+
 	
 	<div id="Picture_TheStar" style="position:absolute;top:46rem;left:6rem;opacity:0.78;display:none;" onclick="onclickOf_TheStar(this)">
 		<!-- <img src="https://i.imgur.com/3AwYp99.png"> -->
@@ -1277,6 +1276,14 @@
 			
 		<article id="Section_3_Page_1" class="MenuPage">
 			<div>
+				<div class="VerInfo_Title_1">3.4.3</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>修正技能查詢(Skill Information)中，切換技能樹時會出現的錯誤。</li>
+					<li>優化系統。</li>
+					<li>新版裝備模擬器製作當中，有任何建議或想法可到我twitter的置頂貼文留言。</li>
+				</ul>
+			</div>
+			<div>
 				<div class="VerInfo_Title_1">3.4.1</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>修正技能查詢(Skill Information)中，完善守備裝備條件錯誤的問題。</li>
@@ -1455,7 +1462,7 @@
 			</div>
 		<div id="ATool_MenuList">
 			<div id="ATool_MenuList_Main">
-				<div style="cursor:pointer;float:right;" onclick="open_ATool_MenuList()">&gt;&nbsp;Close</div>
+				<div class="closeBtn_1" onclick="open_ATool_MenuList()">&gt;&nbsp;Close</div>
 				<div id="ATool_MenuList_0" class="MenuPage">
 					<ul>
 						<li>
@@ -1559,7 +1566,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 3.4.1｜Update: 2018/5/6
+			Ver: 3.4.3｜Update: 2018/6/14
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
@@ -1599,6 +1606,10 @@
 
 <script type="text/javascript" src="js/InformationInquiry_Base.js"></script>
 <script type="text/javascript" src="js/HiddenEgg.js"></script>
+
+<script type="text/javascript" src="js/Character_Simulator/Character_Simulator_Base.js"></script>
+<script type="text/javascript" src="js/Character_Simulator/StatsList.js"></script>
+<script type="text/javascript" src="js/Character_Simulator/Character_Simulator_UI.js"></script>
 
 <script type="text/javascript" src="js/AdditionalTool/AdditionalTool_Base.js"></script>
 <script type="text/javascript" src="js/AdditionalTool/SkillAllocation_Simulator.js"></script>

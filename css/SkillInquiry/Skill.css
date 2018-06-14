@@ -5,7 +5,7 @@
 		margin-bottom:1rem;
 	}
 	#site_Skill table {
-		background-color:rgba(161, 161, 175);
+		background-color:rgb(161, 161, 175);
 		box-shadow:inset 0rem 0rem 1.2rem rgb(255, 255, 255);
 		font-size:1rem;
 		color:#EEE;
@@ -17,13 +17,11 @@
 		border-color:transparent transparent #FFF transparent;
 		text-align:center;
 		width:8rem;
-	}
-	.Skill_td_default, .Skill_td_current {
 		text-shadow:0.1rem 0.1rem 1rem #555;
 		cursor:pointer;
 		transition:0.4s;
 	}
-	.Skill_td_default:hover, .Skill_td_current {
+	#site_Skill td:hover, .Skill_td_cur {
 		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 255);
 		background-color:rgba(255, 255, 255, 0.3);
 	}

@@ -1,0 +1,16 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="514" width="514" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#231F20" id="svg_56" stroke-width="6" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" fill="#FFFFFF" d="m458.896,201.385798c-5.66,-37.231675 -100.336,-55.651028 -214.683,-41.206747c-114.346,14.44428 -205.91,56.389993 -207.686,94.559466c-0.116,-0.767146 -3.349,21.888737 -0.492,51.372227c2.856,29.483491 5.361,44.607245 5.398,43.821311c5.66,37.228542 100.336,55.649461 214.682,41.206747c114.347,-14.445845 205.911,-56.393126 207.686,-94.559466c0.057,0.369482 1.327,-22.118882 0.135,-45.305505c-1.273,-24.745967 -5.02,-50.293524 -5.04,-49.888033zm-357.285,93.037698c37.523,-17.36257 89.592,-31.736398 147.509,-39.052474s110.783,-6.198234 149.6,1.523335c-37.523,17.362568 -89.592,31.736398 -147.509,39.052474c-57.917,7.312945 -110.784,6.193536 -149.6,-1.523335z"/>
+  <path stroke="#231F20" id="svg_58" stroke-width="6" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" fill="none" d="m50.418,273.229593c5.231822,4.231251 11.798178,8.043857 19.535037,11.399914c38.758211,16.81819 106.878212,22.212346 183.776981,11.656615c91.613078,-12.576602 168.791309,-44.104246 197.911101,-77.52355"/>
+  <path stroke="#231F20" style="vector-effect: non-scaling-stroke;" id="svg_60" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" fill="none" d="m403.682433,212.011"/>
+  <path stroke="#231F20" style="vector-effect: non-scaling-stroke;" id="svg_62" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" fill="none" d="m427.555,224.844"/>
+  <path stroke="#231F20" style="vector-effect: non-scaling-stroke;" id="svg_63" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" fill="none" d="m90.925,307.604"/>
+  <path id="svg_65" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#231F20" fill="none" d="m105.683,310.062"/>
+ </g>
+</svg>

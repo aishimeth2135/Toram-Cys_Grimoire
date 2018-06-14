@@ -1,8 +1,3 @@
-
-	
-	var No_SkillTreeType = -1,  //編號, 紀錄當前SkillTreeType, for Array
-	No_SkillTree = -1,    //編號, 紀錄當前SkillTree, for Array
-	No_Skill = -1;          //編號, 紀錄當前Skill, for Array
 	
 	// ======= 各類按鈕, 預設欄位數量
 	var SkillTree_Size = 7;
@@ -15,7 +10,7 @@
 	// ====== Record Of Current Arm
 	var WeapType_Cur = '',
 	AuType_Cur = '',
-	BodyType_Cur = '';
+	bodyType_Cur = '';
 	
 	// ====== 記錄當前點擊按鈕, 處理按鈕變色
 	var SkillTreeType_CurBtn = '',
@@ -141,7 +136,7 @@
 		}
 		if (T_B != -1)
 		{
-			for (let i=0;i<this.Sk_B_type.length;++i)
+			for (let i=0; i<this.Sk_B_type.length; ++i)
 			{
 				if (T_B == this.Sk_B_type[i])
 				{

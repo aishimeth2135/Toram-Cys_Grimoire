@@ -8,7 +8,7 @@
 		padding-left:0.2rem;
 		list-style:none;
 	}
-	.SkillTreeType_li , .SkillTreeType_li_current {
+	#site_SkillTreeType li, .SkillTreeType_li_current {
 		width:6rem;
 		height:6rem;
 		margin:0.2rem;
@@ -17,21 +17,19 @@
 		transition:0.7s;
 		display:inline-block;
 		border-radius:0.7rem;
+		font-size:1.1rem;
+		color:rgb(229, 255, 244);
+		text-align:center;
+		transition: 0.81s;
+		line-height: 6rem;
 	}
-	.SkillTreeType_li:hover, .SkillTreeType_li_current:hover {
+	#site_SkillTreeType li:hover, .SkillTreeType_li_current:hover {
 		background-color:rgb(150, 179, 167);
 		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238);
 	}
-	.SkillTreeType_li_current {
-		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238);
-		background-color:rgb(161, 191, 179);
-	}
-	.SkillTreeType_button {
-		font-size:1.1rem;color:rgb(229, 255, 244);
-		text-align:center;
-		transition: 0.81s;
-		display:block;
-		line-height: 6rem;
+	.SkillTreeType_li_cur {
+		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238)!important;
+		background-color:rgb(161, 191, 179)!important;
 	}
 	
 	#SkillTreeType_Caption {

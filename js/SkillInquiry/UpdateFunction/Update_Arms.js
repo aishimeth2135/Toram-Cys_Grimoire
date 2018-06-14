@@ -30,10 +30,12 @@
 		arms_resetSkillSite(T_armsno);
 	}
 	function updateSite_bodyArms(temp){
-		
-		let T_armsno = temp.getAttribute('data-armsno');
+		let T_armsno = parseInt(temp.getAttribute('data-armsno'));
 		bodyType_Cur = T_armsno;
 		
+		/* let cnt = 0;
+		let doc = document.getElementById('bodyArms_' + cnt);
+		while ( doc ) */
 		if (body_CurBtn != '')
 		{
 			document.getElementById(body_CurBtn).className = 'Arm_button';
@@ -130,32 +132,44 @@
 	
 	function arms_resetSkillSite(armsNo = -1){
 	/* 	//初始化說明、技能區塊
-		initialization_of_ShowCaption();
-		//initialization_of_skill(); */
+		initialization_of_ShowCaption(); */
 		
 		for (let i=0; i<SkillTable_size; ++i)
 		{
-			let doc = document.getElementById('Skill_' + String(i+1));
+			let doc = document.getElementById('skill_' + i);
 			if (doc.innerHTML != "(尚未開放)")
 			{
-				doc.className = "Skill_td_default";
+				doc.className = "";
 			}	
 		}
+		let _regObj;
+		if ( document.getElementById('site_Skill').getAttribute('data-skillcode').match(new RegExp("(\\d+)_(\\d+)")) )
+		{
+			_regObj = {exp: RegExp['$&'], no_stt: RegExp.$1, no_st: RegExp.$2};
+		}
+		else {
+			console.log('false skillcode');
+			return;
+		}
+		
+		let tno_stt = _regObj.no_stt;
+		let tno_st = _regObj.no_st;
+		let tno_s = document.getElementById('site_Skill').getAttribute('data-curskill');
+		
 		if ( armsNo != -1)
 		{
-			for (let i=0; i<all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill.length; ++i)
+			for (let i=0; i<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill.length; ++i)
 			{
-				let T_obj = all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[i];
-				if ( !(T_obj.armsConfirm(WeapType_Cur, AuType_Cur, BodyType_Cur)) )
+				let T_obj = all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[i];
+				if ( !(T_obj.armsConfirm(WeapType_Cur, AuType_Cur, bodyType_Cur)) )
 				{
-					document.getElementById('Skill_' + String(T_obj.Sk_no)).className = "Skill_td_unable";
+					document.getElementById('skill_' + (T_obj.Sk_no-1)).className = "Skill_td_unable";
 				}
 			}
 		}
-		
-		if ( Skill_CurBtn != '')
+		if ( document.getElementById('site_Skill').getAttribute('data-isinit') == 'F' )
 		{
-			update_of_skill( document.getElementById(Skill_CurBtn) , true);
+			update_of_skill( document.getElementById('skill_' + tno_s) , true);
 		}
 	}
 	

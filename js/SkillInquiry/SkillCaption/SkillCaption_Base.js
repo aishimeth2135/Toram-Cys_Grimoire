@@ -1,15 +1,15 @@
 
-	function updateSite_skillCaption_1(Tno_skillTreeType, Tno_skillTree, Tno_skill){
+	function updateSite_skillCaption_1(tno_stt, tno_st, tno_s){
 		switch (getCur_languageNo())
 		{
 			case 0:
-				en_input_skillCaptionSI_1(Tno_skillTreeType, Tno_skillTree, Tno_skill);
-				break;
-			case 1:
-				zh_input_skillCaptionSI_1(Tno_skillTreeType, Tno_skillTree, Tno_skill);
-				break;
-			case 2:
-				jp_input_skillCaptionSI_1(Tno_skillTreeType, Tno_skillTree, Tno_skill);
+				en_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
+				break;                   
+			case 1:                      
+				zh_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
+				break;                   
+			case 2:                      
+				jp_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
 				break;
 		}
 		
@@ -46,9 +46,9 @@
 				return true;
 			}
 		}
-		if (T_B != -1 && BodyType_Cur != -1)
+		if (T_B != -1 && bodyType_Cur != -1)
 		{
-			if (T_B == BodyType_Cur)
+			if (T_B == bodyType_Cur)
 			{
 				return true;
 			}
@@ -154,11 +154,25 @@
 				ShowCaption_6_text += all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
 			}
 		}
+
+		let _regObj;
+		if ( document.getElementById('site_Skill').getAttribute('data-skillcode').match(new RegExp("(\\d+)_(\\d+)")) )
+		{
+			_regObj = {exp: RegExp['$&'], no_stt: RegExp.$1, no_st: RegExp.$2};
+		}
+		else {
+			console.log('false skillcode');
+			return;
+		}
+		
+		let tno_stt = _regObj.no_stt;
+		let tno_st = _regObj.no_st;
+		let tno_s = document.getElementById('site_Skill').getAttribute('data-curskill');
 		
 		ShowCaption_5_text = Build_TextButton_1(ShowCaption_5_text);
-		ShowCaption_5_text = build_branch_onclick(ShowCaption_5_text, all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch);
+		ShowCaption_5_text = build_branch_onclick(ShowCaption_5_text, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
 		ShowCaption_6_text = Build_TextButton_1(ShowCaption_6_text);
-		ShowCaption_6_text = build_branch_onclick(ShowCaption_6_text, all_skilltree_type[No_SkillTreeType].STt_skilltree[No_SkillTree].ST_skill[No_Skill].Sk_branch);
+		ShowCaption_6_text = build_branch_onclick(ShowCaption_6_text, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
 		
 		document.getElementById('ShowCaption_4').innerHTML = ShowCaption_4_text;
 		document.getElementById('ShowCaption_5').innerHTML = ShowCaption_5_text;

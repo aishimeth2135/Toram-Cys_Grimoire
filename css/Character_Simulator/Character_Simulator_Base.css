@@ -1,0 +1,179 @@
+	
+	:root {
+		--charaSimu_mainColor1: rgb(160, 146, 162);
+		--charaSimu_mainColor2: rgb(110, 100, 111);
+	}
+	
+	#CharaSimu_main_ {
+		margin:0 calc(50% - 20rem);
+		width:38rem;
+		position: fixed;
+		top: 10%;
+		height: 80%;
+		overflow-y: auto;
+		display: none;
+	}
+	#CharaSimu_main {
+		border:0.3rem var(--charaSimu_mainColor1) solid;
+		background-color: var(--charaSimu_mainColor2);
+		border-radius: 0.5rem;
+		text-shadow: 0.1rem 0.1rem 1rem #666;
+	}
+	
+	#CharaSimu_menu {
+		list-style: none;
+		background-color: var(--charaSimu_mainColor1);
+		margin: 0rem;
+		padding-left: 0rem;
+	}
+	#CharaSimu_menu li {
+		display: inline-block;
+		margin-right:0.2rem;
+		//margin-left: 1px;
+		padding: 0.4rem 0.8rem;
+		font-size: 1rem;
+		border-radius: 0.6em 0.6rem 0 0;
+		cursor: pointer;
+		font-weight: bold;
+		transition: 0.3s;
+	}
+	
+	#CharaSimu_menu li:hover, .CharaSimu_menu_li_cur {
+		background-color: var(--charaSimu_mainColor2);
+	}
+	
+	#CharaSimu_setEquip_page {
+		padding: 0.4rem;
+		font-size: 0.9rem;
+	}
+	
+	.equipField_fieldAbilitys_menu {
+		margin: 0;
+		padding: 0;
+		padding-top: 0.2rem;
+		list-style: none;
+	}
+	.equipField_fieldAbilitys_menu li {
+		padding: 0.3rem 0.4rem;
+		border-radius: 0.4rem 0.4rem 0 0;
+		background-color: var(--charaSimu_mainColor1);
+		transition: 0.3s;
+		display: inline-block;
+		font-size: 0.9rem;
+		margin: 0.2rem;
+		margin-bottom: 0;
+		transition: 0.3s;
+		cursor: pointer;
+		border: 1px transparent solid;
+	}
+	.equipField_fieldAbilitys_menu li:hover {
+		background-color: var(--charaSimu_mainColor2);
+		border: 1px var(--charaSimu_mainColor1) solid;
+		border-bottom-color: transparent;
+	}
+	.equipField_fieldAbilitys_menu span {
+		float: right;
+	}
+	
+	
+	#CharaSimu_setEquipAbility {
+		display: none;
+		padding: 0.3rem;
+		list-style: none;
+		max-width: 20rem;
+		height: 70%;
+		margin-top: 0.5rem;
+		left: calc(50% - 10rem);
+		overflow-y: auto;
+		position: fixed;
+		background-color: #555;
+		border-radius: 0.5rem;
+	}
+	#CharaSimu_setEquipAbility_header {
+		position: sticky;
+		top: 0rem;
+	}
+	#CharaSimu_setEquipAbility_header a {
+		cursor: pointer;
+	}
+	#CharaSimu_setEquipAbility_header_search {
+		padding: 0.2rem;
+		font-size: 0.9rem;
+		margin: 0.3rem;
+		margin-right: 0.5rem;
+	}
+	#CharaSimu_setEquipAbility_abilityList {
+		padding: 0rem;
+	}
+	#CharaSimu_setEquipAbility_abilityList li {
+		padding: 0.2rem 0.4rem;
+		margin: 0.1rem;
+		background-color: #666;
+		transition: 0.3s;
+		display: inline-block;
+		border-radius: 0.3rem;
+		cursor: pointer;
+	}
+	#CharaSimu_setEquipAbility_abilityList li:hover {
+		background-color: #999;
+	}
+	#CharaSimu_setEquipAbility_showDetail {
+		padding: 0.4rem;
+	}
+	
+	#equipField_fieldAbilitys_main, #equipField_fieldAbilitys_xtal1, #equipField_fieldAbilitys_xtal2 {
+		padding: 0.3rem 0.1rem;
+		list-style: none;
+		margin: 0.2rem;
+		border: 1px var(--charaSimu_mainColor1) solid;
+		min-height: 10rem;
+		margin-top: -0.1rem;
+	}
+	#equipField_fieldAbilitys_main li, #equipField_fieldAbilitys_xtal1 li, #equipField_fieldAbilitys_xtal2 li {
+		display: inline-block;
+		margin: 0.1rem 0.3rem;
+		cursor: pointer;
+	}
+	
+	.equipField_name, .equipField_fieldValue, .equipField_refining, .equipField_stability {
+		background: transparent;
+		border: 0;
+		border-bottom: 1px var(--charaSimu_mainColor1) solid;
+		color: #EEE;
+		font-size: 1rem;
+		text-align: center;
+		padding: 0.1rem;
+	}
+	.equipField_name {
+		width: 95%;
+		font-size: 1.2rem;
+		text-align: left;
+	}
+	.equipField_fieldValue {
+		width: 3rem;
+	}
+	.equipField_refining {
+		width: 2.5rem;
+	}
+	.equipField_stability {
+		width: 3rem;
+	} 
+	
+	.equipField_mainBlock_1, .equipField_mainBlock_2, .equipField_mainBlock_3 {
+		max-width: 25rem;
+	}
+	.equipField_mainBlock_1 {
+		margin-bottom: 0.6rem;
+	}
+	.equipField_mainBlock_3 {
+		max-width: 12rem;
+		float: left;
+	}
+	.equipField_blockUnit {
+		display: inline-block;
+		margin: 0.2rem;
+	}
+	.equipField_textTitle_1 {
+		margin-right: 0.3rem;
+		font-size: 1rem;
+	}
