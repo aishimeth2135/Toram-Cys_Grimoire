@@ -40,7 +40,7 @@
 		let Ttext = '';
 		for (let i=0; i<all_skilltree_type[tno_stt].STt_skilltree.length; ++i)
 		{
-			if ( lastBtn.no_stt == tno_stt )
+			if ( lastBtn.no_stt == tno_stt && i == lastBtn.no_st )
 			{
 				Ttext += `<li id="skilltree_${i}" class="SkillTree_button_cur" onclick ="update_of_skilltree(this)" onmouseover="onmouseover_of_SkillTree(this)" onmouseout="onmouseout_of_SkillTree(this)">
 				${all_skilltree_type[tno_stt].STt_skilltree[i].ST_name}</li>`;
