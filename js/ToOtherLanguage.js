@@ -97,7 +97,7 @@
 					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
 					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
 					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', 'Show total skill point', '- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
-					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code. You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
+					'Generate code', 'Load code', "- On the above column, click the 'Save' button to rewrite all files. 'Load' button to read files. 'Copy' button to copy coding for sharing purpose.<br />- The saving part contains 5 column. if it is not enough, you can use the function below to keep your coding manually.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                          , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
@@ -153,7 +153,7 @@
 					'移除技能樹模式', '全部重設', '清除空的技能樹', '產生文本', '存檔系統',
 					'選取按鈕後關閉此選單', '選取任意技能樹後關閉技能樹清單',
 					'基本格式-1', '基本格式-2', '產生時忽略空的技能樹', '標出總共使用多少技能點', '- 可將點好的技能依照選定格式自動產生一段文字。 <br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。',
-					'產生代碼', '讀取代碼', "- 存檔的欄位上限為5格。若覺得不夠可使用下方的功能產生代碼，以手動保存。<br />- 可透過複製代碼分享給其他人。"
+					'產生代碼', '讀取代碼', "- 上方欄位中，按下「save」會覆寫原有檔案、「load」讀取該檔案、「Copy」可複製代碼用於分享給他人。<br />- 存檔部分提供了五個欄位。如認為不足可利用下方功能手動保存代碼。<br />- 可透過複製代碼分享給其他人。"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>額外加成</u>', 'O', 'O', 'O', '適用｜', 'MP消耗｜', '射程｜', '類型｜', 'O', 'O'             , 'O', 'O', '作用方式｜', '動作時間｜', '詠唱時間｜', '蓄力時間｜', '傷害次數｜', '作用次數｜', '<br>範圍中心｜', '影響半徑｜', '<br />持續時間｜', '_@命中成功後，有', 'O' , 'O', 'O', 'O'];
@@ -210,7 +210,7 @@
 					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
 					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
 					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', 'Show total skill point','- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
-					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code.You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
+					'Generate code', 'Load code', "- On the above column, click the 'Save' button to rewrite all files. 'Load' button to read files. 'Copy' button to copy coding for sharing purpose.<br />- The saving part contains 5 column. if it is not enough, you can use the function below to keep your coding manually.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                    , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
