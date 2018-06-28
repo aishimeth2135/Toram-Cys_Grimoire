@@ -4,6 +4,42 @@
 		--charaSimu_mainColor2: rgb(110, 100, 111);
 	}
 	
+	.charaSimu_switchMode {
+		text-align: right;
+		padding: 0.3rem;
+	}
+	.charaSimu_switchMode span {
+		cursor: pointer;
+		padding:0.4rem 0.7rem;
+		transition: 0.3s;
+		border-radius: 0.5rem 0 0 0.5rem;
+	}
+	.charaSimu_switchMode span:hover {
+		background-color: var(--charaSimu_mainColor1); 
+	}
+	#charaSimu_savingSystem_site {
+		padding: 0.4rem;
+	}
+	#charaSimu_savingSystem_site ul {
+		list-style: none;
+		padding: 0.1rem 0.6rem;
+	}
+	#charaSimu_savingSystem_site li {
+		padding: 0.3rem 0.5rem;
+		background-color: var(--charaSimu_mainColor1);
+		border: 0.1rem transparent solid;
+		border-radius: 0.4rem;
+		display: inline-block;
+		margin: 0.2rem;
+		transition: 0.3s;
+		cursor: pointer;
+	}
+	#charaSimu_savingSystem_site li:hover {
+		border: 0.1rem #CCC solid;;
+	}
+	
+	
+	
 	#CharaSimu_main_ {
 		margin:0 calc(50% - 20rem);
 		width:38rem;
@@ -25,11 +61,13 @@
 		background-color: var(--charaSimu_mainColor1);
 		margin: 0rem;
 		padding-left: 0rem;
+		position: sticky;
+		top: 0;
 	}
 	#CharaSimu_menu li {
 		display: inline-block;
 		margin-right:0.2rem;
-		//margin-left: 1px;
+		margin-left: 1px;
 		padding: 0.4rem 0.8rem;
 		font-size: 1rem;
 		border-radius: 0.6em 0.6rem 0 0;
@@ -66,10 +104,10 @@
 		cursor: pointer;
 		border: 1px transparent solid;
 	}
-	.equipField_fieldAbilitys_menu li:hover {
-		background-color: var(--charaSimu_mainColor2);
-		border: 1px var(--charaSimu_mainColor1) solid;
-		border-bottom-color: transparent;
+	.equipField_fieldAbilitys_menu_li_cur, .equipField_fieldAbilitys_menu li:hover {
+		background-color: var(--charaSimu_mainColor2)!important;
+		border: 1px var(--charaSimu_mainColor1) solid!important;
+		border-bottom-color: transparent!important;
 	}
 	.equipField_fieldAbilitys_menu span {
 		float: right;
@@ -121,6 +159,56 @@
 		padding: 0.4rem;
 	}
 	
+	.charaSimu_statPoint_input {
+		border: 0;
+		width:2.5rem;
+		font-size: 0.8rem;
+		padding-top: 0;
+		background: transparent;
+		border-bottom: 1px var(--charaSimu_mainColor1) solid;
+		color: #FFF;
+		text-align: center;
+	}
+	
+	.selStatPointType_ul {
+		list-style: none;
+		margin: 0 0.3rem;
+		padding: 0;
+		display: inline-block;	
+	}
+	.selStatPointType_ul li {
+		display: inline-block;
+		padding: 0.1rem 0.2rem;
+		border: 1px var(--charaSimu_mainColor1) solid;
+		margin: 0.1rem;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	
+	.selStatPointType_ul_li_cur, .selStatPointType_ul li:hover {
+		background-color: var(--charaSimu_mainColor1)!important; 
+	}
+	
+	.equipField_equipTypeList {
+		list-style: none;
+		padding: 0.4rem;
+		margin: 0;
+		color: #BBB;
+	}
+	.equipField_equipTypeList li {
+		border-radius: 0 0.4rem 0 0;
+		padding: 0.2rem 0.3rem;
+		border: 1px var(--charaSimu_mainColor1) solid;
+		margin: 0.1rem 0.2rem;
+		display: inline-block;
+		cursor: pointer;
+	}
+	.equipField_equipTypeList li:hover, .equipField_equipTypeList_li_cur {
+		background-color: var(--charaSimu_mainColor1);
+		color: #FFF;
+	}
+	
+	
 	#equipField_fieldAbilitys_main, #equipField_fieldAbilitys_xtal1, #equipField_fieldAbilitys_xtal2 {
 		padding: 0.3rem 0.1rem;
 		list-style: none;
@@ -134,7 +222,17 @@
 		margin: 0.1rem 0.3rem;
 		cursor: pointer;
 	}
-	
+	#equipField_fieldAbilitys_main li>img, #equipField_fieldAbilitys_xtal1 li>img, #equipField_fieldAbilitys_xtal2 li>img {
+		margin-left: 0.2rem;
+	}
+	#equipField_fieldAbilitys_main input, #equipField_fieldAbilitys_xtal1 input, #equipField_fieldAbilitys_xtal2 input {
+		width:2.5rem;
+		font-size: 0.8rem;
+		padding-top: 0;
+		background: transparent;
+		border-bottom: 1px var(--charaSimu_mainColor1) solid;
+		color: #FFF;
+	}
 	.equipField_name, .equipField_fieldValue, .equipField_refining, .equipField_stability {
 		background: transparent;
 		border: 0;
@@ -176,4 +274,20 @@
 	.equipField_textTitle_1 {
 		margin-right: 0.3rem;
 		font-size: 1rem;
+	}
+	
+	/* =================================== */
+	#CharaSimu_setEquipShow {
+		padding: 0.4rem;
+		padding-top: 0;
+	}
+	
+	.charaSimu_showEquipFieldAbilitys {
+		max-width: 20rem;
+		padding: 0.4rem;
+		padding-left: 0.2rem;
+	}
+	.charaSimu_showEquipFieldAbilitys a {
+		padding: 0.2rem 0.3rem;
+		margin-left: 0.2rem;
 	}

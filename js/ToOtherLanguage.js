@@ -53,6 +53,10 @@
 				All_AuType = ['Dagger', 'Shield', 'Arrow', 'Magic.', 'Knuck.', 'Katana', 'Other'];
 				All_bodyType = ['Norm.', 'Dodge', 'Defen.'];
 				
+				cy_character.allWeapType = ['1h Sword', '2h Sword', 'Bow', 'Bowgun', 'Staff', 'Magic Device', 'Knuckle', 'Halberd', 'Katana', 'none'];
+				cy_character.allAuType = ['Dagger', 'Shield', 'Arrow', 'Magic Device', 'Knuckle', 'Katana', 'Other', '1h Sword'];
+				cy_character.allBodyType = ['Normal', 'Dodge', 'Defence', 'none'];
+				
 				armsTitleAry = ['Main Weapon', 'Sub-Weapon', 'Body Armor'];
 				
 				HeaderMenu_list = ['Skills Information', 'Game Mechanics', 'Website Version', 'Web Tool'];
@@ -93,18 +97,22 @@
 					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
 					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
 					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', 'Show total skill point', '- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
-					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code. You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- Our site does not have save function, please keep the generated code carefully, feel free to share it with others. (Same strand of code can be used by anyone)"
+					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code. You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                          , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'          , 'O'           , ' sec'          , ' sec'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
 				
-				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
+				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', '副手ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '魔法安定率', '武器ATK', '副手武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
 				break;
 			case 1:
 				All_WeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '雙劍', '拔刀劍', '其它'];
 				All_AuType = ['小刀', '盾牌', '箭矢', '魔導具', '拳套', '拔刀劍', '其它'];
 				All_bodyType = ['一般', '輕量化', '重量化'];
+				
+				cy_character.allWeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '拔刀劍', '空手'];;
+				cy_character.allAuType = ['小刀', '盾牌', '箭矢', '魔導具', '拳套', '拔刀劍', '無', '單手劍'];
+				cy_character.allBodyType = ['一般', '輕量化', '重量化', '無'];
 				
 				armsTitleAry = ['主手裝備', '副手裝備', '身體裝備'];
 				
@@ -145,18 +153,22 @@
 					'移除技能樹模式', '全部重設', '清除空的技能樹', '產生文本', '存檔系統',
 					'選取按鈕後關閉此選單', '選取任意技能樹後關閉技能樹清單',
 					'基本格式-1', '基本格式-2', '產生時忽略空的技能樹', '標出總共使用多少技能點', '- 可將點好的技能依照選定格式自動產生一段文字。 <br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。',
-					'產生代碼', '讀取代碼', "- 按下「產生代碼」後，會將當前點好的技能變成一段代碼。下次進入此網頁時可將代碼複製貼上至輸入欄，按下「讀取代碼」後便可讀取出之前點好的技能。<br />- 本網站沒有儲存功能，產生的代碼請自行保留，亦可分享給其它人。（一段代碼任何人皆可使用）"
+					'產生代碼', '讀取代碼', "- 存檔的欄位上限為5格。若覺得不夠可使用下方的功能產生代碼，以手動保存。<br />- 可透過複製代碼分享給其他人。"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>額外加成</u>', 'O', 'O', 'O', '適用｜', 'MP消耗｜', '射程｜', '類型｜', 'O', 'O'             , 'O', 'O', '作用方式｜', '動作時間｜', '詠唱時間｜', '蓄力時間｜', '傷害次數｜', '作用次數｜', '<br>範圍中心｜', '影響半徑｜', '<br />持續時間｜', '_@命中成功後，有', 'O' , 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'              , 'O', 'O', 'O', 'O'     , 'O'       , 'O'     , 'O'     , 'O', '</u>放入連撃。', 'O', 'O', 'O'         , 'O'         , '秒'        , '秒'        , '次'        , '次'        , 'O'             , 'O'         , '秒'              , '%機率使敵人'     , '。', 'O', 'O', 'O'];
 				
-				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
+				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', '副手ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '魔法安定率', '武器ATK', '副手武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
 				break;
 			case 2:
-				All_WeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '双剣', '抜刀剣', 'その他'];
+				All_WeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '抜刀剣', 'その他'];
 				All_AuType = ['短剣', '盾', '矢', '魔導具', '手甲', '抜刀剣', 'その他'];
 				All_bodyType = ['通常', '軽量化', '重量化'];
+				
+				cy_character.allWeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '双剣', '抜刀剣', 'なし'];;
+				cy_character.allAuType = ['短剣', '盾', '矢', '魔導具', '手甲', '抜刀剣', 'なし', '片手剣'];
+				cy_character.allBodyType = ['通常', '軽量化', '重量化', 'なし'];
 				
 				armsTitleAry = ['メイン装備', 'サブ装備', '体装備'];
 				
@@ -198,13 +210,13 @@
 					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
 					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
 					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', 'Show total skill point','- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
-					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code.You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- Our site does not have save function, please keep the generated code carefully, feel free to share it with others. (Same strand of code can be used by anyone)"
+					'Generate code', 'Load code', "- After you press the 'Generate code', the skill points you have simulated can be save as a strand of code.You can paste the code to the Input box then press 'Load code', the saved simulated skill points can be accessed again.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                    , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'      , 'O'           , ' sec.'          , ' sec.'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
 				
-				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
+				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', '副手ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '魔法安定率', '武器ATK', '副手武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
 				break;
 		}
 		//能力清單

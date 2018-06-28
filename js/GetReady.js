@@ -69,6 +69,15 @@
 	SkillAlloSimu_SelStep(document.getElementById('SkillAlloSimu_Step5'));
 	
 	
+	var cy_character = new cy_character_base();
+	cy_character.charaEquipments.push(
+		new cy_equipmentField('MainWeapon'		, 9	, true),
+		new cy_equipmentField('SubWeapon'		, 6	, false),
+		new cy_equipmentField('BodyArmor'		, 3	, true),
+		new cy_equipmentField('AdditionalGear'	, 0	, true),
+		new cy_equipmentField('SpecialGear'		, 0	, true)
+	);
+	
 	(function(){
 		let CharaSimu_menu_list = [
 			'<img width="28" height="28" src="svg/stats.svg" />', 
@@ -83,6 +92,7 @@
 		{
 			Ttext += `<li data-fieldno="${i-1}" onclick="sel_curEquipField(this)">${CharaSimu_menu_list[i]}</li>`;
 		}
+		Ttext += '<li onclick="charaSimu_openSavingSystem()">Save</li>';
 		document.getElementById('CharaSimu_menu').innerHTML = Ttext;
 	})();
 	

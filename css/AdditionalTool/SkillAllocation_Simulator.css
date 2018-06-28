@@ -95,3 +95,49 @@
 	#SkillAlloSimu_SaveCode_text {
 		width: 100%;
 	}
+	
+	#SkillAlloSimu_SaveCode_dataList {
+		list-style: none;
+		padding: 0.rem;
+	}
+	#SkillAlloSimu_SaveCode_dataList li {
+		padding: 0.3rem;
+		border-radius: 0.3rem;
+		background-color: #555;
+		margin: 0.2rem!important;
+		display: block!important;
+	}
+	
+	#SkillAlloSimu_SaveCode_dataList li>div {
+		text-align: right;
+	}
+	#SkillAlloSimu_SaveCode_dataList li>div>span {
+		padding: 0.15rem;
+		margin-left: 0.2rem;
+		border: 1px #BBB solid;
+		border-radius: 0.2rem;
+		transition: 0.3s;
+		display: inline-block;
+	}
+	#SkillAlloSimu_SaveCode_dataList li>div>span:hover {
+		border: 1px #FFF solid;
+		background-color: #888;
+		cursor: pointer;
+	}
+	
+	#SkillAlloSimu_SaveCode_saveTitle {
+		position: fixed;
+		top: 30%;
+		margin: 0 2rem;
+		width: 13rem;
+		height: 5rem;
+		z-index: 23;
+		padding: 0.4rem;
+		background-color: #666;
+		border: 0.1rem #BBB solid;
+		border-radius: 0.5rem;
+	}
+	#SkillAlloSimu_SaveCode_saveTitle input {
+		padding: 0.1rem;
+		width: 11.8rem;
+	}

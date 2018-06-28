@@ -440,6 +440,26 @@
 	}
 	
 	/* ================================================= */
+	function SkillAlloSimu_resetSaveCodeList(){
+		Ttext = '<ul>', storage_size = 5;
+		for (let i=0; i<storage_size; ++i)
+		{
+			let _storage = window.localStorage['SkillAlloSimu_SaveCode_storage' + i];
+			let _title = '(No Data)';
+			let _loadCode = '';
+			if ( _storage )
+			{
+				let reg = /.*\)n_/;
+				_title = _storage.match(reg)[0].replace(')n_', '');
+				//console.log(_title);
+				_loadCode = _storage.replace(reg, '');
+			}
+			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_CopyFromStorage(this)">Copy</span><span data-lino="${i}" onclick="SkillAlloSimu_SaveToStorage_setTitle(this)">Save</span><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_LoadFromStorage(this)">Load</span></div></li>`;
+		}
+		Ttext += '</ul>';
+		document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = Ttext;
+	}
+	
 	function SkillAlloSimu_open_Second(temp){
 		let T_menuno = parseInt(temp.getAttribute('data-menuno'));
 		ATool_toMenuListSecond();
@@ -447,6 +467,8 @@
 		{
 			document.getElementById(ATool_MenuList_Second_curBtn).style.display = 'none';
 		}
+		
+		let Ttext;
 		switch (T_menuno)
 		{
 			case 0:
@@ -454,9 +476,40 @@
 				break;
 			case 1:
 				ATool_MenuList_Second_curBtn = 'SkillAlloSimu_SaveCode_Block';
+				SkillAlloSimu_resetSaveCodeList();
 				break;
 		}
 		document.getElementById(ATool_MenuList_Second_curBtn).style.display = 'block';
+	}
+	function SkillAlloSimu_SaveToStorage_setTitle(temp){
+		let doc = document.getElementById('SkillAlloSimu_SaveCode_saveTitle');
+		doc.style.display = 'block';
+		doc.getElementsByTagName('input')[0].setAttribute('data-lino', temp.getAttribute('data-lino'));
+		doc.getElementsByTagName('input')[0].focus();
+	}
+	function SkillAlloSimu_SaveToStorage(temp){
+		if ( temp.value == '' )
+		{
+			temp.parentNode.style.display = 'none';
+			showWarningMsg('Cancle.');
+			return;
+		}
+		let t_lino = temp.getAttribute('data-lino');
+		let saveCode = temp.value + ')n_' + SkillAlloSimu_SaveCode_generalCode();
+		window.localStorage.setItem('SkillAlloSimu_SaveCode_storage' + t_lino, saveCode);
+		SkillAlloSimu_resetSaveCodeList();
+		temp.parentNode.style.display = 'none';
+	}
+	function SkillAlloSimu_LoadFromStorage(temp){
+		let loadCode = temp.getAttribute('data-loadingcode');
+		SkillAlloSimu_SaveCode_LoadingCode(loadCode);
+	}
+	function SkillAlloSimu_CopyFromStorage(temp){
+		let loadCode = temp.getAttribute('data-loadingcode');
+		let doc = document.getElementById('SkillAlloSimu_SaveCode_text');
+		doc.value = loadCode;
+		doc.select();
+		document.execCommand('copy');
 	}
 	
 	function SkillAlloSimu_BuildText_selMode(temp){
@@ -564,6 +617,9 @@
 	/* ================================================= */
 	
 	function SkillAlloSimu_SaveCode_Save(){
+		document.getElementById('SkillAlloSimu_SaveCode_text').value = SkillAlloSimu_SaveCode_generalCode();
+	}
+	function SkillAlloSimu_SaveCode_generalCode(){
 		let T_code = '';
 		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
 		{
@@ -593,15 +649,15 @@
 				}
 			}
 		}
-		document.getElementById('SkillAlloSimu_SaveCode_text').value = T_code;
+		return T_code;
 	}
-	
-	function SkillAlloSimu_SaveCode_Load(){
+	function SkillAlloSimu_SaveCode_LoadingCode(loadingCode){
+		if (loadingCode == '') return;
 		//初始化
 		SkillAlloSimu_ResetAll();
 		
 		let codeAry = [];
-		let Tstr = document.getElementById('SkillAlloSimu_SaveCode_text').value;
+		let Tstr = loadingCode;
 		
 		let strCnt = 0;
 		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
@@ -672,6 +728,10 @@
 			}
 		}
 		document.getElementById('SkillAlloSimu_skillLvSum').innerHTML = 'Point: ' + sum_SkillLv;
+	}
+	
+	function SkillAlloSimu_SaveCode_Load(){
+		SkillAlloSimu_SaveCode_LoadingCode(document.getElementById('SkillAlloSimu_SaveCode_text').value);
 	}
 	
 	function SkillAlloSimu_SaveCode_Copy(){

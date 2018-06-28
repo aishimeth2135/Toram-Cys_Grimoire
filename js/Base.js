@@ -4,6 +4,47 @@
 		return Tstring.replace(new RegExp(beReplace, 'g'),ReplaceTo);
 	}
 	//===========================================================//
+	function _stopBubble(event){
+		event = event || window.event;
+		if (event.stopPropagation)
+		{
+			event.stopPropagation();
+		}
+		else {
+			e.cancelBubble = true;
+		}
+	}
+	//===========================================================//
+	
+	function showWarningMsg(msg){
+		let doc = document.getElementById('warningMsg_block');
+		
+		let cnt = 0;
+		while (true)
+		{
+			if ( !document.getElementById('warningMsg_block_b' + String(cnt)) )
+			{
+				break;
+			}
+			++cnt;
+		}
+		doc.innerHTML += `<div id="warningMsg_block_b${String(cnt)}">${msg}</div>`;
+		document.getElementById('warningMsg_block_b' + String(cnt)).style.opacity = 1;
+		
+		let timer_baseCnt = 2000, timer_cnt = timer_baseCnt, timer_delay = 10, timer_step = 1/(timer_baseCnt/timer_delay/2);
+		let timer = setInterval(function(){
+			timer_cnt -= timer_delay;
+			if ( timer_cnt < timer_baseCnt/2 ) 
+			document.getElementById('warningMsg_block_b' + String(cnt)).style.opacity -= timer_step;
+			if (timer_cnt <= 0)
+			{
+				document.getElementById('warningMsg_block_b' + String(cnt)).parentNode.removeChild(document.getElementById('warningMsg_block_b' + String(cnt)));
+				clearInterval(timer);
+			}
+		}, timer_delay);
+	}
+	
+	//===========================================================//
 	
 	var HiddenEgg_controlNo = 1;
 	

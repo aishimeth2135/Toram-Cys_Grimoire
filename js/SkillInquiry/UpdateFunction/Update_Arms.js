@@ -76,7 +76,7 @@
 				break;
 			case 9: typeAry = [0, 6];
 				break;
-			default: return;
+			default:  return;
 		}
 		for (let i=0; i<typeAry.length; ++i)
 		{

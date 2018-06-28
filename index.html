@@ -38,6 +38,7 @@
 		<br />ページの下に言語の切り替えができます。
 		</p>
 	</div>
+	<div id="warningMsg_block"></div>
 	
 	<section id="CharaSimu_main_">
 		<div id="CharaSimu_main">
@@ -54,6 +55,15 @@
 					<ul id="CharaSimu_setEquipAbility_abilityList"></ul>
 				</div>
 				<div id="CharaSimu_setEquipBase"></div>
+				<div id="CharaSimu_setEquipShow"></div>
+				<div id="charaSimu_savingSystem_site">
+					<input type="text" placeholder="Code" />
+					<ul>
+						<li onclick="charaSimu_controlSavingSystem('save')">Save</li>
+						<li onclick="charaSimu_controlSavingSystem('load')">Load</li>
+						<li onclick="charaSimu_controlSavingSystem('copy')">Copy</li>
+					</ul>
+				</div>
 			</article>
 			<div style="clear:both;"></div>
 		</div>
@@ -1276,6 +1286,12 @@
 			
 		<article id="Section_3_Page_1" class="MenuPage">
 			<div>
+				<div class="VerInfo_Title_1">3.5.0</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>利用HTML5的Web Storage於技能配點模擬(SkillPoint Simulator)新增內建的存檔系統。不同瀏覽器檔案會無法共用。</li>
+				</ul>
+			</div>
+			<div>
 				<div class="VerInfo_Title_1">3.4.3</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>修正技能查詢(Skill Information)中，切換技能樹時會出現的錯誤。</li>
@@ -1512,6 +1528,14 @@
 					</p>
 				</div>
 				<div id="SkillAlloSimu_SaveCode_Block" class="MenuPage">
+					<div style="display:none;" id="SkillAlloSimu_SaveCode_saveTitle">
+						Save Title:<br />
+						<input data-lino="0" onblur="SkillAlloSimu_SaveToStorage(this)" onchange="SkillAlloSimu_SaveToStorage(this)" />
+					</div>
+					<ul id="SkillAlloSimu_SaveCode_dataList"></ul>
+					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_3">
+						- 存檔的欄位上限為5格。若覺得不夠可使用下方的功能產生代碼，以手動保存。
+					</p>
 					<ul>
 						<li>
 							<a class="ATool_Btn_5" id="SkillAlloSimu_SaveCode_Save_btn" onclick="SkillAlloSimu_SaveCode_Save()">產生代碼</a>
@@ -1524,10 +1548,7 @@
 						</li>
 					</ul>
 					<input type="text" id="SkillAlloSimu_SaveCode_text" />
-					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_3">
-						- 按下「產生代碼」後，會將當前點好的技能變成一段代碼。下次進入此網頁時可將代碼複製貼上至輸入欄，按下「讀取代碼」後便可讀取出之前點好的技能。
-						<br />- 本網站沒有儲存功能，產生的代碼請自行保留，亦可分享給其它人。（一段代碼任何人皆可使用）
-					</p>
+					
 				</div>
 			</div>
 		</div>
@@ -1566,7 +1587,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 3.4.3｜Update: 2018/6/14
+			Ver: 3.5.0｜Update: 2018/6/28
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
