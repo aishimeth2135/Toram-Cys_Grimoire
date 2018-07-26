@@ -520,7 +520,7 @@
 										all_SI[26].SI_value = '_@盲目';
 										
 										all_SI[27].SI_name = '<br />若技能未被迴避，10秒內自身命中+';
-										all_SI[27].SI_value = ((20 + 4*parseInt(T_skillLv/2))*parseInt((T_skillLv + 2)/2))/2 - ((10 + 4*parseInt(T_skillLv/2))/2)*((T_skillLv+1)%2) - 5;
+										all_SI[27].SI_value = parseInt(T_skillLv*T_skillLv/2) + 5*T_skillLv;
 										all_SI[27].SI_unit = '。';
 										break;
 								}
@@ -802,13 +802,13 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_name = '使施放「法術/飛箭」後，能獲得_&1_狀態。強化下一招技能。';
+										all_SI[5].SI_value = '使施放「法術/飛箭」後，能獲得_&1_狀態。強化下一招技能。';
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
-										all_SI[0].SI_value = '施放任意技能時，將使該技能詠唱時間減少。';
+										all_SI[5].SI_name = '施放任意技能時，將使該技能詠唱時間減少';
 										all_SI[5].SI_value = 5*T_skillLv;
-										all_SI[5].SI_value = '%。';
+										all_SI[5].SI_unit = '%。';
 										all_SI[16].SI_value = '效果狀態';
 										all_SI[27].SI_value = '持續時間為無限，施放任意技能後此狀態結束。';
 										break;
@@ -1098,12 +1098,12 @@
 								{
 									case 0:
 										all_SI[5].SI_name = '命中';
-										all_SI[5].SI_value = -55 + 3*T_skillLv;
+										all_SI[5].SI_value = 3*T_skillLv;
 										all_SI[5].SI_unit = '%。';
 										all_SI[6].SI_name = '暴擊率';
-										all_SI[6].SI_value = -80 + 8*T_skillLv;
+										all_SI[6].SI_value = 8*T_skillLv;
 										all_SI[6].SI_unit = '%。';
-										all_SI[27].SI_value = '習得此技能後，方可以同時裝備兩把單手劍。';
+										all_SI[27].SI_value = '習得此技能後，方可以同時裝備兩把單手劍。<br />裝備兩把單手劍時，命中-55%，暴擊率-80%，此技能將可抵消大部分副作用。';
 										break;
 								}
 								break;
@@ -1638,7 +1638,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '_&1_敵人後將刀_&2_，造成兩段傷害。兩段傷害分開判定，收合具有額外的暴擊率。';		
+										all_SI[5].SI_value = '_&1_敵人後將刀_&2_，造成兩段傷害。兩段傷害分開判定，_&2_具有額外的暴擊率。';		
 										all_SI[17].SI_value = '稍慢';
 										break;
 									case 1:
@@ -1656,9 +1656,7 @@
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[20].SI_value = 1;
-										all_SI[27].SI_name = '收合之暴擊率+';
-										all_SI[27].SI_value = '？';
-										all_SI[27].SI_unit = '。';
+										all_SI[27].SI_value = '_&2_之暴擊率為總暴擊率的三倍。';
 										break;
 								}
 								break;
@@ -2075,7 +2073,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = '傷害：';
-										all_SI[1].SI_value = input_SI_value_bySelection('Au', ['盾牌'], ['有效Atk+盾精煉值×60', '有效Atk']);
+										all_SI[1].SI_value = input_SI_value_bySelection('Au', ['Shield'], ['有效Atk+盾精煉值×60', '有效Atk']);
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -2107,7 +2105,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_name = 'MDef+';
+										all_SI[5].SI_name = 'Mdef+';
 										all_SI[5].SI_value = 2*T_skillLv;
 										all_SI[5].SI_unit = '。';
 										all_SI[6].SI_name = 'Mdef+';
@@ -2125,10 +2123,10 @@
 								{
 									case 0:
 										all_SI[5].SI_name = '物理抗性+';
-										all_SI[5].SI_value = '？';
+										all_SI[5].SI_value = 10 + 5*parseInt((T_skillLv+2)/3);
 										all_SI[5].SI_unit = '%。';
-										all_SI[6].SI_name = '魔法抗性-';
-										all_SI[6].SI_value = '？';
+										all_SI[6].SI_name = '魔法抗性';
+										all_SI[6].SI_value = 5*parseInt((T_skillLv+2)/3) - 35;
 										all_SI[6].SI_unit = '%。';
 										all_SI[16].SI_value = '主動加成';
 										all_SI[24].SI_value = 60*T_skillLv;
@@ -2140,10 +2138,10 @@
 								{
 									case 0:
 										all_SI[5].SI_name = '魔法抗性+';
-										all_SI[5].SI_value = '？';
+										all_SI[5].SI_value = 10 + 5*parseInt((T_skillLv+2)/3);
 										all_SI[5].SI_unit = '%。';
-										all_SI[6].SI_name = '物理抗性-';
-										all_SI[6].SI_value = '？';
+										all_SI[6].SI_name = '物理抗性';
+										all_SI[6].SI_value = 5*parseInt((T_skillLv+2)/3) - 35;
 										all_SI[6].SI_unit = '%。';
 										all_SI[16].SI_value = '主動加成';
 										all_SI[24].SI_value = 60*T_skillLv;
@@ -2154,10 +2152,14 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '(此技能尚無資料)';
-										all_SI[16].SI_value = '隊伍效果';
-										all_SI[24].SI_value = '？';
+										all_SI[5].SI_value = `阻擋率+(15+盾精煉值)%。<br />此技能每3秒會產生5的額外仇恨值。<br />範圍內的友軍受到_&1_。<br /><p>每多保護一個隊友：(不包含自己)<br />攻擊MP恢復+${5+T_skillLv}。<br />Atk${-20+1.5*T_skillLv}%。<br />Matk${-20+1.5*T_skillLv}%。<br />每3秒的仇恨值增加量提升5。</p>`;
+										all_SI[16].SI_value = '光環';
+										all_SI[23].SI_value = 1 + 0.5*T_skillLv;
+										all_SI[24].SI_value = 30 + 10*(T_skillLv + Math.max(0, T_skillLv-5));
 										break;
+									case 1:
+										all_SI[5].SI_value = `攻擊MP恢復+${5+T_skillLv}。受到的傷害減少(${20+T_skillLv} +盾精煉值)%。<br />造成的總仇恨值減少(${40 +2*T_skillLv} +2×盾精煉值)%。`;
+										all_SI[16].SI_value = '光環效果';
 								}
 								break;
 						}
@@ -2185,7 +2187,14 @@
 										all_SI[0].SI_value = '總傷害：(共用判定)';
 										all_SI[1].SI_value = '有效Atk+小刀Atk×20%';
 										all_SI[2].SI_value = 10 + T_skillLv;
-										all_SI[3].SI_value = 75 + parseInt(75*(T_skillLv-1)/9);
+										{
+											let skillRate = 65;
+											for(let i=1; i<=T_skillLv; ++i)
+											{
+											skillRate = (skillRate*(1 + ((i - 1) / 2)) + 10.0) / parseInt(1 + T_skillLv/2);
+											}
+											all_SI[3].SI_value = skillRate.toFixed(3);
+										}
 										all_SI[4].SI_value = '(Dex/' + (20-T_skillLv) +')';
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '稍快';
@@ -2340,10 +2349,12 @@
 										all_SI[17].SI_value = '快';
 										break;
 									case 1:
-										all_SI[5].SI_value = '持續時間內，可免疫一次傷害。使該傷害變為0。';
+										all_SI[5].SI_value = '持續時間內，可使數次傷害變為0。';
 										all_SI[16].SI_value = '效果狀態';
-										all_SI[24].SI_value = '不到1';
-										all_SI[27].SI_value = '若成功抵擋傷害，將恢復(HP上限' + T_skillLv + '%)的HP。';
+										all_SI[24].SI_value = 1;
+										all_SI[27].SI_value = `若成功抵擋至少一次傷害，將恢復(HP上限×${T_skillLv}%)的HP，並產生${20*parseInt(T_skillLv/2)*parseInt((T_skillLv+1)/2)}的額外仇恨值。`;
+										all_SI[28].SI_value = `一次最多只能恢復${T_skillLv*100 + Math.max(0, T_skillLv-5)*150 + Math.max(0, T_skillLv-9)*250}的HP。`;
+										all_SI[29].SI_value = '此技能產生的額外仇恨值不受仇恨值%影響。';
 										break;
 								}
 								break;
@@ -2351,14 +2362,12 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_name = '使用此技能時，使目標產生等同於';
+										all_SI[5].SI_name = '使用此技能時，使目標產生';
 										all_SI[5].SI_value = 100*T_skillLv;
-										all_SI[5].SI_unit = 'MP的額外仇恨值。';
+										all_SI[5].SI_unit = '的仇恨值。';
 										all_SI[16].SI_value = '效果';
 										all_SI[17].SI_value = '稍慢';
-										all_SI[27].SI_name = '意即此技能總共會產生';
-										all_SI[27].SI_value = (4-Math.max(parseInt((T_skillLv-2)/4),0))*100 + 100*T_skillLv;
-										all_SI[27].SI_unit = 'MP的仇恨值。';
+										all_SI[27].SI_value = "此技能的消耗MP不會造成仇恨值。<br />此技能造成的仇恨值不受仇恨值%影響。";
 										break;
 								}
 								break;
@@ -2374,12 +2383,12 @@
 										all_SI[17].SI_value = '稍快';
 										all_SI[20].SI_value = 1;
 
-										all_SI[27].SI_name = '此技能將使目標產生等同於';
-										all_SI[27].SI_value = 20*T_skillLv;
-										all_SI[27].SI_unit = 'MP的仇恨值。';
+										all_SI[27].SI_name = '此技能將使目標產生';
+										all_SI[27].SI_value = 50 + 10*T_skillLv;
+										all_SI[27].SI_unit = '的額外仇恨值。';
 										all_SI[28].SI_name = '<br />意即此技能總共會產生';
 										all_SI[28].SI_value = 200 + 20*T_skillLv;
-										all_SI[28].SI_unit = 'MP的仇恨值。';
+										all_SI[28].SI_unit = '的仇恨值。';
 										break;
 								}
 								break;
@@ -2389,20 +2398,23 @@
 									case 0:
 										all_SI[0].SI_value = '傷害：(目前只有Lv10的資料)';
 										all_SI[1].SI_value = '有效Atk';
-										all_SI[2].SI_value = 150;
-										all_SI[3].SI_value = 500;
+										all_SI[2].SI_value = 50 + 10*T_skillLv;
+										all_SI[3].SI_value = 450 + 5*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
 										all_SI[17].SI_value = '稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置';
-										all_SI[23].SI_value = '？';
-
-										all_SI[27].SI_name = '此技能將使目標產生等同於';
-										all_SI[27].SI_value = '？';
-										all_SI[27].SI_unit = 'MP的仇恨值。';
+										all_SI[23].SI_value = 2 + parseInt((T_skillLv+2)/4);
+										
+										all_SI[25].SI_value = 10*T_skillLv;
+										all_SI[26].SI_value = '_@停止';
+										all_SI[27].SI_name = '此技能將額外產生';
+										all_SI[27].SI_value = 100 + T_skillLv*10;
+										all_SI[27].SI_unit = '的仇恨值。';
 										all_SI[28].SI_name = '<br />意即此技能總共會產生';
-										all_SI[28].SI_value = '300+？' ;
-										all_SI[28].SI_unit = 'MP的仇恨值。';
+										all_SI[28].SI_value = 400 + T_skillLv*10;
+										all_SI[28].SI_unit = '的仇恨值。';
+										all_SI[29].SI_value = '此技能的傷害不受屬性剋制影響。';
 										break;
 								}
 								break;
@@ -2419,6 +2431,7 @@
 										all_SI[1].SI_value = '有效Atk';
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = 10*(T_skillLv + Math.max(T_skillLv-5, 0));
+										all_SI[4].SI_value = 'str×50%';
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '稍慢';
 										all_SI[20].SI_value = 1;
@@ -2450,7 +2463,18 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '(此技能尚無資料)';
+										all_SI[5].SI_name = '攻擊MP恢復+';
+										all_SI[5].SI_value = T_skillLv*0.5;
+										all_SI[5].SI_unit = '%。';
+										all_SI[6].SI_name = '一般攻擊的傷害提升(角色Lv+';
+										all_SI[6].SI_value = input_SI_value_bySelection('W', ['Arrow'], ['有效Matk', '有效Matk*0.1']);;
+										all_SI[6].SI_unit = ')。';
+										all_SI[16].SI_value = '效果狀態';
+										all_SI[17].SI_value = '快';
+										
+										all_SI[27].SI_name = '持續時間為無限，進行一般攻擊';
+										all_SI[27].SI_value = T_skillLv;
+										all_SI[27].SI_unit = '次後此狀態結束。';
 										break;
 								}
 								break;
@@ -2474,7 +2498,7 @@
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '陷阱位置';
 										all_SI[23].SI_value = 2;
-										all_SI[25].SI_value = 30 + 6*T_skillLv;
+										all_SI[25].SI_value = 55 + 2.5*T_skillLv;
 										all_SI[26].SI_value = '_@睡眠';
 										all_SI[27].SI_name = '<br />_@陷阱觸發後，將會恢復角色';
 										all_SI[27].SI_value = 10*T_skillLv;
@@ -2502,7 +2526,7 @@
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '陷阱位置';
 										all_SI[23].SI_value = 2;
-										all_SI[25].SI_value = 30 + 6*T_skillLv;
+										all_SI[25].SI_value = 55 + 2.5*T_skillLv;
 										all_SI[26].SI_value = '_@停止';
 										all_SI[27].SI_name = '<br />_@陷阱觸發後，將會恢復角色';
 										all_SI[27].SI_value = 10*T_skillLv;
@@ -2522,15 +2546,18 @@
 										all_SI[27].SI_value = '建議詳閱關於_@陷阱的說明。';
 										break;
 									case 1:
-										all_SI[5].SI_value = '(此技能尚無資料)';
+										all_SI[0].SI_value = '傷害：';
+										all_SI[1].SI_value = '有效Matk';
+										all_SI[2].SI_value = 100 + 30*T_skillLv;
+										all_SI[3].SI_value = 200 + 60*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '陷阱位置';
 										all_SI[23].SI_value = 2;
-										all_SI[25].SI_value = '？';
+										all_SI[25].SI_value = 5*(1 +parseInt((T_skillLv+2)/4));
 										all_SI[26].SI_value = '_@著火';
 										all_SI[27].SI_name = '<br />_@陷阱觸發後，將會恢復角色';
-										all_SI[27].SI_value = '？';
+										all_SI[27].SI_value = 10*T_skillLv;
 										all_SI[27].SI_unit = 'MP。';
 								}
 								break;
@@ -2668,7 +2695,7 @@
 								{
 									case 0:
 										all_SI[5].SI_name = '復活時間減少';
-										all_SI[5].SI_value = 6*T_skillLv;
+										all_SI[5].SI_value = 5*T_skillLv;
 										all_SI[5].SI_unit = '%。';
 										all_SI[16].SI_value = '被動效果';
 										all_SI[27].SI_value = '即復活時間減少' + 3*6*T_skillLv + '秒。';
@@ -2706,9 +2733,9 @@
 										all_SI[5].SI_name = 'HP自然恢復+';
 										all_SI[5].SI_value = 10*T_skillLv;
 										all_SI[5].SI_unit = '。';
-										all_SI[5].SI_name = 'HP自然恢復+';
-										all_SI[5].SI_value = 100 + 10*T_skillLv;
-										all_SI[5].SI_unit = '%。';
+										all_SI[6].SI_name = 'HP自然恢復+';
+										all_SI[6].SI_value = T_skillLv;
+										all_SI[6].SI_unit = '%。';
 										all_SI[16].SI_value = '被動加成';
 										break;
 								}
@@ -2748,11 +2775,11 @@
 								{
 									case 0:
 										all_SI[5].SI_name = 'MP自然恢復+';
-										all_SI[5].SI_value = 0.5*T_skillLv;
+										all_SI[5].SI_value = T_skillLv;
 										all_SI[5].SI_unit = '。';
-										all_SI[5].SI_name = 'MP自然恢復+';
-										all_SI[5].SI_value = 100 + 10*T_skillLv;
-										all_SI[5].SI_unit = '%。';
+										all_SI[6].SI_name = 'MP自然恢復+';
+										all_SI[6].SI_value = 5*T_skillLv;
+										all_SI[6].SI_unit = '%。';
 										all_SI[16].SI_value = '被動加成';
 										break;
 								}
@@ -2778,7 +2805,7 @@
 										break;
 									case 1:
 										all_SI[5].SI_name = '每3秒恢復(1+MP上限×';
-										all_SI[5].SI_value = 0.04*T_skillLv;
+										all_SI[5].SI_value = 0.05*T_skillLv;
 										all_SI[5].SI_unit = '%)的MP。';
 										all_SI[16].SI_value = '被動恢復';
 										break;
@@ -2793,8 +2820,9 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '(此技能尚無資料)';
+										all_SI[5].SI_value = `急救時的時間減少比率提升至${30+2*T_skillLv}%。`;
 										all_SI[16].SI_value = '被動效果';
+										all_SI[27].SI_value = '每次進行急救，復活的剩餘時間會減少(當前時間*時間減少比率)。(沒點此技能的話，基礎的時間減少率為30%)';
 										break;
 								}
 								break;
@@ -2808,6 +2836,7 @@
 										all_SI[17].SI_value = '稍慢';
 										all_SI[18].SI_value = 1;
 										all_SI[21].SI_value = 1;
+										all_SI[27].SI_value = `對不支倒地的目標施放此技能，可使該目標的剩餘復活時間減少${T_skillLv}秒。`;
 										break;
 								}
 								break;
@@ -2830,16 +2859,16 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '使用後可於原地設置一個_&1_。<br />(此技能尚無資料)';
+										all_SI[5].SI_value = '使用後可於原地設置一個_&1_。';
 										all_SI[16].SI_value = '設置效果';
 										all_SI[17].SI_value = '慢';
 										all_SI[21].SI_value = 1;
 										break;
 									case 1:
-										all_SI[5].SI_value = '區域內的所有友方在受到傷害時，若該傷害未超過該友軍HP上限一定比例，將大幅減輕該傷害。';
+										all_SI[5].SI_value = `區域內的所有友方在受到傷害時，若該傷害未超過該友軍HP上限的${5+0.5*T_skillLv}%，該傷害將減少${30+20*parseInt((T_skillLv-1)/3)}。`;
 										all_SI[16].SI_value = '區域隊伍效果';
 										all_SI[22].SI_value = '設置位置';
-										all_SI[23].SI_value = 3;
+										all_SI[23].SI_value = 1 + (T_skillLv/3).toFixed(1);
 										all_SI[24].SI_value = '？';
 										break;
 								}
@@ -2848,7 +2877,13 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '(靜待更新)';
+										all_SI[0].SI_value = '恢復量：';
+										all_SI[5].SI_value = 300*T_skillLv + '+(目標HP上限×' + 10+T_skillLv + '%)';
+										all_SI[16].SI_value = '單體友方恢復';
+										all_SI[17].SI_value = '稍慢';
+										all_SI[18].SI_value = 1;
+										all_SI[21].SI_value = 1;
+										all_SI[27].SI_value = `對不支倒地的目標施放此技能，可使該目標的剩餘復活時間減少${10 + 2*T_skillLv}秒。`;
 										break;
 								}
 								break;
@@ -3004,7 +3039,7 @@
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
-										all_SI[5].SI_value = '此魔法傷害的總傷害提升' + 2*T_skillLv + '%。';
+										all_SI[5].SI_value = '此魔法傷害的總傷害提升' + 10 + T_skillLv + '%。';
 										all_SI[16].SI_value = '被動增幅';
 										break;
 								}
@@ -3013,7 +3048,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '處於_@膽怯、_@翻覆、_@昏厥、擊退狀態時，將減少受到的傷害。<br />此技能尚無資料。';
+										all_SI[5].SI_value = `處於_@膽怯、_@翻覆、_@昏厥、_@逼退狀態時，受到的傷害將減少${T_skillLv}%。`;
 										all_SI[16].SI_value = '被動效果';
 										break;
 								}
@@ -3048,7 +3083,7 @@
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
-										all_SI[5].SI_value = '此物理傷害的總傷害提升' + 2*T_skillLv + '%。';
+										all_SI[5].SI_value = '此物理傷害的總傷害提升' + 10 + T_skillLv + '%。';
 										all_SI[16].SI_value = '被動增幅';
 										break;
 								}

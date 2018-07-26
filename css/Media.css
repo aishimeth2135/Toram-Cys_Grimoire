@@ -52,7 +52,7 @@
 		#site_Arms {
 			padding-top:1.2rem;
 		}
-		#CharaSimu_main {
+		#CharaSimu_main_ {
 			width: 100%!important;
 			margin: 10% 0!important;
 			height: 95%;
@@ -61,6 +61,12 @@
 		#CharaSimu_setEquipAbility {
 			width: 100%;
 			left: 0rem;
+		}
+		.equipField_mainBlock_1, .equipField_mainBlock_2, .equipField_mainBlock_3 {
+			max-width: 90%!important;
+		}
+		.CharaSimu_setEquipAbility_showDetail {
+			max-width: 90%!important;
 		}
 	}
 	

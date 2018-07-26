@@ -454,7 +454,7 @@
 				//console.log(_title);
 				_loadCode = _storage.replace(reg, '');
 			}
-			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_CopyFromStorage(this)">Copy</span><span data-lino="${i}" onclick="SkillAlloSimu_SaveToStorage_setTitle(this)">Save</span><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_LoadFromStorage(this)">Load</span></div></li>`;
+			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_CopyFromStorage(this)"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="SkillAlloSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_LoadFromStorage(this)"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
 		}
 		Ttext += '</ul>';
 		document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = Ttext;
@@ -652,82 +652,87 @@
 		return T_code;
 	}
 	function SkillAlloSimu_SaveCode_LoadingCode(loadingCode){
-		if (loadingCode == '') return;
-		//初始化
-		SkillAlloSimu_ResetAll();
-		
-		let codeAry = [];
-		let Tstr = loadingCode;
-		
-		let strCnt = 0;
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
-		{
-			codeAry.push([]);
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+		try {
+			if (loadingCode == '') return;
+			//初始化
+			SkillAlloSimu_ResetAll();
+			
+			let codeAry = [];
+			let Tstr = loadingCode;
+			
+			let strCnt = 0;
+			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
 			{
-				codeAry[i].push([]);
-				for (let k=0, T_length=all_skilltree_type[i].STt_skilltree[j].ST_skill.length; k<T_length; ++k)
+				codeAry.push([]);
+				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 				{
-					let T = 0;
-					switch ( Tstr.charAt(strCnt) )
+					codeAry[i].push([]);
+					for (let k=0, T_length=all_skilltree_type[i].STt_skilltree[j].ST_skill.length; k<T_length; ++k)
 					{
-						case "C":
-						case "#": T = 0; break;
-						case "Y": T = 1; break;
-						case "S": T = 2; break;
-						case "G": T = 3; break;
-						case "R": T = 4; break;
-						case "I": T = 5; break;
-						case "M": T = 6; break;
-						case "O": T = 7; break;
-						case "A": T = 8; break;
-						case "R": T = 9; break;
-						case "E": T = 10; break;
-						default:
-							alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom of this page).');
-							return;
-					}
-					codeAry[i][j].push(T);
-					if (Tstr.charAt(strCnt) != "#" || k == T_length - 1)
-					{
-						++strCnt;
+						let T = 0;
+						switch ( Tstr.charAt(strCnt) )
+						{
+							case "C":
+							case "#": T = 0; break;
+							case "Y": T = 1; break;
+							case "S": T = 2; break;
+							case "G": T = 3; break;
+							case "R": T = 4; break;
+							case "I": T = 5; break;
+							case "M": T = 6; break;
+							case "O": T = 7; break;
+							case "A": T = 8; break;
+							case "R": T = 9; break;
+							case "E": T = 10; break;
+							default:
+								alert('Error: Unable to load the code. Please revise the code and try again or ask the author(Link of Twitter is at the bottom of this page).');
+								return;
+						}
+						codeAry[i][j].push(T);
+						if (Tstr.charAt(strCnt) != "#" || k == T_length - 1)
+						{
+							++strCnt;
+						}
 					}
 				}
 			}
-		}
-		//console.log(codeAry);
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
-		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			//console.log(codeAry);
+			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
 			{
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
-				{
-					if ( codeAry[i][j][k] != 0 )
-					{
-						all_skilltree_type[i].STt_skilltree[j].ST_beSel = true;
-						document.getElementById(`SkillAlloSimu_STList_${i}_${j}`).className = "skillAlloSimu_STList_cur";
-						break;
-					}	
-				}
-			}
-		}
-		
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
-		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
-			{
-				if ( all_skilltree_type[i].STt_skilltree[j].ST_beSel )
+				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 				{
 					for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 					{
-						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv = codeAry[i][j][k];
-						sum_SkillLv += codeAry[i][j][k];
+						if ( codeAry[i][j][k] != 0 )
+						{
+							all_skilltree_type[i].STt_skilltree[j].ST_beSel = true;
+							document.getElementById(`SkillAlloSimu_STList_${i}_${j}`).className = "skillAlloSimu_STList_cur";
+							break;
+						}	
 					}
-					SkillAlloSimu_BuildSTTable(i, j);
 				}
 			}
+			
+			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+			{
+				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				{
+					if ( all_skilltree_type[i].STt_skilltree[j].ST_beSel )
+					{
+						for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+						{
+							all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_lv = codeAry[i][j][k];
+							sum_SkillLv += codeAry[i][j][k];
+						}
+						SkillAlloSimu_BuildSTTable(i, j);
+					}
+				}
+			}
+			document.getElementById('SkillAlloSimu_skillLvSum').innerHTML = 'Point: ' + sum_SkillLv;
 		}
-		document.getElementById('SkillAlloSimu_skillLvSum').innerHTML = 'Point: ' + sum_SkillLv;
+		catch {
+			showWarningMsg('Incorrect Code. Please try again.');
+		}
 	}
 	
 	function SkillAlloSimu_SaveCode_Load(){

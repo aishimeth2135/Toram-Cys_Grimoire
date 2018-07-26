@@ -101,7 +101,7 @@
 	}
 	
 	/*=============================================================*/
-	var the_skill = function(tSk_no, tSk_name, tSk_Pre){
+	var the_skill = function(tSk_no, tSk_name, tSk_Pre, tSk_type, baseAbilityStr, tSk_addDesc = ""){
 		this.Sk_no = tSk_no;     //Int
 		this.Sk_name = tSk_name.replace('_#', '#'); //String
 		this.Sk_pre = tSk_Pre;
@@ -111,6 +111,104 @@
 		this.Sk_B_type  = [];   //Array of String<BodyType>
 		this.Sk_branch  = ['技能效果'];   //Array of String<SkillBranch>
 		this.Sk_Gain = [];
+		
+		this.Sk_type = tSk_type;
+		//this.Sk_baseAbility = tSk_baseAbility;
+		this.Sk_calcLv = 0;
+		
+		this.Sk_charaAddition = [];
+		this.Sk_charaAddition_list = [];
+		this.Sk_charaAddition_armsConfirm = [];
+		
+		this.Sk_addDesc = tSk_addDesc;
+		
+		if ( baseAbilityStr == '' ) return;
+		let _str = baseAbilityStr;
+		
+		let _list = _str.split(/\s*&\s*/);
+		let _cnt = 0, _additionStr = [];
+		for (let i=0; i<_list.length; ++i)
+		{
+			if ( !_list[i].match(/(.+)\[(.+)\]/) )
+			{
+				console.log(baseAbilityStr);
+				return;
+			}
+			let t_ary = _list[i].match(/(.+)\[(.+)\]/);
+			this.Sk_charaAddition_armsConfirm.push(t_ary[1]);
+			this.Sk_charaAddition_list.push([]);
+			_additionStr = t_ary[2].split(/(?<![a-zA-Z0-9_]+\([^\(]+)\s*,\s*(?!=[^\)]+\))/);
+			
+			for (let i=0; i<_additionStr.length; ++i)
+			{
+				if (_additionStr[i].match(/(.+)#.+%/) )
+				{
+					let isHave = false;
+					for (let j=0; j<this.Sk_charaAddition.length; ++j)
+					{
+						if ( this.Sk_charaAddition[j].base.baseName == RegExp.$1 && this.Sk_charaAddition[j].abilityType == 0 )
+						{
+							isHave = true;
+						}
+					}
+					if ( isHave ) continue;
+					
+					this.Sk_charaAddition.push(new cy_ability());
+					//console.log(RegExp.$1);
+					this.Sk_charaAddition[_cnt].setInit(RegExp.$1, 0);
+					++_cnt;
+					continue;
+				}
+				if (_additionStr[i].match(/(.+)#.+/) )
+				{
+					let isHave = false;
+					for (let j=0; j<this.Sk_charaAddition.length; ++j)
+					{
+						//console.log(`${this.Sk_charaAddition[j].base.baseName}, ${RegExp.$1}, ${this.Sk_charaAddition[j].abilityType}`);
+						if ( this.Sk_charaAddition[j].base.baseName == RegExp.$1 && this.Sk_charaAddition[j].abilityType == 1 )
+						{
+							isHave = true;
+						}
+					}
+					if ( isHave ) continue;
+					
+					this.Sk_charaAddition.push(new cy_ability());
+					//console.log(RegExp.$1);
+					this.Sk_charaAddition[_cnt].setInit(RegExp.$1, 1);
+					++_cnt;
+					continue;
+				}
+				console.log('error: ' + baseAbilityStr);
+				console.log('error: '+ i + ' : ' + _additionStr[i]);
+				return;
+			}
+		}
+		//console.log(this.Sk_charaAddition);
+		for (let i=0; i<this.Sk_charaAddition_armsConfirm.length; ++i)
+		{
+			for (let j=0; j<this.Sk_charaAddition.length; ++j)
+			{
+				this.Sk_charaAddition_list[i].push("0");
+			}
+			
+			let t_ary = _list[i].match(/(.+)\[(.+)\]/);
+			_additionStr = t_ary[2].split(/(?<![a-zA-Z0-9_]+\([^\(]+)\s*,\s*(?!=[^\)]+\))/);
+			
+			for (let j=0; j<_additionStr.length; ++j)
+			{
+				if (_additionStr[j].match(/(.+)#([^%]+)/) )
+				{
+					let isHave = false;
+					for (let k=0; k<this.Sk_charaAddition.length; ++k)
+					{
+						if ( this.Sk_charaAddition[k].base.baseName == RegExp.$1 ) this.Sk_charaAddition_list[i][k] = RegExp.$2;
+					}
+					continue;
+				}
+				console.log('error');
+				return;
+			}
+		}
 	}
 	
 	the_skill.prototype.armsConfirm = function(T_W, T_Au, T_B){
@@ -118,33 +216,82 @@
 		{
 			for (let i=0;i<this.Sk_W_type.length;++i)
 			{
-				if (T_W == this.Sk_W_type[i] || this.Sk_W_type[i] == 10)
-				{
-					return true;
-				}
+				if (T_W == this.Sk_W_type[i] || this.Sk_W_type[i] == 10) return true;
 			}
 		}
 		if (T_Au != -1)
 		{
 			for (let i=0;i<this.Sk_Au_type.length;++i)
 			{
-				if (T_Au == this.Sk_Au_type[i] || this.Sk_Au_type[i] == 6)
-				{
-					return true;
-				}
+				if (T_Au == this.Sk_Au_type[i] || this.Sk_Au_type[i] == 6) return true;
 			}
 		}
 		if (T_B != -1)
 		{
 			for (let i=0; i<this.Sk_B_type.length; ++i)
 			{
-				if (T_B == this.Sk_B_type[i])
-				{
-					return true;
-				}
+				if (T_B == this.Sk_B_type[i]) return true;
 			}
 		}
 		return false;
+	}
+	
+	the_skill.prototype.resetSkillAddition = function(W_type = '', Au_type = '', B_type = ''){
+		W_type = W_type | cy_character.charaEquipments[0].type;
+		Au_type = Au_type | cy_character.charaEquipments[1].type;
+		B_type = B_type | cy_character.charaEquipments[2].type;
+		
+		for (let i=0; i<this.Sk_charaAddition_armsConfirm.length; ++i)
+		{
+			let isConfirm = false;
+			let t_ary = this.Sk_charaAddition_armsConfirm[i].split(',');
+			for (let j=0; j<t_ary.length; ++j)
+			{
+				let armsConfirm_ary = t_ary[j].split('_');
+				
+				switch ( armsConfirm_ary[0] )
+				{
+					case "M":	//main-weapon
+						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
+						break;
+					case "S":	//sub-weapon
+						if ( Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+						break;
+					case 'b':
+						if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
+						break;
+					case "B":	//main-weapon or sub-weapon
+						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+						break;
+					case "D":	//main-weapon and sub-weapon
+						let dual_ary = armsConfirm_ary[1].split('+');
+						if ( W_type == cy_character.weap_map[dual_ary[0]] && Au_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
+						break;
+					case "all":	//all
+						isConfirm = true;
+						break;
+					case "noSub":	//no have sub-weapon
+						if ( Au_type == 6 ) isConfirm = true;
+						break;
+				}
+				
+				
+				for (let j=0; j<this.Sk_charaAddition_list[i].length; ++j)
+				{
+					let SLv = this.Sk_calcLv;
+					let CLv = cy_character.characterLv;
+					if ( !isConfirm || this.Sk_calcLv == 0)
+					{
+						this.Sk_charaAddition[j].setValue(0);
+						continue;
+					}
+					
+					this.Sk_charaAddition[j].setValue(eval(this.Sk_charaAddition_list[i][j]));
+				}
+				if ( isConfirm ) break;
+			}
+			if ( isConfirm ) break;
+		}
 	}
 	
 	/*=============================================================*/
@@ -156,12 +303,9 @@
 	}
 	the_skilltree.prototype.Sk_No_FindLocation = function(No){
 		for (let i=0;i <this.ST_skill.length; ++i)
-			{
-			if (No == this.ST_skill[i].Sk_no)
-				{
-				return i;
-				}
-			}
+		{
+			if (No == this.ST_skill[i].Sk_no) return i;
+		}
 	}
 	
 	var the_skilltree_type = function(tSTt_name){

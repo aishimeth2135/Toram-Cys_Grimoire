@@ -64,13 +64,6 @@
 	}
 	
 	//===========================================================//
-	function update_HeaderMenu(HeaderMenu_list){
-		for (let i=0; i<HeaderMenu_list.length; ++i)
-		{
-			document.getElementById('Menu_' + String(i+1)).innerHTML = '<a>' + HeaderMenu_list[i] + '</a>';
-		}
-	}
-	//===========================================================//
 	function update_skillTreeTypeBtnList(){
 		for (let i=0; i<4; ++i)
 		{

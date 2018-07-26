@@ -997,7 +997,7 @@
 								all_SI[9].SI_value = 300;
 								all_SI[10].SI_value = 'Unlimited';
 								all_SI[11].SI_value = '狀態, 瞬發';
-								all_SI[13].SI_value = 'Unable to';
+								all_SI[13].SI_value = 'Can be';
 								all_SI[14].SI_value = '使對伍成員於一定時間內增加物理抗性，降低魔法抗性。';
 								all_SI[15].SI_value = '此技能目前資料不足。持續時間長，可中幅提升隊伍成員物理抗性的技能，但同時會扣除魔法抗性。';
 								break;
@@ -1006,7 +1006,7 @@
 								all_SI[9].SI_value = 300;
 								all_SI[10].SI_value = 'Unlimited';
 								all_SI[11].SI_value = '狀態, 瞬發';
-								all_SI[13].SI_value = 'Unable to';
+								all_SI[13].SI_value = 'Can be';
 								all_SI[14].SI_value = '使對伍成員於一定時間內增加魔法抗性，降低物理抗性。';
 								all_SI[15].SI_value = '此技能目前資料不足。持續時間長，可中幅提升隊伍成員魔法抗性的技能，但同時會扣除物理抗性。';
 								break;
@@ -1015,7 +1015,7 @@
 								all_SI[9].SI_value = 600;
 								all_SI[10].SI_value = 'Unlimited';
 								all_SI[11].SI_value = '效果, 瞬發';
-								all_SI[13].SI_value = 'Unable to';
+								all_SI[13].SI_value = 'Can be';
 								all_SI[14].SI_value = '於四周產生屏障，減輕受到的傷害。<br />增加自身的阻擋率，<br />保護的同伴越多，攻擊力降低越多，<br />並大幅增加恨意值。<br />盾的精鍊值越高,能減輕更多傷害。';
 								all_SI[15].SI_value = '此技能目前資料不足。施放後將會產生大量仇恨。';
 								break;

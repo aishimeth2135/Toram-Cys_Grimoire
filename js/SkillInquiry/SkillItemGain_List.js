@@ -208,8 +208,8 @@
 	InputGainToSkill('旭日之箭', 0, 3, 50, -1, AuArms_map['Arrow'], -1);
 	InputGainToSkill('旭日之箭', 0, 23, 1, -1, AuArms_map['Arrow'], -1);
 	
-	/* InputGainToSkill('力量之箭', 1, 3, 90, '', AuArms_map['Arrow'], ''); 
-	攻擊MP恢復+1、可用次數增加*/
+	InputGainToSkill('力量之箭', 0, 5, 1, '', AuArms_map['Arrow'], '');
+	InputGainToSkill('力量之箭', 0, 27, 2, '', AuArms_map['Arrow'], '');
 	
 	InputGainToSkill('沉睡陷阱', 1, 4, '(Dex×50%)', -1, AuArms_map['Arrow'], -1);
 	InputGainToSkill('沉睡陷阱', 1, 27, 100, -1, AuArms_map['Arrow'], -1);
@@ -221,10 +221,10 @@
 	InputGainToSkill('絆腳陷阱', 1, 25, 20, -1, AuArms_map['Arrow'], -1);
 	InputGainToSkill('絆腳陷阱', 1, 23, 1, -1, AuArms_map['Arrow'], -1);
 	
-	/* InputGainToSkill('猛爆地雷', 1, 4, '(Dex×?%)', '', AuArms_map['Arrow'], '');
+	InputGainToSkill('猛爆地雷', 1, 4, '(Dex×2+Tecx2)', '', AuArms_map['Arrow'], '');
 	InputGainToSkill('猛爆地雷', 1, 27, 100, '', AuArms_map['Arrow'], '');
-	InputGainToSkill('猛爆地雷', 1, 25, 10, '', AuArms_map['Arrow'], '');
-	InputGainToSkill('猛爆地雷', 1, 23, 1, '', AuArms_map['Arrow'], ''); 遊戲內寫的*/
+	InputGainToSkill('猛爆地雷', 1, 25, 80, '', AuArms_map['Arrow'], '');
+	InputGainToSkill('猛爆地雷', 1, 23, 1, '', AuArms_map['Arrow'], '');
 	
 	//騎士
 	InputGainToSkill('衝刺', 0, 2, 50, -1, AuArms_map['Shield'], -1);

@@ -29,8 +29,6 @@
 		
 		let Section_4_Menu_List = [];
 		
-		let HeaderMenu_list = [];
-		
 		let ATool_SkillAlloSimu_ary = [];
 		let ATool_SkillAlloSimu_id = [];
 		ATool_SkillAlloSimu_id = [
@@ -43,8 +41,6 @@
 		
 		let SI_name_ary = [];
 		let SI_unit_ary = [];
-		
-		let statList_ary = [];
 		
 		switch (T_langno)
 		{
@@ -59,7 +55,6 @@
 				
 				armsTitleAry = ['Main Weapon', 'Sub-Weapon', 'Body Armor'];
 				
-				HeaderMenu_list = ['Skills Information', 'Game Mechanics', 'Website Version', 'Web Tool'];
 				Section_4_Menu_List = ['SkillPoint Simulator'];
 				skillTreeTypeNameAry = ['Weapon', 'Buff', 'Assist'];
 				skillTreeNameAry = [
@@ -103,7 +98,6 @@
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                          , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'          , 'O'           , ' sec'          , ' sec'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
 				
-				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', '副手ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '魔法安定率', '武器ATK', '副手武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
 				break;
 			case 1:
 				All_WeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '雙劍', '拔刀劍', '其它'];
@@ -116,7 +110,6 @@
 				
 				armsTitleAry = ['主手裝備', '副手裝備', '身體裝備'];
 				
-				HeaderMenu_list = ['技能資料', '資料查詢', '版本資訊', '小工具'];
 				Section_4_Menu_List = ['技能配點'];
 				skillTreeTypeNameAry = ['武器技能', '強化技能', '輔助技能'];
 				skillTreeNameAry = [
@@ -158,8 +151,6 @@
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>額外加成</u>', 'O', 'O', 'O', '適用｜', 'MP消耗｜', '射程｜', '類型｜', 'O', 'O'             , 'O', 'O', '作用方式｜', '動作時間｜', '詠唱時間｜', '蓄力時間｜', '傷害次數｜', '作用次數｜', '<br>範圍中心｜', '影響半徑｜', '<br />持續時間｜', '_@命中成功後，有', 'O' , 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'              , 'O', 'O', 'O', 'O'     , 'O'       , 'O'     , 'O'     , 'O', '</u>放入連撃。', 'O', 'O', 'O'         , 'O'         , '秒'        , '秒'        , '次'        , '次'        , 'O'             , 'O'         , '秒'              , '%機率使敵人'     , '。', 'O', 'O', 'O'];
-				
-				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', '副手ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '魔法安定率', '武器ATK', '副手武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
 				break;
 			case 2:
 				All_WeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '抜刀剣', 'その他'];
@@ -172,7 +163,6 @@
 				
 				armsTitleAry = ['メイン装備', 'サブ装備', '体装備'];
 				
-				HeaderMenu_list = ['スキルインフォ', 'ゲーム関連資料', 'サイト更新履歴', 'WEBツール'];
 				Section_4_Menu_List = ['スキルシミュレーター'];
 				skillTreeTypeNameAry = ['武器スキル', '強化スキル', '補助スキル']; //スキル
 				skillTreeNameAry = [
@@ -215,8 +205,6 @@
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                    , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'      , 'O'           , ' sec.'          , ' sec.'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
-				
-				statList_ary = ['STR', 'DEX', 'INT', 'AGI', 'VIT', '最大HP', '最大MP', 'HP自然回復', 'MP自然回復', 'ATK', '副手ATK', 'MATK', '物理貫通', '魔法貫通', '安定率', '魔法安定率', '武器ATK', '副手武器ATK', '近距離の威力', '遠距離の威力', 'DEF', 'MDEF', '物理耐性', '魔法耐性', '異常耐性', 'クリティカル率', 'クリティカルダメージ', '命中', '回避', '攻撃速度', '詠唱速度', 'Avoid率', 'Guard率', 'Guard力', '無属性にダメージ', '火属性にダメージ', '水属性にダメージ', '地属性にダメージ', '風属性にダメージ', '光属性にダメージ', '闇属性にダメージ', '無耐性', '火耐性', '水耐性', '地耐性', '風耐性', '光耐性', '暗耐性', 'ヘイト', '抜刀攻撃', '攻撃MP回復', 'ドロップ率', '行動速度', '物理バリア', '魔法バリア', '割合バリア', 'バリア速度', '物理追撃', '魔法追撃', '先読み', '防御崩し', '怯み付与停止', '転倒付与停止', '気絶付与停止', 'ダメージ反射'];
 				break;
 		}
 		//能力清單
@@ -256,7 +244,6 @@
 			document.getElementById('armsTitle_' + String(i)).innerHTML = armsTitleAry[i];
 		}
 		
-		update_HeaderMenu(HeaderMenu_list);			//重置頂部選單
 		update_ATool_MenuList(Section_4_Menu_List);	//重置小工具選單
 		
 		update_skillTreeTypeBtnList();				//重置技能類型名稱
@@ -280,46 +267,84 @@
 			document.getElementById('selLang_' + String(getCur_languageNo())).className = '';
 		}
 		temp.className = 'languageList_Cur';
-		// ================================== 重置技能
-		/* (function () {
-			let T_SkillTreeType_CurBtn = SkillTreeType_CurBtn;
-			let T_SkillTree_CurBtn = SkillTree_CurBtn;
-			let T_Skill_CurBtn = Skill_CurBtn;
-			let T_Weap_CurBtn = Weap_CurBtn;
-			let T_Au_CurBtn = Au_CurBtn;
-			let T_body_CurBtn = body_CurBtn;
-			if (T_SkillTreeType_CurBtn != '')
-			{
-				update_of_skilltree_type(document.getElementById(SkillTreeType_CurBtn));
-				update_of_skilltree_type(document.getElementById(T_SkillTreeType_CurBtn));
-			}
-			if (T_SkillTree_CurBtn != '')
-			{
-				update_of_skilltree(document.getElementById(T_SkillTree_CurBtn));
-			}
-			if (T_Skill_CurBtn != '')
-			{
-				update_of_skill(document.getElementById(T_Skill_CurBtn));
-			}
-			if (T_Weap_CurBtn != '')
-			{
-				updateSite_WeapArms(document.getElementById(T_Weap_CurBtn));
-			}
-			if (T_Au_CurBtn != '')
-			{
-				updateSite_AuArms(document.getElementById(T_Au_CurBtn));
-			}
-			if (T_body_CurBtn != '')
-			{
-				updateSite_bodyArms(document.getElementById(T_body_CurBtn));
-			}
-		})(); */
+
 		// ================================== 重置裝備模擬器能力清單
 		(function(){
 			for (let i=0; i<cy_character.statList.length; ++i)
 			{
-				cy_character.statList[i].statName = statList_ary[i];
+				let _t = cy_character.statList[i].showName_lang.split('|,|');
+				cy_character.statList[i].showName = (_t.length != 1) ? _t[T_langno] : _t[0];
+				_t = cy_character.statList[i].statName_lang.split('|,|');
+				_t = (_t.length != 1) ? _t[T_langno] : _t[0];
+				if ( _t.includes('#') )
+				{
+					let __t = _t.split('#');
+					cy_character.statList[i].statName = __t[0];
+					cy_character.statList[i].unit = __t[1];
+					continue;
+				}
+				cy_character.statList[i].statName = _t;
 			}
 			update_charaSimu_addAbilityList();
 		})();
+		resetInnerLang(document);
+	}
+	
+	function resetInnerLang(_dom){
+		if ( document.querySelectorAll )
+		{
+			let _ary = _dom.querySelectorAll('a[data-langtext]');
+			for (let i=0; i<_ary.length; ++i)
+			{
+				let _t = _ary[i].getAttribute('data-langtext').split('|,|');
+				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
+				_ary[i].innerHTML = _t;
+			}
+			_ary = _dom.querySelectorAll('input[data-langtext]');
+			for (let i=0; i<_ary.length; ++i)
+			{
+				let _t = _ary[i].getAttribute('data-langtext').split('|,|');
+				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
+				_ary[i].value = _t;
+			}
+			_ary = _dom.querySelectorAll('input[data-langplaceholder]');
+			for (let i=0; i<_ary.length; ++i)
+			{
+				let _t = _ary[i].getAttribute('data-langplaceholder').split('|,|');
+				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
+				_ary[i].placeholder = _t;
+			}
+		}
+		else {
+			let _ary = _dom.getElementsByTagName('a');
+			for (let i=0; i<_ary.length; ++i)
+			{
+				if ( !_ary[i].hasAttribute('data-langtext') ) continue;
+				let _t = _dom.getAttribute('data-langtext').split('|,|');
+				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
+				_ary[i].innerHTML = _t;
+			}
+			_ary = _dom.getElementsByTagName('input');
+			for (let i=0; i<_ary.length; ++i)
+			{
+				if ( !_ary[i].hasAttribute('data-langtext') ) continue;
+				let _t = _dom.getAttribute('data-langtext').split('|,|');
+				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
+				_ary[i].value = _t;
+			}
+			_ary = _dom.getElementsByTagName('input');
+			for (let i=0; i<_ary.length; ++i)
+			{
+				if ( !_ary[i].hasAttribute('data-langplaceholder') ) continue;
+				let _t = _ary[i].getAttribute('data-langplaceholder').split('|,|');
+				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
+				_ary[i].placeholder = _t;
+			}
+		}
 	}

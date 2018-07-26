@@ -1,4 +1,22 @@
 	
+	(function (){
+		let lang = (window.navigator.userLanguage || window.navigator.language).toLowerCase();
+		switch (lang)
+		{	
+			case 'zh-tw':	//Taiwan
+			case 'zh-cn':	//China
+			case 'zh-hk':	//Hong Kong
+			case 'zh-sg':	//Singapore
+				selectLanguage(document.getElementById('selLang_1'));
+				break;
+			case 'ja':		//Japan
+				selectLanguage(document.getElementById('selLang_2'));
+				break;
+			default:
+				selectLanguage(document.getElementById('selLang_0'));
+		}
+	})();
+	
 	(function(){
 		let Ttext = '';
 		for (let i=1; i<11; ++i)
@@ -11,11 +29,6 @@
 	
 	
 	update_skillTreeTypeBtnList();
-	
-	(function (){
-		let HeaderMenu_list = ['技能資料', '資料查詢', '版本資訊', '小工具'];
-		update_HeaderMenu(HeaderMenu_list);
-	})();
 	
 	/*=====================================================================*/
 	(function (){	//Input TextButton to Desc_Page
@@ -68,15 +81,7 @@
 	SkillAlloSimu_SelMode(document.getElementById('SkillAlloSimu_Mode_Add'));
 	SkillAlloSimu_SelStep(document.getElementById('SkillAlloSimu_Step5'));
 	
-	
-	var cy_character = new cy_character_base();
-	cy_character.charaEquipments.push(
-		new cy_equipmentField('MainWeapon'		, 9	, true),
-		new cy_equipmentField('SubWeapon'		, 6	, false),
-		new cy_equipmentField('BodyArmor'		, 3	, true),
-		new cy_equipmentField('AdditionalGear'	, 0	, true),
-		new cy_equipmentField('SpecialGear'		, 0	, true)
-	);
+	//charaSimu_initPassiveSkillList();
 	
 	(function(){
 		let CharaSimu_menu_list = [
@@ -87,15 +92,20 @@
 			'<img width="28" height="28" src="svg/Additional_Gear_3.svg" />', 
 			'<img width="28" height="28" src="svg/Special_Gear_1.svg" />']; //<img src="svg/Special_Gear_0.svg" />
 		let Ttext = '';
+		Ttext += `<span onclick="javascript:document.getElementById('CharaSimu_main_').style.display='none';" style="cursor:pointer;float:right;"><img src="svg/delete-icon.svg" style="height:20px;width:20px;" /></span>`;
 		Ttext += `<li onclick="show_charaStats()">${CharaSimu_menu_list[0]}</li>`;
+		Ttext += `<li onclick="show_allCharaEquip()"><img width="28" height="28" src="svg/showEquip-icon_0.svg" /></li>`;
 		for (let i=1; i<CharaSimu_menu_list.length; ++i)
 		{
-			Ttext += `<li data-fieldno="${i-1}" onclick="sel_curEquipField(this)">${CharaSimu_menu_list[i]}</li>`;
+			Ttext += `<li data-fieldno="${i-1}" onclick="set_equipFieldAbility(this)">${CharaSimu_menu_list[i]}</li>`;
 		}
-		Ttext += '<li onclick="charaSimu_openSavingSystem()">Save</li>';
+		Ttext += '<li onclick="charaSimu_openPassiveSkillList()"><img width="28" height="28" src="svg/passiveSkill-icon_0.svg" /></li>';
+		Ttext += '<li onclick="charaSimu_openSavingSystem()"><img width="28" height="28" src="svg/setting-icon_0.svg" /></li>';
+		
 		document.getElementById('CharaSimu_menu').innerHTML = Ttext;
 	})();
-	
+	CharaSimu_resetSetEquipShowDetail();
+	charaSimu_resetSaveCodeList();
 	
 	
 	
@@ -113,23 +123,6 @@
 		}
 	});
 	
-	(function (){
-		let lang = (window.navigator.userLanguage || window.navigator.language).toLowerCase();
-		switch (lang)
-		{	
-			case 'zh-tw':	//Taiwan
-			case 'zh-cn':	//China
-			case 'zh-hk':	//Hong Kong
-			case 'zh-sg':	//Singapore
-				selectLanguage(document.getElementById('selLang_1'));
-				break;
-			case 'ja':		//Japan
-				selectLanguage(document.getElementById('selLang_2'));
-				break;
-			default:
-				selectLanguage(document.getElementById('selLang_0'));
-		}
-	})();
 	
 	/*=====================================================================*/
 	setTimeout( function(){

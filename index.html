@@ -47,22 +47,40 @@
 			<article id="CharaSimu_setEquip_page">
 				<div id="CharaSimu_setEquipAbility" data-fieldno="-1" data-setno="-1">
 					<div id="CharaSimu_setEquipAbility_header">
-						<div><span class="closeBtn_1" onclick="open_charaSimu_abilityListMain()">&gt;&nbsp;close</span></div><div style="clear:both;"></div>
+						<div><span class="closeBtn_1" onclick="open_charaSimu_abilityListMain()"><img src="svg/delete-icon.svg" style="height:20px;width:20px;" /></span></div><div style="clear:both;"></div>
 						<div>
-							<input id="CharaSimu_setEquipAbility_header_search" placeholder="搜尋..." /><a onclick="javascript:document.getElementById('CharaSimu_setEquipAbility_header_search').value='';">清除</a>
+							<table><tr><td><input id="CharaSimu_setEquipAbility_header_search" onchange="update_charaSimu_addAbilityList()" placeholder="serach..." /></td><td><img style="margin-left:-2rem;vertical-align:middle;z-index:25;width:1rem;height:1rem;background:#444;border-radius:0.5rem;cursor:pointer;" onclick="javascript:document.getElementById('CharaSimu_setEquipAbility_header_search').value='';update_charaSimu_addAbilityList();" src="svg/delete-icon.svg" /></td></tr></table>
 						</div>
 					</div>
 					<ul id="CharaSimu_setEquipAbility_abilityList"></ul>
 				</div>
+				<div id="CharaSimu_selDefaultEquip" data-fieldno="-1" data-setno="-1">
+					<div id="CharaSimu_selDefaultEquip_header">
+						<div><span class="closeBtn_1" onclick="javascript:document.getElementById('CharaSimu_selDefaultEquip').style.display='none';"><img src="svg/delete-icon.svg" style="height:20px;width:20px;" /></span></div><div style="clear:both;"></div>
+						<div>
+							<table><tr><td><input id="CharaSimu_selDefaultEquip_header_search" onchange="charaSimu_resetDefaultEquipList()" placeholder="serach..." /></td><td><img style="margin-left:-2rem;vertical-align:middle;z-index:25;width:1rem;height:1rem;background:#444;border-radius:0.5rem;cursor:pointer;" onclick="javascript:document.getElementById('CharaSimu_selDefaultEquip_header_search').value='';charaSimu_resetDefaultEquipList();" src="svg/delete-icon.svg" /></td></tr></table>
+						</div>
+					</div>
+					<ul id="CharaSimu_selDefaultEquip_defaultEquipList"></ul>
+				</div>
 				<div id="CharaSimu_setEquipBase"></div>
 				<div id="CharaSimu_setEquipShow"></div>
 				<div id="charaSimu_savingSystem_site">
-					<input type="text" placeholder="Code" />
-					<ul>
-						<li onclick="charaSimu_controlSavingSystem('save')">Save</li>
-						<li onclick="charaSimu_controlSavingSystem('load')">Load</li>
-						<li onclick="charaSimu_controlSavingSystem('copy')">Copy</li>
-					</ul>
+					<fieldset class="charaSimu_saveload_main">
+						<legend><a data-langtext="Save/Load|,|存檔/讀檔|,|Save/Load"></a></legend>
+						<input type="text" placeholder="Code" />
+						<ul>
+							<li onclick="charaSimu_controlSavingSystem('save')"><a data-langtext="Save|,|產生代碼|,|Save"></a></li>
+							<li onclick="charaSimu_controlSavingSystem('load')"><a data-langtext="Load|,|讀取|,|Load"></a></li>
+							<li onclick="charaSimu_controlSavingSystem('copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></li>
+						</ul>
+						<div id="charaSimu_SaveCode_dataList"></div>
+						<div id="charaSimu_SaveCode_saveTitle">
+							<a data-langtext="Save Title:|,|存檔名稱：|,|Save Title:"></a><br />
+							<input type="text" onchange="charaSimu_storageControl(this, 'saveTo')" onblur="charaSimu_storageControl(this, 'saveTo')" />
+							<p><a data-langtext="(Click anywhere to cancel.)|,|(未輸入的話，點擊任意處以取消。)|,|(Click anywhere to cancel.)"></a></p>
+						</div>
+					</fieldset>
 				</div>
 			</article>
 			<div style="clear:both;"></div>
@@ -72,18 +90,22 @@
 	<div id="Btn_ToTop" onclick="ToTop()">Top</div>
 	
 	<header>
+		
 		<ul>
+			<li style="padding-top:0px;padding-bottom:0px;" onclick="javascript:document.getElementById('CharaSimu_main_').style.display=(document.getElementById('CharaSimu_main_').style.display!='block')?'block':'none';">
+				<img style="width:30px;height:30px;vertical-align:middle;" src="img/bodomu.png" />
+			</li>
 			<li id="Menu_1" onclick="Upadate_Menu(this)">
-				<a>技能資料</a>
+				<a data-langtext="Skills Information|,|技能資料|,|スキルインフォ"></a>
 			</li>
 			<li id="Menu_2" onclick="Upadate_Menu(this)">
-				<a>資料查詢</a>
+				<a data-langtext="Game Mechanics|,|資料查詢|,|ゲーム関連資料"></a>
 			</li>
 			<li id="Menu_3" onclick="Upadate_Menu(this)">
-				<a>版本資訊</a>
+				<a data-langtext="Website Version|,|版本資訊|,|サイト更新履歴"></a>
 			</li>
 			<li id="Menu_4" onclick="Upadate_Menu(this)">
-				<a>小工具</a>
+				<a data-langtext="Web Tool|,|小工具|,|WEBツール"></a>
 			</li>
 		</ul>
 	</header>
@@ -1259,6 +1281,7 @@
 					<p>Any advice or comments are welcome and would be much appreciated. (Link of Twitter is at the bottom of this page)</p>
 					<p>有事找我的話，可以到我的Twitter～</p>
 					<p>大致上會看使用人數的多寡決定要不要弄新功能......因為要弄出一個新的工具真的很累。像是附魔模擬器、進階版的裝備模擬器等等。</p>
+					<p>使用者可幫忙新增裝備模擬器「選擇預設裝備」的裝備清單，詳細請查看巴哈的<a target="_blank" href="https://home.gamer.com.tw/creationDetail.php?sn=4071532">這篇</a>。</p>
 				</div>
 			</div>
 			<div>
@@ -1285,6 +1308,19 @@
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
+			<div>
+				<div class="VerInfo_Title_1">4.0.test</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>新增裝備模擬器(Character Simulator)，可點選左上角的<img style="width:16px;height:16px;" src="img/bodomu.png">使用。
+						<ul class="VerInfo_ul_ul">
+							<li>内建存檔是系統利用HTML5的Web Storage。不同瀏覽器檔案會無法共用。</li>
+							<li>尚在測試階段，發現BUG可到Twitter或巴哈姆特回報。</li>有什麼想法或建議亦同。
+							<li>使用者可幫忙新增「選擇預設裝備」的裝備清單，詳細請查看巴哈的<a target="_blank" href="https://home.gamer.com.tw/creationDetail.php?sn=4071532">這篇</a>。</li>
+						</ul>
+					</li>
+					<li>技能資料的更新有種多到弄不完的感覺......之後再看看吧。</li>
+				</ul>
+			</div>
 			<div>
 				<div class="VerInfo_Title_1">3.5.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
@@ -1529,8 +1565,9 @@
 				</div>
 				<div id="SkillAlloSimu_SaveCode_Block" class="MenuPage">
 					<div style="display:none;" id="SkillAlloSimu_SaveCode_saveTitle">
-						Save Title:<br />
+						<a data-langtext="Save Title:|,|存檔名稱：|,|Save Title:"></a><br />
 						<input data-lino="0" onblur="SkillAlloSimu_SaveToStorage(this)" onchange="SkillAlloSimu_SaveToStorage(this)" />
+						<p><a data-langtext="(Click anywhere to cancel.)|,|(未輸入的話，點擊任意處以取消。)|,|(Click anywhere to cancel.)"></a></p>
 					</div>
 					<ul id="SkillAlloSimu_SaveCode_dataList"></ul>
 					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_3">
@@ -1587,7 +1624,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 3.5.0｜Update: 2018/6/28
+			Ver: 4.0.test｜Update: 2018/7/26
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
@@ -1598,9 +1635,17 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
 <script type="text/javascript" src="js/Base.js"></script>
 
 <script type="text/javascript" src="js/SkillInquiry/SkillInquiry_Base.js"></script>
+
+<script type="text/javascript" src="js/Character_Simulator/Character_Simulator_Base.js"></script>
+<script type="text/javascript" src="js/Character_Simulator/StatsList.js"></script>
+<script type="text/javascript" src="js/Character_Simulator/Character_Simulator_UI.js"></script>
+<script type="text/javascript" src="js/Character_Simulator/defaultEquip_list.js"></script>
+<!-- <script type="text/javascript" src="js/Character_Simulator/CharacterSkill_list.js"></script> -->
 
 <script type="text/javascript" src="js/SkillInquiry/Skill_List/Skill_List_0.js"></script>
 <script type="text/javascript" src="js/SkillInquiry/Skill_List/Skill_List_1.js"></script>
@@ -1627,10 +1672,6 @@
 
 <script type="text/javascript" src="js/InformationInquiry_Base.js"></script>
 <script type="text/javascript" src="js/HiddenEgg.js"></script>
-
-<script type="text/javascript" src="js/Character_Simulator/Character_Simulator_Base.js"></script>
-<script type="text/javascript" src="js/Character_Simulator/StatsList.js"></script>
-<script type="text/javascript" src="js/Character_Simulator/Character_Simulator_UI.js"></script>
 
 <script type="text/javascript" src="js/AdditionalTool/AdditionalTool_Base.js"></script>
 <script type="text/javascript" src="js/AdditionalTool/SkillAllocation_Simulator.js"></script>

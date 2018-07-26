@@ -98,7 +98,7 @@
 	
 	#SkillAlloSimu_SaveCode_dataList {
 		list-style: none;
-		padding: 0.rem;
+		padding: 0.1rem;
 	}
 	#SkillAlloSimu_SaveCode_dataList li {
 		padding: 0.3rem;
@@ -130,7 +130,6 @@
 		top: 30%;
 		margin: 0 2rem;
 		width: 13rem;
-		height: 5rem;
 		z-index: 23;
 		padding: 0.4rem;
 		background-color: #666;
