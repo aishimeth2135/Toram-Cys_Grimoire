@@ -31,7 +31,7 @@
 			new cy_statBase('Dodge|,|迴避|,|回避'										, 'Dodge|,|迴避|,|回避'													, 'dodge'					, true	, true	, true	, 0),
 			new cy_statBase('ASPD|,|攻擊速度|,|攻撃速度'								, 'ASPD|,|攻擊速度|,|攻撃速度'											, 'aspd'					, true	, true	, true	, 0),
 			new cy_statBase('CSPD|,|詠唱速度|,|詠唱速度'								, 'CSPD|,|詠唱速度|,|詠唱速度'											, 'cspd'					, true	, true	, true	, 0),
-			new cy_statBase('Motion Speed|,|行動速度|,|行動速度'						, 'Motion Speed|,|行動速度|,|行動速度'									, 'motion_speed'			, false	, true	, true	, -100	, '%', '', 50,	-1),
+			new cy_statBase('Motion Time|,|行動時間|,|行動時間'						, 'Motion Speed|,|行動速度|,|行動速度'									, 'motion_speed'			, false	, true	, true	, -100	, '%', '', 50,	-1),
 			new cy_statBase('Cast Time|,|詠唱時間|,|詠唱時間'							, 'Cast Time|,|詠唱時間|,|詠唱時間'										, 'cast_speed'				, false	, true	, false	, -100	, '%', '', 25,	-1),
 			new cy_statBase('Attack MP Recovery|,|攻擊MP恢復|,|攻撃MP回復'				, 'Attack MP Recovery|,|攻擊MP恢復|,|攻撃MP回復'						, 'attack_mp_recovery'		, true	, true	, true	, 10),
 			new cy_statBase('Aggro|,|仇恨值|,|ヘイト'									, 'Aggro|,|仇恨值|,|ヘイト'												, 'aggro'					, false	, true	, true	, 100	, '%', '', ),
