@@ -521,12 +521,10 @@
 		_html += `<li onclick="charaSimu_equipSavingSystem(this, 'load')" data-fieldno="${t_fieldNo}"><a data-langtext="Load|,|讀取|,|Load"></a></li>`;
 		_html += `<li onclick="charaSimu_equipSavingSystem(this, 'copy')" data-fieldno="${t_fieldNo}"><a data-langtext="Copy|,|複製|,|Copy"></a></li></ul></div>`;
 		
-		if ( document.getElementById('CharaSimu_setEquipAbility').style.display != 'none' )
-		{
-			document.getElementById('CharaSimu_setEquipAbility').style.display = 'none';
-		}
-		
+		document.getElementById('CharaSimu_setEquipAbility').style.display = 'none';
 		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
+		document.getElementById('CharaSimu_selDefaultEquip').style.display ='none';
+		
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = '';
 		document.getElementById('CharaSimu_setEquipBase').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipBase'));
