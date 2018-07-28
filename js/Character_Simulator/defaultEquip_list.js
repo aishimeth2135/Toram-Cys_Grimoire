@@ -8,8 +8,4 @@
 		new cy_defaultEquip('Special_Gear', '體力戒指VI', "['|,|體力戒指IV|,|',0,0,0,0,[['vit',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Special_Gear', '技術戒指VI', "['|,|技術戒指IV|,|',0,0,0,0,[['dex',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria')
 	);
-<<<<<<< HEAD
 	//new cy_defaultEquip('', '', "", 'Cyteria'),
-=======
-	//new cy_defaultEquip('', '歌德禮帽(N)', "", 'Cyteria'),
->>>>>>> e07f503976bec73ed306b3970ec3713d882bf3e5
