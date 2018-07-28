@@ -137,7 +137,7 @@
 			let t_ary = _list[i].match(/(.+)\[(.+)\]/);
 			this.Sk_charaAddition_armsConfirm.push(t_ary[1]);
 			this.Sk_charaAddition_list.push([]);
-			_additionStr = t_ary[2].split(/(?<![a-zA-Z0-9_]+\([^\(]+)\s*,\s*(?!=[^\)]+\))/);
+			_additionStr = t_ary[2].split(/\s*,\s*(?!\s*[a-zA-Z0-9_]+\s*\))/);
 			
 			for (let i=0; i<_additionStr.length; ++i)
 			{
@@ -192,7 +192,7 @@
 			}
 			
 			let t_ary = _list[i].match(/(.+)\[(.+)\]/);
-			_additionStr = t_ary[2].split(/(?<![a-zA-Z0-9_]+\([^\(]+)\s*,\s*(?!=[^\)]+\))/);
+			_additionStr = t_ary[2].split(/\s*,\s*(?!\s*[a-zA-Z0-9_]+\s*\))/);
 			
 			for (let j=0; j<_additionStr.length; ++j)
 			{

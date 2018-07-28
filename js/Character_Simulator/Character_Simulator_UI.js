@@ -684,7 +684,7 @@
 		if ( addStr != '')
 		{
 			let _cnt = (cy_character.charaEquipments[t_fieldNo].fieldName == 'Sub_Weapon') ? 0 : 2;
-			let _ary = addStr.split(/(?<![a-zA-Z0-9_]+\([^\(]+)\s*,\s*(?!=[^\)]+\))/);
+			let _ary = addStr.split(/\s*,\s*(?!\s*[a-zA-Z0-9_]+\s*\))/);
 			for (let i=0; i<_ary.length; ++i)
 			{
 				if ( _ary[i].match(/(.+)#(.+)%/) )
