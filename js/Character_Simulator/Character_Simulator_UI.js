@@ -45,12 +45,19 @@
 	}
 	
 	function charaSimu_SaveToStorage_setTitle(temp){
+		if ( !window.localStorage ) return;
 		let doc = document.getElementById('charaSimu_SaveCode_saveTitle');
 		doc.style.display = 'block';
 		doc.getElementsByTagName('input')[0].setAttribute('data-lino', temp.getAttribute('data-lino'));
 		doc.getElementsByTagName('input')[0].focus();
 	}
 	function charaSimu_resetSaveCodeList(){
+		if ( !window.localStorage )
+		{
+			showWarningMsg('This browser version does not support Web Storage.');
+			document.getElementById('charaSimu_SaveCode_dataList').innerHTML = 'This browser version does not support Web Storage.';
+			return;
+		}
 		Ttext = '<ul>', storage_size = 5;
 		for (let i=0; i<storage_size; ++i)
 		{
@@ -72,6 +79,7 @@
 	}
 	
 	function charaSimu_storageControl(temp, control){
+		if ( !window.localStorage ) return;
 		let loadCode;
 		switch (control)
 		{
@@ -127,6 +135,7 @@
 		}
 		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = Ttext;
+		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
 		document.getElementById('CharaSimu_setEquipBase').innerHTML = '';
 	}
 	
@@ -333,26 +342,16 @@
 			case 1: t_armsTypeName = cy_character.allAuType[t_equipfield.type]; break;
 			case 2: t_armsTypeName = cy_character.allBodyType[t_equipfield.type]; break;
 			case 3:
-				switch (getCur_languageNo())
-				{
-					case 0: t_armsTypeName = 'Additional Gear'; break;
-					case 1: t_armsTypeName = '追加裝備'; break;
-					case 2: t_armsTypeName = 'Additional Gear'; break;
-				}
+				t_armsTypeName = 'Additional Gear|,|追加裝備|,|Additional Gear'; break;
 				break;
 			case 4:
-				switch (getCur_languageNo())
-				{
-					case 0: t_armsTypeName = 'Special Gear'; break;
-					case 1: t_armsTypeName = '特殊裝備'; break;
-					case 2: t_armsTypeName = 'Special Gear'; break;
-				}
+				t_armsTypeName = 'Special Gear|,|特殊裝備|,|Special Gear'; break;
 				break;
 		}
 		let refining_ary = ['E', 'D', 'C', 'B', 'A', 'S'];
 		let t_refining = (t_equipfield.refining >= 10) ? refining_ary[t_equipfield.refining-10] : t_equipfield.refining;
 		
-		Ttext += `${t_equipfield.name || 'unnamed'} +${t_refining}<br />【${t_armsTypeName}】${fieldValueTitle}：${t_equipfield.fieldValue}`;
+		Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}`;
 		let T_obj = t_equipfield.fieldAbilitys.ability;
 		
 		Ttext += '<div class="charaSimu_showEquipFieldAbilitys">';
@@ -371,7 +370,7 @@
 			if ( !t_equipfield.xtals[0].isEmpty() )
 			{
 				T_obj = t_equipfield.xtals[0].ability;
-				Ttext += `<hr class="showChararEquip_hr1" />${t_equipfield.xtalNames[0] || 'xtal 1'}<div class="charaSimu_showEquipFieldAbilitys">`;
+				Ttext += `<hr class="showChararEquip_hr1" /><a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
@@ -384,7 +383,7 @@
 			if ( !t_equipfield.xtals[1].isEmpty() )
 			{
 				T_obj = t_equipfield.xtals[1].ability;
-				Ttext += `<hr class="showChararEquip_hr1" />${t_equipfield.xtalNames[1] || 'xtal 2'}<div class="charaSimu_showEquipFieldAbilitys">`;
+				Ttext += `<hr class="showChararEquip_hr1" /><a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
@@ -415,7 +414,8 @@
 		{
 			case 1:
 				if (t_equipfield.type == 1) fieldValueTitle = 'DEF';
-				else fieldValueTitle = 'DEF';
+				else fieldValueTitle = 'ATK';
+				break;
 			case 2: case 3: case 4:
 				fieldValueTitle = 'DEF';
 				break;
@@ -463,7 +463,9 @@
 		
 		let _html = ''; 
 		
-		_html += `<div><ul class="chara_mainHeaderMenu"><li onclick="charaSimu_openDefaultEquipList(this)" data-fieldno="${t_fieldNo}"><a data-langtext="選取預設裝備"></a></li></ul></div>`;
+		_html += `<div><ul class="chara_mainHeaderMenu"><li onclick="charaSimu_openDefaultEquipList(this)" data-fieldno="${t_fieldNo}"><a data-langtext="選取預設裝備"></a></li>`;
+		_html += `<li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'all')"><img src="svg/reset-icon.svg" /><a data-langtext="Reset All|,|全部重設|,|Reset All"></a></li>`;
+		_html += '</ul></div>';
 		_html += '<div style="float:left;width:22rem;margin-bottom:1rem;" >';
 		
 		let _style = 'opacity:1;background-color:transparent;';
@@ -499,7 +501,7 @@
 		_html += `<div id="equipField_setEquip_block0" style="${_style}">`;
 		_html += `<div class="equipField_mainBlock_1"><div class="equipField_blockUnit"><input type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'name')" data-langtext="${t_equipfield.name}" data-langplaceholder="name...|,|輸入名稱...|,|name..." /></div><br />`;
 		_html += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1">${fieldValueTitle}</span><input value="${t_equipfield.fieldValue}" type="number" class="equipField_fieldValue" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'fieldValue')" placeholder="${t_equipfield.fieldValue}" /></div>`;
-		if ( t_fieldNo != 4 )	//特殊
+		if ( t_fieldNo == 0 || (t_fieldNo == 1 && t_equipfield.type == AuArms_map['Shield']) || t_fieldNo == 2 || t_fieldNo == 3 )	//特殊
 		{
 			_html += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1"><a data-langtext="Refining|,|精鍊值|,|精鍊值"></a></span><input value="${t_equipfield.refining}" type="number" class="equipField_refining" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'refining')" placeholder="${t_equipfield.refining}" /></div>`;
 		}
@@ -508,11 +510,11 @@
 			_html += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1"><a data-langtext="Stability|,|穩定率|,|Stability"></a></span><input value="${t_equipfield.stability}" type="number" class="equipField_stability" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'stability')" placeholder="${t_equipfield.stability}" />%</div>`;
 		}
 		_html += `</div>`;
-		_html += `<div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(0)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_0" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li></ul></legend><ul id="equipField_fieldAbilitys_main"></ul></fieldset></div>`;
+		_html += `<div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(0)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_0" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'ability')"><img src="svg/reset-icon.svg" /><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_main"></ul></fieldset></div>`;
 		if ( t_fieldNo != 1 )	//副手
 		{
-			_html += `<div class="equipField_blockUnit"><img style="height:25px;width:25px;vertical-align:middle;margin-right: 0.5rem;" src="svg/xtal-icon_0.svg" /><input style="width:75%;" value="${t_equipfield.xtalNames[0]}" type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'xtalName1')" data-langplaceholder="Xtal name...|,|鍛晶名稱...|,|Xtal name..." /></div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(1)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_1" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal1"></ul></fieldset></div>`;
-			_html += `<div class="equipField_blockUnit"><img style="height:25px;width:25px;vertical-align:middle;margin-right: 0.5rem;" src="svg/xtal-icon_0.svg" /><input style="width:75%;" value="${t_equipfield.xtalNames[1]}" type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'xtalName2')" data-langplaceholder="Xtal name...|,|鍛晶名稱...|,|Xtal name..." /></div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(2)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_2" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal2"></ul></fieldset></div>`;
+			_html += `<div class="equipField_blockUnit"><img style="height:25px;width:25px;vertical-align:middle;margin-right: 0.5rem;" src="svg/xtal-icon_0.svg" /><input style="width:75%;" data-langtext="${t_equipfield.xtalNames[0]}" type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'xtalName1')" data-langplaceholder="Xtal name...|,|鍛晶名稱...|,|Xtal name..." /></div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(1)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_1" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'xtal1')"><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal1"></ul></fieldset></div>`;
+			_html += `<div class="equipField_blockUnit"><img style="height:25px;width:25px;vertical-align:middle;margin-right: 0.5rem;" src="svg/xtal-icon_0.svg" /><input style="width:75%;" data-langtext="${t_equipfield.xtalNames[1]}" type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'xtalName2')" data-langplaceholder="Xtal name...|,|鍛晶名稱...|,|Xtal name..." /></div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(2)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_2" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'xtal2')"><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal2"></ul></fieldset></div>`;
 		}
 		_html += '</div></div>';
 		_html += `<div class="equipField_mainBlock_3"><span style="float:right;display:inline-block;cursor:pointer;" onclick="CharaSimu_resetSetEquipShowDetail(),CharaSimu_updateSetEquipShowDetail()"><img height="20" width="20" src="svg/reset-icon.svg" /></span><div id="CharaSimu_setEquipAbility_showDetail"></div></div>`;
@@ -534,6 +536,12 @@
 		if (t_equipfield.xtals.length == 0) return;
 		updateUI_equipFieldAbility(t_fieldNo, 1);
 		updateUI_equipFieldAbility(t_fieldNo, 2);
+	}
+	
+	function charaSimu_resetFieldControl(_fieldNo, control){
+		cy_character.charaEquipments[_fieldNo].reset(control);
+		set_equipFieldAbility(_fieldNo);
+		CharaSimu_updateSetEquipShowDetail();
 	}
 	
 	function CharaSimu_updateSetEquipShowDetail(mode = ''){
@@ -710,7 +718,7 @@
 		
 		switch (varName)
 		{
-			case 'name':	t_equipfield.name = temp.value; break;
+			case 'name': t_equipfield.name = ( temp.value.includes('|,|') || getCur_languageNo() != 1 ) ? temp.value : '|,|' + temp.value + '|,|'; break;
 			case 'fieldValue':
 				temp.value = parseInt(temp.value);
 				temp.value = ( temp.value < 0 || temp.value > 999 || temp.value == '') ? t_equipfield.fieldValue : temp.value;

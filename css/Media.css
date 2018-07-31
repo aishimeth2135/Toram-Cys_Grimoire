@@ -68,6 +68,10 @@
 		.CharaSimu_setEquipAbility_showDetail {
 			max-width: 90%!important;
 		}
+		#CharaSimu_setEquipAbility, #CharaSimu_selDefaultEquip {
+			max-height: 90%;
+			top:10%;
+		}
 	}
 	
 	@media screen and (max-width: 20rem) {

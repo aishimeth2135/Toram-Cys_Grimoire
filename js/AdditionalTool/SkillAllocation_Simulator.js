@@ -441,6 +441,12 @@
 	
 	/* ================================================= */
 	function SkillAlloSimu_resetSaveCodeList(){
+		if ( !window.localStorage )
+		{
+			showWarningMsg('This browser version does not support Web Storage.');
+			document.getElementById('charaSimu_SaveCode_dataList').innerHTML = 'This browser version does not support Web Storage.';
+			return;
+		}
 		Ttext = '<ul>', storage_size = 5;
 		for (let i=0; i<storage_size; ++i)
 		{
@@ -482,12 +488,14 @@
 		document.getElementById(ATool_MenuList_Second_curBtn).style.display = 'block';
 	}
 	function SkillAlloSimu_SaveToStorage_setTitle(temp){
+		if ( !window.localStorage ) return;
 		let doc = document.getElementById('SkillAlloSimu_SaveCode_saveTitle');
 		doc.style.display = 'block';
 		doc.getElementsByTagName('input')[0].setAttribute('data-lino', temp.getAttribute('data-lino'));
 		doc.getElementsByTagName('input')[0].focus();
 	}
 	function SkillAlloSimu_SaveToStorage(temp){
+		if ( !window.localStorage ) return;
 		if ( temp.value == '' )
 		{
 			temp.parentNode.style.display = 'none';
@@ -501,10 +509,12 @@
 		temp.parentNode.style.display = 'none';
 	}
 	function SkillAlloSimu_LoadFromStorage(temp){
+		if ( !window.localStorage ) return;
 		let loadCode = temp.getAttribute('data-loadingcode');
 		SkillAlloSimu_SaveCode_LoadingCode(loadCode);
 	}
 	function SkillAlloSimu_CopyFromStorage(temp){
+		if ( !window.localStorage ) return;
 		let loadCode = temp.getAttribute('data-loadingcode');
 		let doc = document.getElementById('SkillAlloSimu_SaveCode_text');
 		doc.value = loadCode;
