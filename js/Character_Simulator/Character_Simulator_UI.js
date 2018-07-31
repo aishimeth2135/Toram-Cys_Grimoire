@@ -463,7 +463,7 @@
 		
 		let _html = ''; 
 		
-		_html += `<div><ul class="chara_mainHeaderMenu"><li onclick="charaSimu_openDefaultEquipList(this)" data-fieldno="${t_fieldNo}"><a data-langtext="選取預設裝備"></a></li>`;
+		_html += `<div><ul class="chara_mainHeaderMenu"><li onclick="charaSimu_openDefaultEquipList(this)" data-fieldno="${t_fieldNo}"><a data-langtext="Default List|,|選取預設裝備|,|Default List"></a></li>`;
 		_html += `<li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'all')"><img src="svg/reset-icon.svg" /><a data-langtext="Reset All|,|全部重設|,|Reset All"></a></li>`;
 		_html += '</ul></div>';
 		_html += '<div style="float:left;width:22rem;margin-bottom:1rem;" >';
