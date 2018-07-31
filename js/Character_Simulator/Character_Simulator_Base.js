@@ -100,7 +100,6 @@
 					console.log(t5_ary[i][0]);
 					this.statPoint[t_loc].name = t5_ary[i][0];
 					this.statPoint[t_loc].base.showName = t5_ary[i][0];
-					this.statPoint[t_loc].base.showName_lang = t5_ary[i][0];
 					this.statPoint[t_loc].base.alwaysShow = ( this.statPoint[t_loc].base.showName == 'none' ) ? 'hid' : true;
 					this.statPoint[t_loc].base.baseValue = t5_ary[i][1];
 					++_listCnt;
@@ -439,14 +438,11 @@
 		}
 	}
 	
-	var cy_statBase = function(tshowName_lang, tstatName_lang, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
+	var cy_statBase = function(tshowName, tstatName, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
 		//this.no = cy_character.statList.length;
-		this.showName_lang = tshowName_lang;
-		this.statName_lang = tstatName_lang;
-		
 		this.baseName = tbaseName;
-		this.statName = '';
-		this.showName = '';
+		this.showName = tshowName;
+		this.statName = tstatName;
 		this.haveRate = thaveRate;
 		this.alwaysShow = talwaysShow;
 		this.canSelect = tcanSelect;
@@ -473,11 +469,11 @@
 			switch (name)
 			{
 				case 'CLv': return cy_character.characterLv;
-				case 'Cstr': return cy_character.statPoint[0];
-				case 'Cdex': return cy_character.statPoint[1];
-				case 'Cint': return cy_character.statPoint[2];
-				case 'Cagi': return cy_character.statPoint[3];
-				case 'Cvit': return cy_character.statPoint[4];
+				case 'Cstr': return cy_character.statPoint[0].baseValue;
+				case 'Cdex': return cy_character.statPoint[1].baseValue;
+				case 'Cint': return cy_character.statPoint[2].baseValue;
+				case 'Cagi': return cy_character.statPoint[3].baseValue;
+				case 'Cvit': return cy_character.statPoint[4].baseValue;
 				
 				case 'Ctec': case 'Cluk': case 'Cmen': case 'Ccrt':
 					return ( cy_character.statPoint[5].name.toLowerCase() == name.replace('C', '') ) ? cy_character.statPoint[5].base.baseValue : 0;
@@ -524,8 +520,8 @@
 		let B = this.baseValue;
 		let R = (100 + this.rate)/100;
 		let C = this.constant;
-		let E = this.extraRate;
-				
+		let E = this.extraRate;	
+		
 		let ans = 0;
 		
 		if ( Array.isArray(this.formula) )
@@ -547,6 +543,21 @@
 		if ( this.minValue != '' && ans < this.minValue ) ans = this.minValue;
 		if ( this.maxValue != '' && ans > this.maxValue ) ans = this.maxValue;
 		return ans;
+	}
+	cy_statBase.prototype.have_signStatName = function(){
+		return this.statName.match(/\[.+\<\|\>.+\]/) ? true : false;
+	}
+	cy_statBase.prototype.get_signStatName = function(noSign = false){
+		if ( !this.have_signStatName() ) return this.statName;
+		let _ary = this.statName.split('|,|');
+		let _text = '';
+		for (let i=0; i<_ary.length; ++i)
+		{
+			if ( !_ary[i].match(/\[([^\[]+)\<\|\>([^\]]+)\]/) ) continue;
+			_text += (!noSign) ? (_ary[i].replace(/\[[^\[]+\<\|\>[^\]]+\]/, (this.calcValue() >= 0) ? RegExp.$1 : RegExp.$2)) : (_ary[i].replace(/\[([^\[]+)\<\|\>([^\]]+)\]/, ''));
+			_text += (i != _ary.length-1) ? '|,|' : '';
+		}
+		return _text;
 	}
 	
 	var cy_defaultEquip = function(tsel_fieldName, ttitle, tcode, tprovider = 'someone'){

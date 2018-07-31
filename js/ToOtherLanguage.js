@@ -269,24 +269,6 @@
 		temp.className = 'languageList_Cur';
 
 		// ================================== 重置裝備模擬器能力清單
-		(function(){
-			for (let i=0; i<cy_character.statList.length; ++i)
-			{
-				let _t = cy_character.statList[i].showName_lang.split('|,|');
-				cy_character.statList[i].showName = (_t.length != 1) ? _t[T_langno] : _t[0];
-				_t = cy_character.statList[i].statName_lang.split('|,|');
-				_t = (_t.length != 1) ? _t[T_langno] : _t[0];
-				if ( _t.includes('#') )
-				{
-					let __t = _t.split('#');
-					cy_character.statList[i].statName = __t[0];
-					cy_character.statList[i].unit = __t[1];
-					continue;
-				}
-				cy_character.statList[i].statName = _t;
-			}
-			update_charaSimu_addAbilityList();
-		})();
 		resetInnerLang(document);
 	}
 	

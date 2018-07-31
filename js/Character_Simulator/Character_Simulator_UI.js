@@ -161,12 +161,12 @@
 									let _splitUnit = (i != 0) ? '｜' : '';
 									if ( _obj[i].base.baseValue == 'none' )
 									{
-										_text += `${_splitUnit}${T_obj[i].base.statName}`;
+										_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>`;
 										continue;
 									}
 									let _unit = ( _obj[i].abilityType == 0 ) ? '%' : '';
 									let _sign = ( _obj[i].value >= 0 ) ? '+' : '';
-									_text += `${_splitUnit}${_obj[i].base.statName}${_sign}${_obj[i].value}${_unit}`;
+									_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>${_sign}${_obj[i].value}<a data-langtext="${_unit}"></a>`;
 								}
 							}
 							if ( _skill.Sk_addDesc != '' )
@@ -360,7 +360,7 @@
 			if (T_obj[i].base == '') continue;
 			let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : '';
 			let _sign = (T_obj[i].value >= 0) ? '+' : '';
-			Ttext += `<a>${T_obj[i].base.statName}${_sign}${T_obj[i].value}${_unit}${T_obj[i].base.unit}</a>`;
+			Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
 		}			
 		Ttext += '</div>';
 		
@@ -374,9 +374,9 @@
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
-					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : '';
+					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
 					let _sign = (T_obj[i].value >= 0) ? '+' : '';
-					Ttext += `<a>${T_obj[i].base.statName}${_sign}${T_obj[i].value}${_unit}${T_obj[i].base.unit}</a>`;
+					Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
 				}			
 				Ttext += '</div>';
 			}
@@ -389,7 +389,7 @@
 					if (T_obj[i].base == '') continue;
 					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : '';
 					let _sign = (T_obj[i].value >= 0) ? '+' : '';
-					Ttext += `<a>${T_obj[i].base.statName}${_sign}${T_obj[i].value}${_unit}${T_obj[i].base.unit}</a>`;
+					Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
 				}			
 				Ttext += '</div>';
 			}
@@ -555,18 +555,23 @@
 			{
 				if ( _obj.baseValue == 'none' )
 				{
-					_html += _obj.statName + '<br />';
+					_html += `<span><a data-langtext="${_obj.statName}"></a></span><br />`;
 					continue;
 				}
-				 _t -= _obj.preValue;
+				_t -= _obj.preValue;
 				let _sign = ( _t >=0 ) ? '+' : '';
 				let _unit = ( !_obj.haveRate ) ? _obj.unit : '';
+				if (_obj.digitNum != 0) _t = _t.toFixed(_obj.digitNum);
 				let _style = (_t*_obj.extraRate >= 0) ? '' : 'style="color:#ffb5b5;"';
-				_html += `<span ${_style}>${_obj.statName}${_sign}${_t}${_unit}</span><br />`;
+				_html += `<span ${_style}><a data-langtext="${_obj.statName}"></a>${_sign}${_t}<a data-langtext="${_unit}"></a></span><br />`;
 			}
 		}
 		if ( mode == 'get' ) return _html;
-		if (document.getElementById('CharaSimu_setEquipAbility_showDetail')) document.getElementById('CharaSimu_setEquipAbility_showDetail').innerHTML = _html;
+		if (document.getElementById('CharaSimu_setEquipAbility_showDetail'))
+		{
+			document.getElementById('CharaSimu_setEquipAbility_showDetail').innerHTML = _html;
+			resetInnerLang(document.getElementById('CharaSimu_setEquipAbility_showDetail'));
+		}
 	}
 	function CharaSimu_resetSetEquipShowDetail(){
 		for (let i=0; i<cy_character.statList.length; ++i)
@@ -776,13 +781,13 @@
 		let cy = cy_character.statList;
 		let _html = '<div class="charaSimu_switchMode"><span onclick="set_charaStatPoint()">修改角色能力</span></div>';
 		
-		let blockAry = ['max_hp', 'atk', 'stability', 'def', 'critical_rate', 'accuracy', 'attack_mp_recovery', 'evasion_rate', 'unsheathe_attack', 'stronger_against_neutral', 'neutral_resistance', 'physical_barrier', 'additional_meele', 'flinch_unavailable'];
+		let blockAry = ['max_hp', 'atk', 'stability', 'def', 'critical_rate', 'accuracy', 'aggro', 'evasion_rate', 'unsheathe_attack', 'stronger_against_neutral', 'neutral_resistance', 'physical_barrier', 'additional_meele', 'flinch_unavailable', 'recoil_damage'];
 		let _cnt = 0;
 		
 		let __html = '';
 		for (let i=0; i<cy.length; ++i)
 		{
-			if ( cy[i].baseName == blockAry[_cnt] )
+			if ( cy[i].baseName == blockAry[_cnt] || i == cy.length-1)
 			{
 				if ( __html != '') _html += '<div class="charaSimu_showStat_blockUnit1">' + __html + '</div>';
 				__html = '';
@@ -790,7 +795,7 @@
 			}
 			if ( cy[i].baseValue == 'none' )
 			{
-				if (cy[i].calcValue() > 0) __html += '<span><span>' + cy[i].showName + ' </span></span>';
+				if (cy[i].calcValue() > 0) __html += '<span><span><a data-langtext="' + cy[i].showName + '"></a> </span></span>';
 				continue;
 			}
 			
@@ -802,9 +807,9 @@
 				if ( !cy[i].alwaysShow && cy[i].calcValue() == cy[i].baseValue ) continue;
 			}
 			
-			let T = parseInt(cy[i].calcValue());
+			let T = cy[i].calcValue();
 			
-			__html += '<span><span>' + cy[i].showName + '</span>' + T + cy[i].unit + '</span>';
+			__html += '<span><span><a data-langtext="' + cy[i].showName + '"></a></span>' + T + '<a data-langtext="' + cy[i].unit + '"></a></span>';
 		}
 		
 		__html = '';
@@ -870,6 +875,7 @@
 		
 		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
+		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
 		document.getElementById('CharaSimu_setEquipBase').innerHTML = '';
 	}
 	
@@ -921,7 +927,6 @@
 		
 		cy_character.statPoint[t_statPointNo].name = cy_character.statPoint_name[t_statPointName_no][t_typeno];
 		cy_character.statPoint[t_statPointNo].base.showName = cy_character.statPoint_name[t_statPointName_no][t_typeno];
-		cy_character.statPoint[t_statPointNo].base.showName_lang = cy_character.statPoint_name[t_statPointName_no][t_typeno];
 		cy_character.statPoint[t_statPointNo].base.alwaysShow = ( cy_character.statPoint[t_statPointNo].base.showName == 'none' ) ? 'hid' : true;
 	}
 	
@@ -1014,15 +1019,24 @@
 			{
 				if ( T_obj.ability[i].base.baseValue == 'none' )
 				{
-					Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)">${T_obj.ability[i].base.statName}</li>`;
+					Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)"><a langtext="${T_obj.ability[i].base.statName}"></a></li>`;
 					continue;
 				}
 				let _unit = ( T_obj.ability[i].abilityType == 0 ) ? '%' : ( (!T_obj.ability[i].base.haveRate) ? T_obj.ability[i].base.unit : '');
 				let _sign = (T_obj.ability[i].value >= 0) ? '+' : '';
-				Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)">${T_obj.ability[i].base.statName}${_sign}${T_obj.ability[i].value}${_unit}${_deleteText}</li>`;
+				let _value = T_obj.ability[i].value;
+				let t_statName = T_obj.ability[i].base.get_signStatName();
+				if ( T_obj.ability[i].base.have_signStatName() )
+				{
+					_sign = '';
+					if (_value < 0) _value *= -1;
+				}
+				if (T_obj.ability[i].base.digitNum != 0) _value = _value.toFixed(T_obj.ability[i].base.digitNum);
+				Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)"><a data-langtext="${t_statName}"></a>${_sign}${_value}<a data-langtext="${_unit}"></a>${_deleteText}</li>`;
 			}
 		}
 		doc.innerHTML = Ttext;
+		resetInnerLang(doc);
 	}
 	function setEquipFieldAbliity(temp){
 		let _regObj = '';
@@ -1058,7 +1072,10 @@
 		
 		let _unit = ( T_obj.abilityType == 0 ) ? '%' : T_obj.base.unit;
 		let _sign = (T_obj.value >= 0) ? '+' : '';
-		temp.innerHTML = `${T_obj.base.statName}${_sign}<input type="number" value="" data-fatherid="${temp.id}" onclick="_stopBubble(event)" onchange="confirm_setEquipFieldAbliity(this)" onblur="confirm_setEquipFieldAbliity(this)" />${_unit}`;
+		let t_statName = T_obj.base.get_signStatName();
+		if ( T_obj.base.have_signStatName() ) _sign = '';
+		temp.innerHTML = `<a data-langtext="${t_statName}"></a>${_sign}<input type="number" value="" data-fatherid="${temp.id}" onclick="_stopBubble(event)" onchange="confirm_setEquipFieldAbliity(this)" onblur="confirm_setEquipFieldAbliity(this)" /><a data-langtext="${_unit}"></a>`;
+		resetInnerLang(temp);
 		temp.getElementsByTagName('input')[0].focus();
 	 }
 	 function confirm_setEquipFieldAbliity(temp){
@@ -1084,8 +1101,7 @@
 			case 2: T_obj = cy_character.charaEquipments[t_fieldNo].xtals[t_setNo-1].ability[t_no]; break;
 			default: console.log('error: setEquipFieldAbliity.'); return;
 		}
-		let setValue = parseInt(temp.value) || T_obj.value;
-		
+		let setValue = ((T_obj.base.digitNum == 0) ? parseInt(temp.value) : parseFloat(parseFloat(temp.value).toFixed(T_obj.base.digitNum))) || T_obj.value;
 		T_obj.setValue(setValue);
 		
 		temp.onblur = "";
@@ -1134,8 +1150,10 @@
 					case 'MS': if (!( t_setNo == 0 && (cy_character.charaEquipments[t_fieldNo].fieldName == 'Main_Weapon' || (cy_character.charaEquipments[t_fieldNo].fieldName == 'Sub_Weapon' && (cy_character.charaEquipments[1].type == 2 || cy_character.charaEquipments[1].type == 7)) ) )) continue; break;
 				}
 			}
-			Ttext += `<li data-abilityno="${i}" data-type="1" onclick="addEquipFieldAbliity(this)">${T_obj.statName+( (T_obj.haveRate ) ? '' : T_obj.unit )}</li>`;
-			if ( T_obj.haveRate ) Ttext += `<li data-abilityno="${i}" data-type="0" onclick="addEquipFieldAbliity(this)">${T_obj.statName}%</li>`;
+			let t_statName = T_obj.get_signStatName(true);
+			Ttext += `<li data-abilityno="${i}" data-type="1" onclick="addEquipFieldAbliity(this)"><a data-langtext="${t_statName}"></a><a data-langtext="${( (T_obj.haveRate ) ? '' : T_obj.unit )}"></a></li>`;
+			if ( T_obj.haveRate ) Ttext += `<li data-abilityno="${i}" data-type="0" onclick="addEquipFieldAbliity(this)"><a data-langtext="${t_statName}"></a>%</li>`;
 		}
 		document.getElementById('CharaSimu_setEquipAbility_abilityList').innerHTML = Ttext;
+		resetInnerLang(document.getElementById('CharaSimu_setEquipAbility_abilityList'));
 	}
