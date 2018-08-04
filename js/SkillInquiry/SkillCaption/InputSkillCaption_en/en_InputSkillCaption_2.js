@@ -2948,7 +2948,7 @@
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
-										all_SI[5].SI_value = '此魔法傷害的總傷害提升' + 2*T_skillLv + '%.';
+										all_SI[5].SI_value = '此魔法傷害的總傷害提升' + (10 + 1*T_skillLv) + '%.';
 										all_SI[16].SI_value = '被動增幅';
 										break;
 								}
@@ -2992,7 +2992,7 @@
 										all_SI[16].SI_value = '被動效果';
 										break;
 									case 1:
-										all_SI[5].SI_value = '此物理傷害的總傷害提升' + 2*T_skillLv + '%.';
+										all_SI[5].SI_value = '此物理傷害的總傷害提升' + (10 + 1*T_skillLv) + '%.';
 										all_SI[16].SI_value = '被動增幅';
 										break;
 								}
