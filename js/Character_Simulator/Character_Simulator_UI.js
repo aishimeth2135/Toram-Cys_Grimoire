@@ -182,7 +182,7 @@
 										_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>`;
 										continue;
 									}
-									let _unit = ( _obj[i].abilityType == 0 ) ? '%' : '';
+									let _unit = ( _obj[i].abilityType == 0 ) ? '%' : _obj[i].base.unit;
 									let _sign = ( _obj[i].value >= 0 ) ? '+' : '';
 									_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>${_sign}${_obj[i].value}<a data-langtext="${_unit}"></a>`;
 								}
@@ -1047,7 +1047,7 @@
 					Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)"><a langtext="${T_obj.ability[i].base.statName}"></a></li>`;
 					continue;
 				}
-				let _unit = ( T_obj.ability[i].abilityType == 0 ) ? '%' : ( (!T_obj.ability[i].base.haveRate) ? T_obj.ability[i].base.unit : '');
+				let _unit = ( T_obj.ability[i].abilityType == 0 ) ? '%' : T_obj.ability[i].base.unit;
 				let _sign = (T_obj.ability[i].value >= 0) ? '+' : '';
 				let _value = T_obj.ability[i].value;
 				let t_statName = T_obj.ability[i].base.get_signStatName();
