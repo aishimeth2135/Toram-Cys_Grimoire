@@ -54,9 +54,10 @@
 		}
 		#CharaSimu_main_ {
 			width: 100%!important;
-			margin: 10% 0!important;
-			height: 95%;
-			top: 2%;
+			margin: 0!important;
+			height: 95%!important;
+			top: 2%!important;
+			max-height: 95%!important;
 		}
 		#CharaSimu_setEquipAbility {
 			width: 100%;

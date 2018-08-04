@@ -312,6 +312,10 @@
 	}
 	
 	/* =================================== */
+	#CharaSimu_setEquipBase {
+		padding: 0.3rem 0;
+		background-color: var(--charaSimu_mainColor2);
+	}
 	#CharaSimu_setEquipShow {
 		padding: 0.4rem;
 		padding-top: 0;

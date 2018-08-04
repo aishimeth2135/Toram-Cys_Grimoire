@@ -128,15 +128,32 @@
 	}
 	
 	function show_allCharaEquip(){
-		let Ttext = '';
+		let _html = '';
 		for (let i=0; i<cy_character.charaEquipments.length; ++i)
 		{
-			Ttext += show_charaEquip(i);
+			_html += show_charaEquip(i);
 		}
-		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
-		document.getElementById('CharaSimu_setEquipShow').innerHTML = Ttext;
+		document.getElementById('CharaSimu_setEquipBase').innerHTML = _html;
+		resetInnerLang(document.getElementById('CharaSimu_setEquipBase'));
+		
+		_html = '';
+		_html += '<div style="clear:both;" class="charaSimu_equipSaveLoad_main" style="padding:0;">';
+		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="charaSimu_showEquipToImg(this)"><a data-langtext="General Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
+		_html += '</div>';
+		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
-		document.getElementById('CharaSimu_setEquipBase').innerHTML = '';
+		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
+		
+	}
+	function charaSimu_showEquipToImg(temp){
+		let doc = document.getElementById('charaSimu_showEquipImage');
+		let screenShot_doc = document.getElementById('CharaSimu_setEquipBase');
+		let _ary = screenShot_doc.getElementsByTagName('img');
+		let _svg = [];
+		html2canvas(screenShot_doc).then(canvas => {
+			let img = canvas.toDataURL('image/png');
+			doc.src = img;
+		});
 	}
 	
 	function charaSimu_openPassiveSkillList(){	
@@ -320,7 +337,7 @@
 		
 		if ( (t_equipfield.fieldName == 'Main_Weapon' && t_equipfield.type == 9) || (t_equipfield.fieldName == 'Sub_Weapon' && t_equipfield.type == 6) || (t_equipfield.fieldName == 'Body_Armor' && t_equipfield.type == 3))
 		{
-			Ttext += '無裝備，請點選上方選單設定裝備能力。</div>';
+			Ttext += '<a data-langtext="No Equipment.|,|無裝備，請點選上方選單設定裝備能力。|,|No Equipment."></a></div>';
 			return Ttext;
 		}
 		
@@ -369,8 +386,9 @@
 		{
 			if ( !t_equipfield.xtals[0].isEmpty() )
 			{
+				_xtalType = 'Crystal|,|鍛晶|,|クリスタ';
 				T_obj = t_equipfield.xtals[0].ability;
-				Ttext += `<hr class="showChararEquip_hr1" /><a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
+				Ttext += `<hr class="showChararEquip_hr1" />【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
@@ -383,7 +401,7 @@
 			if ( !t_equipfield.xtals[1].isEmpty() )
 			{
 				T_obj = t_equipfield.xtals[1].ability;
-				Ttext += `<hr class="showChararEquip_hr1" /><a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
+				Ttext += `<hr class="showChararEquip_hr1" />【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
@@ -903,8 +921,8 @@
 			Ttext_1 += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1">${cy_character.statPoint_name[i]}</span><input value="${cy_character.statPoint[i].baseValue}" type="number" class="charaSimu_statPoint_input" onchange="set_equipFieldProp(this, 'Cstat${i}')" placeholder="" /></div>`;
 		}
 		Ttext_1 += '</div>';
-		document.getElementById('CharaSimu_setEquipBase').innerHTML = Ttext_1;
-		document.getElementById('CharaSimu_setEquipShow').innerHTML = '';
+		document.getElementById('CharaSimu_setEquipBase').innerHTML = '';
+		document.getElementById('CharaSimu_setEquipShow').innerHTML = Ttext_1;
 	}
 	
 	function selStatPointType(temp, listCnt)
