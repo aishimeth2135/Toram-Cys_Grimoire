@@ -381,7 +381,7 @@
 	
 	/* ================================================= */
 	function SkillAlloSimu_ResetAll(){
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
@@ -413,7 +413,7 @@
 	}
 	/* ================================================= */
 	function SkillAlloSimu_RemoveAllEmpty(){
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
@@ -464,6 +464,7 @@
 		}
 		Ttext += '</ul>';
 		document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = Ttext;
+		resetInnerLang(document.getElementById('SkillAlloSimu_SaveCode_dataList'));
 	}
 	
 	function SkillAlloSimu_open_Second(temp){
@@ -492,6 +493,7 @@
 		let doc = document.getElementById('SkillAlloSimu_SaveCode_saveTitle');
 		doc.style.display = 'block';
 		doc.getElementsByTagName('input')[0].setAttribute('data-lino', temp.getAttribute('data-lino'));
+		doc.getElementsByTagName('input')[0].value = '';
 		doc.getElementsByTagName('input')[0].focus();
 	}
 	function SkillAlloSimu_SaveToStorage(temp){
@@ -531,7 +533,7 @@
 		switch (T_modeno)
 		{
 			case 0:
-				for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+				for (let i=0; i<all_skilltree_type.length; ++i)
 				{
 					Ttext += '~ ' + all_skilltree_type[i].STt_name + '\r\n';
 					for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
@@ -573,7 +575,7 @@
 				}
 				break;
 			case 1:
-				for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+				for (let i=0; i<all_skilltree_type.length; ++i)
 				{
 					Ttext += '~ ' + all_skilltree_type[i].STt_name + '\r\n';
 					for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
@@ -631,7 +633,7 @@
 	}
 	function SkillAlloSimu_SaveCode_generalCode(){
 		let T_code = '';
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 			{
@@ -671,7 +673,7 @@
 			let Tstr = loadingCode;
 			
 			let strCnt = 0;
-			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+			for (let i=0; i<all_skilltree_type.length; ++i)
 			{
 				codeAry.push([]);
 				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
@@ -707,7 +709,7 @@
 				}
 			}
 			//console.log(codeAry);
-			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+			for (let i=0; i<all_skilltree_type.length; ++i)
 			{
 				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 				{
@@ -723,7 +725,7 @@
 				}
 			}
 			
-			for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+			for (let i=0; i<all_skilltree_type.length; ++i)
 			{
 				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
 				{

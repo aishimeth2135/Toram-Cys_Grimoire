@@ -220,7 +220,7 @@
 			}
 		}
 		// ================================== 技能樹類型、技能樹、技能名稱
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			all_skilltree_type[i].STt_name = skillTreeTypeNameAry[i];
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)

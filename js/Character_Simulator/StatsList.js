@@ -12,7 +12,7 @@
 			new cy_statBase('Natural MP regen|,|MP自然恢復|,|MP自然回復'				, 'Natural MP regen|,|MP自然恢復|,|MP自然回復'							, 'natural_mp_regen'		, true	, true	, true	, 0),
 			new cy_statBase('Attack MP Recovery|,|攻擊MP恢復|,|攻撃MP回復'				, 'Attack MP Recovery|,|攻擊MP恢復|,|攻撃MP回復'						, 'attack_mp_recovery'		, true	, true	, true	, 10),
 			new cy_statBase('ATK'														, 'ATK'																	, 'atk'						, true	, true	, true	, 0),
-			new cy_statBase('Sub Atk|,|副手ATK|,|副手ATK'								, 'Sub Atk|,|副手ATK|,|副手ATK'											, 'au_atk'					, true	, false	, true	, 0),
+			new cy_statBase('Sub Atk|,|副手ATK|,|副手ATK'								, 'Sub Atk|,|副手ATK|,|副手ATK'											, 'au_atk'					, true	, false	, false	, 0),
 			new cy_statBase('MATK'														, 'MATK'																, 'matk'					, true	, true	, true	, 0),
 			new cy_statBase('Physical Pierce|,|物理貫穿|,|物理貫通'						, 'Physical Pierce|,|物理貫穿|,|物理貫通'								, 'physical_pierce'			, false	, true	, true	, 0		, '%'),
 			new cy_statBase('Magic Pierce|,|魔法貫穿|,|魔法貫通'						, 'Magic Pierce|,|魔法貫穿|,|魔法貫通'									, 'magic_pierce'			, false	, true	, true	, 0		, '%'),

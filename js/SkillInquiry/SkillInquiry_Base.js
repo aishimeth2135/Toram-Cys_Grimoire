@@ -315,7 +315,7 @@
 	
 	var all_skilltree_type = [];
 	
-	all_skilltree_type.push(new the_skilltree_type('武器技能'), new the_skilltree_type('強化技能'), new the_skilltree_type('輔助技能'), new the_skilltree_type('？？？？'));
+	all_skilltree_type.push(new the_skilltree_type('武器技能'), new the_skilltree_type('強化技能'), new the_skilltree_type('輔助技能'));
 	
 	//SkillTreeType_List_0~2.js
 	

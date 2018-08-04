@@ -49,6 +49,7 @@
 		let doc = document.getElementById('charaSimu_SaveCode_saveTitle');
 		doc.style.display = 'block';
 		doc.getElementsByTagName('input')[0].setAttribute('data-lino', temp.getAttribute('data-lino'));
+		doc.getElementsByTagName('input')[0].value = '';
 		doc.getElementsByTagName('input')[0].focus();
 	}
 	function charaSimu_resetSaveCodeList(){
@@ -375,7 +376,7 @@
 		for (let i=0; i<T_obj.length; ++i)
 		{
 			if (T_obj[i].base == '') continue;
-			let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : '';
+			let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
 			let _sign = (T_obj[i].value >= 0) ? '+' : '';
 			Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
 		}			
@@ -405,7 +406,7 @@
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
-					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : '';
+					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
 					let _sign = (T_obj[i].value >= 0) ? '+' : '';
 					Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
 				}			
@@ -778,6 +779,11 @@
 				let xtalNo = parseInt(varName.charAt(varName.length-1)) -1;
 				t_equipfield.xtalNames[xtalNo] = temp.value;
 				break;
+			case 'CLv':
+				temp.value = parseInt(temp.value);
+				temp.value = ( temp.value < 0 || temp.value > 200 || temp.value == '') ? cy_character.characterLv : temp.value;
+				cy_character.characterLv = parseInt(temp.value);
+				break;
 			case 'Cstat0': case 'Cstat1': case 'Cstat2': case 'Cstat3': case 'Cstat4':
 				let _loc1 = parseInt(varName.charAt(varName.length-1));
 				temp.value = parseInt(temp.value);
@@ -802,7 +808,7 @@
 		let blockAry = ['max_hp', 'atk', 'stability', 'def', 'critical_rate', 'accuracy', 'aggro', 'evasion_rate', 'unsheathe_attack', 'stronger_against_neutral', 'neutral_resistance', 'physical_barrier', 'additional_meele', 'flinch_unavailable', 'recoil_damage'];
 		let _cnt = 0;
 		
-		let __html = '';
+		let __html = `<div class="charaSimu_showStat_blockUnit1"><span><span>Lv.</span>${cy_character.characterLv}</span></div>`;
 		for (let i=0; i<cy.length; ++i)
 		{
 			if ( cy[i].baseName == blockAry[_cnt] || i == cy.length-1)
@@ -902,11 +908,12 @@
 		 
 		let Ttext_1 = '<div class="charaSimu_switchMode"><span onclick="show_charaStats()">&nbsp;&gt;Back</span></div><div>';
 		let listCnt = 0;
+		Ttext_1 += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1">Lv.</span><input value="${cy_character.characterLv}" type="number" class="charaSimu_statPoint_input" onchange="set_equipFieldProp(this, 'CLv')" placeholder="" /></div><br />`;
 		for (let i=0; i<cy_character.statPoint_name.length; ++i)
 		{
 			if ( Array.isArray(cy_character.statPoint_name[i]) )
 			{
-				let t_list = `<ul id="selStatPointType_${listCnt}" class="selStatPointType_ul">`;
+				let t_list = `<br /><ul id="selStatPointType_${listCnt}" class="selStatPointType_ul">`;
 				for (let j=0; j<cy_character.statPoint_name[i].length; ++j)
 				{
 					let T1 = (cy_character.statPoint_name[i][j] == cy_character.statPoint[i].name ) ? 'class="selStatPointType_ul_li_cur"' : '';

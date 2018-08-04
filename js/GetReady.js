@@ -142,7 +142,7 @@
 	})(); */
 	/* (function(){
 		let T_code = '';
-		for (let i=0; i<all_skilltree_type.length - HiddenEgg_controlNo; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			T_code += "[";
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
@@ -164,7 +164,7 @@
 					T_code += "']";
 				}
 			}
-			if (i != all_skilltree_type.length - HiddenEgg_controlNo - 1)
+			if (i != all_skilltree_type.length - 1)
 			{
 				T_code += '],';
 			}

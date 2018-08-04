@@ -47,6 +47,109 @@
 		return this.statList[T];
 	}
 	
+	cy_character_base.prototype.general_skillLvCode = function(){
+		let T_code = '';
+		for (let i=0; i<all_skilltree_type.length; ++i)
+		{
+			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			{
+				let _isEmpty = true;
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				{
+					if (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_calcLv != 0)
+					{
+						_isEmpty = false;
+						break;
+					}
+				}
+				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				{
+					if ( _isEmpty )
+					{
+						T_code += "#";
+						break;
+					}
+					switch (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_calcLv )
+					{
+						case 0: T_code += "C"; break;
+						case 1: T_code += "Y"; break;
+						case 2: T_code += "S"; break;
+						case 3: T_code += "G"; break;
+						case 4: T_code += "R"; break;
+						case 5: T_code += "I"; break;
+						case 6: T_code += "M"; break;
+						case 7: T_code += "O"; break;
+						case 8: T_code += "A"; break;
+						case 9: T_code += "R"; break;
+						case 10: T_code += "E"; break;
+					}
+				}
+			}
+		}
+		return T_code;
+	}
+	
+	cy_character_base.prototype.loading_skillCode = function(loadingCode){
+		try {
+			if (loadingCode == '') return;
+			//初始化
+			
+			let codeAry = [];
+			let Tstr = loadingCode;
+			
+			let strCnt = 0;
+			for (let i=0; i<all_skilltree_type.length; ++i)
+			{
+				codeAry.push([]);
+				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				{
+					codeAry[i].push([]);
+					for (let k=0,T_length=all_skilltree_type[i].STt_skilltree[j].ST_skill.length; k<T_length; ++k)
+					{
+						let T = 0;
+						switch ( Tstr.charAt(strCnt) )
+						{
+							case "C":
+							case "#": T = 0; break;
+							case "Y": T = 1; break;
+							case "S": T = 2; break;
+							case "G": T = 3; break;
+							case "R": T = 4; break;
+							case "I": T = 5; break;
+							case "M": T = 6; break;
+							case "O": T = 7; break;
+							case "A": T = 8; break;
+							case "R": T = 9; break;
+							case "E": T = 10; break;
+							default:
+								alert('Error: Unable to load the code.');
+								return;
+						}
+						codeAry[i][j].push(T);
+						if (Tstr.charAt(strCnt) != "#" || k == T_length - 1)
+						{
+							++strCnt;
+						}
+					}
+				}
+			}
+			
+			for (let i=0; i<all_skilltree_type.length; ++i)
+			{
+				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				{
+					for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+					{
+						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_calcLv = codeAry[i][j][k];
+					}
+				}
+			}
+		}
+		catch {
+			showWarningMsg('Incorrect Code. Please try again.');
+		}
+	}
+	
 	cy_character_base.prototype.general_saveCode = function(){
 		let _code = '';
 		_code += '[' + this.characterLv + ',';
@@ -71,8 +174,9 @@
 			}
 			_code += (i != this.statPoint.length - 1) ? ',' : '';
 		}
-		_code += ']';
+		_code += '],';
 		
+		_code += `'${this.general_skillLvCode()}'`;
 		_code += ']';
 		//console.log(_code);
 		return _code;
@@ -97,7 +201,7 @@
 					{
 						case 0: t_loc = 5; break;
 					}
-					console.log(t5_ary[i][0]);
+					//console.log(t5_ary[i][0]);
 					this.statPoint[t_loc].name = t5_ary[i][0];
 					this.statPoint[t_loc].base.showName = t5_ary[i][0];
 					this.statPoint[t_loc].base.alwaysShow = ( this.statPoint[t_loc].base.showName == 'none' ) ? 'hid' : true;
@@ -107,6 +211,7 @@
 				}
 				this.statPoint[i].baseValue = t5_ary[i];
 			}
+			if (codeAry[3]) this.loading_skillCode(codeAry[3]);
 		}
 		catch {
 			showWarningMsg('Incorrect Code. Please try again.');

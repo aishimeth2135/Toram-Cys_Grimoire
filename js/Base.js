@@ -46,8 +46,6 @@
 	
 	//===========================================================//
 	
-	var HiddenEgg_controlNo = 1;
-	
 	var MenuNo_Current = 1;
 	function Upadate_Menu(temp) {
 		let T_No = temp.id.charAt(temp.id.length-1);
@@ -65,7 +63,7 @@
 	
 	//===========================================================//
 	function update_skillTreeTypeBtnList(){
-		for (let i=0; i<4; ++i)
+		for (let i=0; i<3; ++i)
 		{
 			document.getElementById('skilltree_type_' + i).innerHTML = all_skilltree_type[i].STt_name;
 		}
