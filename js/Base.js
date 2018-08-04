@@ -71,7 +71,7 @@
 	//===========================================================//
 	function update_SkillAlloSimu_STList() {		//input Skill Allocation - Simulator Skill Tree List
 		let Ttext = '';
-		for (let i=0; i<all_skilltree_type.length-1; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			if (i != 0)
 			{
