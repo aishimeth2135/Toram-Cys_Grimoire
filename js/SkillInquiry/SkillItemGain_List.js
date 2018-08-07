@@ -51,6 +51,8 @@
 	InputGainToSkill('戰吼', 0, 5, 5, WeapArms_map['2hSword'], -1, -1);
 	
 	InputGainToSkill('狂戰士之怒', 1, 7, 25, WeapArms_map['2hSword'], -1, -1);
+	InputGainToSkill('狂戰士之怒', 0, 24, 20, WeapArms_map['1hSword'], -1, -1);
+	InputGainToSkill('狂戰士之怒', 0, 24, 20, WeapArms_map['2hSword'], -1, -1);
 	
 	//射擊
 	InputGainToSkill('威力射擊', 0, 19, 1, WeapArms_map['Bow'], -1, -1);

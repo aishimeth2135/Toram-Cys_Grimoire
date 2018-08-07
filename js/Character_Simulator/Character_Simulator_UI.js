@@ -294,6 +294,7 @@
 		}
 		_skill.Sk_calcLv = t_calcLv;
 		_skill.resetSkillAddition();
+		charaSimu_openPassiveSkillList();
 	}
 	
 	function updateAllPassiveSkillAddition(){

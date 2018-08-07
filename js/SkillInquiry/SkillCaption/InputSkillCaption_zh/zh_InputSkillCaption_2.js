@@ -360,7 +360,7 @@
 										all_SI[6].SI_value = 10*T_skillLv;
 										all_SI[6].SI_unit = '%。';
 										all_SI[7].SI_name = '爆擊率+';
-										all_SI[7].SI_value = 2.5*T_skillLv;
+										all_SI[7].SI_value = input_SI_value_bySelection('Weap', ['2hSword'], [2*parseInt(2.5*T_skillLv), parseInt(2.5*T_skillLv)]);
 										all_SI[7].SI_unit = '。';
 										break;
 									case 2:
@@ -2878,7 +2878,7 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '恢復量：';
-										all_SI[5].SI_value = 300*T_skillLv + '+(目標HP上限×' + 10+T_skillLv + '%)';
+										all_SI[5].SI_value = 300*T_skillLv + '+(目標HP上限×' + (10+1*T_skillLv) + '%)';
 										all_SI[16].SI_value = '單體友方恢復';
 										all_SI[17].SI_value = '稍慢';
 										all_SI[18].SI_value = 1;
