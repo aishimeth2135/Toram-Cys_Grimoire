@@ -10,7 +10,7 @@
 		new the_skill(1, '_#裝死', 			0, "passive", ""),
 		new the_skill(2, '_#經驗值提升', 	0, "passive", ""),
 		new the_skill(3, '_#掉寶率提升', 	0, "passive", "all[drop_rate#SLv]"),
-		new the_skill(4, '_#安心休息', 		0, "passive", "all[[natural_hp_regen#10*SLv, natural_hp_regen#2*SLv%]"),
+		new the_skill(4, '_#安心休息', 		0, "passive", "all[natural_hp_regen#10*SLv, natural_hp_regen#2*SLv%]"),
 		new the_skill(5, '_#HP突破', 		4, "passive", "all[max_hp#100*SLv, max_hp#2*SLv%]"),
 		new the_skill(6, '_#游刃有餘', 		4, "passive", "", "all[戰鬥狀態中，每3秒恢復(1+HP上限×${0.04*SLv}%)的HP]"),	// 5
 		new the_skill(7, '_#喘一口氣', 		0, "passive", "all[natural_mp_regen#SLv, natural_mp_regen#5*SLv%]"),    

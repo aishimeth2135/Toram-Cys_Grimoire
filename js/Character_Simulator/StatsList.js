@@ -13,6 +13,7 @@
 			new cy_statBase('Attack MP Recovery|,|攻擊MP恢復|,|攻撃MP回復'				, 'Attack MP Recovery|,|攻擊MP恢復|,|攻撃MP回復'						, 'attack_mp_recovery'		, true	, true	, true	, 10),
 			new cy_statBase('ATK'														, 'ATK'																	, 'atk'						, true	, true	, true	, 0),
 			new cy_statBase('Sub Atk|,|副手ATK|,|副手ATK'								, 'Sub Atk|,|副手ATK|,|副手ATK'											, 'au_atk'					, true	, false	, false	, 0),
+			new cy_statBase('Sub Rate|,|副手倍率|,|副手倍率'							, 'Sub Rate|,|副手倍率|,|副手倍率'										, 'dualSword_au_rate'		, true	, false	, false	, 0		, '%'),
 			new cy_statBase('MATK'														, 'MATK'																, 'matk'					, true	, true	, true	, 0),
 			new cy_statBase('Physical Pierce|,|物理貫穿|,|物理貫通'						, 'Physical Pierce|,|物理貫穿|,|物理貫通'								, 'physical_pierce'			, false	, true	, true	, 0		, '%'),
 			new cy_statBase('Magic Pierce|,|魔法貫穿|,|魔法貫通'						, 'Magic Pierce|,|魔法貫穿|,|魔法貫通'									, 'magic_pierce'			, false	, true	, true	, 0		, '%'),
@@ -109,7 +110,10 @@
 				case 'au_atk'				:
 					_cy.formula = [1, [
 					0, 0, 0, 0, 0, 0, 0, "(getV('str') +3*getV('agi') +getV('1_value')*(100 +getV('R#weaponatk'))/100 +getV('1_value')*getV('1_refining')*getV('1_refining')/200 +getV('1_refining') +getV('C#weaponatk'))*(100 +getV('R#atk'))/100 + getV('C#atk') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')"]]; break;
-				case 'matk'						: 
+				case 'dualSword_au_rate'	:
+					_cy.formula = [1, [
+					0, 0, 0, 0, 0, 0, 0, "0.06*getV('str') +0.04*getV('agi') +getV('1_stability')/2 +getV('C#stability')"]]; break;
+				case 'matk'					: 
 					_cy.formula = [0, [
 					"getV('CLv') +3*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
 					"getV('CLv') +3*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
@@ -208,9 +212,10 @@
 	
 	var cy_character = new cy_character_base();
 	cy_character.charaEquipments.push(
-		new cy_equipmentField('Main_Weapon'		, 9	, true, false),
-		new cy_equipmentField('Sub_Weapon'		, 6	, false, false),
-		new cy_equipmentField('Body_Armor'		, 3	, true, false),
-		new cy_equipmentField('Additional_Gear'	, 0	, true, true),
-		new cy_equipmentField('Special_Gear'		, 0	, true, true)
+		new cy_equipmentField('Main_Weapon'		, 9	, true	, false),
+		new cy_equipmentField('Sub_Weapon'		, 6	, false	, false),
+		new cy_equipmentField('Body_Armor'		, 3	, true	, false),
+		new cy_equipmentField('Additional_Gear'	, 0	, true	, true),
+		new cy_equipmentField('Special_Gear'	, 0	, true	, true),
+		new cy_equipmentField('Special_Gear'	, 0	, true	, true)
 	);

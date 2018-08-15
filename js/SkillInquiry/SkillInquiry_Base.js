@@ -196,12 +196,21 @@
 			
 			for (let j=0; j<_additionStr.length; ++j)
 			{
+				if (_additionStr[j].match(/(.+)#([^%]+)%/) )
+				{
+					let isHave = false;
+					for (let k=0; k<this.Sk_charaAddition.length; ++k)
+					{
+						if ( this.Sk_charaAddition[k].base.baseName == RegExp.$1 && this.Sk_charaAddition[k].abilityType == 0 ) this.Sk_charaAddition_list[i][k] = RegExp.$2;
+					}
+					continue;
+				}
 				if (_additionStr[j].match(/(.+)#([^%]+)/) )
 				{
 					let isHave = false;
 					for (let k=0; k<this.Sk_charaAddition.length; ++k)
 					{
-						if ( this.Sk_charaAddition[k].base.baseName == RegExp.$1 ) this.Sk_charaAddition_list[i][k] = RegExp.$2;
+						if ( this.Sk_charaAddition[k].base.baseName == RegExp.$1 && this.Sk_charaAddition[k].abilityType == 1 ) this.Sk_charaAddition_list[i][k] = RegExp.$2;
 					}
 					continue;
 				}

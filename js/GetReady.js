@@ -90,7 +90,8 @@
 			'<img width="28" height="28" src="svg/Sub-Weapon_1.svg" />', // 副手
 			'<img width="28" height="28" src="svg/Body_Armor_1.svg" />', 
 			'<img width="28" height="28" src="svg/Additional_Gear_3.svg" />', 
-			'<img width="28" height="28" src="svg/Special_Gear_1.svg" />']; //<img src="svg/Special_Gear_0.svg" />
+			'<img width="28" height="28" src="svg/Special_Gear_1.svg" />',
+			'<img width="28" height="28" src="svg/circleStar-icon.svg" />']; //<img src="svg/Special_Gear_0.svg" />
 		let Ttext = '';
 		Ttext += `<span onclick="javascript:document.getElementById('CharaSimu_main_').style.display='none';" style="cursor:pointer;float:right;"><img src="svg/delete-icon.svg" style="height:20px;width:20px;" /></span>`;
 		Ttext += `<li onclick="show_charaStats()">${CharaSimu_menu_list[0]}</li>`;

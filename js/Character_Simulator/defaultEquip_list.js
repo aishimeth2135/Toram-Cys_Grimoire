@@ -11,11 +11,12 @@
 		new cy_defaultEquip('Sub_Weapon', '混沌之刃', "['|,|混沌之刃|,|',0,84,0,0,[['max_hp',1000,1],['neutral_resistance',10,1],['max_mp',-100,1]],[],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Sub_Weapon', '合成機械獸的箭矢', "['|,|合成機械獸的箭矢|,|',2,67,20,0,[['max_mp',300,1],['critical_rate',6,1],['max_hp',-9,0]],[],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Body_Armor', '綠液鎧甲(情人節)', "['|,|綠液鎧甲|,|',0,36,0,0,[['max_hp',75,0],['physical_resistance',25,1],['magic_resistance',25,1]],[[],[]],['','']]", 'Cyteria'),
-		new cy_defaultEquip('Additional_Gear', '哥德禮帽(c15)', "['|,|哥德禮帽|,|',0,34,0,0,[['critical_rate',15,1]],[[],[]],['','']]", 'Cyteria'),
-		new cy_defaultEquip('Special_Gear', '力量戒指VI', "['|,|力量戒指IV|,|',0,0,0,0,[['str',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
-		new cy_defaultEquip('Special_Gear', '智力戒指VI', "['|,|智力戒指IV|,|',0,0,0,0,[['int',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
-		new cy_defaultEquip('Special_Gear', '敏捷戒指VI', "['|,|敏捷戒指IV|,|',0,0,0,0,[['agi',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
-		new cy_defaultEquip('Special_Gear', '體力戒指VI', "['|,|體力戒指IV|,|',0,0,0,0,[['vit',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
-		new cy_defaultEquip('Special_Gear', '技術戒指VI', "['|,|技術戒指IV|,|',0,0,0,0,[['dex',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria')
+		new cy_defaultEquip('Additional_Gear', 'CR+15|,|哥德禮帽(c15)|,|CR+15', "['|,|哥德禮帽|,|',0,34,0,0,[['critical_rate',15,1]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Additional_Gear', 'CR+20, CD+2%|,|刨冰帽|,|CR+20, CD+2%', "['|,|刨冰帽|,|',0,62,0,0,[['critical_rate',20,1],['critical_damage',2,0]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Special_Gear', 'STR+8, MP+500|,|力量戒指VI|,|STR+8, MP+500', "['|,|力量戒指IV|,|',0,0,0,0,[['str',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Special_Gear', 'INT+8, MP+500|,|智力戒指VI|,|INT+8, MP+500', "['|,|智力戒指IV|,|',0,0,0,0,[['int',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Special_Gear', 'AGI+8, MP+500|,|敏捷戒指VI|,|AGI+8, MP+500', "['|,|敏捷戒指IV|,|',0,0,0,0,[['agi',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Special_Gear', 'VIT+8, MP+500|,|體力戒指VI|,|VIT+8, MP+500', "['|,|體力戒指IV|,|',0,0,0,0,[['vit',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Special_Gear', 'DEX+8, MP+500|,|技術戒指VI|,|DEX+8, MP+500', "['|,|技術戒指IV|,|',0,0,0,0,[['dex',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria')
 	);
 	//new cy_defaultEquip('', '', "", 'Cyteria'),
