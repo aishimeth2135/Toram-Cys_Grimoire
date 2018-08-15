@@ -139,7 +139,7 @@
 		
 		_html = '';
 		_html += '<div style="clear:both;" class="charaSimu_equipSaveLoad_main" style="padding:0;">';
-		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="charaSimu_showEquipToImg(this)"><a data-langtext="General Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
+		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="charaSimu_showEquipToImg(this)"><a data-langtext="Generate Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
 		_html += '</div>';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
