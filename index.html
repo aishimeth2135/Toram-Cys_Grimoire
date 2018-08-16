@@ -66,7 +66,7 @@
 				<div id="CharaSimu_setEquipBase"></div>
 				<div id="CharaSimu_setEquipShow"></div>
 				<div id="charaSimu_savingSystem_site">
-					<fieldset class="charaSimu_saveload_main">
+					<fieldset class="charaSimu_setting_block charaSimu_saveload_main">
 						<legend><a data-langtext="Save/Load|,|存檔/讀檔|,|Save/Load"></a></legend>
 						<input type="text" placeholder="Code" />
 						<ul>
@@ -80,6 +80,10 @@
 							<input type="text" onchange="charaSimu_storageControl(this, 'saveTo')" onblur="charaSimu_storageControl(this, 'saveTo')" />
 							<p><a data-langtext="(Click anywhere to cancel.)|,|(未輸入的話，點擊任意處以取消。)|,|(Click anywhere to cancel.)"></a></p>
 						</div>
+					</fieldset>
+					<fieldset class="charaSimu_setting_block">
+						<legend><a data-langtext="Other Setting|,|其它設定|,|Other Setting"></a></legend>
+						<span><input id="charaSimu_closeAbilityValueMaxMin" type="radio" /><a data-langtext="允許能力的顯示數值可以超出上限。(例：勾選後，暴擊率的顯示可以超過100)"></a></span>
 					</fieldset>
 				</div>
 			</article>

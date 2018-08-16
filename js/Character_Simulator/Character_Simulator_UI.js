@@ -370,7 +370,7 @@
 		let refining_ary = ['E', 'D', 'C', 'B', 'A', 'S'];
 		let t_refining = (t_equipfield.refining >= 10) ? refining_ary[t_equipfield.refining-10] : t_equipfield.refining;
 		
-		Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}`;
+		if ( t_fieldNo != 5 ) Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}`;
 		let T_obj = t_equipfield.fieldAbilitys.ability;
 		
 		Ttext += '<div class="charaSimu_showEquipFieldAbilitys">';
@@ -390,7 +390,9 @@
 			{
 				_xtalType = 'Crystal|,|鍛晶|,|クリスタ';
 				T_obj = t_equipfield.xtals[0].ability;
-				Ttext += `<hr class="showChararEquip_hr1" />【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
+				Ttext += `<hr class="showChararEquip_hr1" />`;
+				if ( t_fieldNo != 5 ) Ttext += `【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a>`;
+				Ttext += `<div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
@@ -403,7 +405,9 @@
 			if ( !t_equipfield.xtals[1].isEmpty() )
 			{
 				T_obj = t_equipfield.xtals[1].ability;
-				Ttext += `<hr class="showChararEquip_hr1" />【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a><div class="charaSimu_showEquipFieldAbilitys">`;
+				Ttext += `<hr class="showChararEquip_hr1" />`;
+				if ( t_fieldNo != 5 ) Ttext += `【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a>`;
+				Ttext += `<div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
@@ -561,6 +565,7 @@
 		if (t_equipfield.xtals.length == 0) return;
 		updateUI_equipFieldAbility(t_fieldNo, 1);
 		updateUI_equipFieldAbility(t_fieldNo, 2);
+		CharaSimu_updateSetEquipShowDetail();
 	}
 	
 	function charaSimu_resetFieldControl(_fieldNo, control){

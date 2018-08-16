@@ -645,8 +645,11 @@
 		}
 		
 		ans = (this.digitNum == 0) ? parseInt(ans) : ans.toFixed(this.digitNum);
-		if ( this.minValue != '' && ans < this.minValue ) ans = this.minValue;
-		if ( this.maxValue != '' && ans > this.maxValue ) ans = this.maxValue;
+		if ( !document.getElementById('charaSimu_closeAbilityValueMaxMin').checked )
+		{
+			if ( this.minValue != '' && ans < this.minValue ) ans = this.minValue;
+			if ( this.maxValue != '' && ans > this.maxValue ) ans = this.maxValue;
+		}
 		return ans;
 	}
 	cy_statBase.prototype.have_signStatName = function(){

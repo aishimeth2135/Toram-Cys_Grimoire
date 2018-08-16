@@ -368,10 +368,11 @@
 		color: #FFF;
 	}
 	
-	.charaSimu_saveload_main {
+	.charaSimu_setting_block {
 		padding: 0.6rem;
+		margin-bottom: 1rem;
 	} 
-	.charaSimu_saveload_main legend {
+	.charaSimu_setting_block legend {
 		padding: 0 0.5rem;
 		font-size: 1.1rem;
 	}
