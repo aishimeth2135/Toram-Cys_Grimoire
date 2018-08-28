@@ -1,4 +1,4 @@
-	
+try {
 	(function (){
 		let lang = (window.navigator.userLanguage || window.navigator.language).toLowerCase();
 		switch (lang)
@@ -67,8 +67,12 @@
 	})();
 	
 	Section_3_Update(document.getElementById('Section_3_Menu_1'));
+} catch(e) {
+	showWarningMsg("<Error> Initialize BASE false. Please contact the author. <br />" + String(e));
+}	
 	
 	/*=====================================================================*/
+try {
 	(function (){
 		let Section_4_Menu_List = ['技能配點'];
 		update_ATool_MenuList( Section_4_Menu_List );
@@ -80,9 +84,12 @@
 	/*=====================================================================*/
 	SkillAlloSimu_SelMode(document.getElementById('SkillAlloSimu_Mode_Add'));
 	SkillAlloSimu_SelStep(document.getElementById('SkillAlloSimu_Step5'));
-	
+} catch(e) {
+	showWarningMsg("<Error> Initialize Skill-Point-Simulator false. Please contact the author. <br />" + String(e));
+}
 	//charaSimu_initPassiveSkillList();
-	
+
+try {	
 	(function(){
 		let CharaSimu_menu_list = [
 			'<img width="28" height="28" src="svg/stats.svg" />', 
@@ -107,7 +114,9 @@
 	})();
 	CharaSimu_resetSetEquipShowDetail();
 	charaSimu_resetSaveCodeList();
-	
+} catch(e) {
+	showWarningMsg("<Error> Initialize Character-Simulator false. Please contact the author. <br />" + String(e));
+}
 	
 	
 	

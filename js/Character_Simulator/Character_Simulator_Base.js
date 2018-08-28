@@ -144,6 +144,7 @@
 					}
 				}
 			}
+			updateAllPassiveSkillAddition();
 		}
 		catch {
 			showWarningMsg('Incorrect Code. Please try again.');
@@ -204,6 +205,7 @@
 					//console.log(t5_ary[i][0]);
 					this.statPoint[t_loc].name = t5_ary[i][0];
 					this.statPoint[t_loc].base.showName = t5_ary[i][0];
+					this.statPoint[t_loc].base.statName = t5_ary[i][0];
 					this.statPoint[t_loc].base.alwaysShow = ( this.statPoint[t_loc].base.showName == 'none' ) ? 'hid' : true;
 					this.statPoint[t_loc].base.baseValue = t5_ary[i][1];
 					++_listCnt;
@@ -341,7 +343,8 @@
 		return true;
 	}
 	
-	var cy_equipmentField = function(tfieldName, default_type, haveXtal, tisAble){
+	var cy_equipmentField = function(t_no, tfieldName, default_type, haveXtal, tisAble){
+		this.no = t_no;
 		this.fieldName = tfieldName;
 		this.name = '';
 		this.type = default_type;
@@ -538,9 +541,15 @@
 						break;
 				}
 			}
-		} catch {
+			this.cy_refresh();
+		} catch (e) {
 			showWarningMsg('[Equipment Field] Incorrect Code. Please try again.');
+			console.log(e);
 		}
+	}
+	
+	cy_equipmentField.prototype.cy_refresh = function (){
+		charaSimu_selEquipType([this.no, this.type], true);//重置open
 	}
 	
 	var cy_statBase = function(tshowName, tstatName, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
@@ -650,6 +659,7 @@
 			if ( this.minValue != '' && ans < this.minValue ) ans = this.minValue;
 			if ( this.maxValue != '' && ans > this.maxValue ) ans = this.maxValue;
 		}
+		//if (this.baseName == 'weaponatk') debugger;
 		return ans;
 	}
 	cy_statBase.prototype.have_signStatName = function(){

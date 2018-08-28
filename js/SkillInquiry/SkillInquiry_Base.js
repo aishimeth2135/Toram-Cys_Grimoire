@@ -246,9 +246,9 @@
 	}
 	
 	the_skill.prototype.resetSkillAddition = function(W_type = '', Au_type = '', B_type = ''){
-		W_type = W_type | cy_character.charaEquipments[0].type;
-		Au_type = Au_type | cy_character.charaEquipments[1].type;
-		B_type = B_type | cy_character.charaEquipments[2].type;
+		W_type = W_type || cy_character.charaEquipments[0].type;
+		Au_type = Au_type || cy_character.charaEquipments[1].type;
+		B_type = B_type || cy_character.charaEquipments[2].type;
 		
 		for (let i=0; i<this.Sk_charaAddition_armsConfirm.length; ++i)
 		{
@@ -280,6 +280,11 @@
 						isConfirm = true;
 						break;
 					case "noSub":	//no have sub-weapon
+						if ( armsConfirm_ary[1] )
+						{
+							if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && Au_type == 6 ) isConfirm = true;
+							break;
+						}
 						if ( Au_type == 6 ) isConfirm = true;
 						break;
 				}

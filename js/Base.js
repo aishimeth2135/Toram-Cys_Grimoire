@@ -31,7 +31,7 @@
 		doc.innerHTML += `<div id="warningMsg_block_b${String(cnt)}">${msg}</div>`;
 		document.getElementById('warningMsg_block_b' + String(cnt)).style.opacity = 1;
 		
-		let timer_baseCnt = 2000, timer_cnt = timer_baseCnt, timer_delay = 10, timer_step = 1/(timer_baseCnt/timer_delay/2);
+		let timer_baseCnt = 2500, timer_cnt = timer_baseCnt, timer_delay = 10, timer_step = 1/(timer_baseCnt/timer_delay/2);
 		let timer = setInterval(function(){
 			timer_cnt -= timer_delay;
 			if ( timer_cnt < timer_baseCnt/2 ) 

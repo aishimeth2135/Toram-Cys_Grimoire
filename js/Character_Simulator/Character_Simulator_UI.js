@@ -223,8 +223,13 @@
 												isConfirm = true;
 												break;
 											case "noSub":	//no have sub-weapon
-												if ( Au_type == 6 ) isConfirm = true;
+											if ( armsConfirm_ary[1] )
+											{
+												if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && Au_type == 6 ) isConfirm = true;
 												break;
+											}
+											if ( Au_type == 6 ) isConfirm = true;
+											break;
 										}
 										if ( isConfirm )
 										{
@@ -378,8 +383,10 @@
 		{
 			if (T_obj[i].base == '') continue;
 			let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
-			let _sign = (T_obj[i].value >= 0) ? '+' : '';
-			Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
+			let _value = T_obj[i].value;
+			let _sign = (_value >= 0) ? '+' : '';
+			let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
+			Ttext += `<span ${_style}><a data-langtext="${T_obj[i].base.statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
 		}			
 		Ttext += '</div>';
 		
@@ -585,7 +592,7 @@
 			{
 				if ( _obj.baseValue == 'none' )
 				{
-					_html += `<span><a data-langtext="${_obj.statName}"></a></span><br />`;
+					_html += `<span><a data-langtext="${_obj.showName}"></a></span><br />`;
 					continue;
 				}
 				_t -= _obj.preValue;
@@ -593,7 +600,7 @@
 				let _unit = ( !_obj.haveRate ) ? _obj.unit : '';
 				if (_obj.digitNum != 0) _t = _t.toFixed(_obj.digitNum);
 				let _style = (_t*_obj.extraRate >= 0) ? '' : 'style="color:#ffb5b5;"';
-				_html += `<span ${_style}><a data-langtext="${_obj.statName}"></a>${_sign}${_t}<a data-langtext="${_unit}"></a></span><br />`;
+				_html += `<span ${_style}><a data-langtext="${_obj.showName}"></a>${_sign}${_t}<a data-langtext="${_unit}"></a></span><br />`;
 			}
 		}
 		if ( mode == 'get' ) return _html;
@@ -619,7 +626,7 @@
 		updateUI_equipFieldAbility(t_fieldNo, t_setNo);
 	}
 	
-	function charaSimu_selEquipType(temp){
+	function charaSimu_selEquipType(temp, bySystem = false){
 		let t_fieldNo, t_typeno;
 		if ( !Array.isArray(temp) )
 		{
@@ -743,6 +750,7 @@
 		cy_character.charaEquipments[t_fieldNo].type = t_typeno;
 		
 		updateAllPassiveSkillAddition();
+		if ( bySystem ) return;
 		set_equipFieldAbility(t_fieldNo);
 		CharaSimu_updateSetEquipShowDetail();
 	}
@@ -814,7 +822,7 @@
 	
 	function show_charaStats(){
 		let cy = cy_character.statList;
-		let _html = '<div class="charaSimu_switchMode"><span onclick="set_charaStatPoint()">修改角色能力</span></div>';
+		let _html = '<div class="charaSimu_switchMode"><span onclick="set_charaStatPoint()"><a data-langtext="&gt; Set character point|,|&gt; 修改角色能力|,|&gt; Set character point"></a></span></div>';
 		
 		let blockAry = ['max_hp', 'atk', 'stability', 'def', 'critical_rate', 'accuracy', 'aggro', 'evasion_rate', 'unsheathe_attack', 'stronger_against_neutral', 'neutral_resistance', 'physical_barrier', 'additional_meele', 'flinch_unavailable', 'recoil_damage'];
 		let _cnt = 0;
@@ -963,6 +971,7 @@
 		
 		cy_character.statPoint[t_statPointNo].name = cy_character.statPoint_name[t_statPointName_no][t_typeno];
 		cy_character.statPoint[t_statPointNo].base.showName = cy_character.statPoint_name[t_statPointName_no][t_typeno];
+		cy_character.statPoint[t_statPointNo].base.statName = cy_character.statPoint_name[t_statPointName_no][t_typeno];
 		cy_character.statPoint[t_statPointNo].base.alwaysShow = ( cy_character.statPoint[t_statPointNo].base.showName == 'none' ) ? 'hid' : true;
 	}
 	
@@ -1061,6 +1070,7 @@
 				let _unit = ( T_obj.ability[i].abilityType == 0 ) ? '%' : T_obj.ability[i].base.unit;
 				let _sign = (T_obj.ability[i].value >= 0) ? '+' : '';
 				let _value = T_obj.ability[i].value;
+				let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
 				let t_statName = T_obj.ability[i].base.get_signStatName();
 				if ( T_obj.ability[i].base.have_signStatName() )
 				{
@@ -1068,7 +1078,7 @@
 					if (_value < 0) _value *= -1;
 				}
 				if (T_obj.ability[i].base.digitNum != 0) _value = _value.toFixed(T_obj.ability[i].base.digitNum);
-				Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)"><a data-langtext="${t_statName}"></a>${_sign}${_value}<a data-langtext="${_unit}"></a>${_deleteText}</li>`;
+				Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)" ${_style}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</li>`;
 			}
 		}
 		doc.innerHTML = Ttext;
