@@ -404,8 +404,10 @@
 				{
 					if (T_obj[i].base == '') continue;
 					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
-					let _sign = (T_obj[i].value >= 0) ? '+' : '';
-					Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
+					let _value = T_obj[i].value;
+					let _sign = (_value >= 0) ? '+' : '';
+					let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
+					Ttext += `<span ${_style}><a data-langtext="${T_obj[i].base.statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
 				}			
 				Ttext += '</div>';
 			}
@@ -419,8 +421,10 @@
 				{
 					if (T_obj[i].base == '') continue;
 					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
-					let _sign = (T_obj[i].value >= 0) ? '+' : '';
-					Ttext += `<span><a data-langtext="${T_obj[i].base.statName}"></a>${_sign}${T_obj[i].value}<a data-langtext="${_unit}"></a></span>`;
+					let _value = T_obj[i].value;
+					let _sign = (_value >= 0) ? '+' : '';
+					let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
+					Ttext += `<span ${_style}><a data-langtext="${T_obj[i].base.statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
 				}			
 				Ttext += '</div>';
 			}
