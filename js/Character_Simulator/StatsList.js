@@ -51,20 +51,20 @@
 				new cy_statBase(''															, 'Wind|,|風屬性|,|風属性'												, 'wind@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
 				new cy_statBase(''															, 'Light|,|光屬性|,|光属性'												, 'light@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
 				new cy_statBase(''															, 'Dark|,|暗屬性|,|暗属性'												, 'dark@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
-				new cy_statBase('Dealing Neutral Damage|,|對無屬性傷害|,|無属性にダメージ'	, '|,|對無屬性傷害#%|,|無属性にダメージ#%'								, 'stronger_against_neutral', false	, true	, true	, 100	, '% stronger against Neutral|,|%|,|%', '', 10),
-				new cy_statBase('Dealing Fire Damage|,|對火屬性傷害|,|火属性にダメージ'		, '|,|對火屬性傷害#%|,|火属性にダメージ#%'								, 'stronger_against_fire'	, false	, true	, true	, 100	, '% stronger against Fire|,|%|,|%', '', 10), 
-				new cy_statBase('Dealing Water Damage|,|對水屬性傷害|,|水属性にダメージ'	, '|,|對水屬性傷害#%|,|水属性にダメージ#%'								, 'stronger_against_water'	, false	, true	, true	, 100	, '% stronger against Water|,|%|,|%', '', 10),
-				new cy_statBase('Dealing Earth Damage|,|對地屬性傷害|,|地属性にダメージ'	, '|,|對地屬性傷害#%|,|地属性にダメージ#%'								, 'stronger_against_earth'	, false	, true	, true	, 100	, '% stronger against Earth|,|%|,|%', '', 10),
-				new cy_statBase('Dealing Wind Damage|,|對風屬性傷害|,|風属性にダメージ'		, '|,|對風屬性傷害#%|,|風属性にダメージ#%'								, 'stronger_against_wind'	, false	, true	, true	, 100	, '% stronger against Wind|,|%|,|%', '', 10),
-				new cy_statBase('Dealing Light Damage|,|對光屬性傷害|,|光属性にダメージ'	, '|,|對光屬性傷害#%|,|光属性にダメージ#%'								, 'stronger_against_light'	, false	, true	, true	, 100	, '% stronger against Light|,|%|,|%', '', 10),
-				new cy_statBase('Dealing Dark Damage|,|對暗屬性傷害|,|闇属性にダメージ'		, '|,|對暗屬性傷害#%|,|闇属性にダメージ#%'								, 'stronger_against_dark'	, false	, true	, true	, 100	, '% stronger against Dark|,|%|,|%', '', 10),
+				new cy_statBase('Dealing Neutral Damage|,|對無屬性傷害|,|無属性にダメージ'	, '|,|對無屬性傷害|,|無属性にダメージ'									, 'stronger_against_neutral', false	, true	, true	, 100	, '% stronger against Neutral|,|%|,|%', '', 10),
+				new cy_statBase('Dealing Fire Damage|,|對火屬性傷害|,|火属性にダメージ'		, '|,|對火屬性傷害|,|火属性にダメージ'									, 'stronger_against_fire'	, false	, true	, true	, 100	, '% stronger against Fire|,|%|,|%', '', 10), 
+				new cy_statBase('Dealing Water Damage|,|對水屬性傷害|,|水属性にダメージ'	, '|,|對水屬性傷害|,|水属性にダメージ'									, 'stronger_against_water'	, false	, true	, true	, 100	, '% stronger against Water|,|%|,|%', '', 10),
+				new cy_statBase('Dealing Earth Damage|,|對地屬性傷害|,|地属性にダメージ'	, '|,|對地屬性傷害|,|地属性にダメージ'									, 'stronger_against_earth'	, false	, true	, true	, 100	, '% stronger against Earth|,|%|,|%', '', 10),
+				new cy_statBase('Dealing Wind Damage|,|對風屬性傷害|,|風属性にダメージ'		, '|,|對風屬性傷害|,|風属性にダメージ'									, 'stronger_against_wind'	, false	, true	, true	, 100	, '% stronger against Wind|,|%|,|%', '', 10),
+				new cy_statBase('Dealing Light Damage|,|對光屬性傷害|,|光属性にダメージ'	, '|,|對光屬性傷害|,|光属性にダメージ'									, 'stronger_against_light'	, false	, true	, true	, 100	, '% stronger against Light|,|%|,|%', '', 10),
+				new cy_statBase('Dealing Dark Damage|,|對暗屬性傷害|,|闇属性にダメージ'		, '|,|對暗屬性傷害|,|闇属性にダメージ'									, 'stronger_against_dark'	, false	, true	, true	, 100	, '% stronger against Dark|,|%|,|%', '', 10),
 				new cy_statBase('Neutral Damage Suffered|,|對無抗性|,|無属性による損傷'		, 'Neutral Resistance|,|對無抗性|,|無耐性'								, 'neutral_resistance'		, false	, true	, true	, -100	, '%', '', 25,  -1),
 				new cy_statBase('Fire Damage Suffered|,|受到火屬性傷害|,|火属性による損傷'	, 'Fire Resistance|,|對火抗性|,|火耐性'									, 'fire_resistance'			, false	, true	, true	, -100	, '%', '', 25,  -1),
 				new cy_statBase('Water Damage Suffered|,|受到水屬性傷害|,|水属性による損傷'	, 'Water Resistance|,|對水抗性|,|水耐性'								, 'water_resistance'		, false	, true	, true	, -100	, '%', '', 25,  -1),
 				new cy_statBase('Earth Damage Suffered|,|受到地屬性傷害|,|地属性による損傷'	, 'Earth Resistance|,|對地抗性|,|地耐性'								, 'earth_resistance'		, false	, true	, true	, -100	, '%', '', 25,  -1),
 				new cy_statBase('Wind Damage Suffered|,|受到風屬性傷害|,|風属性による損傷'	, 'Wind Resistance|,|對風抗性|,|風耐性'									, 'wind_resistance'			, false	, true	, true	, -100	, '%', '', 25,  -1),
 				new cy_statBase('Light Damage Suffered|,|受到光屬性傷害|,|光属性による損傷'	, 'Light Resistance|,|對光抗性|,|光耐性'								, 'light_resistance'		, false	, true	, true	, -100	, '%', '', 25,  -1),
-				new cy_statBase('Dark Damage Suffered|,|受到暗屬性傷害|,|暗属性による損傷'	, 'Dark Resistance|,|對暗耐性|,|暗耐性'									, 'dark_resistance'			, false	, true	, true	, -100	, '%', '', 25,  -1),
+				new cy_statBase('Dark Damage Suffered|,|受到暗屬性傷害|,|暗属性による損傷'	, 'Dark Resistance|,|對暗抗性|,|暗耐性'									, 'dark_resistance'			, false	, true	, true	, -100	, '%', '', 25,  -1),
 				new cy_statBase('Physical Barrier|,|物理屏障|,|物理バリア'					, 'Physical Barrier|,|物理屏障|,|物理バリア'							, 'physical_barrier'		, false	, false	, true	, 0),
 				new cy_statBase('Magic Barrier|,|魔法屏障|,|魔法バリア'						, 'Magic Barrier|,|魔法屏障|,|魔法バリア'								, 'magical_barrier'			, false	, false	, true	, 0),
 				new cy_statBase('Fractional Barrier|,|百分比屏障|,|割合バリア'				, 'Fractional Barrier|,|百分比屏障|,|割合バリア'						, 'fractional_barrier'		, false	, false	, true	, 0		, '%'),
@@ -78,18 +78,18 @@
 				new cy_statBase('Tumble Unavailable|,|封印翻覆|,|転倒付与停止'				, 'Tumble Unavailable|,|封印翻覆|,|転倒付与停止'						, 'tumble_unavailable'		, false	, false	, true	, 'none'),
 				new cy_statBase('Stun Unavailable|,|封印昏厥|,|気絶付与停止'				, 'Stun Unavailable|,|封印昏厥|,|気絶付与停止'							, 'stun_unavailable'		, false	, false	, true	, 'none'),
 				new cy_statBase('Recoil Damage|,|反作用傷害|,|反動ダメージ'					, 'Recoil Damage|,|反作用傷害|,|反動ダメージ'							, 'recoil_damage'			, false	, false	, true	, 0		, '%', '', '', 1, 2),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](STR|,|ATK[提升<|>減少](STR|,|ATK[アップ<|>ダウン](STR'										, 'atk_%str'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](DEX|,|ATK[提升<|>減少](DEX|,|ATK[アップ<|>ダウン](DEX'										, 'atk_%dex'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](INT|,|ATK[提升<|>減少](INT|,|ATK[アップ<|>ダウン](INT'										, 'atk_%int'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](AGI|,|ATK[提升<|>減少](AGI|,|ATK[アップ<|>ダウン](AGI'										, 'atk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](VIT|,|ATK[提升<|>減少](VIT|,|ATK[アップ<|>ダウン](VIT'										, 'atk_%vit'				, false , 'hid'	, true	, 0		, '%)'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](STR|,|ATK[提升<|>減少](STR|,|ATK[アップ<|>ダウン](STR'									, 'atk_%str'				, false , 'hid'	, true	, 0		, '%)'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](DEX|,|ATK[提升<|>減少](DEX|,|ATK[アップ<|>ダウン](DEX'									, 'atk_%dex'				, false , 'hid'	, true	, 0		, '%)'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](INT|,|ATK[提升<|>減少](INT|,|ATK[アップ<|>ダウン](INT'									, 'atk_%int'				, false , 'hid'	, true	, 0		, '%)'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](AGI|,|ATK[提升<|>減少](AGI|,|ATK[アップ<|>ダウン](AGI'									, 'atk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](VIT|,|ATK[提升<|>減少](VIT|,|ATK[アップ<|>ダウン](VIT'									, 'atk_%vit'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](STR|,|MATK[提升<|>減少](STR|,|MATK[アップ<|>ダウン](STR'									, 'matk_%str'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](DEX|,|MATK[提升<|>減少](DEX|,|MATK[アップ<|>ダウン](DEX'									, 'matk_%dex'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](INT|,|MATK[提升<|>減少](INT|,|MATK[アップ<|>ダウン](INT'									, 'matk_%int'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](AGI|,|MATK[提升<|>減少](AGI|,|MATK[アップ<|>ダウン](AGI'									, 'matk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](VIT|,|MATK[提升<|>減少](VIT|,|MATK[アップ<|>ダウン](VIT'									, 'matk_%vit'				, false , 'hid'	, true	, 0		, '%)'));
 		} catch {
-			showWarningMsg("<Error> Initialize Base-Stat-list false. Please contact the author");
+			showWarningMsg("<Error> Initialize Base-Stat-list false. Please contact the author. <br />" + String(e), 10000);
 		}
 		try {
 			for (let i=0; i<this.statList.length; ++i)
@@ -97,40 +97,46 @@
 				let _cy = this.statList[i];
 				switch ( this.statList[i].baseName )
 				{
-					case 'max_hp'					: _cy.formula = "(93 +getV('CLv')*(127/17 +getV('vit')/3) )*R +C"; break;
-					case 'max_mp'					: _cy.formula = "(99 +getV('CLv') +getV('int')/10 + getV('Ctec') )*R + C "; break;
-					case 'natural_hp_regen'			: _cy.formula = "(10 +getV('max_hp')/25)*R +C"; break;
-					case 'natural_mp_regen'			: _cy.formula = "(1 +getV('max_mp')/100)*R +C"; break;
+					case 'max_hp'					: _cy.formula = "93 +getV('CLv')*(127/17 +getV('vit')/3)"; break;
+					case 'max_mp'					: _cy.formula = "99 +getV('CLv') +getV('int')/10 + getV('Ctec')"; break;
+					case 'natural_hp_regen'			: _cy.formula = "10 +getV('max_hp')/25"; break;
+					case 'natural_mp_regen'			: _cy.formula = "1 +getV('max_mp')/100"; break;
 					case 'atk'						:
 						_cy.formula = [0, [
-						"getV('CLv') +getV('weaponatk') +2*getV('str') +2*getV('dex') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('dex') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +getV('str') +3*getV('dex') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +4*getV('dex') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('int') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +2*getV('agi') +2*getV('int') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +2*getV('agi') +getV('dex') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +2.5*getV('str') +1.5*getV('agi') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +1.5*getV('str') +2.5*getV('dex') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')",
-						"getV('CLv') +getV('weaponatk') +getV('str') + 1 +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')"]]; break;
+						"getV('CLv') +getV('weaponatk') +2*getV('str') +2*getV('dex')",
+						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('dex')",
+						"getV('CLv') +getV('weaponatk') +getV('str') +3*getV('dex')",
+						"getV('CLv') +getV('weaponatk') +4*getV('dex')",
+						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('int')",
+						"getV('CLv') +getV('weaponatk') +2*getV('agi') +2*getV('int')",
+						"getV('CLv') +getV('weaponatk') +2*getV('agi') +getV('dex')",
+						"getV('CLv') +getV('weaponatk') +2.5*getV('str') +1.5*getV('agi')",
+						"getV('CLv') +getV('weaponatk') +1.5*getV('str') +2.5*getV('dex')",
+						"getV('CLv') +getV('weaponatk') +getV('str') + 1"]];
+						_cy.formula_add.addC = "getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')";
+						break;
 					case 'au_atk'				:
 						_cy.formula = [1, [
-						0, 0, 0, 0, 0, 0, 0, "(getV('str') +3*getV('agi') +getV('1_value')*(100 +getV('R#weaponatk'))/100 +getV('1_value')*getV('1_refining')*getV('1_refining')/200 +getV('1_refining') +getV('C#weaponatk'))*(100 +getV('R#atk'))/100 + getV('C#atk') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')"]]; break;
+						0, 0, 0, 0, 0, 0, 0, "getV('str') +3*getV('agi') +getV('1_value')*(100 +getV('R#weaponatk'))/100 +getV('1_value')*getV('1_refining')*getV('1_refining')/200 +getV('1_refining') +getV('C#weaponatk')"]];
+						_cy.formula_add.addR = "getV('R#atk')";
+						_cy.formula_add.addC = "getV('C#atk') +getV('atk_%str') +getV('atk_%dex') +getV('atk_%int') +getV('atk_%agi') +getV('atk_%vit')";
+						break;
 					case 'dualSword_au_rate'	:
 						_cy.formula = [1, [
 						0, 0, 0, 0, 0, 0, 0, "0.06*getV('str') +0.04*getV('agi') +getV('1_stability')/2 +getV('C#stability')"]]; break;
 					case 'matk'					: 
 						_cy.formula = [0, [
-						"getV('CLv') +3*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +3*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +3*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +3*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +4*getV('int') +getV('dex') +getV('weaponatk') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +4*getV('int') +getV('dex') +getV('weaponatk') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +4*getV('int') +getV('dex') +0.5*getV('weaponatk') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +2*getV('int') +getV('dex') +getV('agi') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +1.5*getV('int') +getV('dex') +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')",
-						"getV('CLv') +3*getV('int') +getV('dex') +1 +getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')"]]; break;
+						"getV('CLv') +3*getV('int') +getV('dex')",
+						"getV('CLv') +3*getV('int') +getV('dex')",
+						"getV('CLv') +3*getV('int') +getV('dex')",
+						"getV('CLv') +3*getV('int') +getV('dex')",
+						"getV('CLv') +4*getV('int') +getV('dex') +getV('weaponatk')",
+						"getV('CLv') +4*getV('int') +getV('dex') +getV('weaponatk')",
+						"getV('CLv') +4*getV('int') +getV('dex') +0.5*getV('weaponatk')",
+						"getV('CLv') +2*getV('int') +getV('dex') +getV('agi')",
+						"getV('CLv') +1.5*getV('int') +getV('dex')",
+						"getV('CLv') +3*getV('int') +getV('dex') +1"]]; break;
+						_cy.formula_add.addC = "getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')";
 					case 'stability'				:
 						_cy.formula = [0, [
 						"getV('0_stability') +(getV('str') +3*getV('dex'))/40",
@@ -143,8 +149,11 @@
 						"getV('0_stability') +(getV('str') +getV('dex'))/20",
 						"getV('0_stability') +(3*getV('str') +getV('dex'))/40",
 						"getV('0_stability') +7*getV('dex')/40 +1"]]; break;
-					case 'magic_stability': _cy.formula = "getV('stability')/2 +50"; break;
-					case 'weaponatk'				: _cy.formula = "getV('0_value')*R + getV('0_value')*getV('0_refining')*getV('0_refining')/100 + getV('0_refining')"; break;	
+					case 'magic_stability': _cy.formula_add.addC = "getV('stability')/2 +50"; break;
+					case 'weaponatk'				:
+						_cy.formula = "getV('0_value')";
+						_cy.formula_add.addC = "getV('0_value')*getV('0_refining')*getV('0_refining')/100 + getV('0_refining')";
+						break;	
 					case 'def'						: 
 						_cy.formula = [2, [
 						"( (getV('1_type') == 1) ? getV('1_value') : 0) +getV('2_value') +getV('3_value') +getV('4_value') +getV('CLv') +getV('vit')",
@@ -157,12 +166,12 @@
 						"( (getV('1_type') == 1) ? getV('1_value') : 0) +getV('2_value') +getV('3_value') +getV('4_value') +0.8*getV('CLv') +0.25*getV('int')",
 						"( (getV('1_type') == 1) ? getV('1_value') : 0) +getV('2_value') +getV('3_value') +getV('4_value') +1.2*getV('CLv') +2*getV('int')",
 						"( (getV('1_type') == 1) ? getV('1_value') : 0) +getV('2_value') +getV('3_value') +getV('4_value') +0.4*getV('CLv') +0.1*getV('int')"]]; break;
-					case 'physical_resistance'		: _cy.formula = "(B +getV('2_refining') +getV('3_refining') +getV('4_refining') +C)*E"; break;
-					case 'magical_resistance'		: _cy.formula = "(B +getV('2_refining') +getV('3_refining') +getV('4_refining') +C)*E"; break;
-					case 'ailment_resistance'		: _cy.formula = "getV('Cmen')/5 + C"; break;
-					case 'critical_rate'			: _cy.formula = "(B +getV('Ccrt')/3.4)*R +C"; break;	
-					case 'critical_damage'			: _cy.formula = "(B +getV('str')/5)*R +C"; break;
-					case 'accuracy'					: _cy.formula = "(getV('CLv') +getV('dex'))*R +C"; break;
+					case 'physical_resistance'		: _cy.formula_add.addC = "getV('2_refining') +getV('3_refining') +getV('4_refining')"; break;
+					case 'magical_resistance'		: _cy.formula_add.addC = "getV('2_refining') +getV('3_refining') +getV('4_refining')"; break;
+					case 'ailment_resistance'		: _cy.formula = "getV('Cmen')/5"; break;
+					case 'critical_rate'			: _cy.formula = "25 +getV('Ccrt')/3.4"; break;	
+					case 'critical_damage'			: _cy.formula = "150 +getV('str')/5"; break;
+					case 'accuracy'					: _cy.formula = "getV('CLv') +getV('dex')"; break;
 					case 'dodge'					: 
 						_cy.formula = [2, [
 						"getV('CLv') +getV('agi')",
@@ -181,31 +190,31 @@
 						"getV('CLv') +25 +(2*getV('str') +35*getV('agi'))/10",
 						"getV('CLv') +200 +(3*getV('str') +39*getV('agi'))/10",
 						"getV('CLv') +1000 +48*getV('agi')/5"]]; break;
-					case 'cspd'						: _cy.formula = "((getV('CLv') +58*getV('agi') +147*getV('dex'))/50)*R +C"; break;
-					case 'attack_mp_recovery'		: _cy.formula = "(B +getV('max_mp')/100)*R +C"; break;
-					case 'drop_rate'				: _cy.formula = "B + getV('Cluk')/5"; break;
-					case 'motion_speed'				: _cy.formula = "(B + (getV('aspd')-1000)/180 +C)*E"; break;
-					case 'cast_speed'				: _cy.formula = "(B + ( Math.min(getV('cspd'), 1000)/20 + Math.max(getV('cspd') -1000, 0)/180 ))*E"; break;
-					case 'stronger_against_fire'	: _cy.formula = "B +C +25*getV('water@elements')"; break;
-					case 'stronger_against_water'	: _cy.formula = "B +C +25*getV('wind@elements')"; break;
-					case 'stronger_against_earth'	: _cy.formula = "B +C +25*getV('fire@elements')"; break;
-					case 'stronger_against_wind'	: _cy.formula = "B +C +25*getV('earth@elements')"; break;
-					case 'stronger_against_light'	: _cy.formula = "B +C +25*getV('dark@elements')"; break;
-					case 'stronger_against_dark'	: _cy.formula = "B +C +25*getV('light@elements')"; break;
-					case 'atk_%str'					: _cy.formula = "getV('Cstr')*C/100"; break;
-					case 'atk_%dex'					: _cy.formula = "getV('Cdex')*C/100"; break;
-					case 'atk_%int'					: _cy.formula = "getV('Cint')*C/100"; break;
-					case 'atk_%agi'					: _cy.formula = "getV('Cagi')*C/100"; break;
-					case 'atk_%vit'					: _cy.formula = "getV('Cvit')*C/100"; break;
-					case 'matk_%str'				: _cy.formula = "getV('Cstr')*C/100"; break;
-					case 'matk_%dex'				: _cy.formula = "getV('Cdex')*C/100"; break;
-					case 'matk_%int'				: _cy.formula = "getV('Cint')*C/100"; break;
-					case 'matk_%agi'				: _cy.formula = "getV('Cagi')*C/100"; break;
-					case 'matk_%vit'				: _cy.formula = "getV('Cvit')*C/100"; break;
+					case 'cspd'						: _cy.formula = "getV('CLv') +58*getV('agi') +147*getV('dex')/50"; break;
+					case 'attack_mp_recovery'		: _cy.formula = "10 +getV('max_mp')/100"; break;
+					case 'drop_rate'				: _cy.formula = "getV('Cluk')/5"; break;
+					case 'motion_speed'				: _cy.formula = "-100 +Math.max(getV('aspd')-1000, 0)/180"; break;
+					case 'cast_speed'				: _cy.formula = "-100 +Math.min(getV('cspd'), 1000)/20 + Math.max(getV('cspd') -1000, 0)/180"; break;
+					case 'stronger_against_fire'	: _cy.formula_add.addC = "25*getV('water@elements')"; break;
+					case 'stronger_against_water'	: _cy.formula_add.addC = "25*getV('wind@elements')"; break;
+					case 'stronger_against_earth'	: _cy.formula_add.addC = "25*getV('fire@elements')"; break;
+					case 'stronger_against_wind'	: _cy.formula_add.addC = "25*getV('earth@elements')"; break;
+					case 'stronger_against_light'	: _cy.formula_add.addC = "25*getV('dark@elements')"; break;
+					case 'stronger_against_dark'	: _cy.formula_add.addC = "25*getV('light@elements')"; break;
+					case 'atk_%str'					: _cy.formula = "getV('Cstr')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'atk_%dex'					: _cy.formula = "getV('Cdex')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'atk_%int'					: _cy.formula = "getV('Cint')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'atk_%agi'					: _cy.formula = "getV('Cagi')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'atk_%vit'					: _cy.formula = "getV('Cvit')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'matk_%str'				: _cy.formula = "getV('Cstr')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'matk_%dex'				: _cy.formula = "getV('Cdex')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'matk_%int'				: _cy.formula = "getV('Cint')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'matk_%agi'				: _cy.formula = "getV('Cagi')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
+					case 'matk_%vit'				: _cy.formula = "getV('Cvit')*C/100"; _cy.formula_add.addC = "-this.constant"; break;
 				}
 			}
 		} catch(e) {
-			showWarningMsg("<Error> Initialize Base-Stat-formula false. Please contact the author. <br />" + String(e));
+			showWarningMsg("<Error> Initialize Base-Stat-formula false. Please contact the author. <br />" + String(e), 10000);
 		}
 	}
 	/* (function(){

@@ -4,6 +4,7 @@ try {
 		new cy_defaultEquip('Main_Weapon', '拔刀劍．謙遜', "['|,|拔刀劍．謙遜|,|',8,100,70,0,[['attack_mp_recovery',10,1],['critical_rate',100,1],['aspd',1000,1]],[[['atk',5,0],['matk',5,0],['stability',5,1],['motion_speed',5,1],['recoil_damage',20,1]],[]],['|,|被詛咒的鍛晶|,|','']]", 'Cyteria'),
 		new cy_defaultEquip('Main_Weapon', '重劍．高潔', "['|,|重劍．高潔|,|',8,360,70,0,[['max_hp',10000,1],['fractional_barrier',20,1],['accuracy',100,1]],[[['atk',5,0],['matk',5,0],['stability',5,1],['motion_speed',5,1],['recoil_damage',20,1]],[]],['|,|被詛咒的鍛晶|,|','']]", 'Cyteria'),
 		new cy_defaultEquip('Main_Weapon', '#a7cd16c1616', "['',9,0,60,0,[['atk',7,0],['critical_damage',16,1],['critical_rate',16,1],['critical_rate',16,0],['def',-7,0],['mdef',-7,0]],[[],[]],['','']]", 'Cyteria'),
+		new cy_defaultEquip('Main_Weapon', '王女杖', "['|,|王女杖|,|',4,220,60,0,[['matk',10,0],['max_mp',1000,1],['matk_%int',100,1],['cspd',-9999,1]],[[],[]],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Sub_Weapon', '暴風短劍', "['|,|暴風短劍|,|',0,20,0,0,[['dodge',7,0],['critical_rate',7,0],['aspd',7,0]],[],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Sub_Weapon', '厚重小刀', "['|,|厚重小刀|,|',0,17,0,0,[['critical_rate',5,1],['str',3,1],['accuracy',-3,1]],[],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Sub_Weapon', '女神短劍', "['|,|女神短劍|,|',0,1,0,0,[['int',5,1],['max_mp',100,1],['attack_mp_recovery',1,1],['physical_resistance',-10,1]],[],['','']]", 'Cyteria'),

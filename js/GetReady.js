@@ -115,7 +115,8 @@ try {
 	CharaSimu_resetSetEquipShowDetail();
 	charaSimu_resetSaveCodeList();
 } catch(e) {
-	showWarningMsg("<Error> Initialize Character-Simulator false. Please contact the author. <br />" + String(e));
+	showWarningMsg("<Error> Initialize Character-Simulator false. Please contact the author. <br />" + String(e), 10000);
+	console.log(e);
 }
 	
 	

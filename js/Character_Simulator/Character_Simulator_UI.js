@@ -338,6 +338,20 @@
 	}
 	
 	function show_charaEquip(t_fieldNo){
+		function get_showHTML(_obj){
+			let _unit = ( _obj.abilityType == 0 ) ? '%' : _obj.base.unit;
+			let _value = _obj.value;
+			let _sign = (_value >= 0) ? '+' : '';
+			let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
+			let t_statName = _obj.base.get_signStatName();
+			if ( _obj.base.have_signStatName() )
+			{
+				_sign = '';
+				if (_value < 0) _value *= -1;
+			}
+			if ( _obj.base.digitNum != 0 ) _value = _value.toFixed(_obj.base.digitNum);
+			return `<span ${_style}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
+		}
 		let t_equipfield = cy_character.charaEquipments[t_fieldNo];
 		
 		let Ttext = '<div class="showChararEquip_main">'; //<div class="charaSimu_switchMode"><span data-fieldno="${t_fieldNo}" onclick="set_equipFieldAbility(this)">設定裝備能力</span></div>
@@ -375,18 +389,14 @@
 		let refining_ary = ['E', 'D', 'C', 'B', 'A', 'S'];
 		let t_refining = (t_equipfield.refining >= 10) ? refining_ary[t_equipfield.refining-10] : t_equipfield.refining;
 		
-		if ( t_fieldNo != 5 ) Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}`;
+		if ( t_fieldNo != 5 ) Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed|,|無命名|,|名前なし'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}`;
 		let T_obj = t_equipfield.fieldAbilitys.ability;
 		
 		Ttext += '<div class="charaSimu_showEquipFieldAbilitys">';
 		for (let i=0; i<T_obj.length; ++i)
 		{
 			if (T_obj[i].base == '') continue;
-			let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
-			let _value = T_obj[i].value;
-			let _sign = (_value >= 0) ? '+' : '';
-			let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
-			Ttext += `<span ${_style}><a data-langtext="${T_obj[i].base.statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
+			Ttext += get_showHTML(T_obj[i]);			
 		}			
 		Ttext += '</div>';
 		
@@ -403,11 +413,7 @@
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
-					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
-					let _value = T_obj[i].value;
-					let _sign = (_value >= 0) ? '+' : '';
-					let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
-					Ttext += `<span ${_style}><a data-langtext="${T_obj[i].base.statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
+					Ttext += get_showHTML(T_obj[i]);
 				}			
 				Ttext += '</div>';
 			}
@@ -420,11 +426,7 @@
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
-					let _unit = ( T_obj[i].abilityType == 0 ) ? '%' : T_obj[i].base.unit;
-					let _value = T_obj[i].value;
-					let _sign = (_value >= 0) ? '+' : '';
-					let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
-					Ttext += `<span ${_style}><a data-langtext="${T_obj[i].base.statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
+					Ttext += get_showHTML(T_obj[i]);
 				}			
 				Ttext += '</div>';
 			}
@@ -842,7 +844,7 @@
 			}
 			if ( cy[i].baseValue == 'none' )
 			{
-				if (cy[i].calcValue() > 0) __html += '<span><span><a data-langtext="' + cy[i].showName + '"></a> </span></span>';
+				if (cy[i].calcValue() > 0) __html += '<span><span><a data-langtext="' + cy[i].showName + '"></a></span></span>';
 				continue;
 			}
 			
@@ -855,8 +857,15 @@
 			}
 			
 			let T = cy[i].calcValue();
-			
-			__html += '<span><span><a data-langtext="' + cy[i].showName + '"></a></span>' + T + '<a data-langtext="' + cy[i].unit + '"></a></span>';
+			let hoverTitle = '';
+			if ( cy[i].baseValue != 'none ' && cy[i].calcValue('B') != 0)
+			{
+				hoverTitle += `<span class="_hoverTitle"><span><a data-langtext="Base: |,|基礎值：|,|基礎値："></a>${cy[i].calcValue('B*E')}<a data-langtext="${cy[i].unit}"></a></span>`;
+				if ( cy[i].haveRate ) hoverTitle += `<br /><span><a data-langtext="${cy[i].statName}"></a>${(cy[i].rate >= 0) ? '+' : ''}${cy[i].rate}% | ${cy[i].calcValue('B*(R-1)*E')}</span>`;
+				hoverTitle += `<br /><span><a data-langtext="${cy[i].statName}"></a>${(cy[i].constant >= 0) ? '+' : ''}${cy[i].calcValue('C')}<a data-langtext="${cy[i].unit}"></a></span>`;
+				hoverTitle += '</span>';
+			}
+			__html += `<span><span><a data-langtext="` + cy[i].showName + '"></a></span>' + T + '<a data-langtext="' + cy[i].unit + `"></a>${hoverTitle}</span>`;
 		}
 		
 		__html = '';

@@ -573,7 +573,8 @@
 		this.extraRate = textraRate;
 		this.digitNum = tdigitNum;
 		
-		this.formula = '(B*R + C)*E';
+		this.formula = 'this.baseValue';
+		this.formula_add = {addC: 0, addR: 0};
 		this.preValue = 0;
 	}
 	
@@ -631,9 +632,9 @@
 		
 		if ( this.baseValue == 'none' ) return this.constant;
 		
-		let B = this.baseValue;
-		let R = (100 + this.rate)/100;
-		let C = this.constant;
+		let B = 0;
+		let C = (this.formula_add.addC == 0) ? this.constant : this.constant + eval(this.formula_add.addC);
+		let R = (this.formula_add.addR == 0) ? (100 + this.rate)/100 : (100 + this.rate + eval(this.formula_add.addR)/100);
 		let E = this.extraRate;	
 		
 		let ans = 0;
@@ -645,16 +646,18 @@
 			ans = (B*R + C)*E;
 			//if ( this.baseName == 'au_atk') debugger;
 		}
-		else if ( inputFormula == '' ) 
-		{
-			ans = eval(this.formula);
-		}
 		else {
+			B = eval(this.formula);
+			ans = (B*R + C)*E;
+		}
+		
+		if ( inputFormula != '' )
+		{
 			ans = eval(inputFormula);
 		}
 		
 		ans = (this.digitNum == 0) ? parseInt(ans) : ans.toFixed(this.digitNum);
-		if ( !document.getElementById('charaSimu_closeAbilityValueMaxMin').checked )
+		if ( inputFormula == '' && !document.getElementById('charaSimu_closeAbilityValueMaxMin').checked )
 		{
 			if ( this.minValue != '' && ans < this.minValue ) ans = this.minValue;
 			if ( this.maxValue != '' && ans > this.maxValue ) ans = this.maxValue;

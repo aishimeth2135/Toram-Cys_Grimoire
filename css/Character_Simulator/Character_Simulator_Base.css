@@ -393,12 +393,32 @@
 	.charaSimu_showStat_blockUnit1 span {
 		display: inline-block;
 		margin: 0.1rem 0.2rem;
+		position:relative;
 	}
 	.charaSimu_showStat_blockUnit1 span>span {
 		background-color: rgba(255, 255, 255, 0.2);
 		padding: 0.1rem 0.2rem;
 		border-radius: 0.1rem;
 		margin-right: 0.3rem;
+	}
+	.charaSimu_showStat_blockUnit1 ._hoverTitle {
+		display:none;
+		font-size: 0.8rem;
+		background-color: rgb(120, 113, 122)!important;
+		border: 1px #BBB solid;
+		border-radius: 0.2rem;
+		padding: 0.2rem 0.3rem;
+		position: absolute;
+		//min-width:5rem;
+		z-index: 30;
+	}
+	.charaSimu_showStat_blockUnit1 ._hoverTitle>span {
+		white-space: nowrap;
+		background-color: transparent;
+		padding: 0;
+	}
+	.charaSimu_showStat_blockUnit1>span:hover ._hoverTitle {
+		display: inline-block;
 	}
 	
 	.chara_mainHeaderMenu {
