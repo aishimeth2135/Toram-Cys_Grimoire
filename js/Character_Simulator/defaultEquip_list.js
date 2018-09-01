@@ -1,5 +1,5 @@
 try {
-	cy_character_base.prototype.defaultEquip_list.push(
+	cy_character_base.prototype.defaultEquip_list = [
 		new cy_defaultEquip('Main_Weapon', '3周年寶刀 VII', "['|,|3周年寶刀 VII|,|',8,83,70,0,[['short_range_damage',6,1],['dex',6,0],['unsheathe_attack%',10,1],['physical_pierce',8,1],['critical_rate',14,1]],[[],[]],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Main_Weapon', '拔刀劍．謙遜', "['|,|拔刀劍．謙遜|,|',8,100,70,0,[['attack_mp_recovery',10,1],['critical_rate',100,1],['aspd',1000,1]],[[['atk',5,0],['matk',5,0],['stability',5,1],['motion_speed',5,1],['recoil_damage',20,1]],[]],['|,|被詛咒的鍛晶|,|','']]", 'Cyteria'),
 		new cy_defaultEquip('Main_Weapon', '重劍．高潔', "['|,|重劍．高潔|,|',8,360,70,0,[['max_hp',10000,1],['fractional_barrier',20,1],['accuracy',100,1]],[[['atk',5,0],['matk',5,0],['stability',5,1],['motion_speed',5,1],['recoil_damage',20,1]],[]],['|,|被詛咒的鍛晶|,|','']]", 'Cyteria'),
@@ -19,7 +19,7 @@ try {
 		new cy_defaultEquip('Special_Gear', 'AGI+8, MP+500|,|敏捷戒指VI|,|AGI+8, MP+500', "['|,|敏捷戒指IV|,|',0,0,0,0,[['agi',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Special_Gear', 'VIT+8, MP+500|,|體力戒指VI|,|VIT+8, MP+500', "['|,|體力戒指IV|,|',0,0,0,0,[['vit',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria'),
 		new cy_defaultEquip('Special_Gear', 'DEX+8, MP+500|,|技術戒指VI|,|DEX+8, MP+500', "['|,|技術戒指IV|,|',0,0,0,0,[['dex',8,1],['max_mp',500,1]],[[],[]],['','']]", 'Cyteria')
-	);
+	];
 	//new cy_defaultEquip('', '', "", 'Cyteria'),
 } catch(e) {
 	errorForStop_msg("Initialize Default-Equpiment-list false. MSG: " + String(e));

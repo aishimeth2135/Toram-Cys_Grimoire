@@ -687,4 +687,4 @@
 		this.code = tcode;
 		this.provider = tprovider;
 	}
-	cy_character_base.prototype.defaultEquip_list = [];
+	//cy_character_base.prototype.defaultEquip_list = [];

@@ -48,7 +48,7 @@
 		let _errormsg = document.getElementById('Loading_Page').getAttribute('data-errormsg');
 		if ( _errormsg == '') _errormsg = '<p>Some errors occurred while loading. Please contact the author. </p>Error Message:';
 		_errormsg += '<br />~# ' + msg;
-		 document.getElementById('Loading_Page').setAttribute('data-errormsg', _errormsg);
+		document.getElementById('Loading_Page').setAttribute('data-errormsg', _errormsg);
 	}
 	
 	//===========================================================//
