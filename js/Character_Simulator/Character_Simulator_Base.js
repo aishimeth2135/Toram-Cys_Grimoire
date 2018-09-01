@@ -30,7 +30,7 @@
 	
 	cy_character_base.prototype.statPoint_name = ['STR', 'DEX', 'INT', 'AGI', 'VIT', ['LUK', 'MEN', 'CRT', 'TEC', 'none']];
 	
-	cy_character_base.prototype.passiveSkill_list = [];
+	cy_character_base.prototype.defaultEquip_list = [];
 	
 	cy_character_base.prototype.getStatLoc = function(t_baseName){
 		let T_obj = this.statList;
