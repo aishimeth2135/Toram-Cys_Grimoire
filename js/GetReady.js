@@ -136,15 +136,13 @@ try {
 	
 	
 	/*=====================================================================*/
-	(function(){
+	setTimeout( function(){
 		let errormsg = document.getElementById('Loading_Page').getAttribute('data-errormsg');
 		if ( errormsg != '' )
 		{
 			document.getElementById('Loading_Page').innerHTML = errormsg;
 			return;
 		}
-		setTimeout( function(){
-			document.getElementById('Loading_Page').style.display = 'none';
-		}, 1500);
-	})();
+		document.getElementById('Loading_Page').style.display = 'none';
+	}, 1500);
 	
