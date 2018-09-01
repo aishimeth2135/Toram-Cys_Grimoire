@@ -64,13 +64,8 @@
 		{
 			if (all_SI[i].SI_value != '' && all_SI[i].SI_value != 0)
 			{
-				if (ShowCaption_1_text != '')
-				{
-					ShowCaption_1_text += '<br />' + all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
-				}
-				else {
-					ShowCaption_1_text += all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
-				}
+				if (ShowCaption_1_text != '') ShowCaption_1_text += '<br />';
+				ShowCaption_1_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
 			}
 		}
 		if (all_SI[14].SI_value == '')
