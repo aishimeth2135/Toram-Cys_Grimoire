@@ -279,7 +279,7 @@
 			for (let i=0; i<_ary.length; ++i)
 			{
 				let _t = _ary[i].getAttribute('data-langtext').split('|,|');
-				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t[getCur_languageNo()] ) ? _t[getCur_languageNo()] : _t[0];
 				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
 				_ary[i].innerHTML = _t;
 			}
@@ -287,7 +287,7 @@
 			for (let i=0; i<_ary.length; ++i)
 			{
 				let _t = _ary[i].getAttribute('data-langtext').split('|,|');
-				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t[getCur_languageNo()] ) ? _t[getCur_languageNo()] : _t[0];
 				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
 				_ary[i].value = _t;
 			}
@@ -295,7 +295,7 @@
 			for (let i=0; i<_ary.length; ++i)
 			{
 				let _t = _ary[i].getAttribute('data-langplaceholder').split('|,|');
-				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t[getCur_languageNo()] ) ? _t[getCur_languageNo()] : _t[0];
 				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
 				_ary[i].placeholder = _t;
 			}
@@ -306,7 +306,7 @@
 			{
 				if ( !_ary[i].hasAttribute('data-langtext') ) continue;
 				let _t = _dom.getAttribute('data-langtext').split('|,|');
-				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t[getCur_languageNo()] ) ? _t[getCur_languageNo()] : _t[0];
 				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
 				_ary[i].innerHTML = _t;
 			}
@@ -315,7 +315,7 @@
 			{
 				if ( !_ary[i].hasAttribute('data-langtext') ) continue;
 				let _t = _dom.getAttribute('data-langtext').split('|,|');
-				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t[getCur_languageNo()] ) ? _t[getCur_languageNo()] : _t[0];
 				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
 				_ary[i].value = _t;
 			}
@@ -324,7 +324,7 @@
 			{
 				if ( !_ary[i].hasAttribute('data-langplaceholder') ) continue;
 				let _t = _ary[i].getAttribute('data-langplaceholder').split('|,|');
-				_t = ( _t.length != 1 ) ?_t[getCur_languageNo()] : _t[0];
+				_t = ( _t[getCur_languageNo()] ) ? _t[getCur_languageNo()] : _t[0];
 				_t = ( _t.includes('${') ) ? eval("`" + _t + "`") : _t;
 				_ary[i].placeholder = _t;
 			}

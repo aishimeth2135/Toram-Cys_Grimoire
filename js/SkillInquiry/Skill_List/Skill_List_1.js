@@ -144,5 +144,5 @@ try {
 		
 	})();
 } catch(e) {
-	showWarningMsg("<Error> Initialize Skill-list<1> false. Please contact the author. <br />" + String(e));
+	errorForStop_msg("Initialize Skill-list<1> false. MSG: " + String(e));
 }

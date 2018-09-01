@@ -1,6 +1,6 @@
 
 	function updateSite_skillCaption_1(tno_stt, tno_st, tno_s){
-		switch (getCur_languageNo())
+		/* switch (getCur_languageNo())
 		{
 			case 0:
 				en_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
@@ -11,12 +11,12 @@
 			case 2:                      
 				jp_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
 				break;
-		}
-		
+		} */
+		input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
 		show_discription_1();
 	}
 	function updateSite_skillCaption_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo){
-		switch (getCur_languageNo())
+		/* switch (getCur_languageNo())
 		{
 			case 0:
 				en_input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
@@ -27,7 +27,8 @@
 			case 2:
 				jp_input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
 				break;
-		}
+		} */
+		input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
 		show_discription_2();
 	}
 				
@@ -77,8 +78,11 @@
 			all_SI[14].SI_value = '(待補)';
 		}
 		document.getElementById('ShowCaption_1').innerHTML = ShowCaption_1_text;
+		resetInnerLang(document.getElementById('ShowCaption_1'));
 		document.getElementById('ShowCaption_2').innerHTML = all_SI[14].SI_value;
+		resetInnerLang(document.getElementById('ShowCaption_2'));
 		document.getElementById('ShowCaption_3').innerHTML = all_SI[15].SI_value;
+		resetInnerLang(document.getElementById('ShowCaption_3'));
 	}
 	
 	function show_discription_2(){
@@ -175,7 +179,10 @@
 		ShowCaption_6_text = build_branch_onclick(ShowCaption_6_text, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
 		
 		document.getElementById('ShowCaption_4').innerHTML = ShowCaption_4_text;
+		resetInnerLang(document.getElementById('ShowCaption_4'));
 		document.getElementById('ShowCaption_5').innerHTML = ShowCaption_5_text;
+		resetInnerLang(document.getElementById('ShowCaption_5'));
 		document.getElementById('ShowCaption_6').innerHTML = ShowCaption_6_text;
+		resetInnerLang(document.getElementById('ShowCaption_6'));
 	}
 	

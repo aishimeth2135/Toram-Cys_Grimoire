@@ -68,7 +68,7 @@ try {
 	
 	Section_3_Update(document.getElementById('Section_3_Menu_1'));
 } catch(e) {
-	showWarningMsg("<Error> Initialize BASE false. Please contact the author. <br />" + String(e));
+	errorForStop_msg("Initialize BASE false. MSG: " + String(e));
 }	
 	
 	/*=====================================================================*/
@@ -85,7 +85,7 @@ try {
 	SkillAlloSimu_SelMode(document.getElementById('SkillAlloSimu_Mode_Add'));
 	SkillAlloSimu_SelStep(document.getElementById('SkillAlloSimu_Step5'));
 } catch(e) {
-	showWarningMsg("<Error> Initialize Skill-Point-Simulator false. Please contact the author. <br />" + String(e));
+	errorForStop_msg("Initialize Skill-Point-Simulator false. MSG: " + String(e));
 }
 	//charaSimu_initPassiveSkillList();
 
@@ -115,7 +115,7 @@ try {
 	CharaSimu_resetSetEquipShowDetail();
 	charaSimu_resetSaveCodeList();
 } catch(e) {
-	showWarningMsg("<Error> Initialize Character-Simulator false. Please contact the author. <br />" + String(e), 10000);
+	errorForStop_msg("Initialize Character-Simulator false. MSG:" + String(e));
 	console.log(e);
 }
 	

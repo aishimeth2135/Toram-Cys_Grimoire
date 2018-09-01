@@ -44,6 +44,12 @@
 		}, timer_delay);
 	}
 	
+	function errorForStop_msg(msg){
+		let _errormsg = document.getElementById('Loading_Page').getAttribute('data-errormsg');
+		if ( _errormsg == '') _errormsg = '<p>Some errors occurred while loading. Please contact the author. </p>Error Message:';
+		_errormsg += '<br />~# ' + msg;
+	}
+	
 	//===========================================================//
 	
 	var MenuNo_Current = 1;

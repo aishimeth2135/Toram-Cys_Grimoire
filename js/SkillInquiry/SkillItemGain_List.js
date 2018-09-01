@@ -126,13 +126,13 @@ try {
 		InputGainToSkill('重擊', 0, 10, 1,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('重擊', 0, 2, 25,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('重擊', 0, 3, 50,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('重擊', 0, 25, 40, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('重擊', 0, 25, 25, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('重擊', 0, 1, '+(Agi×10%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		InputGainToSkill('痛擊', 0, 10, 1, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('痛擊', 0, 2, 50, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('痛擊', 0, 3, 100, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('痛擊', 0, 25, 25, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('痛擊', 0, 25, '+(Agi*10%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('痛擊', 0, 1, '+(Agi×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('痛擊', 0, 4, '(Agi×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
@@ -248,6 +248,6 @@ try {
 		InputGainToSkill('神聖光輝', 0, 3, 30, WeapArms_map['Staff'], -1, -1);
 	
 	})();
-} catch {
-	showWarningMsg("<Error> Initialize Skill-Gain-list false. Please contact the author");
+} catch (e) {
+	errorForStop_msg("Initialize Skill-Gain-list false. MSG: " + String(e));
 }

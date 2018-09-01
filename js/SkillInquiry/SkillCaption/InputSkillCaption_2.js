@@ -1,7 +1,7 @@
 
 	/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
-	function zh_input_skillCaptionSI_2(No_STT, No_ST, No_S, No_Branch){
+	function input_skillCaptionSI_2(No_STT, No_ST, No_S, No_Branch){
 		No_STT = Number(No_STT);
 		No_ST = Number(No_ST);
 		No_S = Number(No_S);
@@ -857,7 +857,7 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '快';
 										all_SI[20].SI_value = 1;
-										all_SI[25].SI_value = 45 + 5*T_skillLv;
+										all_SI[25].SI_value = 50 + 25*parseInt(T_skillLv/6);
 										all_SI[26].SI_value = '_@膽怯';	
 										break;
 								}
@@ -874,7 +874,7 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '慢';
 										all_SI[20].SI_value = 1;
-										all_SI[25].SI_value = 20 + 5*T_skillLv;
+										all_SI[25].SI_value = input_SI_value_bySelection('Weap', ['Knuckles'], [50 + 25*parseInt(T_skillLv/6), 25 + 25*parseInt(T_skillLv/6)]);
 										all_SI[26].SI_value = '_@昏厥';	
 										break;
 								}
@@ -890,13 +890,14 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '稍慢';
 										all_SI[20].SI_value = 1;
-										all_SI[25].SI_value = 10 + T_skillLv;
+										all_SI[25].SI_value = 10 + 1.5*T_skillLv;
 										all_SI[26].SI_value = '_@降防';
 
 										all_SI[27].SI_value = '<br />若觸發了_@降防，將恢復400MP。';
 										all_SI[28].SI_name = '<br />此技能之物理貫穿+';
 										all_SI[28].SI_value = 5*T_skillLv;
-										all_SI[28].SI_unit = '%。';										
+										all_SI[28].SI_unit = '%。';
+										all_SI[29].SI_value = '額外加成的下限為-100、上限為500。';
 										break;
 								}
 								break;
@@ -911,7 +912,7 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = '慢';
 										all_SI[20].SI_value = 1;
-										all_SI[25].SI_value = 40 + 4*T_skillLv;
+										all_SI[25].SI_value = 20 + 3*T_skillLv;
 										all_SI[26].SI_value = '_@乏力';
 
 										all_SI[27].SI_value = '<br />發動技能時若目標處於_@降防狀態，將在造成傷害時附帶_&1_。';									
