@@ -1,5 +1,5 @@
 	
-	var cy_ability = function(){
+	function cy_ability(){
 		this.base = '';
 		this.value = 0;
 		this.abilityType = -1;	//-1:default, 0: rate, 1:constant, 2:extraRate
@@ -120,7 +120,7 @@
 		return `<${_body}${_style}${_onclickText}${_idText}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</${_body}>`;
 	}
 	
-	var cy_character_base = function() {
+	function cy_character_base() {
 		this.characterLv = 1;
 		this.charaEquipments = [];
 		
@@ -345,7 +345,7 @@
 	
 	
 	
-	var cy_itemAbilitys = function(){
+	function cy_itemAbilitys(){
 		this.ability = [];
 		for (let i=0; i<10; ++i)			//能力數量上限: 10
 		{
@@ -372,7 +372,7 @@
 		return true;
 	}
 	
-	var cy_equipmentField = function(t_no, tfieldName, default_type, haveXtal, tisAble){
+	function cy_equipmentField(t_no, tfieldName, default_type, haveXtal, tisAble){
 		this.no = t_no;
 		this.fieldName = tfieldName;
 		this.name = '';
@@ -581,7 +581,7 @@
 		charaSimu_selEquipType([this.no, this.type], true);//重置open
 	}
 	
-	var cy_statBase = function(tshowName, tstatName, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
+	function cy_statBase(tshowName, tstatName, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
 		//this.no = cy_character.statList.length;
 		this.baseName = tbaseName;
 		this.showName = tshowName;
@@ -713,7 +713,7 @@
 		return _text;
 	}
 	
-	var cy_defaultEquip = function(tsel_fieldName, ttitle, tcode, tprovider = 'someone'){
+	function cy_defaultEquip(tsel_fieldName, ttitle, tcode, tprovider = 'someone'){
 		this.sel_fieldName = tsel_fieldName;
 		this.title = ttitle;
 		this.code = tcode;
