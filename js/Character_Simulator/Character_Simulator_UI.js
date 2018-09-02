@@ -158,6 +158,7 @@
 	}
 	
 	function charaSimu_openPassiveSkillList(){	
+		let checked_1 = document.getElementById('charaSimu_hiddenNoLearnPassiveSkill_showPassiveSkillDetail').checked;
 		let _html = '<table class="charaPassiveSkillList"><tbody>';
 		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
@@ -166,6 +167,7 @@
 				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
 				{
 					let _skill = all_skilltree_type[i].STt_skilltree[j].ST_skill[k];
+					if ( cy_character.showPassiveSkillDetail && checked_1 && _skill.Sk_calcLv == 0) continue;
 					if ( _skill.Sk_type == 'passive' && (_skill.Sk_charaAddition.length != 0 || _skill.Sk_addDesc != '') )
 					{
 						let _T = '', _text = '';

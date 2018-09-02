@@ -135,7 +135,7 @@ try {
 			new the_skill(8, 	'三段擊', 		7	, "active"	, ""), 	// 7
 			new the_skill(9, 	'疾襲', 		8	, "active"	, ""), 	
 			new the_skill(10, 	'_#格鬥要領', 	0	, "passive"	, "M_Knuckles[atk#parseInt((SLv+7)/5)%, weaponatk#3*SLv%]"),		// 9
-			new the_skill(11, 	'_#體術鍛鍊', 	10	, "passive"	, "M_Knuckles[aspd#10*SLv%, aspd#10*SLv]", "all[「格鬥技能」中的攻擊技能，總傷害提升${SLv}%]"),
+			new the_skill(11, 	'_#體術鍛鍊', 	10	, "passive"	, "M_Knuckles[aspd#SLv%, aspd#10*SLv]", "all[「格鬥技能」中的攻擊技能，總傷害提升${SLv}%]"),
 			new the_skill(12, 	'經絡脈輪', 	11	, "active"	, ""),	// 11
 			new the_skill(13, 	'_#乘勝追擊', 	0	, "passive"	, "all[attack_mp_recovery#parseInt(SLv/2)]", "M_Knuckles[一般攻擊有${5*SLv}%的機率追加(有效Atk×${25+parseInt(2.5*SLv)+all_skilltree_type[0].STt_skilltree[3].ST_skill[13].calcLv*5}%)的傷害。]"),		// 12
 			new the_skill(14, 	'_#猛力追擊', 	13	, "passive"	, "", "M_Knuckles[「乘勝追擊」的威力提升，並將有${SLv}%的機率使目標降防]"));
