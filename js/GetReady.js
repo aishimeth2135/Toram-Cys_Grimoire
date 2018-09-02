@@ -74,16 +74,19 @@ try {
 	/*=====================================================================*/
 try {
 	(function (){
-		let Section_4_Menu_List = ['技能配點'];
-		update_ATool_MenuList( Section_4_Menu_List );
+		let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター'];
+		let Ttext = '';
+		for (let i=0; i<Section_4_Menu_List.length; ++i)
+		{
+			Ttext += `<li data-menuno="${i}" onclick="Section_4_Update(this)" id="Section_4_Menu_${i}"><a data-langtext="${Section_4_Menu_List[i]}"></a></li>`;
+		}
+		
+		document.getElementById('Section_4_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
+		resetInnerLang(document.getElementById('Section_4_Menu'));
 	})();
 	
 	/*=====================================================================*/
 	update_SkillAlloSimu_STList();
-	
-	/*=====================================================================*/
-	SkillAlloSimu_SelMode(document.getElementById('SkillAlloSimu_Mode_Add'));
-	SkillAlloSimu_SelStep(document.getElementById('SkillAlloSimu_Step5'));
 } catch(e) {
 	errorForStop_msg("Initialize Skill-Point-Simulator false. MSG: " + String(e));
 }

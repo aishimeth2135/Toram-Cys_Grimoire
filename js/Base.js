@@ -91,14 +91,4 @@
 		}
 		document.getElementById('SkillAlloSimu_STList').innerHTML = '<ul>' + Ttext + '</ul>';
 	}
-	//===========================================================//
-	function update_ATool_MenuList(Section_4_Menu_List){
-		let Ttext = '';
-		for (let i=0; i<Section_4_Menu_List.length; ++i)
-		{
-			Ttext += `<li data-menuno="${i}" onclick="Section_4_Update(this)" id="Section_4_Menu_${i}"><a>${Section_4_Menu_List[i]}</a></li>`;
-		}
-		
-		document.getElementById('Section_4_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
-	}
 	

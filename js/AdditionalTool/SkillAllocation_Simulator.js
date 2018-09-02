@@ -200,21 +200,16 @@
 	var SkillAlloSimu_CurMode = '';
 	function SkillAlloSimu_SelMode(temp){
 		let Ttext = temp.innerHTML;
-		if (SkillAlloSimu_CurMode == Ttext)
-		{
-			return;
-		}
+		if ( temp.className.includes('Cur') ) return;
 		switch (Ttext)
 		{
 			case '+':
 				document.getElementById('SkillAlloSimu_Mode_Add').className = 'ATool_Btn_3_Cur';
 				document.getElementById('SkillAlloSimu_Mode_Div').className = 'ATool_Btn_3';
-				SkillAlloSimu_CurMode = '+';
 				break;
 			case '-':
 				document.getElementById('SkillAlloSimu_Mode_Add').className = 'ATool_Btn_3';
 				document.getElementById('SkillAlloSimu_Mode_Div').className = 'ATool_Btn_3_Cur';
-				SkillAlloSimu_CurMode = '-';
 				break;
 		}
 	}
@@ -232,8 +227,6 @@
 			document.getElementById('SkillAlloSimu_Step' + String(SkillAlloSimu_CurStep)).className = 'ATool_Btn_4';
 		}
 		temp.className = 'ATool_Btn_4_Cur';
-		
-		SkillAlloSimu_CurStep = TNo;
 	}
 	
 	function SkillAlloSimu_SkillPoint(temp){
@@ -243,16 +236,19 @@
 		let T_sno = temp.getAttribute('data-sno');
 		
 		let Tstep = 11;
-		if ( SkillAlloSimu_CurMode == '-')
+		let _stepAry = [1, 5, 10];
+		for (let i=0; i<_stepAry.length; ++i)
 		{
-			Tstep = -(SkillAlloSimu_CurStep);
+			if ( document.getElementById('SkillAlloSimu_Step' + _stepAry[i]).className.includes('Cur') )
+			{
+				Tstep = _stepAry[i];
+				break;
+			}
 		}
-		else {
-			Tstep = (SkillAlloSimu_CurStep);
-		}
+		let _curMode = ( document.getElementById('SkillAlloSimu_Mode_Add').className.includes('Cur') ) ? '+' : '-';
+		Tstep = ( _curMode == '+' ) ? Tstep : -Tstep;
 		
 		let T_obj = all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_skill[T_sno];
-		
 		
 		if (T_obj.Sk_lv + Tstep > 10)
 		{

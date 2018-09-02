@@ -27,18 +27,6 @@
 		let skillNameAry = [];
 		let armsTitleAry = [];
 		
-		let Section_4_Menu_List = [];
-		
-		let ATool_SkillAlloSimu_ary = [];
-		let ATool_SkillAlloSimu_id = [];
-		ATool_SkillAlloSimu_id = [
-			'SkillAlloSimu_AddMode_0', 'SkillAlloSimu_AddMode_1', 'SkillAlloSimu_Text_1',
-			'SkillAlloSimu_RemoveMode_btn', 'SkillAlloSimu_ResetAll_btn', 'SkillAlloSimu_RemoveAllEmpty_btn', 'SkillAlloSimu_open_Second_0_btn', 'SkillAlloSimu_open_Second_1_btn',
-			'SkillAlloSimu_Setting_closeMenuList_text', 'SkillAlloSimu_Setting_closeSTList_text',
-			'SkillAlloSimu_BuildText_selMode_0_btn', 'SkillAlloSimu_BuildText_selMode_1_btn', 'SkillAlloSimu_BuildText_ignoreEmpty_text', 'SkillAlloSimu_BuildText_showSkillPointSum_text', 'SkillAlloSimu_Text_2',
-			'SkillAlloSimu_SaveCode_Save_btn', 'SkillAlloSimu_SaveCode_Load_btn', 'SkillAlloSimu_Text_3'
-		];
-		
 		let SI_name_ary = [];
 		let SI_unit_ary = [];
 		
@@ -55,7 +43,6 @@
 				
 				armsTitleAry = ['Main Weapon', 'Sub-Weapon', 'Body Armor'];
 				
-				Section_4_Menu_List = ['SkillPoint Simulator'];
 				skillTreeTypeNameAry = ['Weapon', 'Buff', 'Assist'];
 				skillTreeNameAry = [
 					['Blade Skills', 'Shot Skills', 'Magic Skills', 'Martial Skills', 'Dual Sword Skills', 'Halberd Skills', 'Mononofu Skills'],
@@ -87,14 +74,6 @@
 					]
 				];
 				
-				ATool_SkillAlloSimu_ary = [
-					'New', 'Remove', "Please use the menu located on the bottom of this page to operate this Simulation System.<br />Click the '...'(Dot Button) at top-right-handed corner of this page to access advance functions.",
-					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
-					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
-					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', 'Show total skill point', '- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
-					'Generate code', 'Load code', "- On the above column, click the 'Save' button to rewrite all files. 'Load' button to read files. 'Copy' button to copy coding for sharing purpose.<br />- The saving part contains 5 column. if it is not enough, you can use the function below to keep your coding manually.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
-				];
-				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                          , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'          , 'O'           , ' sec'          , ' sec'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
 				
@@ -110,7 +89,6 @@
 				
 				armsTitleAry = ['主手裝備', '副手裝備', '身體裝備'];
 				
-				Section_4_Menu_List = ['技能配點'];
 				skillTreeTypeNameAry = ['武器技能', '強化技能', '輔助技能'];
 				skillTreeNameAry = [
 					['劍術技能', '射擊技能', '魔法技能', '格鬥技能', '雙劍技能', '斧槍技能', '武士技能'],
@@ -141,13 +119,6 @@
 						['#提升魔力', '#專注', '#頑強抵抗', '#魔力增幅', '#提升攻擊力', '#強打', '#提升暴擊率', '#威嚇之力', '#提升防禦率', '#提升迴避率', '#提升命中率', '#守護要訣']
 					]
 				];
-				ATool_SkillAlloSimu_ary = [
-					'新增技能樹  ', '移除技能樹', "請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。",
-					'移除技能樹模式', '全部重設', '清除空的技能樹', '產生文本', '存檔系統',
-					'選取按鈕後關閉此選單', '選取任意技能樹後關閉技能樹清單',
-					'基本格式-1', '基本格式-2', '產生時忽略空的技能樹', '標出總共使用多少技能點', '- 可將點好的技能依照選定格式自動產生一段文字。 <br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。',
-					'產生代碼', '讀取代碼', "- 上方欄位中，按下「save」會覆寫原有檔案、「load」讀取該檔案、「Copy」可複製代碼用於分享給他人。<br />- 存檔部分提供了五個欄位。如認為不足可利用下方功能手動保存代碼。<br />- 可透過複製代碼分享給其他人。"
-				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>額外加成</u>', 'O', 'O', 'O', '適用｜', 'MP消耗｜', '射程｜', '類型｜', 'O', 'O'             , 'O', 'O', '作用方式｜', '動作時間｜', '詠唱時間｜', '蓄力時間｜', '傷害次數｜', '作用次數｜', '<br>範圍中心｜', '影響半徑｜', '<br />持續時間｜', '_@命中成功後，有', 'O' , 'O', 'O', 'O'];
 				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'              , 'O', 'O', 'O', 'O'     , 'O'       , 'O'     , 'O'     , 'O', '</u>放入連撃。', 'O', 'O', 'O'         , 'O'         , '秒'        , '秒'        , '次'        , '次'        , 'O'             , 'O'         , '秒'              , '%機率使敵人'     , '。', 'O', 'O', 'O'];
@@ -163,7 +134,6 @@
 				
 				armsTitleAry = ['メイン装備', 'サブ装備', '体装備'];
 				
-				Section_4_Menu_List = ['スキルシミュレーター'];
 				skillTreeTypeNameAry = ['武器スキル', '強化スキル', '補助スキル']; //スキル
 				skillTreeNameAry = [
 					['ブレードスキル', 'シュートスキル', 'マジックスキル', 'マーシャルスキル', 'デュアルソードスキル', 'ハルバードスキル', 'モノノフスキル'],
@@ -193,14 +163,6 @@
 						['応急手当', 'ぷちヒール', 'リカバリー', 'サンクチュアリ', 'ヒール', 'ライフリカバリー', 'ブレイブオーラ', 'ハイサイクル', 'クイックモーション', 'マナリチャージ', 'マジックバリア', 'ディジートシール', 'ハイリアクション'],
 						['魔法力up', '集中', '必死の抵抗', '更なる魔力', '攻撃力up', '強打', 'クリティカルup', '脅威の威力', '防御力up', '回避力up', '命中up', '守備の心得']
 					]
-				];
-				
-				ATool_SkillAlloSimu_ary = [
-					'New', 'Remove', "Please use the menu located on the bottom of this page to operate this Simulation System.<br />Click the '...'(Dot Button) at top-right-handed corner of this page to access advance functions.",
-					'Remove skill tree mode', 'Reset', 'Remove empty skill tree', 'Generate Text', 'Saving System',
-					'Close this menu after selected any button.', 'Close skill tree menu after selected any skill tree.',
-					'Basic Format 1', 'Basic Format 2', 'Ignore empty skill tree', 'Show total skill point','- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.',
-					'Generate code', 'Load code', "- On the above column, click the 'Save' button to rewrite all files. 'Load' button to read files. 'Copy' button to copy coding for sharing purpose.<br />- The saving part contains 5 column. if it is not enough, you can use the function below to keep your coding manually.<br />- feel free to share it with others. (Same strand of code can be used by anyone)"
 				];
 				
 				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                    , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
@@ -244,15 +206,9 @@
 			document.getElementById('armsTitle_' + String(i)).innerHTML = armsTitleAry[i];
 		}
 		
-		update_ATool_MenuList(Section_4_Menu_List);	//重置小工具選單
-		
 		update_skillTreeTypeBtnList();				//重置技能類型名稱
 		update_SkillAlloSimu_STList();				//重置配點模擬器的技能樹清單
 		
-		for (let i=0; i<ATool_SkillAlloSimu_ary.length; ++i)
-		{
-			document.getElementById(ATool_SkillAlloSimu_id[i]).innerHTML = ATool_SkillAlloSimu_ary[i];
-		}
 		(function (){
 			let T_code = document.getElementById('SkillAlloSimu_SaveCode_text').value;
 			SkillAlloSimu_SaveCode_Save();
