@@ -144,11 +144,11 @@ try {
 		{
 			document.getElementById('Loading_Page').innerHTML = errormsg;
 			try {
-				showWarningMsg(cy_ability_base.toString());
-				showWarningMsg(cy_ability.toString());
+				showWarningMsg(cy_character_base.toString(), 10000);
+				showWarningMsg(cy_ability.toString(), 10000);
 			}
 			catch(e){
-				showWarningMsg(e.toString());
+				showWarningMsg(String(e));
 			}
 			return;
 		}
