@@ -1,5 +1,126 @@
+	
+	var cy_ability = function(){
+		this.base = '';
+		this.value = 0;
+		this.abilityType = -1;	//-1:default, 0: rate, 1:constant, 2:extraRate
+		this.isAble = true;
+	}
+	
+	cy_ability.prototype.setInit = function(t_baseName, t_abilityType, t_isAble = true, t_value = 0){
+		this.remove();
 		
-	var cy_character_base = function(none='') {
+		this.isAble = t_isAble;
+		
+		this.base = cy_character.getStatPointer(t_baseName);
+		this.abilityType = t_abilityType;
+		this.addValue(t_value);
+	}
+	
+	cy_ability.prototype.addValue = function(add){
+		if (this.base == '' || this.abilityType == -1 ) return; 
+		//console.log(this.base);
+		
+		this.value += add;
+		
+		if ( !this.isAble ) return;
+		switch (this.abilityType)
+		{
+			case 0: this.base.rate += add; break;
+			case 1: this.base.constant += add; break;
+			case 2: this.base.extraRate += add; break;
+			default: console.log('error: cy_stat : addValue : false abilityType : ' + this.base.baseName); return;
+		}
+		if ( isNaN(this.base.rate) || isNaN(this.base.constant) || isNaN(this.base.extraRate) )
+		{
+			console.log('error');
+			console.log(this);
+		}
+	}
+	
+	cy_ability.prototype.setValue = function(set){
+		if (this.base == '' || this.abilityType == -1 ) return; 
+		
+		this.removeValue();
+		this.addValue(set);
+	}
+	
+	cy_ability.prototype.removeValue = function() {
+		if (this.base == '' || this.abilityType == -1 ) return; 
+		
+		let _value = this.value;
+		this.value = 0;
+		
+		if ( !this.isAble ) return;
+		switch (this.abilityType)
+		{
+			case 0: this.base.rate -= _value; break;
+			case 1: this.base.constant -= _value; break;
+			case 2: this.base.extraRate -= _value; break;
+			default: console.log('error: cy_stat : removeValue : false abilityType : ' + this.base.baseName);
+		}
+		
+	}
+	cy_ability.prototype.remove = function() {
+		if (this.base == '' || this.abilityType == -1 ) return; 
+		this.removeValue();
+		this.base = '';
+		this.abilityType = -1;
+	}
+	
+	cy_ability.prototype.close = function() {
+		if (this.base == '' || this.abilityType == -1 ) return;
+		if ( !this.isAble ) return;
+		switch (this.abilityType)
+		{
+			case 0: this.base.rate -= this.value; break;
+			case 1: this.base.constant -= this.value; break;
+			case 2: this.base.extraRate -= this.value; break;
+			default: console.log('error: ' + this.base.baseName);
+		}
+		this.isAble = false;
+	}
+	
+	cy_ability.prototype.open = function() {
+		if (this.base == '' || this.abilityType == -1 ) return;
+		if ( this.isAble ) return;
+		switch (this.abilityType)
+		{
+			case 0: this.base.rate += this.value; break;
+			case 1: this.base.constant += this.value; break;
+			case 2: this.base.extraRate += this.value; break;
+			default: console.log('error: ' + this.base.baseName);
+		}
+		this.isAble = true;
+	}
+	cy_ability.prototype.get_showHTML = function(control = {}){
+		let _unit = ( this.abilityType == 0 ) ? '%' : this.base.unit;
+		let t_statName = this.base.get_signStatName();
+		
+		let _body = 'span', _idText = '', _onclickText = '', _deleteText = '';
+		if (control.body) _body = control.body;
+		if (control.idText) _idText = (control.idText != '') ? ` id="${control.idText}"` : '';
+		if (control.onclickText) _onclickText = (control.onclickText != '') ? ` onclick="${control.onclickText}"` : '';
+		if (control.deleteText) _deleteText = control.deleteText;
+		
+		if ( this.base.baseValue == 'none')
+		{
+			return `<${_body}${_onclickText}${_idText}><a data-langtext="${t_statName}"></a>${_deleteText}</${_body}>`;
+		}
+		
+		let _value = this.value;
+		if ( this.base.digitNum != 0 ) _value = _value.toFixed(this.base.digitNum);
+		let _sign = (_value >= 0) ? '+' : '';
+		let _style = (_value >= 0) ? '' : ' style="color:#ffb5b5;"';
+		if ( this.base.have_signStatName() )
+		{
+			_sign = '';
+			if (_value < 0) _value *= -1;
+		}
+		
+		return `<${_body}${_style}${_onclickText}${_idText}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</${_body}>`;
+	}
+	
+	var cy_character_base = function() {
 		this.characterLv = 1;
 		this.charaEquipments = [];
 		
@@ -222,128 +343,9 @@
 		showWarningMsg('Loading Success.');
 	}
 	
-	var cy_ability = function(none=''){
-		this.base = '';
-		this.value = 0;
-		this.abilityType = -1;	//-1:default, 0: rate, 1:constant, 2:extraRate
-		this.isAble = true;
-	}
 	
-	cy_ability.prototype.setInit = function(t_baseName, t_abilityType, t_isAble = true, t_value = 0){
-		this.remove();
-		
-		this.isAble = t_isAble;
-		
-		this.base = cy_character.getStatPointer(t_baseName);
-		this.abilityType = t_abilityType;
-		this.addValue(t_value);
-	}
 	
-	cy_ability.prototype.addValue = function(add){
-		if (this.base == '' || this.abilityType == -1 ) return; 
-		//console.log(this.base);
-		
-		this.value += add;
-		
-		if ( !this.isAble ) return;
-		switch (this.abilityType)
-		{
-			case 0: this.base.rate += add; break;
-			case 1: this.base.constant += add; break;
-			case 2: this.base.extraRate += add; break;
-			default: console.log('error: cy_stat : addValue : false abilityType : ' + this.base.baseName); return;
-		}
-		if ( isNaN(this.base.rate) || isNaN(this.base.constant) || isNaN(this.base.extraRate) )
-		{
-			console.log('error');
-			console.log(this);
-		}
-	}
-	
-	cy_ability.prototype.setValue = function(set){
-		if (this.base == '' || this.abilityType == -1 ) return; 
-		
-		this.removeValue();
-		this.addValue(set);
-	}
-	
-	cy_ability.prototype.removeValue = function() {
-		if (this.base == '' || this.abilityType == -1 ) return; 
-		
-		let _value = this.value;
-		this.value = 0;
-		
-		if ( !this.isAble ) return;
-		switch (this.abilityType)
-		{
-			case 0: this.base.rate -= _value; break;
-			case 1: this.base.constant -= _value; break;
-			case 2: this.base.extraRate -= _value; break;
-			default: console.log('error: cy_stat : removeValue : false abilityType : ' + this.base.baseName);
-		}
-		
-	}
-	cy_ability.prototype.remove = function() {
-		if (this.base == '' || this.abilityType == -1 ) return; 
-		this.removeValue();
-		this.base = '';
-		this.abilityType = -1;
-	}
-	
-	cy_ability.prototype.close = function() {
-		if (this.base == '' || this.abilityType == -1 ) return;
-		if ( !this.isAble ) return;
-		switch (this.abilityType)
-		{
-			case 0: this.base.rate -= this.value; break;
-			case 1: this.base.constant -= this.value; break;
-			case 2: this.base.extraRate -= this.value; break;
-			default: console.log('error: ' + this.base.baseName);
-		}
-		this.isAble = false;
-	}
-	
-	cy_ability.prototype.open = function() {
-		if (this.base == '' || this.abilityType == -1 ) return;
-		if ( this.isAble ) return;
-		switch (this.abilityType)
-		{
-			case 0: this.base.rate += this.value; break;
-			case 1: this.base.constant += this.value; break;
-			case 2: this.base.extraRate += this.value; break;
-			default: console.log('error: ' + this.base.baseName);
-		}
-		this.isAble = true;
-	}
-	cy_ability.prototype.get_showHTML = function(control = {}){
-		let _unit = ( this.abilityType == 0 ) ? '%' : this.base.unit;
-		let t_statName = this.base.get_signStatName();
-		
-		let _body = 'span', _idText = '', _onclickText = '', _deleteText = '';
-		if (control.body) _body = control.body;
-		if (control.idText) _idText = (control.idText != '') ? ` id="${control.idText}"` : '';
-		if (control.onclickText) _onclickText = (control.onclickText != '') ? ` onclick="${control.onclickText}"` : '';
-		if (control.deleteText) _deleteText = control.deleteText;
-		
-		if ( this.base.baseValue == 'none')
-		{
-			return `<${_body}${_onclickText}${_idText}><a data-langtext="${t_statName}"></a>${_deleteText}</${_body}>`;
-		}
-		
-		let _value = this.value;
-		if ( this.base.digitNum != 0 ) _value = _value.toFixed(this.base.digitNum);
-		let _sign = (_value >= 0) ? '+' : '';
-		let _style = (_value >= 0) ? '' : ' style="color:#ffb5b5;"';
-		if ( this.base.have_signStatName() )
-		{
-			_sign = '';
-			if (_value < 0) _value *= -1;
-		}
-		
-		return `<${_body}${_style}${_onclickText}${_idText}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</${_body}>`;
-	}
-	
-	var cy_itemAbilitys = function(none = ''){
+	var cy_itemAbilitys = function(){
 		this.ability = [];
 		for (let i=0; i<10; ++i)			//能力數量上限: 10
 		{
