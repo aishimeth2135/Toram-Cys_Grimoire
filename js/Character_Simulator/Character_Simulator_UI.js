@@ -337,21 +337,9 @@
 		}
 	}
 	
+	
+		
 	function show_charaEquip(t_fieldNo){
-		function get_showHTML(_obj){
-			let _unit = ( _obj.abilityType == 0 ) ? '%' : _obj.base.unit;
-			let _value = _obj.value;
-			let _sign = (_value >= 0) ? '+' : '';
-			let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
-			let t_statName = _obj.base.get_signStatName();
-			if ( _obj.base.have_signStatName() )
-			{
-				_sign = '';
-				if (_value < 0) _value *= -1;
-			}
-			if ( _obj.base.digitNum != 0 ) _value = _value.toFixed(_obj.base.digitNum);
-			return `<span ${_style}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a></span>`;
-		}
 		let t_equipfield = cy_character.charaEquipments[t_fieldNo];
 		
 		let Ttext = '<div class="showChararEquip_main">'; //<div class="charaSimu_switchMode"><span data-fieldno="${t_fieldNo}" onclick="set_equipFieldAbility(this)">設定裝備能力</span></div>
@@ -396,7 +384,7 @@
 		for (let i=0; i<T_obj.length; ++i)
 		{
 			if (T_obj[i].base == '') continue;
-			Ttext += get_showHTML(T_obj[i]);			
+			Ttext += T_obj[i].get_showHTML();
 		}			
 		Ttext += '</div>';
 		
@@ -413,7 +401,7 @@
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
-					Ttext += get_showHTML(T_obj[i]);
+					Ttext += T_obj[i].get_showHTML();
 				}			
 				Ttext += '</div>';
 			}
@@ -426,7 +414,7 @@
 				for (let i=0; i<T_obj.length; ++i)
 				{
 					if (T_obj[i].base == '') continue;
-					Ttext += get_showHTML(T_obj[i]);
+					Ttext += T_obj[i].get_showHTML();
 				}			
 				Ttext += '</div>';
 			}
@@ -1042,13 +1030,13 @@
 			}
 		}
 		if ( haveRepeatSelClass ) loc.remove();
-		if ( loc != '') 
+		if ( loc != '' ) 
 		{
 			if ( cy_character.charaEquipments[t_fieldNo].fieldName == 'Sub_Weapon' &&　cy_character.charaEquipments[1].type == 7 && t_baseName.includes('@elements') ) loc.setInit(t_baseName, t_type, true);
 			else loc.setInit(t_baseName, t_type, cy_character.charaEquipments[t_fieldNo].isAble);
 		}
 		
-		if ( loc.base.baseValue == 'none' ) loc.setValue(1);
+		if ( loc != '' && loc.base.baseValue == 'none' ) loc.setValue(1);
 		
 		updateUI_equipFieldAbility(t_fieldNo, t_setNo);
 		CharaSimu_updateSetEquipShowDetail();
@@ -1075,23 +1063,7 @@
 		{
 			if ( T_obj.ability[i].base != '' )
 			{
-				if ( T_obj.ability[i].base.baseValue == 'none' )
-				{
-					Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)"><a langtext="${T_obj.ability[i].base.statName}"></a></li>`;
-					continue;
-				}
-				let _unit = ( T_obj.ability[i].abilityType == 0 ) ? '%' : T_obj.ability[i].base.unit;
-				let _sign = (T_obj.ability[i].value >= 0) ? '+' : '';
-				let _value = T_obj.ability[i].value;
-				let _style = (_value >= 0) ? '' : 'style="color:#ffb5b5;"';
-				let t_statName = T_obj.ability[i].base.get_signStatName();
-				if ( T_obj.ability[i].base.have_signStatName() )
-				{
-					_sign = '';
-					if (_value < 0) _value *= -1;
-				}
-				if (T_obj.ability[i].base.digitNum != 0) _value = _value.toFixed(T_obj.ability[i].base.digitNum);
-				Ttext += `<li id="charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}" onclick="setEquipFieldAbliity(this)" ${_style}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</li>`;
+				Ttext += T_obj.ability[i].get_showHTML({body: 'li', idText: `charaSimu_setAbilityValueInput_${fieldNo}_${setNo}_${i}`, onclickText: 'setEquipFieldAbliity(this)', deleteText: _deleteText});
 			}
 		}
 		doc.innerHTML = Ttext;
@@ -1124,6 +1096,7 @@
 		{
 			T_obj.remove();
 			updateUI_equipFieldAbility(t_fieldNo, t_setNo);
+			CharaSimu_updateSetEquipShowDetail();
 			return;
 		}
 		

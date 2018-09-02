@@ -315,6 +315,33 @@
 		}
 		this.isAble = true;
 	}
+	cy_ability.prototype.get_showHTML = function(control = {}){
+		let _unit = ( this.abilityType == 0 ) ? '%' : this.base.unit;
+		let t_statName = this.base.get_signStatName();
+		
+		let _body = 'span', _idText = '', _onclickText = '', _deleteText = '';
+		if (control.body) _body = control.body;
+		if (control.idText) _idText = (control.idText != '') ? ` id="${control.idText}"` : '';
+		if (control.onclickText) _onclickText = (control.onclickText != '') ? ` onclick="${control.onclickText}"` : '';
+		if (control.deleteText) _deleteText = control.deleteText;
+		
+		if ( this.base.baseValue == 'none')
+		{
+			return `<${_body}${_onclickText}${_idText}><a data-langtext="${t_statName}"></a>${_deleteText}</${_body}>`;
+		}
+		
+		let _value = this.value;
+		if ( this.base.digitNum != 0 ) _value = _value.toFixed(this.base.digitNum);
+		let _sign = (_value >= 0) ? '+' : '';
+		let _style = (_value >= 0) ? '' : ' style="color:#ffb5b5;"';
+		if ( this.base.have_signStatName() )
+		{
+			_sign = '';
+			if (_value < 0) _value *= -1;
+		}
+		
+		return `<${_body}${_style}${_onclickText}${_idText}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</${_body}>`;
+	}
 	
 	var cy_itemAbilitys = function(){
 		this.ability = [];
@@ -578,8 +605,7 @@
 		this.preValue = 0;
 	}
 	
-	cy_statBase.prototype.calcValue = function(inputFormula = ''){
-		function getV(name) {
+	cy_statBase.prototype.getVforCalc = function(name) {
 			let T;
 			switch (name)
 			{
@@ -629,7 +655,11 @@
 			}
 			return 0;
 		}
-		
+	
+	
+	
+	cy_statBase.prototype.calcValue = function(inputFormula = ''){
+		let getV = this.getVforCalc;
 		if ( this.baseValue == 'none' ) return this.constant;
 		
 		let B = 0;

@@ -183,14 +183,14 @@
 						"getV('CLv') +100 +(getV('str') +21*getV('agi'))/5",
 						"getV('CLv') +50 +(2*getV('str') +21*getV('agi'))/10",
 						"getV('CLv') +75 +(2*getV('dex') +31*getV('agi'))/10",
-						"getV('CLv') +50 +(getV('dex') +11*getV('agi'))/5",
+						"getV('CLv') +30 +(getV('dex') +11*getV('agi'))/5",
 						"getV('CLv') +60 +(getV('int') +9*getV('agi'))/5",
 						"getV('CLv') +90 +(getV('int') +20*getV('agi'))/5",
 						"getV('CLv') +120 +(getV('dex') + getV('str') +46*getV('agi'))/10",
 						"getV('CLv') +25 +(2*getV('str') +35*getV('agi'))/10",
 						"getV('CLv') +200 +(3*getV('str') +39*getV('agi'))/10",
 						"getV('CLv') +1000 +48*getV('agi')/5"]]; break;
-					case 'cspd'						: _cy.formula = "getV('CLv') +58*getV('agi') +147*getV('dex')/50"; break;
+					case 'cspd'						: _cy.formula = "getV('CLv') +(58*getV('agi') +147*getV('dex'))/50"; break;
 					case 'attack_mp_recovery'		: _cy.formula = "10 +getV('max_mp')/100"; break;
 					case 'drop_rate'				: _cy.formula = "getV('Cluk')/5"; break;
 					case 'motion_speed'				: _cy.formula = "-100 +Math.max(getV('aspd')-1000, 0)/180"; break;
