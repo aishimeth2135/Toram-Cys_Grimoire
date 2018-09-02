@@ -1568,7 +1568,7 @@
 		</article>
 	</section>
 	
-	<section id="Section_4">
+	<section id="Section_4" data-curpageno="-1">
 		<div id="Section_4_Menu">
 		</div>
 		<hr class="hr_3" />
@@ -1590,24 +1590,24 @@
 				<div id="ATool_MenuList_0" class="MenuPage">
 					<ul>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode_btn" onclick="SkillAlloSimu_toRemoveMode()">移除技能樹模式</a>
+							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveMode_btn" onclick="SkillAlloSimu_toRemoveMode()" data-langtext="Remove-skill-tree mode|,|移除技能樹模式"></a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_ResetAll_btn" onclick="SkillAlloSimu_ResetAll()">全部重設</a>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_ResetAll()" data-langtext="Reset|,|全部重設"></a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_RemoveAllEmpty_btn" onclick="SkillAlloSimu_RemoveAllEmpty()">清除空的技能樹</a>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_RemoveAllEmpty()" data-langtext="Remove empty skill tree|,|清除空的技能樹"></a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_open_Second_0_btn" data-menuno="0" onclick="SkillAlloSimu_open_Second(this)">產生文本</a>
+							<a class="ATool_Btn_5" data-menuno="0" onclick="SkillAlloSimu_open_Second(this)" data-langtext="Generate Text|,|產生文本"></a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_open_Second_1_btn" data-menuno="1" onclick="SkillAlloSimu_open_Second(this)">存檔系統</a>
+							<a class="ATool_Btn_5" data-menuno="1" onclick="SkillAlloSimu_open_Second(this)" data-langtext="Saving System|,|存檔系統"></a>
 						</li>
 					</ul>
 					<div>
-						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" checked /> <span id="SkillAlloSimu_Setting_closeMenuList_text">選取按鈕後關閉此選單</span><br />
-						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" /> <span id="SkillAlloSimu_Setting_closeSTList_text">選取任意技能樹後關閉清單</span>
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" checked /> <span id="SkillAlloSimu_Setting_closeMenuList_text"><a data-langtext="Close this menu after selected any button.|,|選取按鈕後關閉此選單"></a></span><br />
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" /> <span id="SkillAlloSimu_Setting_closeSTList_text"><a data-langtext="Close skill tree menu after selected any skill tree.|,|選取任意技能樹後關閉清單"></a></span>
 					</div>
 				</div>
 			</div>
@@ -1616,10 +1616,10 @@
 				<div id="SkillAlloSimu_BuildText_Block" class="MenuPage">
 					<ul>
 						<li>
-							<a class="ATool_Btn_5" data-modeno="0" id="SkillAlloSimu_BuildText_selMode_0_btn" onclick="SkillAlloSimu_BuildText_selMode(this)">基本格式-1</a>
+							<a class="ATool_Btn_5" data-modeno="0" onclick="SkillAlloSimu_BuildText_selMode(this)" data-langtext="Basic Format 1|,|基本格式-1"></a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" data-modeno="1" id="SkillAlloSimu_BuildText_selMode_1_btn" onclick="SkillAlloSimu_BuildText_selMode(this)">基本格式-2</a>
+							<a class="ATool_Btn_5" data-modeno="1" onclick="SkillAlloSimu_BuildText_selMode(this)" data-langtext="Basic Format 2|,|基本格式-2"></a>
 						</li>
 						<li>
 							<a class="ATool_Btn_1" onclick="SkillAlloSimu_BuildText_Copy()">Copy</a>
@@ -1627,12 +1627,11 @@
 					</ul>
 					<textarea id="SkillAlloSimu_BuildText_textarea"></textarea>
 					<div>
-						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" checked /> <span id="SkillAlloSimu_BuildText_ignoreEmpty_text">產生時忽略空的技能樹</span><br />
-						<input type="checkbox" id="SkillAlloSimu_BuildText_showSkillPointSum" checked /> <span id="SkillAlloSimu_BuildText_showSkillPointSum_text">標出總共使用多少技能點</span><br />
+						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" checked /> <span id="SkillAlloSimu_BuildText_ignoreEmpty_text"><a data-langtext="Ignore empty skill tree|,|產生時忽略空的技能樹"></a></span><br />
+						<input type="checkbox" id="SkillAlloSimu_BuildText_showSkillPointSum" checked /> <span id="SkillAlloSimu_BuildText_showSkillPointSum_text"><a data-langtext="Show total skill point|,|標出總共使用多少技能點"></a></span><br />
 					</div>
-					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_2">
-						- 可將點好的技能依照選定格式自動產生一段文字。
-						<br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。
+					<p class="TextBlock Text_Small_1">
+						<a data-langtext="- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.|,|- 可將點好的技能依照選定格式自動產生一段文字。<br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。"></a>
 					</p>
 				</div>
 				<div id="SkillAlloSimu_SaveCode_Block" class="MenuPage">
@@ -1642,45 +1641,44 @@
 						<p><a data-langtext="(Click anywhere to cancel.)|,|(未輸入的話，點擊任意處以取消。)|,|(Click anywhere to cancel.)"></a></p>
 					</div>
 					<ul id="SkillAlloSimu_SaveCode_dataList"></ul>
-					<p class="TextBlock Text_Small_1" id="SkillAlloSimu_Text_3">
-						- 存檔的欄位上限為5格。若覺得不夠可使用下方的功能產生代碼，以手動保存。
+					<p class="TextBlock Text_Small_1">
+						<a data-langtext="- On the above column, click the 'Save' button to rewrite all files. 'Load' button to read files. 'Copy' button to copy coding for sharing purpose.<br />- The saving part contains 5 column. if it is not enough, you can use the function below to keep your coding manually.<br />- feel free to share it with others. (Same strand of code can be used by anyone)|,|- 存檔的欄位上限為5格。若覺得不夠可使用下方的功能產生代碼，以手動保存。"></a>
 					</p>
 					<ul>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_SaveCode_Save_btn" onclick="SkillAlloSimu_SaveCode_Save()">產生代碼</a>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_SaveCode_Save()" data-langtext="Generate code|,|產生代碼"></a>
 						</li>
 						<li>
-							<a class="ATool_Btn_5" id="SkillAlloSimu_SaveCode_Load_btn" onclick="SkillAlloSimu_SaveCode_Load()">讀取代碼</a>
+							<a class="ATool_Btn_5" onclick="SkillAlloSimu_SaveCode_Load()" data-langtext="Load code|,|讀取代碼"></a>
 						</li>
 						<li>
 							<a class="ATool_Btn_1" onclick="SkillAlloSimu_SaveCode_Copy()">Copy</a>
 						</li>
 					</ul>
 					<input type="text" id="SkillAlloSimu_SaveCode_text" />
-					
 				</div>
 			</div>
 		</div>
 		<div id="Section_4_Page_0" class="MenuPage">
 			<div id="SkillAlloSimu_main">
-				<p class="TextBlock" id="SkillAlloSimu_Text_1">請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。</p>
+				<p class="TextBlock"><a data-langtext="Please use the menu located on the bottom of this page to operate this Simulation System.<br />Click the '...'(Dot Button) at top-right-handed corner of this page to access advance functions.|,|請使用旁邊的選單操作此模擬系統。<br />右上方的小選單中有進階功能。"></a></p>
 			</div>
 			<div id="SkillAlloSimu_STList"></div>
 			
 			<div class="ATool_Menu">
 				<ul>
 					<li>
-						<a class="ATool_Btn_3" id="SkillAlloSimu_Mode_Add" onclick="SkillAlloSimu_SelMode(this)">+</a>
+						<a class="ATool_Btn_3_Cur" id="SkillAlloSimu_Mode_Add" onclick="SkillAlloSimu_SelMode(this)">+</a> <!-- default -->
 						<a class="ATool_Btn_3" id="SkillAlloSimu_Mode_Div" onclick="SkillAlloSimu_SelMode(this)">-</a>
 					</li>
 					<li>
 						<a class="ATool_Btn_4" id="SkillAlloSimu_Step1" onclick="SkillAlloSimu_SelStep(this)">&plusmn;1</a>
-						<a class="ATool_Btn_4" id="SkillAlloSimu_Step5" onclick="SkillAlloSimu_SelStep(this)">&plusmn;5</a>
+						<a class="ATool_Btn_4_Cur" id="SkillAlloSimu_Step5" onclick="SkillAlloSimu_SelStep(this)">&plusmn;5</a> <!-- default -->
 						<a class="ATool_Btn_4" id="SkillAlloSimu_Step10" onclick="SkillAlloSimu_SelStep(this)">&plusmn;10</a>
 					</li>
 					<li>
-						<a class="ATool_Btn_1" id="SkillAlloSimu_AddMode_0" onclick="Update_SkillAlloSimu_STList(this)">新增技能樹</a>
-						<a class="ATool_Btn_1_1" id="SkillAlloSimu_AddMode_1" onclick="Update_SkillAlloSimu_STList(this)" style="display: none;">移除技能樹</a>
+						<a class="ATool_Btn_1" id="SkillAlloSimu_AddMode_0" onclick="Update_SkillAlloSimu_STList(this)" data-langtext="New|,|新增技能樹"></a>
+						<a class="ATool_Btn_1_1" id="SkillAlloSimu_AddMode_1" onclick="Update_SkillAlloSimu_STList(this)" style="display: none;" data-langtext="Remove|,|移除技能樹"></a>
 					</li>
 				</ul>
 			</div>
@@ -1716,7 +1714,7 @@
 <script type="text/javascript" src="js/Character_Simulator/Character_Simulator_Base.js"></script>
 <script type="text/javascript" src="js/Character_Simulator/StatsList.js"></script>
 <script type="text/javascript" src="js/Character_Simulator/Character_Simulator_UI.js"></script>
-<script type="text/javascript" src="js/Character_Simulator/defaultEquip_list.js"></script>
+<!-- <script type="text/javascript" src="js/Character_Simulator/defaultEquip_list.js"></script> -->
 <!-- <script type="text/javascript" src="js/Character_Simulator/CharacterSkill_list.js"></script> -->
 
 <script type="text/javascript" src="js/SkillInquiry/Skill_List/Skill_List_0.js"></script>
