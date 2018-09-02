@@ -143,13 +143,13 @@ try {
 		if ( errormsg != '' )
 		{
 			document.getElementById('Loading_Page').innerHTML = errormsg;
-			try {
+			/* try {
 				showWarningMsg(cy_character_base.toString(), 10000);
 				showWarningMsg(cy_ability.toString(), 10000);
 			}
 			catch(e){
 				showWarningMsg(String(e));
-			}
+			} */
 			return;
 		}
 		document.getElementById('Loading_Page').style.display = 'none';

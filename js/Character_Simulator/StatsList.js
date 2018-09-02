@@ -88,7 +88,7 @@
 				new cy_statBase('' , 'MATK [UP<|>DOWN](INT|,|MATK[提升<|>減少](INT|,|MATK[アップ<|>ダウン](INT'									, 'matk_%int'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](AGI|,|MATK[提升<|>減少](AGI|,|MATK[アップ<|>ダウン](AGI'									, 'matk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](VIT|,|MATK[提升<|>減少](VIT|,|MATK[アップ<|>ダウン](VIT'									, 'matk_%vit'				, false , 'hid'	, true	, 0		, '%)'));
-		} catch {
+		} catch(e) {
 			errorForStop_msg("Initialize Base-Stat-list false.", e);
 		}
 		try {

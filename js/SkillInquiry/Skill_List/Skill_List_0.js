@@ -33,7 +33,7 @@ try {
 			new the_skill(12, 	'_#大師級劍術', 11	, "passive"	, "", "M_1hSword[「劍術技能」中的攻擊技能，總傷害提升${2*SLv}%]"),
 			new the_skill(13, 	'戰吼', 		11	, "active"	, ""),
 			new the_skill(14, 	'狂戰士之怒', 	13	, "active"	, ""));
-		for (var i=0;i<all_skilltree_type[0].STt_skilltree[0].ST_skill.length;i++)
+		for (let i=0; i<all_skilltree_type[0].STt_skilltree[0].ST_skill.length; i++)
 		{
 			if (all_skilltree_type[0].STt_skilltree[0].ST_skill[i].Sk_no != 13 && all_skilltree_type[0].STt_skilltree[0].ST_skill[i].Sk_no != 14)
 			{
@@ -43,7 +43,7 @@ try {
 				all_skilltree_type[0].STt_skilltree[0].ST_skill[i].Sk_W_type.push(WeapArms_map['1hSword'], WeapArms_map['2hSword'], WeapArms_map['Other']);
 			}
 		}
-		for (var i=0;i<all_skilltree_type[0].STt_skilltree[0].ST_skill.length;i++)
+		for (let i=0; i<all_skilltree_type[0].STt_skilltree[0].ST_skill.length; i++)
 		{
 			if (all_skilltree_type[0].STt_skilltree[0].ST_skill[i].Sk_name != '_#劍術要領')
 			{
@@ -107,7 +107,7 @@ try {
 			new the_skill(12,	'_#縮時詠唱', 	11	, "passive"	, "", "all[施放「法術/飛箭」後，下一招技能的詠唱時間減少${5*SLv}%]"),    // 11
 			new the_skill(13,	'_#強射', 		12	, "passive"	, "", "M_Staff[魔法彈的最大射程為${6+parseInt((SLv+1)/2)}m、傷害為(有效Atk×${40+5*SLv}%)] & M_MagicDevice[魔法彈的最大射程為${4+parseInt((SLv+1)/2)}m、傷害為(有效Atk×${70+5*SLv}%)] & all[魔法彈的最大射程為${4+parseInt((SLv+1)/2)}m、傷害為(有效Atk×${5*SLv}%)]"),	// 12
 			new the_skill(14,	'魔力灌充', 	13	, "active"	, ""));
-		for (var i=0;i<all_skilltree_type[0].STt_skilltree[2].ST_skill.length;i++)
+		for (let i=0;i<all_skilltree_type[0].STt_skilltree[2].ST_skill.length;i++)
 		{
 			if (all_skilltree_type[0].STt_skilltree[2].ST_skill[i].Sk_no != 10)
 			{

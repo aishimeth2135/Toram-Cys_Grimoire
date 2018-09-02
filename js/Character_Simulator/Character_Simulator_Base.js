@@ -1,5 +1,5 @@
 	
-	function cy_ability(){
+	var cy_ability = function(){
 		this.base = '';
 		this.value = 0;
 		this.abilityType = -1;	//-1:default, 0: rate, 1:constant, 2:extraRate
@@ -120,7 +120,7 @@
 		return `<${_body}${_style}${_onclickText}${_idText}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</${_body}>`;
 	}
 	
-	function cy_character_base() {
+	var cy_character_base = function() {
 		this.characterLv = 1;
 		this.charaEquipments = [];
 		
@@ -267,7 +267,7 @@
 			}
 			updateAllPassiveSkillAddition();
 		}
-		catch {
+		catch(e) {
 			showWarningMsg('Incorrect Code. Please try again.');
 		}
 	}
@@ -336,7 +336,7 @@
 			}
 			if (codeAry[3]) this.loading_skillCode(codeAry[3]);
 		}
-		catch {
+		catch(e) {
 			showWarningMsg('Incorrect Code. Please try again.');
 			return;
 		}
@@ -345,7 +345,7 @@
 	
 	
 	
-	function cy_itemAbilitys(){
+	var cy_itemAbilitys = function(){
 		this.ability = [];
 		for (let i=0; i<10; ++i)			//能力數量上限: 10
 		{
@@ -372,7 +372,7 @@
 		return true;
 	}
 	
-	function cy_equipmentField(t_no, tfieldName, default_type, haveXtal, tisAble){
+	var cy_equipmentField = function(t_no, tfieldName, default_type, haveXtal, tisAble){
 		this.no = t_no;
 		this.fieldName = tfieldName;
 		this.name = '';
@@ -455,8 +455,8 @@
 						if (_ary != 'all') break;
 				}
 			}
-		} catch {
-			showWarningMsg('<Reser Equipment Field> Error.');
+		} catch(e) {
+			showWarningMsg('[Reset Equipment Field] Error.');
 		}
 	}
 	
@@ -571,7 +571,7 @@
 				}
 			}
 			this.cy_refresh();
-		} catch (e) {
+		} catch(e) {
 			showWarningMsg('[Equipment Field] Incorrect Code. Please try again.');
 			console.log(e);
 		}
@@ -581,7 +581,7 @@
 		charaSimu_selEquipType([this.no, this.type], true);//重置open
 	}
 	
-	function cy_statBase(tshowName, tstatName, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
+	var cy_statBase = function(tshowName, tstatName, tbaseName, thaveRate, talwaysShow, tcanSelect, tbaseValue, tunit = '', tmaxValue = '', tminValue = '', textraRate = 1, tdigitNum = 0){
 		//this.no = cy_character.statList.length;
 		this.baseName = tbaseName;
 		this.showName = tshowName;
@@ -713,7 +713,7 @@
 		return _text;
 	}
 	
-	function cy_defaultEquip(tsel_fieldName, ttitle, tcode, tprovider = 'someone'){
+	var cy_defaultEquip = function(tsel_fieldName, ttitle, tcode, tprovider = 'someone'){
 		this.sel_fieldName = tsel_fieldName;
 		this.title = ttitle;
 		this.code = tcode;

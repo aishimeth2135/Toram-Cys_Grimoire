@@ -414,33 +414,24 @@
 	}
 	
 	
-	function open_ShowCaption_Body_1(temp){
+	document.getElementById('ShowCaption_Body_1_openBtn').addEventListener('click', function(){
+		let temp = this;
 		let T_modeno = parseInt(temp.getAttribute('data-modeno'));
-		let Ttext = '';
 		
 		switch (T_modeno)
 		{
 			case 0:
-				switch (getCur_languageNo())
-				{
-					case 0: Ttext = '&gt;&nbsp;隱藏遊戲內技能說明'; break;
-					case 1: Ttext = '&gt;&nbsp;隱藏遊戲內技能說明'; break;
-					case 2: Ttext = '&gt;&nbsp;隱藏遊戲內技能說明'; break;
-				}
+				temp.innerHTML = '<a data-langtext="Hid Skill Information|,|&gt;&nbsp;隱藏遊戲內技能說明"></a>';
+				resetInnerLang(temp);
 				document.getElementById('ShowCaption_Body_1').style.display = 'inline-block';
 				temp.setAttribute('data-modeno', "1");
 				break;
 			case 1:
-				switch (getCur_languageNo())
-				{
-					case 0: Ttext = '&gt;&nbsp;顯示遊戲內技能說明'; break;
-					case 1: Ttext = '&gt;&nbsp;顯示遊戲內技能說明'; break;
-					case 2: Ttext = '&gt;&nbsp;顯示遊戲內技能說明'; break;
-				}
+				temp.innerHTML = '<a data-langtext="Show Skill Information|,|&gt;&nbsp;顯示遊戲內技能說明"></a>';
+				resetInnerLang(temp);
 				document.getElementById('ShowCaption_Body_1').style.display = 'none';
 				temp.setAttribute('data-modeno', "0");
 				break;
 		}
-		temp.innerHTML = Ttext;
-	}
+	});
 		
