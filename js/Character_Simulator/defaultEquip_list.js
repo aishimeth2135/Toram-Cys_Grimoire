@@ -22,5 +22,5 @@ try {
 	);
 	//new cy_defaultEquip('', '', "", 'Cyteria'),
 } catch(e) {
-	errorForStop_msg("Initialize Default-Equpiment-list false. MSG: " + String(e));
+	errorForStop_msg("Initialize Default-Equpiment-list false. MSG: " + String(e.stack));
 }

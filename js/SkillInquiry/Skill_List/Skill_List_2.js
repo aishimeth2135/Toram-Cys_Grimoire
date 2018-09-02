@@ -60,5 +60,5 @@ try {
 			all_skilltree_type[2].STt_skilltree[2].ST_skill[5].Sk_branch.push('弱點命中');
 	})();
 } catch(e) {
-	errorForStop_msg("Initialize Skill-list<2> false. MSG: " + String(e));
+	errorForStop_msg("Initialize Skill-list<2> false. MSG: " + String(e.stack));
 }

@@ -68,7 +68,7 @@ try {
 	
 	Section_3_Update(document.getElementById('Section_3_Menu_1'));
 } catch(e) {
-	errorForStop_msg("Initialize BASE false. MSG: " + String(e));
+	errorForStop_msg("Initialize BASE false. MSG: " + String(e.stack));
 }	
 	
 	/*=====================================================================*/
@@ -88,7 +88,7 @@ try {
 	/*=====================================================================*/
 	update_SkillAlloSimu_STList();
 } catch(e) {
-	errorForStop_msg("Initialize Skill-Point-Simulator false. MSG: " + String(e));
+	errorForStop_msg("Initialize Skill-Point-Simulator false. MSG: " + String(e.stack));
 }
 	//charaSimu_initPassiveSkillList();
 
@@ -118,7 +118,7 @@ try {
 	CharaSimu_resetSetEquipShowDetail();
 	charaSimu_resetSaveCodeList();
 } catch(e) {
-	errorForStop_msg("Initialize Character-Simulator false. MSG:" + String(e));
+	errorForStop_msg("Initialize Character-Simulator false. MSG:" + String(e.stack));
 	console.log(e);
 }
 	
@@ -136,7 +136,6 @@ try {
 			document.getElementById("ATool_MenuBlock").style.top = "0.2rem";
 		}
 	});
-	
 	
 	/*=====================================================================*/
 	setTimeout( function(){
