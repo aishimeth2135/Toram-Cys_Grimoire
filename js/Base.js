@@ -48,7 +48,8 @@
 		try {
 			let _errormsg = document.getElementById('Loading_Page').getAttribute('data-errormsg');
 			if ( _errormsg == '') _errormsg = '<p>Some errors occurred while loading. Please contact the author. </p>Error Message:';
-			_errormsg += ('<hr />~# ' + msg + ' MSG: ' + String(e) + '[' + String(e.stack).replace('https://aishimeth2135.github.io/Toram-Cys_Grimoire/', '') + ']');
+			let _t = String(e.stack);
+			_errormsg += ('<hr />~# ' + msg + ' MSG: ' + String(e) + '[' + _t.replace('https://aishimeth2135.github.io/Toram-Cys_Grimoire/', '') + ']');
 			document.getElementById('Loading_Page').setAttribute('data-errormsg', _errormsg);
 		}
 		catch (e){
