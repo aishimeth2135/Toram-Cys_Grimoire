@@ -1,5 +1,5 @@
 		
-	var cy_character_base = function() {
+	var cy_character_base = function(none='') {
 		this.characterLv = 1;
 		this.charaEquipments = [];
 		
@@ -30,7 +30,7 @@
 	
 	cy_character_base.prototype.statPoint_name = ['STR', 'DEX', 'INT', 'AGI', 'VIT', ['LUK', 'MEN', 'CRT', 'TEC', 'none']];
 	
-	cy_character_base.prototype.defaultEquip_list = [];
+	//cy_character_base.prototype.defaultEquip_list = [];
 	
 	cy_character_base.prototype.getStatLoc = function(t_baseName){
 		let T_obj = this.statList;
@@ -222,7 +222,7 @@
 		showWarningMsg('Loading Success.');
 	}
 	
-	var cy_ability = function(){
+	var cy_ability = function(none=''){
 		this.base = '';
 		this.value = 0;
 		this.abilityType = -1;	//-1:default, 0: rate, 1:constant, 2:extraRate
@@ -343,7 +343,7 @@
 		return `<${_body}${_style}${_onclickText}${_idText}><a data-langtext="${t_statName}" ${_style}></a>${_sign}${_value}<a data-langtext="${_unit}" ${_style}></a>${_deleteText}</${_body}>`;
 	}
 	
-	var cy_itemAbilitys = function(){
+	var cy_itemAbilitys = function(none = ''){
 		this.ability = [];
 		for (let i=0; i<10; ++i)			//能力數量上限: 10
 		{
@@ -717,4 +717,3 @@
 		this.code = tcode;
 		this.provider = tprovider;
 	}
-	//cy_character_base.prototype.defaultEquip_list = [];

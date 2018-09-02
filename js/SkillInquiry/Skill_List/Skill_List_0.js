@@ -267,5 +267,5 @@ try {
 		
 	})();
 } catch(e) {
-	errorForStop_msg("Initialize Skill-list<0> false. MSG: " + String(e.stack));
+	errorForStop_msg("Initialize Skill-list<0> false.", e);
 }

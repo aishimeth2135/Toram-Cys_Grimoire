@@ -249,5 +249,5 @@ try {
 	
 	})();
 } catch (e) {
-	errorForStop_msg("Initialize Skill-Gain-list false. MSG: " + String(e.stack));
+	errorForStop_msg("Initialize Skill-Gain-list false.", e);
 }

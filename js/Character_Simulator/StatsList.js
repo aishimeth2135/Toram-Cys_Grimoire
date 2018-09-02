@@ -89,7 +89,7 @@
 				new cy_statBase('' , 'MATK [UP<|>DOWN](AGI|,|MATK[提升<|>減少](AGI|,|MATK[アップ<|>ダウン](AGI'									, 'matk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
 				new cy_statBase('' , 'MATK [UP<|>DOWN](VIT|,|MATK[提升<|>減少](VIT|,|MATK[アップ<|>ダウン](VIT'									, 'matk_%vit'				, false , 'hid'	, true	, 0		, '%)'));
 		} catch {
-			errorForStop_msg("Initialize Base-Stat-list false. MSG: " + String(e.stack));
+			errorForStop_msg("Initialize Base-Stat-list false.", e);
 		}
 		try {
 			for (let i=0; i<this.statList.length; ++i)
@@ -214,7 +214,7 @@
 				}
 			}
 		} catch(e) {
-			errorForStop_msg("Initialize Base-Stat-formula false. MSG: " + String(e.stack));
+			errorForStop_msg("Initialize Base-Stat-formula false.", e);
 		}
 	}
 	/* (function(){
@@ -239,5 +239,5 @@ try {
 		new cy_equipmentField(5, 'Special_Gear'		, 0	, true	, true)
 	);
 } catch(e) {
-	errorForStop_msg("Initialize Character-Equipment-Field-list false. MSG: " + String(e.stack));
+	errorForStop_msg("Initialize Character-Equipment-Field-list false.", e);
 }

@@ -68,7 +68,7 @@ try {
 	
 	Section_3_Update(document.getElementById('Section_3_Menu_1'));
 } catch(e) {
-	errorForStop_msg("Initialize BASE false. MSG: " + String(e.stack));
+	errorForStop_msg("Initialize BASE false.", e);
 }	
 	
 	/*=====================================================================*/
@@ -88,7 +88,7 @@ try {
 	/*=====================================================================*/
 	update_SkillAlloSimu_STList();
 } catch(e) {
-	errorForStop_msg("Initialize Skill-Point-Simulator false. MSG: " + String(e.stack));
+	errorForStop_msg("Initialize Skill-Point-Simulator false.", e);
 }
 	//charaSimu_initPassiveSkillList();
 

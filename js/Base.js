@@ -44,10 +44,10 @@
 		}, timer_delay);
 	}
 	
-	function errorForStop_msg(msg){
+	function errorForStop_msg(msg, e){
 		let _errormsg = document.getElementById('Loading_Page').getAttribute('data-errormsg');
 		if ( _errormsg == '') _errormsg = '<p>Some errors occurred while loading. Please contact the author. </p>Error Message:';
-		_errormsg += '<br />~# ' + msg;
+		_errormsg += '<hr />~# ' + msg + ' MSG: ' + String(e.message) + '[' + String(e.stack).replace('https://aishimeth2135.github.io/Toram-Cys_Grimoire/', '') + ']' ;
 		document.getElementById('Loading_Page').setAttribute('data-errormsg', _errormsg);
 	}
 	
