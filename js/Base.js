@@ -48,7 +48,8 @@
 		try {
 			let _errormsg = document.getElementById('Loading_Page').getAttribute('data-errormsg');
 			if ( _errormsg == '') _errormsg = '<p>Some errors occurred while loading. Please contact the author. </p>Error Message:';
-			let _t = String(e.stack) || '***NONE***';
+			let _t = e.stack || '***NONE***';
+			_t = String(_t);
 			_errormsg += ('<hr />~# ' + msg + ' MSG: ' + String(e) + '[' + _t.replace(new RegExp('https://aishimeth2135.github.io/Toram-Cys_Grimoire/', 'g'), '') + ']');
 			document.getElementById('Loading_Page').setAttribute('data-errormsg', _errormsg);
 		}
