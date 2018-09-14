@@ -53,7 +53,7 @@
 			_errormsg += ('<hr />~# ' + msg + ' MSG: ' + String(e) + '[' + _t.replace(new RegExp('https://aishimeth2135.github.io/Toram-Cys_Grimoire/', 'g'), '') + ']');
 			document.getElementById('Loading_Page').setAttribute('data-errormsg', _errormsg);
 		}
-		catch (e){
+		catch(e) {
 			showWarningMsg(String(e) + String(e.stack));
 		}
 	}

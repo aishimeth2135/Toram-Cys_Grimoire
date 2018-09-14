@@ -214,19 +214,23 @@
 		}
 	}
 	
-	var SkillAlloSimu_CurStep = 0;
 	function SkillAlloSimu_SelStep(temp){ 
-		let TNo = parseInt(temp.id.charAt(temp.id.length-1));
-		TNo = (TNo == 0) ? 10 : TNo;
-		if (SkillAlloSimu_CurStep == TNo)
+		let _step = parseInt(temp.id.charAt(temp.id.length-1));
+		_step = (_step == 0) ? 10 : _step;
+		if ( temp.className.includes('_Cur') ) return;
+		
+		let _ary = [1, 5, 10];
+		
+		for (let i=0; i<_ary.length; ++i)
 		{
-			return;
+			let doc = document.getElementById('SkillAlloSimu_Step' + _ary[i]);
+			if ( doc.className.includes('_Cur') )
+			{
+				 doc.className = doc.className.replace('_Cur', '');
+				break;
+			}
 		}
-		if (SkillAlloSimu_CurStep != 0)
-		{
-			document.getElementById('SkillAlloSimu_Step' + String(SkillAlloSimu_CurStep)).className = 'ATool_Btn_4';
-		}
-		temp.className = 'ATool_Btn_4_Cur';
+		temp.className += '_Cur';
 	}
 	
 	function SkillAlloSimu_SkillPoint(temp){

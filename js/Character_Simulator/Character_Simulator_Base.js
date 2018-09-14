@@ -455,7 +455,8 @@
 						if (_ary != 'all') break;
 				}
 			}
-		} catch(e) {
+		}
+		catch(e) {
 			showWarningMsg('[Reset Equipment Field] Error.');
 		}
 	}
@@ -571,7 +572,8 @@
 				}
 			}
 			this.cy_refresh();
-		} catch(e) {
+		}
+		catch(e) {
 			showWarningMsg('[Equipment Field] Incorrect Code. Please try again.');
 			console.log(e);
 		}
