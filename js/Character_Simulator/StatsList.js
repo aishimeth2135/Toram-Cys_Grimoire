@@ -105,8 +105,8 @@
 						_cy.formula = [0, [
 						"getV('CLv') +getV('weaponatk') +2*getV('str') +2*getV('dex')",
 						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('dex')",
-						"getV('CLv') +getV('weaponatk') +getV('str') +3*getV('dex')",
-						"getV('CLv') +getV('weaponatk') +4*getV('dex')",
+						"getV('CLv') +getV('weaponatk') +getV('str') +3*getV('dex') + ((getV('1_type') == 2) ? getV('1_value') : 0)",
+						"getV('CLv') +getV('weaponatk') +4*getV('dex') + ((getV('1_type') == 2) ? getV('1_value') : 0)",
 						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('int')",
 						"getV('CLv') +getV('weaponatk') +2*getV('agi') +2*getV('int')",
 						"getV('CLv') +getV('weaponatk') +2*getV('agi') +getV('dex')",
