@@ -90,10 +90,10 @@
 			{
 				if (ShowCaption_4_text == '')
 				{
-					ShowCaption_4_text += all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
+					ShowCaption_4_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
 				}
 				else {
-					ShowCaption_4_text += '<br />' + all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
+					ShowCaption_4_text += `<br /><a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
 				}
 			}
 		}
@@ -102,27 +102,27 @@
 		let ShowCaption_5_text = '';
 		if (all_SI[0].SI_value != '')
 		{
-			ShowCaption_5_text += all_SI[0].SI_value;
+			ShowCaption_5_text += `<a data-langtext="${all_SI[0].SI_value}"></a>`;
 		}
 		if (all_SI[1].SI_value != '')
 		{
 			if (all_SI[2].SI_value != '' && all_SI[2].SI_value != 0)
 			{
-				ShowCaption_5_text += '<br />(' + all_SI[1].SI_value + all_SI[2].SI_name + all_SI[2].SI_value + ')';
+				ShowCaption_5_text += `<br />(<a data-langtext="${all_SI[1].SI_value}"></a><a data-langtext="${all_SI[2].SI_name}"></a><a data-langtext="${all_SI[2].SI_value}"></a><a data-langtext="${all_SI[2].SI_unit}"></a>)`;
 			}
 			else {
-				ShowCaption_5_text += '<br />' + all_SI[1].SI_value;
+				ShowCaption_5_text += `<br /><a data-langtext="${all_SI[1].SI_value}"></a>`;
 			}
 		}
 		if (all_SI[3].SI_value != 0)
 		{
 			if (all_SI[4].SI_value != '' && all_SI[4].SI_value != 0)
 			{
-				ShowCaption_5_text += all_SI[3].SI_name + '(' + all_SI[3].SI_value + '+' + all_SI[4].SI_name + ')%';
-				ShowCaption_5_text += '<br />' + all_SI[4].SI_name + '=' + all_SI[4].SI_value; 
+				ShowCaption_5_text += `<a data-langtext="${all_SI[3].SI_name}"></a>(<a data-langtext="${all_SI[3].SI_value}"></a>+<a data-langtext="${all_SI[4].SI_name}"></a>)%`;
+				ShowCaption_5_text += `<br /><a data-langtext="${all_SI[4].SI_name}"></a>=<a data-langtext="${all_SI[4].SI_value}"></a>`; 
 			}
 			else {
-				ShowCaption_5_text += all_SI[3].SI_name + all_SI[3].SI_value + '%';
+				ShowCaption_5_text += `<a data-langtext="${all_SI[3].SI_name}"></a><a data-langtext="${all_SI[3].SI_value}"></a>%`;
 			}
 		}
 		for (let i=5; i<=7; ++i)
@@ -131,10 +131,10 @@
 			{
 				if (ShowCaption_5_text == '')
 				{
-					ShowCaption_5_text += all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
+					ShowCaption_5_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
 				}
 				else {
-					ShowCaption_5_text += '<br />' + all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
+					ShowCaption_5_text += `<br /><a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
 				}
 			}
 		}
@@ -143,14 +143,14 @@
 		let ShowCaption_6_text = '';
 		if (all_SI[25].SI_value != 0)
 		{
-			ShowCaption_6_text += all_SI[25].SI_name + all_SI[25].SI_value + all_SI[25].SI_unit + all_SI[26].SI_value + all_SI[26].SI_name + all_SI[26].SI_unit;
+			ShowCaption_6_text += `<a data-langtext="${all_SI[25].SI_name}"></a><a data-langtext="${all_SI[25].SI_value}"></a><a data-langtext="${all_SI[25].SI_unit}"></a><a data-langtext="${all_SI[26].SI_name}"></a><a data-langtext="${all_SI[26].SI_value}"></a><a data-langtext="${all_SI[26].SI_unit}"></a>`;
 		}
 			
 		for (let i=27; i<=29; ++i)
 		{
 			if (all_SI[i].SI_value != '' && all_SI[i].SI_value != 0)
 			{
-				ShowCaption_6_text += all_SI[i].SI_name + all_SI[i].SI_value + all_SI[i].SI_unit;
+				ShowCaption_6_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
 			}
 		}
 
@@ -168,16 +168,25 @@
 		let tno_st = _regObj.no_st;
 		let tno_s = document.getElementById('site_Skill').getAttribute('data-curskill');
 		
-		ShowCaption_5_text = Build_TextButton_1(ShowCaption_5_text);
-		ShowCaption_5_text = build_branch_onclick(ShowCaption_5_text, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
-		ShowCaption_6_text = Build_TextButton_1(ShowCaption_6_text);
-		ShowCaption_6_text = build_branch_onclick(ShowCaption_6_text, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
-		
+		let _ary;
 		document.getElementById('ShowCaption_4').innerHTML = ShowCaption_4_text;
 		resetInnerLang(document.getElementById('ShowCaption_4'));
 		document.getElementById('ShowCaption_5').innerHTML = ShowCaption_5_text;
 		resetInnerLang(document.getElementById('ShowCaption_5'));
+		_ary = document.querySelectorAll('#ShowCaption_5 > a, #ShowCaption_5 > span');
+		for (let i=0; i<_ary.length; ++i)
+		{
+			_ary[i].innerHTML = Build_TextButton_1(_ary[i].innerHTML);
+			_ary[i].innerHTML = build_branch_onclick(_ary[i].innerHTML, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
+		}
 		document.getElementById('ShowCaption_6').innerHTML = ShowCaption_6_text;
 		resetInnerLang(document.getElementById('ShowCaption_6'));
+		_ary = document.querySelectorAll('#ShowCaption_6 > a, #ShowCaption_6 > span');
+		for (let i=0; i<_ary.length; ++i)
+		{
+			_ary[i].innerHTML = Build_TextButton_1(_ary[i].innerHTML);
+			_ary[i].innerHTML = build_branch_onclick(_ary[i].innerHTML, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
+			//console.log(build_branch_onclick(_ary[i].innerHTML, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch));
+		}
 	}
 	

@@ -22,9 +22,6 @@
 	}
 	#SkillAlloSimu_STList li {
 		display:inline-block;
-	}
-	#SkillAlloSimu_STList a {
-		display:inline-block;
 		white-space:nowrap;
 		cursor:pointer;
 		font-size:1.3rem;
@@ -36,7 +33,7 @@
 		border-radius:0.20rem;
 		text-shadow:0.2rem 0.2rem 0.6rem #555;
 	}
-	#SkillAlloSimu_STList a:hover {
+	#SkillAlloSimu_STList li:hover {
 		background-color:rgba(255, 255, 219, 0.3);
 		box-shadow:inset 0rem 0rem 1rem rgb(255, 255, 219);
 	}

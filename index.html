@@ -66,6 +66,11 @@
 				<div id="CharaSimu_setEquipBase"></div>
 				<div id="CharaSimu_setEquipShow"></div>
 				<div id="charaSimu_savingSystem_site">
+					<div>
+						<ul class="chara_mainHeaderMenu">
+							<li id="charaSimu_resetCharacter"><img src="svg/reset-icon.svg" /><a data-langtext="Reset Character|,|重設角色|,|Reset Character"></a></li>
+						</ul>
+					</div>
 					<fieldset class="charaSimu_setting_block charaSimu_saveload_main">
 						<legend><a data-langtext="Save/Load|,|存檔/讀檔|,|Save/Load"></a></legend>
 						<input type="text" placeholder="Code" />
@@ -78,13 +83,14 @@
 						<div id="charaSimu_SaveCode_saveTitle">
 							<a data-langtext="Save Title:|,|存檔名稱：|,|Save Title:"></a><br />
 							<input type="text" onchange="charaSimu_storageControl(this, 'saveTo')" onblur="charaSimu_storageControl(this, 'saveTo')" />
-							<p><a data-langtext="(Click anywhere to cancel.)|,|(未輸入的話，點擊任意處以取消。)|,|(Click anywhere to cancel.)"></a></p>
+							<p><a data-langtext="- Click anywhere to cancel.|,|- 未輸入的話，點擊任意處以取消。|,|- Click anywhere to cancel."></a>
+							<br /><a data-langtext="- If you type '@', it will be stored under the original name. |,|- 輸入「@」的話，將會以原名稱儲存。"></a></p>
 						</div>
 					</fieldset>
 					<fieldset class="charaSimu_setting_block">
 						<legend><a data-langtext="Other Setting|,|其它設定|,|Other Setting"></a></legend>
-						<span><input id="charaSimu_hiddenNoLearnPassiveSkill_showPassiveSkillDetail" type="radio" checked /><a data-langtext="於被動技能清單選擇「顯示技能效果」時，將隱藏未學習的技能。"></a></span>
-						<span><input id="charaSimu_closeAbilityValueMaxMin" type="radio" /><a data-langtext="允許能力的顯示數值可以超出上限。(例：勾選後，暴擊率的顯示可以超過100)"></a></span>
+						<div><input id="charaSimu_hiddenNoLearnPassiveSkill_showPassiveSkillDetail" type="checkbox" onclick="saveSetting()" checked /><label for="charaSimu_hiddenNoLearnPassiveSkill_showPassiveSkillDetail"><a data-langtext="於被動技能清單選擇「顯示技能效果」時，將隱藏未學習的技能。"></a></label></div>
+						<div><input id="charaSimu_closeAbilityValueMaxMin" type="checkbox" onclick="saveSetting()" /><label for="charaSimu_closeAbilityValueMaxMin"><a data-langtext="允許能力的顯示數值可以超出上限。(例：勾選後，暴擊率的顯示可以超過100)"></a></label></div>
 					</fieldset>
 				</div>
 			</article>
@@ -141,7 +147,7 @@
 		<div id="site_Skill" data-skillcode="">
 		</div>
 
-		<div id="ShowCaption_Body_1_openBtn" onclick="open_ShowCaption_Body_1(this)" data-modeno="0">&gt;&nbsp;顯示遊戲內技能說明</div>
+		<div id="ShowCaption_Body_1_openBtn" data-modeno="0"><a data-langtext="Show Skill Information|,|&gt;&nbsp;顯示遊戲內技能說明"></a></div>
 		<div id="ShowCaption_Body_1">
 			<div id='ShowCaption_2'>
 			</div>
@@ -1293,10 +1299,11 @@
 				<div class="AuthorInfo_Title_1">資料來源</div><hr class="hr_1" />
 				<div class="TextBlock">
 					<ul class="VerInfo_ul">
-						<li><a href="https://www.dopr.net/toramonline-wiki#game-menu">日本Wiki</a></li>
+						<li><a href="https://www.dopr.net/toramonline-wiki#game-menu" target="_blank">日本Wiki</a></li>
 						<li>巴哈姆特的玩家提供。</li>
 						<li>遊戲內的友人提供。</li>
 						<li>自行測試、個人經驗。</li>
+						<li><a href="http://toramonline.com" target="_blank">英文論壇</a></li>
 					</ul>
 				</div>
 			</div>
@@ -1304,15 +1311,32 @@
 				<div class="AuthorInfo_Title_1">翻譯提供</div><hr class="hr_1" />
 				<div class="TextBlock">
 					<ul class="VerInfo_ul">
+						<li>技能資料查詢｜英文｜：阿止、Cyteria</li>
 						<li>技能名稱｜英文、日文｜：迷路的蘋果 整理。</li>
 						<li>技能配點模擬器｜英文｜：阿止、迷路的蘋果、島主、Cyteria。</li>
 					</ul>
 				</div>
 			</div>
-			註：提供資料者若想在這裡放出自己的名稱或暱稱，可於Twitter告知我。
+			註：提供資料者若想在這裡放出自己的名稱或暱稱，可於Twitter或巴哈私信我。
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
+			<div>
+				<div class="VerInfo_Title_1">4.2.0</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>裝備模擬器(Character Simulator)：
+						<ul class="VerInfo_ul_ul">
+							<li>於能力介面也新增產生圖片的功能。</li>
+							<li>存檔介面新增了自動存檔(AUTO SAVE)。自動存檔會在讀取檔案或離開網頁時自動儲存。</li>
+							<li>修正箭矢攻擊力不會正確作用的問題。</li>
+						</ul>
+					</li>
+					<li>將武器技能的四階技能資料補充完畢。</li>
+					<li>現在會把介面的一些勾選的偏好設定儲存下來了，而不用每次都要重新勾選。</li>
+					<li>被動技能的記號由「#」改成「*」。</li>
+					<li>其它沒列出來的新增或優化。</li>
+				</ul>
+			</div>
 			<div>
 				<div class="VerInfo_Title_1">4.2.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
@@ -1607,8 +1631,8 @@
 						</li>
 					</ul>
 					<div>
-						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" checked /> <span id="SkillAlloSimu_Setting_closeMenuList_text"><a data-langtext="Close this menu after selected any button.|,|選取按鈕後關閉此選單"></a></span><br />
-						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" /> <span id="SkillAlloSimu_Setting_closeSTList_text"><a data-langtext="Close skill tree menu after selected any skill tree.|,|選取任意技能樹後關閉清單"></a></span>
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" onclick="saveSetting()" checked /> <label for="SkillAlloSimu_Setting_closeMenuList"><span id="SkillAlloSimu_Setting_closeMenuList_text"><a data-langtext="Close this menu after selected any button.|,|選取按鈕後關閉此選單"></a></span></label><br />
+						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" onclick="saveSetting()" /> <label for="SkillAlloSimu_Setting_closeSTList"><span id="SkillAlloSimu_Setting_closeSTList_text"><a data-langtext="Close skill tree menu after selected any skill tree.|,|選取任意技能樹後關閉清單"></a></span></label>
 					</div>
 				</div>
 			</div>
@@ -1628,8 +1652,8 @@
 					</ul>
 					<textarea id="SkillAlloSimu_BuildText_textarea"></textarea>
 					<div>
-						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" checked /> <span id="SkillAlloSimu_BuildText_ignoreEmpty_text"><a data-langtext="Ignore empty skill tree|,|產生時忽略空的技能樹"></a></span><br />
-						<input type="checkbox" id="SkillAlloSimu_BuildText_showSkillPointSum" checked /> <span id="SkillAlloSimu_BuildText_showSkillPointSum_text"><a data-langtext="Show total skill point|,|標出總共使用多少技能點"></a></span><br />
+						<input type="checkbox" id="SkillAlloSimu_BuildText_ignoreEmpty" onclick="saveSetting()" checked /> <label for="SkillAlloSimu_BuildText_ignoreEmpty"><span id="SkillAlloSimu_BuildText_ignoreEmpty_text"><a data-langtext="Ignore empty skill tree|,|產生時忽略空的技能樹"></a></span></label><br />
+						<input type="checkbox" id="SkillAlloSimu_BuildText_showSkillPointSum" onclick="saveSetting()" checked /> <label for="SkillAlloSimu_BuildText_showSkillPointSum"><span id="SkillAlloSimu_BuildText_showSkillPointSum_text"><a data-langtext="Show total skill point|,|標出總共使用多少技能點"></a></span></label><br />
 					</div>
 					<p class="TextBlock Text_Small_1">
 						<a data-langtext="- Convert the simulated skill points into a piece of text in specific format automatically.<br />- Our site do not have save function, please keep the generated text carefully, feel free to share it with others.|,|- 可將點好的技能依照選定格式自動產生一段文字。<br />- 本網站沒有儲存功能，產生的文本請自行保留，亦可分享給其它人。"></a>
@@ -1695,7 +1719,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 4.2.0｜Update: 2018/8/31
+			Ver: 4.3.0｜Update: 2018/9/19
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>

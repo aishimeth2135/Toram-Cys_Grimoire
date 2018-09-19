@@ -45,7 +45,7 @@ try {
 		
 		InputGainToSkill('破壞之刃', 0, 27, '[1000+(Vit×2)]',WeapArms_map['1hSword'], -1, -1);
 		InputGainToSkill('破壞之刃', 0, 27, '1000',WeapArms_map['2hSword'], -1, -1);
-		InputGainToSkill('破壞之刃', 0, 4, '(Str×100%)',WeapArms_map['2hSword'], -1, -1);
+		InputGainToSkill('破壞之刃', 0, 4, '(STR×100%)',WeapArms_map['2hSword'], -1, -1);
 		
 		InputGainToSkill('戰吼', 0, 24, 50, WeapArms_map['1hSword'], -1, -1);
 		InputGainToSkill('戰吼', 0, 24, 50, WeapArms_map['DualSword'], -1, -1);
@@ -75,6 +75,10 @@ try {
 		InputGainToSkill('弱點狙擊', 0, 25, -60, WeapArms_map['Bowgun'], -1, -1);
 		InputGainToSkill('弱點狙擊', 0, 27, 25, WeapArms_map['Bowgun'], -1, -1);
 		
+		InputGainToSkill('交叉火線', 0, 23, 1, WeapArms_map['Bow'], -1, -1);
+		InputGainToSkill('交叉火線', 0, 27, 100, WeapArms_map['Bowgun'], -1, -1);
+		InputGainToSkill('交叉火線', 1, 23, 1, WeapArms_map['Bow'], -1, -1);
+		
 		InputGainToSkill('黏液射擊', 0, 25, 30, WeapArms_map['Bow'], -1, -1);
 		InputGainToSkill('黏液射擊', 0, 25, -30, WeapArms_map['Bowgun'], -1, -1);
 		
@@ -87,6 +91,11 @@ try {
 		InputGainToSkill('煙霧彈', 0, 3, 250, WeapArms_map['Bowgun'], -1, -1);
 		InputGainToSkill('煙霧彈', 0, 25, 20, WeapArms_map['Bow'], -1, -1);
 		InputGainToSkill('煙霧彈', 0, 25, -20, WeapArms_map['Bowgun'], -1, -1);	
+		
+		InputGainToSkill('斷腕擊', 0, 3, 300, WeapArms_map['Bow'], -1, -1);	
+		InputGainToSkill('斷腕擊', 0, 3, 350, WeapArms_map['Bowgun'], -1, -1);
+		InputGainToSkill('斷腕擊', 0, 25, 20, WeapArms_map['Bow'], -1, -1);
+		InputGainToSkill('斷腕擊', 0, 25, -20, WeapArms_map['Bowgun'], -1, -1);	
 		
 		InputGainToSkill('匿蹤', 0, 9, -200, WeapArms_map['Bow'], -1, -1);
 		InputGainToSkill('匿蹤', 0, 9, -200, WeapArms_map['Bowgun'], -1, -1);
@@ -107,6 +116,8 @@ try {
 		InputGainToSkill('法術/衝擊波', 0, 25, 25, WeapArms_map['Staff'], -1, -1);
 		InputGainToSkill('法術/衝擊波', 0, 3, 250, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
 		
+		InputGainToSkill('法術/終結', 0, 3, 1000, WeapArms_map['Staff'], -1, -1);
+		
 		InputGainToSkill('法術/障壁', 0, 3, 30, WeapArms_map['Staff'], -1, -1);
 		InputGainToSkill('法術/障壁', 0, 23, 2, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
 		
@@ -122,25 +133,30 @@ try {
 		InputGainToSkill('強射', 1, 3, 40, WeapArms_map['Staff'], -1, -1);
 		InputGainToSkill('強射', 1, 3, 70, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
 		
+		InputGainToSkill('魔力灌充', 0, 5, 500, WeapArms_map['Staff'], -1, -1);
+		InputGainToSkill('魔力灌充', 0, 5, 700, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
+		InputGainToSkill('魔力灌充', 0, 27, '裝備杖或魔導具的情況下，若此技能接續在「魔力充填」後施放，此技能的詠唱時間將會減少[魔力充填的技能等級]秒。', WeapArms_map['Staff'], -1, -1);
+		InputGainToSkill('魔力灌充', 0, 27, '裝備杖或魔導具的情況下，若此技能接續在「魔力充填」後施放，此技能的詠唱時間將會減少[魔力充填的技能等級]秒。', WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
+		
 		//格鬥
 		InputGainToSkill('重擊', 0, 10, 1,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('重擊', 0, 2, 25,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('重擊', 0, 3, 50,  WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('重擊', 0, 25, 25, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('重擊', 0, 1, '+(Agi×10%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('重擊', 0, 1, '+(AGI×10%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		InputGainToSkill('痛擊', 0, 10, 1, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('痛擊', 0, 2, 50, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('痛擊', 0, 3, 100, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('痛擊', 0, 25, '+(Agi*10%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('痛擊', 0, 1, '+(Agi×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('痛擊', 0, 4, '(Agi×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('痛擊', 0, 25, '+(AGI*10%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('痛擊', 0, 1, '+(AGI×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('痛擊', 0, 4, '(AGI×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		InputGainToSkill('穿甲', 0, 10, 1, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('穿甲', 0, 2, 150, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('穿甲', 0, 2, '+<u>額外加成</u>', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('穿甲', 0, 3, 50, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('穿甲', 0, 4, '2×(目標Def-目標Lv)×(100-目標物理抗性%)%', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('穿甲', 0, 4, '2×(目標Def-目標Lv)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		InputGainToSkill('猛爆拳', 0, 10, 1, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('猛爆拳', 0, 2, 100, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
@@ -148,6 +164,14 @@ try {
 		InputGainToSkill('猛爆拳', 0, 25, 20, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('猛爆拳', 1, 2, 100, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('猛爆拳', 1, 3, 500, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		
+		InputGainToSkill('戰車猛擊', 0, 2, 250, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('戰車猛擊', 0, 3, 250, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('戰車猛擊', 0, 4, '(AGI*100%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('戰車猛擊', 0, 5, '<p>此技能將會飛行至最大射程。</p>', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('戰車猛擊', 0, 23, 0.75, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('戰車猛擊', 0, 25, 50, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('戰車猛擊', 0, 19, -1, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		InputGainToSkill('音速波動', 0, 10, 4, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('音速波動', 0, 3, 25, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
@@ -157,12 +181,15 @@ try {
 		InputGainToSkill('震地強襲', 0, 3, 25, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('震地強襲', 0, 25, 50, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('震地強襲', 0, 23, 1, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-		InputGainToSkill('震地強襲', 0, 4, '(Agi×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('震地強襲', 0, 4, '(AGI×20%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('震地強襲', 0, 27, 500, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		InputGainToSkill('三段擊', 0, 3, 100, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		InputGainToSkill('三段擊', 0, 27, 25, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
-	
+		
+		InputGainToSkill('疾襲', 0, 2, 200, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('疾襲', 0, 3, 200, WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
+		InputGainToSkill('疾襲', 0, 4, '(AGI*200%)', WeapArms_map['Knuckles'], AuArms_map['Knuckles'], -1);
 		
 		//雙劍
 		InputGainToSkill('步步為營', 0, 24,90, WeapArms_map['DualSword'], -1, -1);
@@ -200,6 +227,8 @@ try {
 		
 		InputGainToSkill('明鏡止水', 0, 5, 25, WeapArms_map['Katana'], AuArms_map['Katana'], -1);
 		
+		InputGainToSkill('怪力亂神', 0, 7, 50, WeapArms_map['Katana'], AuArms_map['Katana'], -1);
+		
 		//防護
 		InputGainToSkill('傷害反彈', 1, 4,'(阻擋力%)', -1, AuArms_map['Shield'], -1);
 		
@@ -214,17 +243,17 @@ try {
 		InputGainToSkill('力量之箭', 0, 5, 1, '', AuArms_map['Arrow'], '');
 		InputGainToSkill('力量之箭', 0, 27, 2, '', AuArms_map['Arrow'], '');
 		
-		InputGainToSkill('沉睡陷阱', 1, 4, '(Dex×50%)', -1, AuArms_map['Arrow'], -1);
+		InputGainToSkill('沉睡陷阱', 1, 4, '(DEX×50%)', -1, AuArms_map['Arrow'], -1);
 		InputGainToSkill('沉睡陷阱', 1, 27, 100, -1, AuArms_map['Arrow'], -1);
 		InputGainToSkill('沉睡陷阱', 1, 25, 20, -1, AuArms_map['Arrow'], -1);
 		InputGainToSkill('沉睡陷阱', 1, 23, 1, -1, AuArms_map['Arrow'], -1);
 		
-		InputGainToSkill('絆腳陷阱', 1, 4, '(Dex×50%)', -1, AuArms_map['Arrow'], -1);
+		InputGainToSkill('絆腳陷阱', 1, 4, '(DEX×50%)', -1, AuArms_map['Arrow'], -1);
 		InputGainToSkill('絆腳陷阱', 1, 27, 100, -1, AuArms_map['Arrow'], -1);
 		InputGainToSkill('絆腳陷阱', 1, 25, 20, -1, AuArms_map['Arrow'], -1);
 		InputGainToSkill('絆腳陷阱', 1, 23, 1, -1, AuArms_map['Arrow'], -1);
 		
-		InputGainToSkill('猛爆地雷', 1, 4, '(Dex×2+Tecx2)', '', AuArms_map['Arrow'], '');
+		InputGainToSkill('猛爆地雷', 1, 4, '(DEX×2+Tecx2)', '', AuArms_map['Arrow'], '');
 		InputGainToSkill('猛爆地雷', 1, 27, 100, '', AuArms_map['Arrow'], '');
 		InputGainToSkill('猛爆地雷', 1, 25, 80, '', AuArms_map['Arrow'], '');
 		InputGainToSkill('猛爆地雷', 1, 23, 1, '', AuArms_map['Arrow'], '');
@@ -243,7 +272,7 @@ try {
 		InputGainToSkill('繫影強襲', 0, 3, 100, -1, AuArms_map['Shield'], -1);
 		//祭司
 		InputGainToSkill('榮耀頌歌', 0, 27, 5, -1, AuArms_map['Shield'], -1);
-		InputGainToSkill('強化祝福', 0, 29, '(Int×7.5%)', WeapArms_map['Staff'], -1, -1);
+		InputGainToSkill('強化祝福', 0, 29, '(INT×7.5%)', WeapArms_map['Staff'], -1, -1);
 		InputGainToSkill('神聖光輝', 0, 27, 30, WeapArms_map['MagicDevice'], WeapArms_map['MagicDevice'], -1);
 		InputGainToSkill('神聖光輝', 0, 3, 30, WeapArms_map['Staff'], -1, -1);
 	

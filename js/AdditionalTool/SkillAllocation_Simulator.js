@@ -23,14 +23,12 @@
 			SkillAlloSimu_removeSkillTree(T_sttno, T_stno);
 			return;
 		}
-		if (all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_beSel)
-		{
-			return;
-		}
+		if (all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_beSel) return;
 		all_skilltree_type[T_sttno].STt_skilltree[T_stno].ST_beSel = true;
 		temp.className = 'skillAlloSimu_STList_cur';
 		
 		SkillAlloSimu_BuildSTTable(T_sttno, T_stno);
+		resetInnerLang(document.getElementById('SkillAlloSimu_main'));
 	}
 	
 	function SkillAlloSimu_BuildSTTable(SkillTreeType_No, SkillTree_No){

@@ -13,10 +13,7 @@
 	bodyType_Cur = '';
 	
 	// ====== 記錄當前點擊按鈕, 處理按鈕變色
-	var SkillTreeType_CurBtn = '',
-	SkillTree_CurBtn = '',
-	Skill_CurBtn = '',
-	Weap_CurBtn = '',
+	var Weap_CurBtn = '',
 	Au_CurBtn = '',
 	body_CurBtn = '';
 	
@@ -103,7 +100,7 @@
 	/*=============================================================*/
 	var the_skill = function(tSk_no, tSk_name, tSk_Pre, tSk_type, baseAbilityStr, tSk_addDesc = ""){
 		this.Sk_no = tSk_no;     //Int
-		this.Sk_name = tSk_name.replace('_#', '#'); //String
+		this.name = tSk_name; //String
 		this.Sk_pre = tSk_Pre;
 		this.Sk_lv = 0;
 		this.Sk_W_type  = [];   //Array of String<WeaponType>
@@ -115,6 +112,16 @@
 		this.Sk_type = tSk_type;
 		//this.Sk_baseAbility = tSk_baseAbility;
 		this.Sk_calcLv = 0;
+		
+		Object.defineProperty(this, 'Sk_name', {
+			get: function(){
+				let _t = ( this.Sk_type == 'passive' ) ? '*' : '';
+				return _t + '<a data-langtext="' + this.name + '"></a>';		
+			},
+			set: function(value){
+				console.log("warring: " + value);
+			}
+		});
 		
 		this.Sk_charaAddition = [];
 		this.Sk_charaAddition_list = [];
@@ -309,11 +316,19 @@
 	}
 	
 	/*=============================================================*/
-	var the_skilltree = function(ST_no, ST_name){
-		this.ST_no = ST_no;     	//Int, NO of SkillTree, For Array
-		this.ST_name = ST_name; 	//String
+	var the_skilltree = function(tST_no, tST_name){
+		this.ST_no = tST_no;     	//Int, NO of SkillTree, For Array
+		this.name = tST_name; 	//String
 		this.ST_skill = [];     	//Array of Object<Skill>
 		this.ST_beSel = false;
+		Object.defineProperty(this, 'ST_name', {
+			get: function(){
+				return '<a data-langtext="' + this.name + '"></a>';		
+			},
+			set: function(value){
+				console.log("warring: " + value);
+			}
+		});
 	}
 	the_skilltree.prototype.Sk_No_FindLocation = function(No){
 		for (let i=0;i <this.ST_skill.length; ++i)
@@ -323,13 +338,25 @@
 	}
 	
 	var the_skilltree_type = function(tSTt_name){
-		this.STt_name = tSTt_name;
+		this.name = tSTt_name;
 		this.STt_skilltree = [];	//Array of Object<SkillTree>
-	}
+		Object.defineProperty(this, 'STt_name', {
+			get: function(){
+				return '<a data-langtext="' + this.name + '"></a>';		
+			},
+			set: function(value){
+				console.log("warring: " + value);
+			}
+		});
+	};
 	
 	var all_skilltree_type = [];
 	
-	all_skilltree_type.push(new the_skilltree_type('武器技能'), new the_skilltree_type('強化技能'), new the_skilltree_type('輔助技能'));
+	all_skilltree_type.push(
+		new the_skilltree_type('Weapon|,|武器技能|,|武器スキル'), 
+		new the_skilltree_type('Buff|,|強化技能|,|強化スキル'), 
+		new the_skilltree_type('Assist|,|輔助技能|,|補助スキル'));
+	
 	
 	//SkillTreeType_List_0~2.js
 	
@@ -394,7 +421,7 @@
 	function build_branch_onclick(Tstring, BranchAry){
 		for (let i=0; i<BranchAry.length; ++i)
 		{
-			Tstring = replaceAll(Tstring, '_&' + i + '_', '<a onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</a>');
+			Tstring = replaceAll(Tstring, '_&amp;' + i + '_', '<span onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</span>');
 		}
 		return Tstring;
 	}

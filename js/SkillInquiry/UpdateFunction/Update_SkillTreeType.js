@@ -51,6 +51,7 @@
 			}
 		}
 		document.getElementById('ul_site_SkillTree').innerHTML = Ttext;
+		resetInnerLang(document.getElementById('ul_site_SkillTree'));
 		document.getElementById('SkillTreeType_Caption').style.display = 'none';
 	}
 		
@@ -70,14 +71,8 @@
 		document.getElementById('SkillTreeType_Caption').innerHTML = Ttext;
 	}
 	function onmouseover_of_SkillTreeType(temp){
-		/* onclick_of_SkillTreeType(temp); */
+
 	}
 	function onmouseout_of_SkillTreeType(temp){
-		/* if (SkillTreeType_CurBtn != '')
-			{
-			onclick_of_SkillTreeType(document.getElementById(SkillTreeType_CurBtn));
-			}
-		else {
-			document.getElementById('SkillTreeType_Caption').innerHTML = '請點選上方「武器技能」、「強化技能」、「輔助技能」中任一按鈕以繼續。';
-			} */
+
 	}	

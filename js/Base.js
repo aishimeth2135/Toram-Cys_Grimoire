@@ -1,4 +1,13 @@
 	
+	window.onunload = () => {
+		let _charaSave = cy_character.general_saveCode();
+		if ( _charaSave != "[1,[['',9,0,0,0,[],[[],[]],['','']],['',6,0,0,0,[],[],['','']],['',3,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']]],[1,1,1,1,1,['none',1]],'################']" )
+		{
+			window.localStorage.setItem('charaSimu_saveCode_storage_Auto', ')n_' + _charaSave);
+		}
+	};
+	
+	
 	// ============================================== [ ReplaceAll ]
 	function replaceAll(Tstring, beReplace, ReplaceTo){
 		return Tstring.replace(new RegExp(beReplace, 'g'),ReplaceTo);
@@ -16,7 +25,7 @@
 	}
 	//===========================================================//
 	
-	function showWarningMsg(msg, set_msec = 3000){
+	function showWarningMsg(msg, set_msec = 4000){
 		let doc = document.getElementById('warningMsg_block');
 		
 		let cnt = 0;
@@ -58,6 +67,47 @@
 		}
 	}
 	
+	function generateImgTo(screenShotId, imgLocId, add = {}){
+		let screenShot_doc = document.getElementById(screenShotId);
+		let loc_doc = document.getElementById(imgLocId);
+		
+		let hiddenId_oddDisplay = [];
+		let pro = new Promise((resolve, reject) => {	
+			if ( add.hiddenId )
+			{
+				for (let i=0; i<add.hiddenId.length; ++i)
+				{
+					hiddenId_oddDisplay.push(document.getElementById(add.hiddenId[i]).style.display);
+					document.getElementById(add.hiddenId[i]).style.display = 'none';
+				}
+			}
+			resolve('sussess')
+		});
+		
+		pro.then(() => { return new Promise((resolve, reject) => {
+			
+				html2canvas(screenShot_doc).then(canvas => {
+					let img = canvas.toDataURL('image/png');
+					loc_doc.src = img;
+				});
+				
+			})
+		}).then(() => {return new Promise((resolve, reject) => {	//尾
+				if ( add.hiddenId )
+				{
+					for (let i=0; i<add.hiddenId.length; ++i)
+					{
+						document.getElementById(add.hiddenId[i]).style.display = hiddenId_oddDisplay[i];
+					}
+				}
+			})
+		});
+		
+		
+		
+		
+	}
+	
 	//===========================================================//
 	
 	var MenuNo_Current = 1;
@@ -82,20 +132,19 @@
 			document.getElementById('skilltree_type_' + i).innerHTML = all_skilltree_type[i].STt_name;
 		}
 	}
-	//===========================================================//
-	function update_SkillAlloSimu_STList() {		//input Skill Allocation - Simulator Skill Tree List
-		let Ttext = '';
-		for (let i=0; i<all_skilltree_type.length; ++i)
-		{
-			if (i != 0)
-			{
-				Ttext += '<hr class="hr_2" />';
-			}
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
-			{
-				Ttext += `<li><a id="SkillAlloSimu_STList_${i}_${j}" data-sttno="${i}" data-stno="${j}" onclick="Sel_SkillAlloSimu(this)">${all_skilltree_type[i].STt_skilltree[j].ST_name}</a></li>`;
-			}
-		}
-		document.getElementById('SkillAlloSimu_STList').innerHTML = '<ul>' + Ttext + '</ul>';
-	}
 	
+	function saveSetting(){
+		let settingList_id = [
+			'SkillAlloSimu_Setting_closeMenuList', 'SkillAlloSimu_Setting_closeSTList', 'SkillAlloSimu_BuildText_ignoreEmpty', 'SkillAlloSimu_BuildText_showSkillPointSum', 
+			'charaSimu_hiddenNoLearnPassiveSkill_showPassiveSkillDetail', 'charaSimu_closeAbilityValueMaxMin'
+		];
+		let str = '';
+		for (let i=0; i<settingList_id.length; ++i)
+		{
+			if ( document.getElementById(settingList_id[i]).checked ) str += '1,';
+			else str += '0,';
+		}
+		str = str.substr(0, str.length-1);
+		
+		window.localStorage.setItem('SaveSetting_1', str);
+	}

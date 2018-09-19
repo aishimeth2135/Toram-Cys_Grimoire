@@ -54,6 +54,7 @@
 		text-align:center;
 		z-index: 30;
 		background-color:#000;
+		overflow-y: auto;
 	}
 	
 	#warningMsg_block{

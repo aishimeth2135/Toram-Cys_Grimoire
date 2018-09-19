@@ -156,6 +156,7 @@
 		document.getElementById('site_Skill').setAttribute('data-isinit', 'F');
 		document.getElementById('Section_1_Block_1_1').style.display = 'block';
 		document.getElementById('ShowCaption_Body_1_openBtn').style.display = 'block';
+		resetInnerLang(document.getElementById('site_Skill'));
 	}
 	var SkillTable_size = 0;
 	function Build_SkillTree_TableText(SkillTreeType_No, SkillTree_No){

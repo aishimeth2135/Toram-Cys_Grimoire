@@ -205,11 +205,11 @@
 							case 5:
 								all_SI[8].SI_value = '弓/弩/箭矢';
 								all_SI[9].SI_value = 400;
-								all_SI[10].SI_value = '?';
+								all_SI[10].SI_value = 12;
 								all_SI[11].SI_value = '傷害、瞬發、二段';
 								all_SI[12].SI_value = '物理傷害/物理慣性。';
 								all_SI[13].SI_value = '可以';
-								all_SI[14].SI_value = '';
+								all_SI[14].SI_value = 'Charge Skill (5 Levels). Attack toward a target and deal damage in a straight line. Power increases as the charge level increases and add an attack. Add another attack by meeting certain conditions.';
 								all_SI[15].SI_value = '';
 								break;
 							case 6:
@@ -245,7 +245,7 @@
 							case 9:
 								all_SI[8].SI_value = '弓/弩/箭矢';
 								all_SI[9].SI_value = 700;
-								all_SI[10].SI_value = '?';
+								all_SI[10].SI_value = 14;
 								all_SI[11].SI_value = '傷害、瞬發';
 								all_SI[12].SI_value = '物理傷害/物理慣性。';
 								all_SI[13].SI_value = '可以';
@@ -282,7 +282,7 @@
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 400;
 								all_SI[11].SI_value = '狀態、瞬發、效果';
-								all_SI[13].SI_value = '?';
+								all_SI[13].SI_value = '可以';
 								all_SI[14].SI_value = '';
 								all_SI[15].SI_value = '';
 								break;
@@ -334,11 +334,11 @@
 							case 5:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 1600;
-								all_SI[10].SI_value = '?';
+								all_SI[10].SI_value = 12;
 								all_SI[11].SI_value = '傷害、須詠唱';
-								all_SI[12].SI_value = '魔法傷害/魔法慣性。';
+								all_SI[12].SI_value = '無屬性。<br />魔法傷害/魔法慣性。';
 								all_SI[13].SI_value = '可以';
-								all_SI[14].SI_value = '';
+								all_SI[14].SI_value = 'Super wide area of effect. Deal greater damage to enemies near the center. Cast Speed is long and unable to reduce it with CSPD. Generate Aggro while casting.';
 								all_SI[15].SI_value = '';
 								break;
 							case 6:
@@ -374,11 +374,11 @@
 							case 9:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 500;
-								all_SI[10].SI_value = '?';
+								all_SI[10].SI_value = 8 + Math.max(0, T_skillLv-5);
 								all_SI[11].SI_value = '傷害、須詠唱';
 								all_SI[12].SI_value = '魔法傷害/魔法慣性。';
 								all_SI[13].SI_value = '可以';
-								all_SI[14].SI_value = '';
+								all_SI[14].SI_value = 'Enhance magic power and shoot out. Chance to Knock Back the target aiming at you. Cast Time is very long, however, it is shortened by using Magic Skills before casting.';
 								all_SI[15].SI_value = '';
 								break;
 							case 10:
@@ -465,11 +465,11 @@
 							case 5:
 								all_SI[8].SI_value = '無限制';
 								all_SI[9].SI_value = 500;
-								all_SI[10].SI_value = '?';
+								all_SI[10].SI_value = 12;
 								all_SI[11].SI_value = '傷害、須蓄力';
 								all_SI[12].SI_value = '物理傷害/物理慣性。';
 								all_SI[13].SI_value = '可以';
-								all_SI[14].SI_value = '';
+								all_SI[14].SI_value = 'Shoot out the energy inside of the character. Chance to inflict [Fear] on the target. Charge Time is shortened depending on the skill level.';
 								all_SI[15].SI_value = '';
 								break;	
 							case 6:
@@ -693,7 +693,7 @@
 							case 5:
 								all_SI[8].SI_value = '旋風槍';
 								all_SI[9].SI_value = 500;
-								all_SI[10].SI_value = '?';
+								all_SI[10].SI_value = 12;
 								all_SI[11].SI_value = '傷害、瞬發';
 								all_SI[12].SI_value = '物理傷害/物理慣性。';
 								all_SI[13].SI_value = '可以';

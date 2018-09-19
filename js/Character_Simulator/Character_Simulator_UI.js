@@ -1,3 +1,4 @@
+
 	
 	function charaSimu_openDefaultEquipList(temp){
 		let doc = document.getElementById('CharaSimu_selDefaultEquip');
@@ -74,7 +75,8 @@
 			}
 			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="charaSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
 		}
-		Ttext += '</ul>';
+		let _loadCode = window.localStorage['charaSimu_saveCode_storage_Auto'].split(')n_')[1]; 
+		Ttext += `<li>Auto Save<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li></ul>`;
 		document.getElementById('charaSimu_SaveCode_dataList').innerHTML = Ttext;
 		resetInnerLang(document.getElementById('charaSimu_SaveCode_dataList'));
 	}
@@ -85,19 +87,22 @@
 		switch (control)
 		{
 			case 'saveTo':
-				if ( temp.value == '' )
+				let saveName = temp.value;
+				if ( saveName == '' )
 				{
 					temp.parentNode.style.display = 'none';
 					showWarningMsg('Cancle.');
 					return;
 				}
 				let t_lino = temp.getAttribute('data-lino');
-				let saveCode = temp.value + ')n_' + cy_character.general_saveCode();
+				if ( saveName == /@\s*/ ) saveName = window.localStorage['charaSimu_saveCode_storage' + t_lino].split(')n_')[0];
+				let saveCode = saveName + ')n_' + cy_character.general_saveCode();
 				window.localStorage.setItem('charaSimu_saveCode_storage' + t_lino, saveCode);
 				charaSimu_resetSaveCodeList();
 				temp.parentNode.style.display = 'none';
 				break;
 			case 'load':
+				window.localStorage.setItem('charaSimu_saveCode_storage_Auto', ')n_' + cy_character.general_saveCode());
 				loadCode = temp.getAttribute('data-loadingcode');
 				cy_character.loading_saveCode(loadCode);
 				break;
@@ -139,22 +144,12 @@
 		
 		_html = '';
 		_html += '<div style="clear:both;" class="charaSimu_equipSaveLoad_main" style="padding:0;">';
-		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="charaSimu_showEquipToImg(this)"><a data-langtext="Generate Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
+		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="generateImgTo('CharaSimu_setEquipBase', 'charaSimu_showEquipImage')"><a data-langtext="Generate Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
 		_html += '</div>';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
 		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
 		
-	}
-	function charaSimu_showEquipToImg(temp){
-		let doc = document.getElementById('charaSimu_showEquipImage');
-		let screenShot_doc = document.getElementById('CharaSimu_setEquipBase');
-		let _ary = screenShot_doc.getElementsByTagName('img');
-		let _svg = [];
-		html2canvas(screenShot_doc).then(canvas => {
-			let img = canvas.toDataURL('image/png');
-			doc.src = img;
-		});
 	}
 	
 	function charaSimu_openPassiveSkillList(){	
@@ -250,8 +245,8 @@
 							case 1: _lang_controlLength = 4.7; break;
 							case 2: _lang_controlLength = 8.25; break;
 						}
-						if ( _text == '') _html += `<tr><td>${_skill.Sk_name.replace('#', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td></tr>`;
-						else _html += `<tr><td style="width:${_lang_controlLength}rem;">${_skill.Sk_name.replace('#', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;">${_text}</td></tr>`;
+						if ( _text == '') _html += `<tr><td>${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td></tr>`;
+						else _html += `<tr><td style="width:${_lang_controlLength}rem;">${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;">${_text}</td></tr>`;
 					}
 				}
 			}
@@ -271,7 +266,8 @@
 		resetInnerLang(document.getElementById('CharaSimu_setEquipBase'));
 		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
 	}
-	function charaSimu_passiveSkill_lvToCalcLv(){
+	function charaSimu_passiveSkill_lvToCalcLv(temp){
+		
 		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
@@ -543,10 +539,10 @@
 		{
 			_html += '<div class="equipField_blockUnit">';
 			if ( t_fieldNo != 5 ) _html += `<img style="height:25px;width:25px;vertical-align:middle;margin-right: 0.5rem;" src="svg/xtal-icon_0.svg" /><input style="width:75%;" data-langtext="${t_equipfield.xtalNames[0]}" type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'xtalName1')" data-langplaceholder="Xtal name...|,|鍛晶名稱...|,|Xtal name..." />`;
-			_html += `</div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(1)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_1" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'xtal1')"><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal1"></ul></fieldset></div>`;
+			_html += `</div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(1)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_1" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'xtal1')"><img src="svg/reset-icon.svg" /><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal1"></ul></fieldset></div>`;
 			_html += '<div class="equipField_blockUnit">';
 			if ( t_fieldNo != 5 ) _html += `<img style="height:25px;width:25px;vertical-align:middle;margin-right: 0.5rem;" src="svg/xtal-icon_0.svg" /><input style="width:75%;" data-langtext="${t_equipfield.xtalNames[1]}" type="text" class="equipField_name" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'xtalName2')" data-langplaceholder="Xtal name...|,|鍛晶名稱...|,|Xtal name..." />`;
-			_html += `</div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(2)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_2" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'xtal2')"><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal2"></ul></fieldset></div>`;
+			_html += `</div><div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(2)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_2" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'xtal2')"><img src="svg/reset-icon.svg" /><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_xtal2"></ul></fieldset></div>`;
 		}
 		_html += '</div></div>';
 		_html += `<div class="equipField_mainBlock_3"><span style="float:right;display:inline-block;cursor:pointer;" onclick="CharaSimu_resetSetEquipShowDetail(),CharaSimu_updateSetEquipShowDetail()"><img height="20" width="20" src="svg/reset-icon.svg" /></span><div id="CharaSimu_setEquipAbility_showDetail"></div></div>`;
@@ -818,7 +814,7 @@
 	
 	function show_charaStats(){
 		let cy = cy_character.statList;
-		let _html = '<div class="charaSimu_switchMode"><span onclick="set_charaStatPoint()"><a data-langtext="&gt; Set character point|,|&gt; 修改角色能力|,|&gt; Set character point"></a></span></div>';
+		let _html = '<div class="charaSimu_switchMode" id="charaSimu_switchMode_block"><span onclick="set_charaStatPoint()"><a data-langtext="&gt; Set character point|,|&gt; 修改角色能力|,|&gt; Set character point"></a></span></div>';
 		
 		let blockAry = ['max_hp', 'atk', 'stability', 'def', 'critical_rate', 'accuracy', 'aggro', 'evasion_rate', 'unsheathe_attack', 'stronger_against_neutral', 'neutral_resistance', 'physical_barrier', 'additional_meele', 'flinch_unavailable', 'recoil_damage'];
 		let _cnt = 0;
@@ -919,10 +915,17 @@
 		}
 		if ( __html != '') _html += '<div class="charaSimu_showStat_blockUnit1">' + __html + '</div>';
 		
-		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
+		document.getElementById('CharaSimu_setEquipBase').innerHTML = _html;
+		resetInnerLang(document.getElementById('CharaSimu_setEquipBase'));
+	
+		_html = '';
+		_html += '<div style="clear:both;" class="charaSimu_equipSaveLoad_main" style="padding:0;">';
+		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="generateImgTo('CharaSimu_setEquipBase', 'charaSimu_showEquipImage', {hiddenId:['charaSimu_switchMode_block']})"><a data-langtext="Generate Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
+		_html += '</div>';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
-		document.getElementById('CharaSimu_setEquipBase').innerHTML = '';
+		
+		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
 	}
 	
 	function set_charaStatPoint(){
@@ -1191,3 +1194,11 @@
 		document.getElementById('CharaSimu_setEquipAbility_abilityList').innerHTML = Ttext;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipAbility_abilityList'));
 	}
+	
+	
+	
+	
+	document.getElementById('charaSimu_resetCharacter').addEventListener('click', () => {
+		window.localStorage.setItem('charaSimu_saveCode_storage_Auto', ')n_' + cy_character.general_saveCode());
+		cy_character.loading_skillCode("[1,[['',9,0,0,0,[],[[],[]],['','']],['',6,0,0,0,[],[],['','']],['',3,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']]],[1,1,1,1,1,['none',1]],'################']");
+	});
