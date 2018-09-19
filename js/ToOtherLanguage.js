@@ -109,8 +109,11 @@
 		// ================================== 
 		resetInnerLang(document);
 		
-		show_discription_1();
-		show_discription_2();
+		if ( document.getElementById('site_Skill').getAttribute('data-skillcode') != "" )
+		{
+			show_discription_1();
+			show_discription_2();
+		}
 	}
 	
 	function resetInnerLang(_dom){

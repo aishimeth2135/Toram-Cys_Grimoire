@@ -112,13 +112,12 @@
 			document.getElementById('CharaSimu_menu').innerHTML = Ttext;
 		})();
 		CharaSimu_resetSetEquipShowDetail();
-		charaSimu_resetSaveCodeList();
-	
-		
-	} catch(e) {
-		errorForStop_msg("Initialize Character-Simulator false. MSG:" + String(e.stack));
-		console.log(e);
+		charaSimu_resetSaveCodeList();	
+	} 
+	catch(e) {
+		errorForStop_msg("Initialize Character-Simulator false.", e);
 	}
+	
 	try {
 		(function(){	//讀取設定
 			if ( !window.localStorage['SaveSetting_1'] ) return;
@@ -137,8 +136,7 @@
 		})();
 	}
 	catch(e){
-		errorForStop_msg("Initialize SaveSetting false. MSG:" + String(e.stack));
-		console.log(e);
+		errorForStop_msg("Initialize SaveSetting false", e);
 	}
 
 	(function (){
