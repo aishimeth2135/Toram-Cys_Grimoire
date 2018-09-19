@@ -75,7 +75,8 @@
 			}
 			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="charaSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
 		}
-		let _loadCode = window.localStorage['charaSimu_saveCode_storage_Auto'].split(')n_')[1]; 
+		let _loadCode = '';
+		if ( window.localStorage['charaSimu_saveCode_storage_Auto'] ) _loadCode = window.localStorage['charaSimu_saveCode_storage_Auto'].split(')n_')[1]; 
 		Ttext += `<li>Auto Save<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li></ul>`;
 		document.getElementById('charaSimu_SaveCode_dataList').innerHTML = Ttext;
 		resetInnerLang(document.getElementById('charaSimu_SaveCode_dataList'));
