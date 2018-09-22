@@ -23,10 +23,7 @@
 		if (T_langno == getCur_languageNo()) { return; }
 		
 		let armsTitleAry = [];
-		
-		let SI_name_ary = [];
-		let SI_unit_ary = [];
-		
+
 		switch (T_langno)
 		{
 			case 0:
@@ -39,10 +36,6 @@
 				cy_character.allBodyType = ['Normal', 'Dodge', 'Defence', 'none'];
 				
 				armsTitleAry = ['Main Weapon', 'Sub-Weapon', 'Body Armor'];
-				
-				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                          , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
-				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'          , 'O'           , ' sec'          , ' sec'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
-				
 				break;
 			case 1:
 				All_WeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '雙劍', '拔刀劍', '其它'];
@@ -54,9 +47,6 @@
 				cy_character.allBodyType = ['一般', '輕量化', '重量化', '無'];
 				
 				armsTitleAry = ['主手裝備', '副手裝備', '身體裝備'];
-				
-				SI_name_ary = ['O', 'O', 'O', 'O', '<u>額外加成</u>', 'O', 'O', 'O', '適用｜', 'MP消耗｜', '射程｜', '類型｜', 'O', 'O'             , 'O', 'O', '作用方式｜', '動作時間｜', '詠唱時間｜', '蓄力時間｜', '傷害次數｜', '作用次數｜', '<br>範圍中心｜', '影響半徑｜', '<br />持續時間｜', '_@命中成功後，有', 'O' , 'O', 'O', 'O'];
-				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'              , 'O', 'O', 'O', 'O'     , 'O'       , 'O'     , 'O'     , 'O', '</u>放入連撃。', 'O', 'O', 'O'         , 'O'         , '秒'        , '秒'        , '次'        , '次'        , 'O'             , 'O'         , '秒'              , '%機率使敵人'     , '。', 'O', 'O', 'O'];
 				break;
 			case 2:
 				All_WeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '抜刀剣', 'その他'];
@@ -68,38 +58,15 @@
 				cy_character.allBodyType = ['通常', '軽量化', '重量化', 'なし'];
 				
 				armsTitleAry = ['メイン装備', 'サブ装備', '体装備'];
-				
-				SI_name_ary = ['O', 'O', 'O', 'O', '<u>Other</u>', 'O', 'O', 'O', 'Equipping｜ ', 'MP Cost｜ ', 'Range｜ ', 'Category｜ ', 'O', 'O'                    , 'O', 'O', 'Skill Type｜ ', 'Action Time｜ ', 'Casting Time｜ ', 'Charging Time｜ ', 'Damege Frequency｜ ', '作用次數｜', 'AOE Center｜ ', 'AOE Radius｜ ', '<br />Duration｜ ', 'After successful hit, there is ', 'O', 'O', 'O', 'O'];
-				SI_unit_ary = ['O', 'O', 'O', 'O', 'O'           , 'O', 'O', 'O', 'O'           , 'O'         , 'O'       , 'O'          , 'O', '</u>&nbsp;put into Combo.', 'O', 'O', 'O'      , 'O'           , ' sec.'          , ' sec.'           , ' times'             , ' times'    , 'O'            , 'm'            , ' sec'            , '% chance to make the enemy '    , '.', 'O', 'O', 'O'];
 				break;
 		}
-		//能力清單
-		for (let i=0; i<all_SI.length; ++i)
-		{
-			if (SI_name_ary[i] != 'O')
-			{
-				all_SI[i].SI_name = SI_name_ary[i];
-			}
-			if (SI_unit_ary[i] != 'O')
-			{
-				all_SI[i].SI_unit = SI_unit_ary[i];
-			}
-		}
+
 		// ================================== 技能樹類型、技能樹、技能名稱
 		for (let i=0; i<armsTitleAry.length; ++i)
 		{
 			document.getElementById('armsTitle_' + String(i)).innerHTML = armsTitleAry[i];
 		}
-		
-		/* (function (){
-			let T_code = document.getElementById('SkillAlloSimu_SaveCode_text').value;
-			SkillAlloSimu_SaveCode_Save();
-			let Tc = document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked;
-			document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked = false;
-			SkillAlloSimu_SaveCode_Load();
-			document.getElementById('SkillAlloSimu_Setting_closeMenuList').checked = Tc;
-			document.getElementById('SkillAlloSimu_SaveCode_text').value = T_code;
-		})(); */
+
 		if (getCur_languageNo() != -1)
 		{
 			document.getElementById('selLang_' + String(getCur_languageNo())).className = '';

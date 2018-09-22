@@ -48,8 +48,8 @@
 			}
 			else {
 				let doc = document.getElementById('skill_' + i);
-				doc.innerHTML = "(尚未開放)";
-				doc.onclick = '';
+				doc.innerHTML = '<a data-langtext="(Unknow)|,|(尚未開放)"></a>';
+				doc.setAttribute('onclick', '');
 			}
 		}
 		$('#site_Skill').fadeIn(400);

@@ -45,7 +45,7 @@
 				new cy_statBase('Guard Power|,|阻擋力|,|Guard力'							, 'Guard Power|,|阻擋力|,|Guard力'										, 'guard_power'				, false	, true	, true	, 0		, '%', 75, 0),
 				new cy_statBase('Unsheathe Attack Addition|,|拔刀攻擊加成|,|抜刀攻撃加算'	, 'Unsheathe Attack|,|拔刀攻擊|,|抜刀攻撃'								, 'unsheathe_attack'		, false	, true	, true	, 0),
 				new cy_statBase('Unsheathe Attack Damage|,|拔刀攻擊傷害|,|抜刀攻撃威力'		, 'Unsheathe Attack|,|拔刀攻擊|,|抜刀攻撃'								, 'unsheathe_attack%'		, false	, true	, true	, 100	, '%'),
-				new cy_statBase(''															, 'Neutral|,|火屬性|,|火属性'											, 'fire@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
+				new cy_statBase(''															, 'Fire|,|火屬性|,|火属性'												, 'fire@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
 				new cy_statBase(''															, 'water|,|水屬性|,|水属性'												, 'water@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
 				new cy_statBase(''															, 'Earth|,|地屬性|,|地属性'												, 'earth@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),
 				new cy_statBase(''															, 'Wind|,|風屬性|,|風属性'												, 'wind@elements'			, false	, 'hid'	, 'MS'	, 'none', '', 1),

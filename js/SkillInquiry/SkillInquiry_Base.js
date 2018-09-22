@@ -23,49 +23,51 @@
 		this.SI_name = tSI_name;       //String, SkillItem名稱
 		this.SI_value = tSI_value;     //Number or String, SkillItem值
 		this.SI_unit = tSI_unit;       //String, 單位、後綴
+		this.def_name = tSI_name;
+		this.def_unit = tSI_unit;
 	}
 	
 	
 	var all_SI = [];
 	// ================================== [ 通用 0~7]
 	all_SI.push(
-		new skill_item(0, '', '', ''),					//0, 傷害、治癒量......
-		new skill_item(1, '', '', ''),    				//1,有效atk/matk
-		new skill_item(2, '+', 0, ''), 					//2, 技能常數
-		new skill_item(3, ' ×', 0, ''), 					//3, 技能倍率
-		new skill_item(4, '<u>額外加成</u>', '', ''),		//4
-		new skill_item(5, '', 0, ''), 						//5, BUFF-1
-		new skill_item(6, '', 0, ''), 						//6, BUFF-2
-		new skill_item(7, '', 0, ''), 						//7, BUFF-3
+		new skill_item(0	, '', '', ''),					//0, 傷害、治癒量......
+		new skill_item(1	, '', '', ''),    				//1,有效atk/matk
+		new skill_item(2	, '+', 0, ''), 					//2, 技能常數
+		new skill_item(3	, ' ×', 0, ''), 					//3, 技能倍率
+		new skill_item(4	, '<u>Add.</u>|,|<u>額外加成</u>', '', ''),		//4
+		new skill_item(5	, '', 0, ''), 						//5, BUFF-1
+		new skill_item(6	, '', 0, ''), 						//6, BUFF-2
+		new skill_item(7	, '', 0, ''), 						//7, BUFF-3
 		
 		//8~15
-		new skill_item(8, '適用｜', '', ''),				//8
-		new skill_item(9, 'MP消耗：', 0, ''),				//9
-		new skill_item(10, '射程：', '', 'm'),				//10
-		new skill_item(11, '類型：', '', ''),				//11
-		new skill_item(12, '<br />', '', ''),					//12
-		new skill_item(13, '<br /><u>', '', '</u>放入連撃。'),//13
-		new skill_item(14, '', '', ''),  					//14, 遊戲內技能說明
-		new skill_item(15, '', '', ''),  					//15, 額外說明
+		new skill_item(8	, 'Equipping｜|,|適用｜', '', ''),				//8
+		new skill_item(9	, 'MP Cost｜|,|MP消耗｜', 0, ''),				//9
+		new skill_item(10	, 'Range｜|,|射程｜', '', 'm'),				//10
+		new skill_item(11	, 'Category｜|,|類型｜', '', ''),				//11
+		new skill_item(12	, '<br />', '', ''),					//12
+		new skill_item(13	, '<br /><u>', '', '</u>&nbsp;added in Combo.|,|</u>放入連撃。'),//13
+		new skill_item(14	, '', '', ''),  					//14, 遊戲內技能說明
+		new skill_item(15	, '', '', ''),  					//15, 額外說明
 		
 		// ================================== [ 變動 16~24]
-		new skill_item(16, '作用方式：', '', ''),			//16
-		new skill_item(17, '動作時間：', '', ''),			//17
-		new skill_item(18, '詠唱時間：', '', '秒'),			//18
-		new skill_item(19, '蓄力時間：', '', '秒'),			//19
-		new skill_item(20, '傷害次數：', '', '次'),			//20
-		new skill_item(21, '作用次數：', '', '次'),			//21
-		new skill_item(22, '<br>範圍中心：', '', ''),		//22
-		new skill_item(23, '影響半徑：', '', 'm'),			//23
-		new skill_item(24, '<br />持續時間：', '', '秒'),		//24
+		new skill_item(16	, 'Skill Type｜|,|作用方式：', '', ''),			//16
+		new skill_item(17	, 'Action Time｜|,|動作時間：', '', ''),			//17
+		new skill_item(18	, 'Casting Time｜|,|詠唱時間：', '', ' secs.|,|秒'),			//18
+		new skill_item(19	, 'Charging Time｜|,|蓄力時間：', '', ' secs.|,|秒'),			//19
+		new skill_item(20	, 'Hit Count｜|,|傷害次數：', '', ' times|,|次'),			//20
+		new skill_item(21	, 'Frequency｜|,|作用次數：', '', ' times|,|次'),			//21
+		new skill_item(22	, 'AOE Center｜|,|<br>範圍中心：', '', ''),		//22
+		new skill_item(23	, 'AOE Radius｜|,|影響半徑：', '', 'm'),			//23
+		new skill_item(24	, 'Duration｜|,|<br />持續時間：', '', ' secs.|,|秒'),		//24
 		
 		// ================================== [ 機率 ]
-		new skill_item(25, '_@命中成功後，有', '', '%機率使敵人'),	//25
-		new skill_item(26, '', '', '。'),	//異常狀態			//26
+		new skill_item(25	, 'After successful hit, there is |,|_@命中成功後，有', '', '% chance to make the enemy |,|%機率使敵人'),	//25
+		new skill_item(26	, '', '', '。'),	//異常狀態			//26
 		
-		new skill_item(27, '', '', ''),							//27, 額外說明
-		new skill_item(28, '', '', ''), 							//28, 額外說明
-		new skill_item(29, '', '', '')); 							//29, 額外說明
+		new skill_item(27	, '', '', ''),							//27, 額外說明
+		new skill_item(28	, '', '', ''), 							//28, 額外說明
+		new skill_item(29	, '', '', '')); 							//29, 額外說明
 	
 	
 	/*=============================================================*/
@@ -422,6 +424,7 @@
 		for (let i=0; i<BranchAry.length; ++i)
 		{
 			Tstring = replaceAll(Tstring, '_&amp;' + i + '_', '<span onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</span>');
+			Tstring = replaceAll(Tstring, '_&&;' + i + '_', '<span onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</span>');
 		}
 		return Tstring;
 	}

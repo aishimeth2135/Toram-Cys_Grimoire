@@ -167,8 +167,8 @@
 				}
 				else {
 					let doc = document.getElementById(`SkillAlloSimu_Skill_${No_STT}_${No_ST}_${i+1}`);
-					doc.innerHTML = "(尚未開放)";
-					doc.onclick = '';
+					doc.innerHTML = '<a data-langtext="(Unknow)|,|(尚未開放)"></a>';
+					doc.setAttribute('onclick', '');
 				}
 			}
 		})(T_Ary, SkillTreeType_No, SkillTree_No, Tsize);
@@ -614,6 +614,11 @@
 					Ttext += T_sum_SkillLv_title[getCur_languageNo()] + sum_SkillLv;
 				}
 				break;
+		}
+		let _reg = /<a data-langtext="([^\"]*)"><\/a>/;
+		while ( Ttext.match(_reg) )
+		{
+			Ttext = Ttext.replace(_reg, RegExp.$1.split('|,|')[getCur_languageNo()] || RegExp.$1.split('|,|')[0]);
 		}
 		let T_watermark = ["(Copy from Cy's Grimoire)", "(產生自Cy's Grimoire)", "(Copy from Cy's Grimoire)"];
 		document.getElementById('SkillAlloSimu_BuildText_textarea').value = Ttext + "\r\n" + T_watermark[getCur_languageNo()];

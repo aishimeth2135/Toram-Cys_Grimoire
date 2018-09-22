@@ -15,28 +15,16 @@
 		//初始化Skill Item
 		for (let i=0; i<=7; ++i)
 		{
-			all_SI[i].SI_value = '';
+			all_SI[i].SI_value = 0;
+			all_SI[i].SI_name = all_SI[i].def_name;
+			all_SI[i].SI_unit = all_SI[i].def_unit;
 		}
-		all_SI[5].SI_name = '';
-		all_SI[5].SI_unit = '';
-		all_SI[6].SI_name = '';
-		all_SI[6].SI_unit = '';
-		all_SI[7].SI_name = '';
-		all_SI[7].SI_unit = '';
-		for (let i=16; i<all_SI.length; ++i)
+		for (let i=16; i<all_SI[i].length; ++i)
 		{
-			all_SI[i].SI_value = '';
+			all_SI[i].SI_value = 0;
+			all_SI[i].SI_name = all_SI[i].def_name;
+			all_SI[i].SI_unit = all_SI[i].def_unit;
 		}
-		if (all_SI[24].SI_unit != '秒')
-		{
-			all_SI[24].SI_unit = '秒';
-		}
-		all_SI[27].SI_name = '';
-		all_SI[28].SI_name = '';
-		all_SI[29].SI_name = '';
-		all_SI[27].SI_unit = '';
-		all_SI[28].SI_unit = '';
-		all_SI[29].SI_unit = '';
 		
 		//根據技能編號及分支名稱輸入SI_value
 		switch (No_STT)
@@ -52,14 +40,14 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 5*T_skillLv;
-										all_SI[26].SI_value = '_@膽怯';
+										all_SI[26].SI_value = 'Flinch|,|_@膽怯';
 										break;
 								}
 								break;
@@ -68,18 +56,18 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 150 + 5*T_skillLv;
 										all_SI[3].SI_value = 150 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[20].SI_value = 1;
-										all_SI[27].SI_name = '若技能未被迴避，';
-										all_SI[27].SI_value = 5*parseInt((T_skillLv+6)/6);
-										all_SI[27].SI_unit = '秒';
-										all_SI[28].SI_name = '內自身暴擊率+';
+										all_SI[27].SI_name = 'If the skill hits, in |,|若技能未被迴避，';
+										all_SI[27].SI_value = 5 + 5*parseInt(T_skillLv/6);
+										all_SI[27].SI_unit = ' secs. |,|秒';
+										all_SI[28].SI_name = 'crit rate +|,|內自身暴擊率+';
 										all_SI[28].SI_value = 25;
-										all_SI[28].SI_unit = '。';
+										all_SI[28].SI_unit = '.|,|。';
 										break;
 								}
 								break;
@@ -88,11 +76,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 200 + 10*T_skillLv;
 										all_SI[3].SI_value = 150 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[20].SI_value = 1;
 										all_SI[27].SI_name = '裝備單手劍時，';
 										all_SI[27].SI_value = '';
@@ -130,7 +118,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = '每次傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 300 + 20*T_skillLv;
 										all_SI[3].SI_value = 50 + 5*T_skillLv;
 										all_SI[16].SI_value = '追加傷害';
@@ -138,7 +126,7 @@
 										break;
 									case 3:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 300 + 20*T_skillLv;
 										all_SI[3].SI_value = 250 + 5*T_skillLv;
 										all_SI[16].SI_value = '追加傷害';
@@ -155,7 +143,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 400 + 20*T_skillLv;
 										all_SI[3].SI_value = 400 + 20*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -166,7 +154,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 100 + 50*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -182,11 +170,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 5*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '範圍直線傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置-目標位置';
 										all_SI[23].SI_value = 2;
@@ -203,11 +191,11 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 5*T_skillLv;
 										all_SI[3].SI_value = 200 + 10*T_skillLv;
 										all_SI[16].SI_value = '範圍直線傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置-目標後方1m處';
 										all_SI[23].SI_value = 2;
@@ -223,11 +211,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每次傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 30;
 										all_SI[3].SI_value = 10 + 3*T_skillLv;
 										all_SI[16].SI_value = '設置單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 10;
 										all_SI[24].SI_value = '約1~2';
 										all_SI[27].SI_value = '此技能必定不暴擊。';
@@ -242,11 +230,11 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '向目標發射一道_&1_，刃風將在造成傷害後消失，並隨即於目標位置產生_&2_。';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 150 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -254,7 +242,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = '每下傷害：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 80;
 										all_SI[3].SI_value = 50 + 5*T_skillLv;
 										all_SI[16].SI_value = '設置範圍傷害';
@@ -270,7 +258,7 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每次傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 30*T_skillLv;
 										all_SI[3].SI_value = 75*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -336,7 +324,7 @@
 										all_SI[5].SI_value = T_skillLv;
 										all_SI[5].SI_unit = '%。';
 										all_SI[16].SI_value = '隊伍狀態加成';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[24].SI_value = 15 + T_skillLv;
 										all_SI[27].SI_value = '獲得狀態時，會消除身上的_@畏懼狀態。';
 										break;
@@ -388,11 +376,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 8*T_skillLv;
 										all_SI[3].SI_value = 125 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[19].SI_value = 5.5 - 0.5*parseInt(T_skillLv/2);
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 10 + 10*parseInt((T_skillLv+2)/3);
@@ -409,7 +397,7 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害： (共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 30 + 4*T_skillLv;
 										all_SI[3].SI_value = 25 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -430,11 +418,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 200 + 20*T_skillLv;
 										all_SI[3].SI_value = 300 + 50*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[19].SI_value = 7 - 0.5*T_skillLv;
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 40 + 4*T_skillLv;
@@ -450,11 +438,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 10*parseInt((T_skillLv+1)/2);
 										all_SI[3].SI_value = 100 + 6*parseInt(T_skillLv/2);
 										all_SI[16].SI_value = '設置範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = input_SI_value_bySelection('Weap', ['Bow'], [2*(1 + parseInt(T_skillLv/3)), 1 + parseInt(T_skillLv/3)]);
 										all_SI[22].SI_value = '目標位置';
 										all_SI[23].SI_value = 2;
@@ -474,12 +462,12 @@
 											case 5: _t1 = '1/3/8/18/35'; break;
 										}
 										all_SI[0].SI_value = `此技能施放完畢後，將會獲得一狀態，並使消耗MP變為0。狀態期間將會隨時間充能，並根據充能層數增加此技能的傷害。再次施放時將會發射此技能，並使狀態結束。<br />充能期間角色旁邊會出現一顆橘色的小球，充能之層數最多達${1 + parseInt((T_skillLv+2)/3)}層，層數將在充能${_t1}秒時增加。<br />受到任何傷害或充能達最大層數時，充能將會停止計時，橘色小球將會變成紅色。<br /><br />火線傷害：`;
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 300 + 10*T_skillLv;
 										all_SI[3].SI_value = '(' + input_SI_value_bySelection('Weap', ['Bow'], [500 + 50*T_skillLv, 400 + 50*T_skillLv]) + ' ×充能層數)';
 										all_SI[5].SI_value = '<p此段傷害將會飛行至100m處</p>';
 										all_SI[16].SI_value = '直線範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = '(每次) 1';
 										all_SI[23].SI_value = 1;
 										all_SI[24].SI_value = parseInt(T_skillLv*T_skillLv/2) + 10;
@@ -492,12 +480,12 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 60 + 2*T_skillLv;
 										all_SI[3].SI_value = '(' + (80 + 10*T_skillLv) + '*充能層數)';
 										all_SI[5].SI_value = '<p此段傷害將會飛行至100m處</p>';
 										all_SI[16].SI_value = '直線範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[23].SI_value = 1;
 										break;
@@ -508,11 +496,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 50 + 2*T_skillLv
 										all_SI[26].SI_value = '_@遲緩';
@@ -524,11 +512,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 20*T_skillLv;
 										all_SI[3].SI_value = 110 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 60 + T_skillLv;
 										all_SI[26].SI_value = '_@麻痺';
@@ -544,11 +532,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 200 + 30*T_skillLv;
 										all_SI[3].SI_value = 120 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 50 + 2*T_skillLv;
 										all_SI[26].SI_value = '_@盲目';
@@ -564,11 +552,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 300 + 40*T_skillLv;
 										all_SI[3].SI_value = 1300 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 50 + 2*T_skillLv;
 										all_SI[26].SI_value = '_@乏力';
@@ -597,7 +585,7 @@
 										all_SI[5].SI_value = T_skillLv;
 										all_SI[5].SI_unit = '次攻擊不會產生仇恨值。<br />(攻擊：普通攻擊或技能)';
 										all_SI[16].SI_value = '狀態效果';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										break;
 								}
 								break;
@@ -630,8 +618,9 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '詠唱完畢後，將創造一分身於自身前方2m處。分身將會對鎖定的目標不斷進行一般攻擊。<br />分身的射程為角色裝備武器的最大攻擊距離、攻擊速度繼承角色的攻擊速度。<br />分身的一般攻擊將會觸發攻擊MP恢復、產生仇恨值，但不會產生慣性。<br /><br />分身傷害：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[3].SI_value = 20 + 8*T_skillLv;
+										all_SI[24].SI_value = 10 + parseInt(T_skillLv*T_skillLv/2);
 										all_SI[27].SI_value = '- 分身的攻擊會觸發_@猛毒的扣血效果。<br />- 強射無法增加分身的攻擊距離。<br />- 「提升一般攻擊傷害」類的狀態，不會影響分身的傷害。<br />- 裝備雙劍時，分身一樣會提供兩倍的攻擊MP恢復，不過只會發動主手武器的一般攻擊。';
 										break;
 								}
@@ -646,11 +635,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 10 + T_skillLv;
 										all_SI[3].SI_value = 45 + 5*T_skillLv;
 										all_SI[16].SI_value = '設置單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[18].SI_value = 2;
 										all_SI[20].SI_value = 1 + parseInt((T_skillLv+1)/2);
 										all_SI[24].SI_value = '約' + (1 + parseInt((T_skillLv+1)/2))/2;
@@ -662,11 +651,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 50 + 15*T_skillLv;
 										all_SI[3].SI_value = 150 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[25].SI_value = 2*T_skillLv;
 										all_SI[26].SI_value = '受到異常狀態';
 										
@@ -680,11 +669,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 25 + 10*T_skillLv;
 										all_SI[3].SI_value = 75 + 5*T_skillLv;
 										all_SI[16].SI_value = '設置單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[18].SI_value = 2;
 										all_SI[20].SI_value = 2 + parseInt(T_skillLv/6);
 										all_SI[24].SI_value = 3.5*(2 + parseInt((T_skillLv-1)/5));
@@ -700,11 +689,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 25*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[18].SI_value = parseInt(3 - T_skillLv/3);
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置';
@@ -722,11 +711,11 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 10*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[18].SI_value = parseInt(3 - T_skillLv/3);
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置';
@@ -744,12 +733,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '第一段傷害：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 300*T_skillLv;
 										all_SI[3].SI_value = 500 + 100*T_skillLv;
 										all_SI[5].SI_value = '<p>第二段傷害為第一段的2/3倍，第三段傷害為第二段的1/2倍。每段傷害分開判定。</p>';
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[18].SI_value = 13 - T_skillLv;
 										all_SI[20].SI_value = 3;
 										all_SI[22].SI_value = '目標位置';
@@ -765,11 +754,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 25 + 1*T_skillLv;
 										all_SI[3].SI_value = 80 + 4*T_skillLv;
 										all_SI[16].SI_value = '設置範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[18].SI_value = 1;
 										all_SI[20].SI_value = 5 + parseInt((T_skillLv+1)/2);
 										all_SI[22].SI_value = '自身位置';
@@ -787,11 +776,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 180 + 20*T_skillLv;
 										all_SI[3].SI_value = 250 + 45*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[18].SI_value = 6;
 										all_SI[20].SI_value = 1;
 										all_SI[23].SI_value = 3;
@@ -807,11 +796,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 50 + 3*T_skillLv;
 										all_SI[3].SI_value = 180 + 2*T_skillLv;
 										all_SI[16].SI_value = '設置範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[18].SI_value = 1;
 										all_SI[20].SI_value = 1 + parseInt(T_skillLv/2);
 										all_SI[22].SI_value = '目標位置';
@@ -827,14 +816,14 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 200 + 10*T_skillLv;
 										all_SI[3].SI_value = 1000 + 50*T_skillLv;
 										all_SI[5].SI_name = '<p>此技能之傷害範圍為扇形，技能將會以目標為中點，飛行至最遠射程為止。扇形之角度為';
 										all_SI[5].SI_value = 40 + 2*T_skillLv;
 										all_SI[5].SI_unit = '°。</p>'
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[18].SI_value = 8;
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '目標位置';
@@ -895,7 +884,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[3].SI_value = 5*T_skillLv;
 										all_SI[16].SI_value = '普通攻擊';
 										all_SI[17].SI_value = '同普通攻擊';
@@ -926,14 +915,14 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 5*T_skillLv;
 										all_SI[3].SI_value = 50 + 2*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 50 + 25*parseInt(T_skillLv/6);
-										all_SI[26].SI_value = '_@膽怯';	
+										all_SI[26].SI_value = 'Flinch|,|_@膽怯';	
 										break;
 								}
 								break;
@@ -942,12 +931,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[4].SI_value = '';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = input_SI_value_bySelection('Weap', ['Knuckles'], [50 + 25*parseInt(T_skillLv/6), 25 + 25*parseInt(T_skillLv/6)]);
 										all_SI[26].SI_value = '_@昏厥';	
@@ -959,11 +948,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 10*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 10 + 1.5*T_skillLv;
 										all_SI[26].SI_value = '_@降防';
@@ -981,11 +970,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 100 + 15*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 20 + 3*T_skillLv;
 										all_SI[26].SI_value = '_@乏力';
@@ -994,7 +983,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 100 + 15*T_skillLv;
 										all_SI[16].SI_value = '單體追加傷害';
@@ -1009,11 +998,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 20*T_skillLv;
 										all_SI[3].SI_value = 990 + T_skillLv;
 										all_SI[16].SI_value = input_SI_value_bySelection('Weap', ['Knuckles'], ['直線範圍傷害', '單體傷害']);
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[19].SI_value = 11 - 2*parseInt(T_skillLv/2);
 										all_SI[20].SI_value = 1;
 										all_SI[23].SI_value = 0;
@@ -1029,11 +1018,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 5*T_skillLv;
 										all_SI[3].SI_value = 75 + 2.5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 30 + 10*parseInt((T_skillLv+2)/3);
 										all_SI[26].SI_value = '_@翻覆';	
@@ -1045,11 +1034,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 5*T_skillLv;
 										all_SI[3].SI_value = 100 + 2.5*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置';
 										all_SI[23].SI_value = 1;
@@ -1066,11 +1055,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每下傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 25 + 2*T_skillLv;
 										all_SI[3].SI_value = 100 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 3;
 
 										all_SI[27].SI_name = '此技能之暴擊率+';
@@ -1084,11 +1073,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(共同判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 20*T_skillLv;
 										all_SI[3].SI_value = 300 + 40*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 4;
 
 										all_SI[27].SI_name = '若技能未被迴避，10秒內自身行動速度+';
@@ -1151,7 +1140,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = '追擊僅在主手裝備拳套時可觸發 。<br />傷害：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[3].SI_value = 25 + 2.5*T_skillLv;
 										all_SI[16].SI_value = '單體追加傷害';
 										all_SI[20].SI_value = 1;
@@ -1198,11 +1187,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 150 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 
 										all_SI[27].SI_name = '此技能之暴擊傷害+';
@@ -1216,11 +1205,11 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '施放_&1_將敵人_@逼退，並在原地殘留持續數秒的_&2_，對經過的敵人造成持續的傷害與_@盲目效果。';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 125 + 2.5*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -1232,7 +1221,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = '每次傷害：(每5個傷害視為一次、分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 30 + 2*T_skillLv;
 										all_SI[16].SI_value = '設置範圍傷害';
@@ -1252,7 +1241,7 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 200 + 20*T_skillLv;
 										all_SI[3].SI_value = 500 + 20*T_skillLv;
 										all_SI[16].SI_value = '單體持續傷害';
@@ -1281,11 +1270,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 100 + T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[20].SI_value = 2;
 										all_SI[25].SI_value = 5*T_skillLv;
 										all_SI[26].SI_value = '_@翻覆';
@@ -1316,11 +1305,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '每次傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 20*T_skillLv;
 										all_SI[3].SI_value = 100 + 10*T_skillLv;
 										all_SI[16].SI_value = '範圍直線傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 2;
 										all_SI[22].SI_value = '自身位置-目標後方10m處';
 										all_SI[23].SI_value = 3;
@@ -1386,7 +1375,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = '每次傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 50 + 15*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -1437,11 +1426,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[20].SI_value = 1;
 										
 										all_SI[27].SI_value = '此技能之行動速度+50%。';
@@ -1453,11 +1442,11 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '對目標進行_&1_後，順勢將槍_&2_出去，貫穿目標後方的所有敵人。';		
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 40 + T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -1465,7 +1454,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 150 + 10*T_skillLv;
 										all_SI[16].SI_value = '範圍直線傷害';
@@ -1480,11 +1469,11 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '先在原地_&1_對範圍內敵人造成小幅傷害，緊接著_&2_造成更大範圍的傷害，並使非BOSS單位被_@翻覆。';		
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100;
 										all_SI[3].SI_value = 70 + 3*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -1494,7 +1483,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 15*T_skillLv;
 										all_SI[3].SI_value = 200 + 20*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -1512,11 +1501,11 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '在原地進行_&1_，造成大範圍的傷害，並在地面留下潛龍。數秒後潛龍躍出，_@逼退更大範圍內的敵人，並造成巨大傷害。';		
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 200 + 20*T_skillLv;
 										all_SI[3].SI_value = 200 + 20*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -1528,7 +1517,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 200 + 40*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -1545,12 +1534,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 750 + 75*T_skillLv;
 										all_SI[5].SI_value = '<p>此技能將會跳躍至目標位置，造成傷害後返回施放時的位置。但若角色落地位置與目標相距超過(0.5+一般攻擊最大射程)m，此技能將沒有傷害。<br />施放過程角色將免疫_@膽怯、_@翻覆與_@昏厥。</p>';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 2;
 
 										all_SI[27].SI_name = '此技能之暴擊率+';
@@ -1568,11 +1557,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 80 + 3*T_skillLv;
 										all_SI[3].SI_value = 100 + 10*parseInt((T_skillLv+1)/2);
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[19].SI_value = 1.5 - 0.15*T_skillLv;
 										all_SI[20].SI_value = 1;
 
@@ -1590,12 +1579,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100;
 										all_SI[3].SI_value = 190 + T_skillLv;
 										all_SI[4].SI_value = 'STR×20%';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 3;
 
 										all_SI[27].SI_name = '此技能的暴擊率';
@@ -1605,12 +1594,12 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = '傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100;
 										all_SI[3].SI_value = input_SI_value_bySelection('Weap', ['Halberd'], [190 + 21*T_skillLv, 190 + 11*T_skillLv]);
 										all_SI[4].SI_value = 'STR×20%';
 										all_SI[16].SI_value = '單體強化傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 3;
 
 										all_SI[27].SI_name = '此技能計算暴擊率時，基礎暴擊率';
@@ -1625,7 +1614,7 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '此技能施放完畢時會立即造成傷害，並在之後獲得_&1的狀態。<br />傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 40*T_skillLv;
 										all_SI[3].SI_value = 100 + 50*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -1635,7 +1624,7 @@
 										all_SI[27].SI_unit = '_&1_將使得一般攻擊附加額外傷害。一般攻擊的動畫也會改變。';
 									case 1:
 										all_SI[0].SI_value = '總傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = (250 + 25*T_skillLv) + '+(TEC*200%)';
 										all_SI[3].SI_value = 40 + T_skillLv;
 										all_SI[4].SI_value = '(基礎INT*20%)';
@@ -1650,11 +1639,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = input_SI_value_bySelection('Weap', ['Halberd'], [(4 + (T_skillLv -1)*4)*T_skillLv/2 + 50, (4 + (T_skillLv -1)*4)*T_skillLv/4 + 25]);
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[18].SI_value = 2;
 										all_SI[20].SI_value = 1;
 
@@ -1765,11 +1754,11 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '_&1_敵人後將刀_&2_，造成兩段傷害。兩段傷害分開判定，_&2_具有額外的暴擊率。';		
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 50;
 										all_SI[16].SI_value = '單體傷害';
@@ -1777,7 +1766,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -1791,11 +1780,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(三次分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 30 + T_skillLv;
 										all_SI[3].SI_value = 150 + 15*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 3;
 										all_SI[27].SI_value = '此技能會因為與對方的距離而有_&1_。';
 										all_SI[28].SI_value = '造成傷害時，第一下傷害最低，之後的兩下會進行_&2_。';
@@ -1831,12 +1820,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(三次分開判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 150 + 20*T_skillLv;
 										all_SI[4].SI_value = '(AGI×20%)';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 3;
 										all_SI[27].SI_value = '若技能未被迴避，將獲得_&1_效果，強化下一招技能。';
 										break;
@@ -1854,11 +1843,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 130 + 2*T_skillLv;
 										all_SI[3].SI_value = (T_skillLv == 10) ? 1200 : (210 + T_skillLv*10)*parseInt((T_skillLv+2)/3);
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[20].SI_value = parseInt((T_skillLv+2)/3);
 										all_SI[22].SI_value = '自身';
 										all_SI[23].SI_value = (2 + parseInt((T_skillLv+1)/4)) + '、' + (4 + 2*parseInt((T_skillLv+1)/4));
@@ -1872,18 +1861,18 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '總傷害：(共用判定)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 200 + 10*T_skillLv;
 										all_SI[3].SI_value = 150 + 25*T_skillLv;
 										all_SI[5].SI_value = '<p>- 此技能初次施放時，角色將獲得一持續10秒的狀態「天流」。狀態期間技能的MP消耗變成100，而施放此技能將不會重置「天流」的持續時間。<br />- 「天流」狀態期間，重複施放此技能將可疊加層數，最高疊加至四層。<br />- 「天流」狀態期間，若成功用技能「禍斷」發動攻擊，或成功用技能「斬釘截鐵」造成追加攻擊，該攻擊將轉變為_&1_並使「天流」狀態延長至30秒，但層數將歸零。<br />- 此技能的傷害每疊加一層，傷害就提升100%，最高達400%。<br />- 此技能的施放時間將隨著層數的增加越來越短。(125%~80%)</p>';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 4;
 										all_SI[27].SI_value = '「天流」狀態期間，若角色沒有受到_@麻痺狀態，一般攻擊的間隔時間將變為0秒。';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 300;
 										all_SI[3].SI_value = `(1300 +${75 + 12.5*T_skillLv}*當前層數)`;
 										all_SI[16].SI_value = '單體傷害';
@@ -1900,12 +1889,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100;
 										all_SI[3].SI_value = 20*T_skillLv;
 										all_SI[5].SI_value = `<p>- 施放此技能前，每施放一次武士技能中的攻擊技能，此技能都會獲得一次疊層，最高達十層。<br />- 每疊加一層，此技能的倍率都會提升，最高達${(20*T_skillLv+100)*10}%。</p>`;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 1;
 										all_SI[27].SI_value = `- 施放時若目標處於_@降防狀態，此技能的傷害常數提升1000。<br />- 若角色身上有技能「怪力亂神」的狀態，此技能的暴擊率+10~100%、物理貫穿+10~100%。(受怪力亂神的等級影響，公式為10*技能等級)<br />註、倍率的公式為[(${20*T_skillLv}+10×疊加層數)×疊加層數]%。`;
 										break;
@@ -1916,11 +1905,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 100 + 5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 50 + 5*T_skillLv;
 										all_SI[26].SI_value = '_@麻痺';
@@ -1935,11 +1924,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 200 + 30*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '極慢';
+										all_SI[17].SI_value = 'extremely slow|,|極慢';
 										all_SI[20].SI_value = 1;
 										all_SI[27].SI_value = '施放期間劃出_&1_，期間內可減免一次傷害。';
 										break;
@@ -1964,11 +1953,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = 100 + 20*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[20].SI_value = 1;
 										all_SI[27].SI_value = '施放期間將處於_&1_，期間內可抵擋一次傷害。抵擋成功後將會追加_&2_。';
 										break;
@@ -1979,7 +1968,7 @@
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 30*T_skillLv;
 										all_SI[3].SI_value = 500 + 100*T_skillLv;
 										all_SI[16].SI_value = '單體追加傷害';
@@ -2073,7 +2062,7 @@
 										all_SI[6].SI_unit = '%。';
 										all_SI[7].SI_value = '持續時間內_&1_。防禦力大幅降低。';
 										all_SI[16].SI_value = '狀態加成';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[24].SI_value = 30;
 										all_SI[27].SI_value = '施放任意技能後，此狀態會立即消失。(施放的該招技能會受到此技能的加成)';
 										break;
@@ -2101,7 +2090,7 @@
 										all_SI[7].SI_name = '普攻攻擊傷害提升(有效Atk×';
 										all_SI[7].SI_value = 5*T_skillLv;
 										all_SI[7].SI_unit = '%)。';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[16].SI_value = '狀態加成';
 										all_SI[24].SI_value = input_SI_value_bySelection('Weap_Au', ['Katana'], [3*(5 + parseInt(T_skillLv/2)), 5 + parseInt(T_skillLv/2)]);
 										all_SI[27].SI_value = '施放時將受到持續9秒的_@著火。由此技能造成的_@著火不會產生抗性時間。';
@@ -2191,11 +2180,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 1.5*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 90 + T_skillLv;
 										all_SI[26].SI_value = '_@昏厥';
@@ -2207,11 +2196,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 100 + 10*T_skillLv;
 										all_SI[3].SI_value = 50 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 10*T_skillLv;
 										all_SI[26].SI_value = '_@昏厥';
@@ -2227,7 +2216,7 @@
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = input_SI_value_bySelection('Au', ['Shield'], ['有效Atk+盾精煉值×60', '有效Atk']);
+										all_SI[1].SI_value = input_SI_value_bySelection('Au', ['Shield'], ['有效Atk+盾精煉值×60', 'Valid Atk|,|有效Atk']);
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
@@ -2328,7 +2317,7 @@
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
 										all_SI[5].SI_value = '有效Atk×' + (10 + 4*T_skillLv) + '% +小刀Atk';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[27].SI_value = '技能等級達到10時，此技能不消耗魔力。';
 										break;
@@ -2351,7 +2340,7 @@
 										}
 										all_SI[4].SI_value = '(DEX/' + (20-T_skillLv) +')';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1 + parseInt(T_skillLv/2);
 										all_SI[25].SI_value = 90 + T_skillLv;
 										all_SI[26].SI_value = '_@遲緩';
@@ -2398,7 +2387,7 @@
 										all_SI[3].SI_value = 50 + 2.5*T_skillLv;
 										all_SI[4].SI_value = '(INT/' + T_skillLv +')%';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 80 + 2*T_skillLv;
 										all_SI[26].SI_value = '受到_@猛毒';
@@ -2471,11 +2460,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 5*T_skillLv;
 										all_SI[3].SI_value = 25 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 10*T_skillLv;
 										all_SI[26].SI_value = '被_@逼退';
@@ -2500,7 +2489,7 @@
 									case 0:
 										all_SI[5].SI_value = '施放完畢後，將獲得_&1_狀態。_&1_期間角色無法作任何動作。';
 										all_SI[16].SI_value = '效果';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										break;
 									case 1:
 										all_SI[5].SI_value = '持續時間內，可使數次傷害變為0。';
@@ -2520,7 +2509,7 @@
 										all_SI[5].SI_value = 100*T_skillLv;
 										all_SI[5].SI_unit = '的仇恨值。';
 										all_SI[16].SI_value = '效果';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[27].SI_value = "此技能的消耗MP不會造成仇恨值。<br />此技能造成的仇恨值不受仇恨值%影響。";
 										break;
 								}
@@ -2530,11 +2519,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = 150 + 10*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 
 										all_SI[27].SI_name = '此技能將使目標產生';
@@ -2551,11 +2540,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = '傷害：(目前只有Lv10的資料)';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 10*T_skillLv;
 										all_SI[3].SI_value = 450 + 5*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置';
 										all_SI[23].SI_value = 2 + parseInt((T_skillLv+2)/4);
@@ -2582,12 +2571,12 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = 10*(T_skillLv + Math.max(T_skillLv-5, 0));
 										all_SI[4].SI_value = 'str×50%';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 1;
 										all_SI[25].SI_value = 100;
 										all_SI[26].SI_value = '被_@逼退';
@@ -2600,11 +2589,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 180 + 2*T_skillLv;
 										all_SI[3].SI_value = 100 + 10*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[20].SI_value = 1;
 										all_SI[22].SI_value = '自身位置-前方14m處';
 										all_SI[23].SI_value = 3;
@@ -2621,10 +2610,10 @@
 										all_SI[5].SI_value = T_skillLv*0.5;
 										all_SI[5].SI_unit = '%。';
 										all_SI[6].SI_name = '一般攻擊的傷害提升(角色Lv+';
-										all_SI[6].SI_value = input_SI_value_bySelection('W', ['Arrow'], ['有效Matk', '有效Matk*0.1']);;
+										all_SI[6].SI_value = input_SI_value_bySelection('W', ['Arrow'], ['Valid Matk|,|有效Matk', '有效Matk*0.1']);;
 										all_SI[6].SI_unit = ')。';
 										all_SI[16].SI_value = '效果狀態';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										
 										all_SI[27].SI_name = '持續時間為無限，進行一般攻擊';
 										all_SI[27].SI_value = T_skillLv;
@@ -2638,14 +2627,14 @@
 									case 0:
 										all_SI[5].SI_value = '設置一個_&1_在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
 										all_SI[16].SI_value = '陷阱';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[21].SI_value = 1;
 
 										all_SI[27].SI_value = '建議詳閱關於_@陷阱的說明。';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -2666,14 +2655,14 @@
 									case 0:
 										all_SI[5].SI_value = '設置一個_&1_在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
 										all_SI[16].SI_value = '陷阱';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[21].SI_value = 1;
 
 										all_SI[27].SI_value = '建議詳閱關於_@陷阱的說明。';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 10*T_skillLv;
 										all_SI[3].SI_value = T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -2694,14 +2683,14 @@
 									case 0:
 										all_SI[5].SI_value = '設置一個_&1_在地面上。若任意目標與_@陷阱的距離小於2m，_@陷阱將會自動觸發並消失。<br />(若任意目標與自身的距離小於3m，此技能將無法施放)';
 										all_SI[16].SI_value = '陷阱';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[21].SI_value = 1;
 
 										all_SI[27].SI_value = '建議詳閱關於_@陷阱的說明。';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 100 + 30*T_skillLv;
 										all_SI[3].SI_value = 200 + 60*T_skillLv;
 										all_SI[16].SI_value = '範圍傷害';
@@ -2729,7 +2718,7 @@
 										all_SI[2].SI_value = 10 + 5*T_skillLv;
 										all_SI[3].SI_value = 0;
 										all_SI[16].SI_value = '隊伍狀態恢復';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[21].SI_value = parseInt((T_skillLv+5)/3);
 										all_SI[24].SI_value = 5*parseInt((T_skillLv+2)/3);
 										
@@ -2748,7 +2737,7 @@
 										all_SI[6].SI_value = 50 + parseInt(T_skillLv*T_skillLv*1.5);
 										all_SI[6].SI_unit = '%。';
 										all_SI[16].SI_value = '隊伍狀態加成';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[19].SI_value = 1;
 										all_SI[21].SI_value = 1;
 										all_SI[24].SI_value = 30;
@@ -2788,19 +2777,19 @@
 									case 0:
 										all_SI[5].SI_value = '此技能為複合傷害，包含_&1_與_&1_。兩部分的傷害最後會相加，並只顯示一個數字。';
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;
 										all_SI[27].SI_value = '此技能不會被迴避。<br />裝備法杖或拳套將會影響兩種部分所佔的比例。';
 										break;
 									case 1:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Atk';
+										all_SI[1].SI_value = 'Valid Atk|,|有效Atk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = input_SI_value_bySelection('Weap',['Staff', 'Knuckles'],[(15 + 2.5*T_skillLv), (60 + 10*T_skillLv), (30 + 5*T_skillLv)]);
 										break;
 									case 2:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 50 + 5*T_skillLv;
 										all_SI[3].SI_value = input_SI_value_bySelection('Weap',['Staff', 'Knuckles'],[(60 + 10*T_skillLv), (15 + 2.5*T_skillLv), (30 + 5*T_skillLv)]);
 										break;
@@ -2811,11 +2800,11 @@
 								{
 									case 0:
 										all_SI[0].SI_value = 'Damage:|,|傷害：|,|ダメージ：';
-										all_SI[1].SI_value = '有效Matk';
+										all_SI[1].SI_value = 'Valid Matk|,|有效Matk';
 										all_SI[2].SI_value = 0;
 										all_SI[3].SI_value = 100 + 15*T_skillLv;
 										all_SI[16].SI_value = '單體傷害';
-										all_SI[17].SI_value = '稍快';
+										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[18].SI_value = 2;
 										all_SI[20].SI_value = 1;
 
@@ -2987,7 +2976,7 @@
 										all_SI[0].SI_value = '恢復量：';
 										all_SI[5].SI_value = 30*T_skillLv + '+(目標HP上限×' + T_skillLv + '%)';
 										all_SI[16].SI_value = '單體友方恢復';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[18].SI_value = 1;
 										all_SI[21].SI_value = 1;
 										all_SI[27].SI_value = `對不支倒地的目標施放此技能，可使該目標的剩餘復活時間減少${T_skillLv}秒。`;
@@ -3003,7 +2992,7 @@
 										all_SI[6].SI_value = 10 + 2*T_skillLv;
 										all_SI[6].SI_unit = '秒的預防效果。預防效果可抵擋所有控制狀態以外的異常狀態。';
 										all_SI[16].SI_value = '單體友方效果';
-										all_SI[17].SI_value = '快';
+										all_SI[17].SI_value = 'fast|,|快';
 										all_SI[21].SI_value = 1;
 										all_SI[27].SI_value = '成功解除或預防異常狀態時，施術者恢復100MP。';
 										break;
@@ -3015,7 +3004,7 @@
 									case 0:
 										all_SI[5].SI_value = '使用後可於原地設置一個_&1_。';
 										all_SI[16].SI_value = '設置效果';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[21].SI_value = 1;
 										break;
 									case 1:
@@ -3034,7 +3023,7 @@
 										all_SI[0].SI_value = '恢復量：';
 										all_SI[5].SI_value = 300*T_skillLv + '+(目標HP上限×' + (10+1*T_skillLv) + '%)';
 										all_SI[16].SI_value = '單體友方恢復';
-										all_SI[17].SI_value = '稍慢';
+										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[18].SI_value = 1;
 										all_SI[21].SI_value = 1;
 										all_SI[27].SI_value = `對不支倒地的目標施放此技能，可使該目標的剩餘復活時間減少${10 + 2*T_skillLv}秒。`;
@@ -3047,7 +3036,7 @@
 									case 0:
 										all_SI[5].SI_value = '每3秒恢復' + (10+4*T_skillLv) + 'HP。';
 										all_SI[16].SI_value = '恢復光環';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[22].SI_value = '光環';
 										all_SI[23].SI_value = 4 + 0.6*T_skillLv;
 										all_SI[24].SI_value = 900;
@@ -3064,7 +3053,7 @@
 									case 0:
 										all_SI[5].SI_value = '武器Atk+' + (10+2*T_skillLv) + '%。';
 										all_SI[16].SI_value = '加成光環';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[22].SI_value = '光環';
 										all_SI[23].SI_value = 4 + 0.6*T_skillLv;
 										all_SI[24].SI_value = 900;
@@ -3083,7 +3072,7 @@
 										all_SI[5].SI_value = 250;
 										all_SI[5].SI_unit = '%。<br />(目前只有Lv10的資料)';
 										all_SI[16].SI_value = '加成光環';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[22].SI_value = '光環';
 										all_SI[23].SI_value = 4 + 0.6*T_skillLv;
 										all_SI[24].SI_value = 900;
@@ -3108,7 +3097,7 @@
 									case 0:
 										all_SI[5].SI_value = '每3秒恢復' + parseInt(10+1.5*T_skillLv) + '的MP。';
 										all_SI[16].SI_value = '恢復光環';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[22].SI_value = '光環';
 										all_SI[23].SI_value = 4 + 0.6*T_skillLv;
 										all_SI[24].SI_value = 900;
@@ -3133,7 +3122,7 @@
 										all_SI[6].SI_value = 10 + 2*T_skillLv;
 										all_SI[6].SI_unit = '%。';
 										all_SI[16].SI_value = '加成光環';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[22].SI_value = '光環';
 										all_SI[23].SI_value = 4 + 0.6*T_skillLv;
 										all_SI[24].SI_value = 900;
@@ -3150,7 +3139,7 @@
 									case 0:
 										all_SI[5].SI_value = '增加異常抗性。<br />(此技能尚無資料)';
 										all_SI[16].SI_value = '加成光環';
-										all_SI[17].SI_value = '慢';
+										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[22].SI_value = '光環';
 										all_SI[23].SI_value = 4 + 0.6*T_skillLv;
 										all_SI[24].SI_value = 900;
@@ -3367,7 +3356,7 @@
 									case 0:
 										all_SI[5].SI_value = '在目標腳下產生一區域，持續時間內該目標將無法離開該區域。';
 										all_SI[16].SI_value = '單體效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 1 - 0.025*T_skillLv;
 										all_SI[22].SI_value = '目標位置';
 										all_SI[23].SI_value = 6 - 0.5*T_skillLv;
@@ -3381,7 +3370,7 @@
 								{
 									case 0:
 										all_SI[5].SI_value = '指定一定點後開始詠唱，詠唱須至少1秒。詠唱完畢時將發生_&1_。<br />根據詠唱的時間將影響爆炸的效果。';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = '1~5';
 										break;
 									case 1:	
@@ -3406,7 +3395,7 @@
 									case 0:
 										all_SI[5].SI_value = '使目標於持續時間內無法施放任何技能。';
 										all_SI[16].SI_value = '單體效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 1.8 - 0.1*T_skillLv;
 										all_SI[24].SI_value = 3 + 0.2*T_skillLv;
 										all_SI[27].SI_value = '此技能無法對同一目標於' + (60 - 3*T_skillLv) + '秒內再度施放。';
@@ -3419,7 +3408,7 @@
 									case 0:
 										all_SI[5].SI_value = '清除目標身上所有的增益效果及減益效果。';
 										all_SI[16].SI_value = '單體效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 2 - 0.1*T_skillLv;
 										all_SI[24].SI_value = 3 + 0.2*T_skillLv;
 										all_SI[27].SI_value = '施放完畢後，目標獲得_&1_的副作用。';
@@ -3437,7 +3426,7 @@
 									case 0:
 										all_SI[5].SI_value = '使目標的HP恢復至上限。';
 										all_SI[16].SI_value = '單體效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 2.2 - 0.1*T_skillLv;
 										all_SI[27].SI_value = '施放完畢後，目標將_&1_一段時間。';
 										break;
@@ -3455,7 +3444,7 @@
 									case 0:
 										all_SI[5].SI_value = '使目標降低50%的傷害輸出，並受到沉默效果。';
 										all_SI[16].SI_value = '狀態效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 1.6 - 0.1*T_skillLv;
 										all_SI[24].SI_value = 1;
 										all_SI[27].SI_value = '降低傷害對目標正在施放或已經施放的技能也有效果。(例如：設置型技能、正在飛行但尚未擊中目標的技能)';
@@ -3468,13 +3457,13 @@
 									case 0:
 										all_SI[5].SI_value = '詠唱須至少0.5秒。詠唱完畢時，將往角色前方_&1_一定距離。_&1_的距離與詠唱時間有關。';
 										all_SI[16].SI_value = '效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = '0.5~1.5';
 										break;
 									case 1:
 										all_SI[5].SI_value = '移動距離為' + (2+0.1*T_skillLv) + '~' + (5.5+0.25*T_skillLv) + 'm。<br />將根據詠唱時間的多寡逐漸遞增。';
 										all_SI[16].SI_value = '效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										break;
 								}
 								break;
@@ -3484,7 +3473,7 @@
 									case 0:
 										all_SI[5].SI_value = '使目標進入_&1_狀態。';
 										all_SI[16].SI_value = '單體效果';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 2.2 - 0.1*T_skillLv;
 										break;
 									case 1:
@@ -3501,7 +3490,7 @@
 									case 0:
 										all_SI[5].SI_value = '在指定區域召喚一魔法陣，魔法陣內的生物都會受到_&1_影響<br />(不分敵我)。';
 										all_SI[16].SI_value = '效果設置';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 2.6 - 0.1*T_skillLv;
 										all_SI[24].SI_value = 10 + 2*T_skillLv;
 										break;
@@ -3518,7 +3507,7 @@
 									case 0:
 										all_SI[5].SI_value = '在指定區域召喚一魔法陣，位於魔法陣內的隊伍成員都會受到_&1_保護。';
 										all_SI[16].SI_value = '效果設置';
-										all_SI[17].SI_value = '極快';
+										all_SI[17].SI_value = 'extremely fast|,|極快';
 										all_SI[18].SI_value = 2.6 - 0.1*T_skillLv;
 										all_SI[24].SI_value = 10 + 2*T_skillLv;
 										break;
