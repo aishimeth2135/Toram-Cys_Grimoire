@@ -744,6 +744,7 @@
 				}
 			}
 			document.getElementById('SkillAlloSimu_skillLvSum').innerHTML = 'Point: ' + sum_SkillLv;
+			resetInnerLang(document.getElementById('SkillAlloSimu_main'));
 		}
 		catch(e) {
 			showWarningMsg('Incorrect Code. Please try again.');
