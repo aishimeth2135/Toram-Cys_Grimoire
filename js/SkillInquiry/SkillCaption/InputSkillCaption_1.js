@@ -144,7 +144,7 @@
 								break;
 							case 14:
 								all_SI[8].SI_value = '無限制';
-								all_SI[9].SI_value = 300;
+								all_SI[9].SI_value = 500;
 								all_SI[10].SI_value = 'Unlimited|,|無限制';
 								all_SI[11].SI_value = '狀態、瞬發、加成、效果';
 								all_SI[13].SI_value = 'Can be |,|可以';
