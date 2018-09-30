@@ -56,7 +56,7 @@
 		/*=====================================================================*/
 	try {
 		(function (){
-			let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター'];
+			let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター'/* , '附魔(暫時)' */];
 			let Ttext = '';
 			for (let i=0; i<Section_4_Menu_List.length; ++i)
 			{
@@ -137,6 +137,14 @@
 	}
 	catch(e){
 		errorForStop_msg("Initialize SaveSetting false", e);
+	}
+	
+	try {
+		enchantEquip_updateSelList();
+		update_enchantEquipAbilityListSel();
+	}
+	catch(e){
+		errorForStop_msg("Initialize Enchant Equipment System false", e);
 	}
 
 	(function (){

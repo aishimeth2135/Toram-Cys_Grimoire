@@ -134,7 +134,7 @@
 		if ( baseAbilityStr == '' ) return;
 		let _str = baseAbilityStr;
 		
-		let _list = _str.split(/\s*&\s*/);
+		let _list = _str.split(/\s+&\s+/);
 		let _cnt = 0, _additionStr = [];
 		for (let i=0; i<_list.length; ++i)
 		{

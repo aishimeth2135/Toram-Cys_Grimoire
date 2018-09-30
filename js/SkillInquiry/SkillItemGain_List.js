@@ -51,7 +51,6 @@ try {
 		InputGainToSkill('戰吼', 0, 24, 50, WeapArms_map['DualSword'], -1, -1);
 		InputGainToSkill('戰吼', 0, 5, 5, WeapArms_map['2hSword'], -1, -1);
 		
-		InputGainToSkill('狂戰士之怒', 1, 7, 25, WeapArms_map['2hSword'], -1, -1);
 		InputGainToSkill('狂戰士之怒', 0, 24, 20, WeapArms_map['1hSword'], -1, -1);
 		InputGainToSkill('狂戰士之怒', 0, 24, 20, WeapArms_map['2hSword'], -1, -1);
 		

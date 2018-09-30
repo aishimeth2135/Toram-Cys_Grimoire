@@ -189,7 +189,7 @@
 							{
 								let _splitUnit = (_obj.length != 0) ? '｜' : '';
 								let SLv = _skill.Sk_calcLv;
-								let _ary = _skill.Sk_addDesc.split(/\s*&\s*/);
+								let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
 								let W_type = cy_character.charaEquipments[0].type;
 								let Au_type = cy_character.charaEquipments[1].type;
 								let B_type = cy_character.charaEquipments[2].type;
@@ -815,7 +815,7 @@
 	
 	function show_charaStats(){
 		let cy = cy_character.statList;
-		let _html = '<div class="charaSimu_switchMode" id="charaSimu_switchMode_block"><span onclick="set_charaStatPoint()"><a data-langtext="&gt; Set character point|,|&gt; 修改角色能力|,|&gt; Set character point"></a></span></div>';
+		let _html = '<div class="charaSimu_switchMode" id="charaSimu_switchMode_block"><span onclick="set_charaStatPoint()"><a data-langtext="&gt; Set Stats|,|&gt; 修改角色能力|,|&gt; Set Stats"></a></span></div>';
 		
 		let blockAry = ['max_hp', 'atk', 'stability', 'def', 'critical_rate', 'accuracy', 'aggro', 'evasion_rate', 'unsheathe_attack', 'stronger_against_neutral', 'neutral_resistance', 'physical_barrier', 'additional_meele', 'flinch_unavailable', 'recoil_damage'];
 		let _cnt = 0;
@@ -867,7 +867,7 @@
 					let SLv = _skill.Sk_calcLv;
 					if ( _skill.Sk_type == 'passive' && _skill.Sk_addDesc != '' && SLv != 0 )
 					{
-						let _ary = _skill.Sk_addDesc.split(/\s*&\s*/);
+						let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
 						let W_type = cy_character.charaEquipments[0].type;
 						let Au_type = cy_character.charaEquipments[1].type;
 						let B_type = cy_character.charaEquipments[2].type;

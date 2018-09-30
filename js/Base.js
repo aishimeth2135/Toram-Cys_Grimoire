@@ -37,7 +37,8 @@
 			}
 			++cnt;
 		}
-		doc.innerHTML += `<div id="warningMsg_block_b${String(cnt)}">${msg}</div>`;
+		msg = msg.split('|,|');
+		doc.innerHTML += `<div id="warningMsg_block_b${String(cnt)}">${msg[getCur_languageNo()] || msg[0]}</div>`;
 		document.getElementById('warningMsg_block_b' + String(cnt)).style.opacity = 1;
 		
 		let timer_baseCnt = set_msec, timer_cnt = timer_baseCnt, timer_delay = 10, timer_step = 1/(timer_baseCnt/timer_delay/2);
@@ -148,3 +149,126 @@
 		
 		window.localStorage.setItem('SaveSetting_1', str);
 	}
+	
+	
+	
+	/* ---------------------------------------------------- */
+	if (!Array.prototype.indexOf) {
+		Array.prototype.indexOf = function indexOf(member, startFrom) {
+			/*
+			In non-strict mode, if the `this` variable is null or undefined, then it is
+			set to the window object. Otherwise, `this` is automatically converted to an
+			object. In strict mode, if the `this` variable is null or undefined, a
+			`TypeError` is thrown.
+			*/
+			if (this == null) {
+			throw new TypeError("Array.prototype.indexOf() - can't convert `" + this + "` to object");
+			}
+		
+			var
+			index = isFinite(startFrom) ? Math.floor(startFrom) : 0,
+			that = this instanceof Object ? this : new Object(this),
+			length = isFinite(that.length) ? Math.floor(that.length) : 0;
+		
+			if (index >= length) {
+			return -1;
+			}
+		
+			if (index < 0) {
+			index = Math.max(length + index, 0);
+			}
+		
+			if (member === undefined) {
+			/*
+				Since `member` is undefined, keys that don't exist will have the same
+				value as `member`, and thus do need to be checked.
+			*/
+			do {
+				if (index in that && that[index] === undefined) {
+				return index;
+				}
+			} while (++index < length);
+			} else {
+			do {
+				if (that[index] === member) {
+				return index;
+				}
+			} while (++index < length);
+			}
+		
+			return -1;
+		};
+	}
+	
+	(function() {
+		if (!Event.prototype.preventDefault) {
+			Event.prototype.preventDefault=function() {
+			this.returnValue=false;
+			};
+		}
+		if (!Event.prototype.stopPropagation) {
+			Event.prototype.stopPropagation=function() {
+			this.cancelBubble=true;
+			};
+		}
+		if (!Element.prototype.addEventListener) {
+			var eventListeners=[];
+			
+			var addEventListener=function(type,listener /*, useCapture (will be ignored) */) {
+			var self=this;
+			var wrapper=function(e) {
+				e.target=e.srcElement;
+				e.currentTarget=self;
+				if (typeof listener.handleEvent != 'undefined') {
+				listener.handleEvent(e);
+				} else {
+				listener.call(self,e);
+				}
+			};
+			if (type=="DOMContentLoaded") {
+				var wrapper2=function(e) {
+				if (document.readyState=="complete") {
+					wrapper(e);
+				}
+				};
+				document.attachEvent("onreadystatechange",wrapper2);
+				eventListeners.push({object:this,type:type,listener:listener,wrapper:wrapper2});
+				
+				if (document.readyState=="complete") {
+				var e=new Event();
+				e.srcElement=window;
+				wrapper2(e);
+				}
+			} else {
+				this.attachEvent("on"+type,wrapper);
+				eventListeners.push({object:this,type:type,listener:listener,wrapper:wrapper});
+			}
+			};
+			var removeEventListener=function(type,listener /*, useCapture (will be ignored) */) {
+			var counter=0;
+			while (counter<eventListeners.length) {
+				var eventListener=eventListeners[counter];
+				if (eventListener.object==this && eventListener.type==type && eventListener.listener==listener) {
+				if (type=="DOMContentLoaded") {
+					this.detachEvent("onreadystatechange",eventListener.wrapper);
+				} else {
+					this.detachEvent("on"+type,eventListener.wrapper);
+				}
+				eventListeners.splice(counter, 1);
+				break;
+				}
+				++counter;
+			}
+			};
+			Element.prototype.addEventListener=addEventListener;
+			Element.prototype.removeEventListener=removeEventListener;
+			if (HTMLDocument) {
+			HTMLDocument.prototype.addEventListener=addEventListener;
+			HTMLDocument.prototype.removeEventListener=removeEventListener;
+			}
+			if (Window) {
+			Window.prototype.addEventListener=addEventListener;
+			Window.prototype.removeEventListener=removeEventListener;
+			}
+		}
+	})();

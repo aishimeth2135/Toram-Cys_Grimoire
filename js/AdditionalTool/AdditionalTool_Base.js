@@ -9,8 +9,8 @@
 		
 		document.getElementById('Section_4_Page_' + T_No).style.display = 'block';
 		document.getElementById('Section_4_Menu_' + T_No).className = 'SectionMenu_CurBtn';
-		document.getElementById('ATool_MenuBlock_' + T_No).style.display = 'block';
-		document.getElementById('ATool_MenuList_' + T_No).style.display = 'block';
+		if (document.getElementById('ATool_MenuBlock_' + T_No)) document.getElementById('ATool_MenuBlock_' + T_No).style.display = 'block';
+		if (document.getElementById('ATool_MenuList_' + T_No)) document.getElementById('ATool_MenuList_' + T_No).style.display = 'block';
 		
 		switch (T_No)
 		{
@@ -27,8 +27,8 @@
 		{
 			document.getElementById('Section_4_Page_' + Section_4_Page_Current).style.display = 'none';
 			document.getElementById('Section_4_Menu_' + Section_4_Page_Current).className = '';
-			document.getElementById('ATool_MenuBlock_' + Section_4_Page_Current).style.display = 'none';
-			document.getElementById('ATool_MenuList_' + Section_4_Page_Current).style.display = 'none';
+			if (document.getElementById('ATool_MenuBlock_' +  Section_4_Page_Current)) document.getElementById('ATool_MenuBlock_' + Section_4_Page_Current).style.display = 'none';
+			if (document.getElementById('ATool_MenuList_' +  Section_4_Page_Current)) document.getElementById('ATool_MenuList_' + Section_4_Page_Current).style.display = 'none';
 		}
 		document.getElementById('Section_4').setAttribute('data-curpageno', T_No);
 	}
