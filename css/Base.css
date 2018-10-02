@@ -17,7 +17,7 @@
 	}
 	
 	body {
-		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif; 
+		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif;
 		font-size:0.9rem;
 		background-color:#000000;
 		color:#FFF;
@@ -25,7 +25,7 @@
 	}
 	
 	a {
-		color: #FFF;
+		//color: #FFF;
 	}
 	
 	* {

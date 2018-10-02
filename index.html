@@ -28,6 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="css/Character_Simulator/Character_Simulator_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
+	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/EnchantEquipment_Base.css" />
 </head>
 
 <body>
@@ -1710,8 +1711,27 @@
 		</div>
 		<div id="Section_4_Page_1" class="MenuPage">
 			<div id="enchantEquipment_main">
-				<div id="enchantEquipment_selList">
+				<ul class="head_menu">
+					<li data-typeno="0" class="_cur" onclick="enchantEquipment_selEquipFieldType(this)">武器</li>
+					<li data-typeno="1" onclick="enchantEquipment_selEquipFieldType(this)">身體裝備</li>
+				</ul>
+				<hr class="hr_1" />
+				<div class="setPotentialBase" id="enchantEquipment_setBasePotential"><span>初始潛力值</span><input type="number" value="1" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'base')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'base')" /></div>
+				<div class="setPotentialBase" style="display:none;" id="enchantEquipment_setEquipBasePotential"><span>基礎潛力值</span><input type="number" value="1" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'equipbase')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'equipBase')" /></div>
+				<div id="enchantEquipment_abilityListSel"></div>
+				<ul id="enchantEquipment_selList"></ul>
+				<ul class="main_menu">
+					<!-- <li onclick="enchantEquip_selList_batchSelection()">批量選取</li> -->
+					<li onclick="enchantEquip_calcBest()">計算</li>
+					<li onclick="enchantEquip_updateDefaultFrameList()">選擇附魔類型</li>
+					<li onclick="enchantEquip_findLowestPotential(100)">尋找最低需求(大於100%)</li>
+					<li onclick="enchantEquip_findLowestPotential(1)">尋找最低需求(大於1%)</li>
+				</ul>
+				<div id="enchantEquipment_showMeterialCost">
+					<div class="_title"><span onclick="enchantEquipment_updateShowMeterialCost(this)"><a data-langtext="Show/Hidden Meterial Cost|,|顯示/隱藏素材耗量"></a></span></div><div class="_main"></div>
 				</div>
+				<div id="enchantEquipment_showText"></div>
+				<ul id="enchantEquipment_defaultFrameList"></ul>
 			</div>
 		</div>
 	</section>
@@ -1772,6 +1792,10 @@
 
 <script type="text/javascript" src="js/AdditionalTool/AdditionalTool_Base.js"></script>
 <script type="text/javascript" src="js/AdditionalTool/SkillAllocation_Simulator.js"></script>
+
+<script type="text/javascript" src="js/AdditionalTool/enchantEquipment/enchantEquipment_Base.js"></script>
+<script type="text/javascript" src="js/AdditionalTool/enchantEquipment/item_list.js"></script>
+<script type="text/javascript" src="js/AdditionalTool/enchantEquipment/enchantEquipment_UI.js"></script>
 
 <script type="text/javascript" src="js/GetReady.js"></script>
 </html>

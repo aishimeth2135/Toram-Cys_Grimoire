@@ -412,6 +412,10 @@
 		//min-width:5rem;
 		z-index: 30;
 	}
+	._hoverTitle {
+		top: 1.5rem;
+		left: 0rem;
+	}
 	.charaSimu_showStat_blockUnit1 ._hoverTitle>span {
 		white-space: nowrap;
 		background-color: transparent;
