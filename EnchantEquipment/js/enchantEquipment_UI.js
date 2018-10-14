@@ -55,7 +55,7 @@
 				if (cy_enchantEquipment.stepCalc(_stepAry).successRate >= minSuccessRate) break;
 				++cy_enchantEquipment.potential_base;
 			}
-			document.getElementById('enchantEquipment_showText').innerHTML = cy_enchantEquipment.stepCalc(_stepAry).text + `<div style="text-align:right;">by Cy's Grimoire.</div>`;
+			document.getElementById('enchantEquipment_showText').innerHTML = cy_enchantEquipment.stepCalc(_stepAry).text + `<div class="by">by Cy's Grimoire.</div>`;
 			document.getElementById('enchantEquipment_setBasePotential').getElementsByTagName('input')[0].value = cy_enchantEquipment.potential_base;
 			resetInnerLang(document.getElementById('enchantEquipment_showText'));
 		}, [], 200);
@@ -282,7 +282,7 @@
 			}
 		}
 		let _stepAry = cy_enchantEquipment.best_performCalc();
-		document.getElementById('enchantEquipment_showText').innerHTML = cy_enchantEquipment.stepCalc(_stepAry).text + `<div style="text-align:right;">by Cy's Grimoire.</div>`;
+		document.getElementById('enchantEquipment_showText').innerHTML = cy_enchantEquipment.stepCalc(_stepAry).text + `<div class="by">by Cy's Grimoire.</div>`;
 		resetInnerLang(document.getElementById('enchantEquipment_showText'));
 		enchantEquipment_updateShowMeterialCost();
 	}

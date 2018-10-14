@@ -214,6 +214,11 @@
 		background-color: #000;
 		display: inline-block;
 	}
+	div#enchantEquipment_showText .by {
+		text-align: right;
+		padding: 0.3rem;
+		padding-top: 0;
+	}
 	
 	div#enchantEquipment_abilityListSel {
 		display: none;
