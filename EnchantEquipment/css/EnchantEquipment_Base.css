@@ -1,10 +1,20 @@
 	
+	section.section_EnchantEquipment {
+		box-shadow: inset -0.1rem -0.1rem 1.2rem #FFF;
+		padding: 1rem 0.6rem;
+		min-height: 20rem;
+		max-width: 50rem;
+		margin: 0rem auto;
+	}
+	
 	div#enchantEquipment_main {
 	}
 	div#enchantEquipment_main .setPotentialBase {
-		padding: 0 0.3rem;
-		padding-top: 0.5rem;
-		padding-bottom: 0.1rem;
+		padding: 0 0.8rem;
+		padding-top: 0.2rem;
+		padding-bottom: 0.2rem;
+		box-shadow: inset 1.3rem 0rem 1rem -0.9rem rgba(255, 255, 255, 0.6);
+		margin: 0.2rem;
 	}
 	div#enchantEquipment_main .setPotentialBase>input {
 		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif;
@@ -15,7 +25,25 @@
 		width: 3rem;
 		color: #FFF;
 		text-align: center;
+		font-size: 0.9rem;
+		padding: 0.1rem;
 	}
+	div#enchantEquipment_main .setPotentialBase>img {
+		width: 24px;
+		height: 24px;
+		width: 1.5rem;
+		height: 1.5rem;
+		cursor: pointer;
+		vertical-align: middle;
+		margin-left: 0.3rem;
+		border-radius: 0.4rem;
+		transition: 0.3s;
+		padding: 0.2rem;
+	}
+	div#enchantEquipment_main .setPotentialBase>img.locked, div#enchantEquipment_main .setPotentialBase>img:hover {
+		background-color: #888;
+	}
+	
 	div#enchantEquipment_main .main_menu, div#enchantEquipment_main .head_menu {
 		list-style:none;
 		margin: 0.6rem 0;
@@ -54,15 +82,29 @@
 		background-color: rgb(221, 218, 216);
 	}
 	
+	div#enchantEquipment_main .main_menu>.showStepDetail {
+		background-color: #f1e1ff;
+		color: #4b0091;
+		border: 0.1rem transparent solid;
+	}
+	div#enchantEquipment_main .main_menu>.showStepDetail_cur {
+		background-color: #f1e1ff;
+		color: #4b0091;
+		border: 0.1rem #4b0091 solid;
+	}
+	
 	ul#enchantEquipment_selList {
 		list-style: none;
 		margin: 0;
-		padding: 0 0.6rem;
+		padding: 0.4rem 0.6rem;
 		margin-top: 1rem;
+		display: inline-block;
+		z-index: 5;
 	}
 	
 	ul#enchantEquipment_selList li {
-		margin-bottom: 0.3rem;
+		margin-bottom: 0.2rem;
+		position: relative;
 	}
 	ul#enchantEquipment_selList li>span {
 		padding: 0.3rem 0.6rem;
@@ -73,14 +115,15 @@
 		background: -moz-linear-gradient(bottom, rgb(245, 242, 240) 80%, rgba(210, 196, 187, 0.9) 100%);
 		background: linear-gradient(to bottom, rgb(245, 242, 240) 80%, rgba(210, 196, 187, 0.9) 100%);
 		cursor: pointer;
-		width: 10rem;
+		width: 12.5rem;
 		display: inline-block;
 		color: #333;
 		text-align: left;
 		transition: 0.3s;
+		min-height: 1.8rem;
 	}
 	
-	ul#enchantEquipment_selList li>.condition_all {
+	ul#enchantEquipment_selList li>.condition_noItemCategory {
 		color: #007979;
 		background: rgb(235, 255, 255);
 		background: -webkit-linear-gradient(bottom, rgb(235, 255, 255) 80%, rgba(200, 209, 198, 0.9) 100%);
@@ -95,7 +138,16 @@
 		background: linear-gradient(to bottom, rgb(255, 219, 237) 80%, rgba(220, 173, 184, 0.9) 100%);
 	}
 	
-	
+	ul#enchantEquipment_selList li>span {
+		position: relative;
+	}
+	ul#enchantEquipment_selList li>span>.showPotentialUnit {
+		right: 0.2rem;
+		bottom: 0.2rem;
+		font-size: 0.7rem;
+		color: #004b97;
+		position: absolute;
+	}
 	ul#enchantEquipment_selList li>span:hover {
 		background-color: #EEE;
 		color: #555;
@@ -113,6 +165,55 @@
 		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif; 
 	}
 	
+	ul#enchantEquipment_selList .noSelect {
+		display: flex;
+		width: 15rem;
+		min-height: 10rem;
+		justify-content: center;
+		align-items: center;
+		border: 1px #999 solid;
+		transition: 0.3s;
+		padding: 0.5rem;
+	}
+	ul#enchantEquipment_selList .noSelect:hover {
+		border: 1px #CCC solid;
+	}
+	
+	div#enchantEquipment_main .generateImg {
+		padding-left: 0rem;
+		padding-right: 0rem;
+		display: inline-block;
+		min-width: 20rem;
+		min-height: 10rem;
+	}
+	div#enchantEquipment_main .generateImg legend {
+		margin-left: 0.3rem;
+	}
+	div#enchantEquipment_main .generateImg legend>ul {
+		list-style: none;
+		padding: 0;
+	}
+	div#enchantEquipment_main .generateImg legend>ul>li {
+		padding: 0.4rem 0.5rem;
+		background-color: #d2e9ff;
+		color: #003d79;
+		border-radius: 0.3rem;
+		box-shadow: 0.1rem 0.1rem 0.8rem rgba(255, 255, 255, 0.5);
+		transition: 0.3s;
+		display: inline-block;
+		margin-left: 0.3rem;
+		text-align: center;
+		cursor: pointer;
+	}
+	div#enchantEquipment_main .generateImg legend>ul>li:hover {
+		box-shadow: 0.1rem 0.1rem 0.8rem transparent;
+		background-color: #EEE;
+	}
+	div#enchantEquipment_showText {
+		background-color: #000;
+		display: inline-block;
+	}
+	
 	div#enchantEquipment_abilityListSel {
 		display: none;
 		position: fixed;
@@ -122,9 +223,10 @@
 		margin: 0 calc(50% - 12.5rem);
 		height: 70%;
 		overflow-y: auto;
-		background-color:rgb(237, 222 ,215);
+		background-color: rgb(237, 222 ,215);
 		padding: 0.7rem;
 		border-radius: 0.3rem;
+		z-index: 5;
 	}
 	
 	div#enchantEquipment_abilityListSel ul.categoryItemList {
@@ -144,13 +246,34 @@
 		box-shadow:0.1rem 0.1rem 0.2rem rgba(102, 82, 68, 0.6);
 		cursor:pointer;
 		transition: 0.3s;
+		position: relative;
+	}
+	div#enchantEquipment_abilityListSel ul.categoryItemList>li>.showDetail{
+		position: absolute;
+		left: 0.1rem;
+		top: 1.5rem;
+		font-size: 0.8rem;
+		padding: 0.3rem;
+		border: 0.3rem;
+		background-color: rgb(237, 222 ,215);
+		box-shadow: 0.1rem 0.1rem 0.2rem rgba(102, 82, 68, 0.6);
+		display: none;
+		min-width: 9rem;
+		z-index: 6;
+		text-align: left;
+	}
+	div#enchantEquipment_abilityListSel ul.categoryItemList>li>.showDetail table {
+		padding: 0px;
 	}
 	div#enchantEquipment_abilityListSel ul.categoryItemList>li:hover {
 		color:rgb(56, 41, 34);
 		background-color:rgb(245, 242, 240);
 	}
+	div#enchantEquipment_abilityListSel ul.categoryItemList>li:hover .showDetail {
+		display: inline-block;
+	}
 	
-	div#enchantEquipment_abilityListSel div.categoryTitle, ul#enchantEquipment_defaultFrameList li {
+	div#enchantEquipment_abilityListSel div.categoryTitle, div#enchantEquipment_defaultFrameList .category_scope>li {
 		margin-top: 0.3rem;
 		margin-bottom: 0.2rem;
 		padding: 0rem 1rem;
@@ -164,27 +287,68 @@
 		box-shadow:0rem 0rem 0.2rem 0.1rem rgb(168, 123, 102);
 	}
 	
-	ul#enchantEquipment_defaultFrameList {
-		list-style: none;
+	div#enchantEquipment_defaultFrameList {
 		margin: 0 calc(50% - 16rem);
 		width: 32rem;
-		padding: 0.4rem 0.6rem;
 		position: fixed;
 		max-height: 70%;
 		top: 10%;
-		left: 10%;
+		left: 0%;
 		display: none;
 		background-color:rgb(237, 222 ,215);
 		border-radius: 0.3rem;
+		overflow-y: auto;
 	}
-	ul#enchantEquipment_defaultFrameList li {
+	
+	div#enchantEquipment_defaultFrameList ._closeBtn {
+		float: right;
+		position: sticky;
+		cursor: pointer;
+		padding: 0.2rem;
+		top:0.1rem;
+		z-index: 6;
+	}
+	
+	div#enchantEquipment_defaultFrameList ._head_menu {
+		padding: 0.4rem 0.6rem;
+		margin: 0px;
+		list-style: none;
+		position: sticky;
+		top: 0.1rem;
+		background-color:rgb(237, 222 ,215);
+	}
+	div#enchantEquipment_defaultFrameList ._head_menu li {
+		border-radius: 0rem 0.3rem 0rem 0rem;
+		border: 1px #BBB solid;
+		padding: 0.3rem 0.4rem;
+		margin: 0.2rem;
+		display: inline-block;
+		color: rgb(56, 41, 34);
+		cursor: pointer;
+	}
+	div#enchantEquipment_defaultFrameList ._head_menu>._cur, div#enchantEquipment_defaultFrameList ._head_menu li:hover {
+		color:rgb(56, 41, 34);
+		background-color:rgb(245, 242, 240);
+	}
+	
+	div#enchantEquipment_defaultFrameList .category_scope {
+		padding: 0.4rem 0.6rem;
+		margin: 0px;
+		margin-bottom: 0.5rem;
+		list-style: none;
+		display: none;
+	}
+	div#enchantEquipment_defaultFrameList .category_scope>li {
 		cursor: pointer;
 		transition: 0.3s;
+		font-size: 0.9rem!important;
 	}
-	ul#enchantEquipment_defaultFrameList li:hover {
+	div#enchantEquipment_defaultFrameList .category_scope>li:hover {
 		box-shadow: inset 1.3rem 0rem 1rem -1rem rgb(208, 163, 142); 
 		color: rgb(84, 61, 51);
+		background-color: rgba(255, 255, 255, 0.3);
 	}
+	
 	div#enchantEquipment_main .showCalc {
 		padding: 0.5rem;
 		padding-top: 0.3rem;
@@ -205,7 +369,7 @@
 	}
 	div#enchantEquipment_main .showCalc>tbody>tr>.td3 {
 		border-left: 0.1rem #CCC solid;
-		padding: 0.2rem 0.4rem;
+		padding: 0.2rem 0.3rem;
 		text-align: center;
 		min-width: 3rem;
 		background-color: rgba(255, 255, 255, 0.1);
@@ -218,8 +382,11 @@
 	
 	div#enchantEquipment_main .showBasePotential {
 		margin-left: 0.1rem;
-		box-shadow: inset 1.3rem 0rem 1rem -0.9rem rgba(255, 255, 255, 0.7);
-		padding: 0.3rem 1rem;
+		box-shadow: inset 1.3rem 0rem 1rem -0.9rem rgba(255, 255, 255, 0.6);
+		padding: 0.3rem 0.7rem;
+		margin-top: 0.5rem;
+		border-left: 0.2rem #888 solid;
+		margin-left: 0.3rem;
 	}
 	
 	div#enchantEquipment_showMeterialCost {
@@ -233,6 +400,7 @@
 		margin-bottom: 0.2rem;
 	}
 	div#enchantEquipment_showMeterialCost ._main {
+		display: none;
 	}
 	div#enchantEquipment_showMeterialCost ._main>table ._td1 {
 		padding: 0.2rem 0.3rem;
@@ -253,12 +421,13 @@
 		position: absolute;
 		right: 0px;
 		top: 1.5rem;
-		padding: 0.3rem;
-		background-color: rgb(25, 25, 25);
-		border-radius: 0.2rem;
+		padding: 0.4rem;
+		background-color: #222;
+		box-shadow: 0.1rem 0.1rem 0.2rem rgba(255, 255, 255, 0.4);
 		z-index: 1;
-		min-width: 10rem;
+		min-width: 7rem;
 		transition: 0.3s;
+		font-size: 0.8rem;
 	}
 	div#enchantEquipment_showMeterialCost ._main>table ._td2>span {
 		display: none;

@@ -1,0 +1,42 @@
+
+	@media screen and (max-width: 32rem) {
+		div#enchantEquipment_defaultFrameList {
+			width: 98%!important;
+			margin: 0 1%!important;
+		}
+	}
+	
+	@media screen and (max-width: 25rem) {
+		div#enchantEquipment_abilityListSel {
+			width: 98%!important;
+			margin: 0 1%!important;
+		}
+		div#enchantEquipment_main .showCalc {
+			padding: 0.5rem 0rem!important;
+		}
+		div#enchantEquipment_main .showCalc>tbody>tr>.td1 {
+			padding: 0.2rem 0.1rem;
+		}
+		div#enchantEquipment_main .showCalc>tbody>tr>.td2 {
+			padding: 0.2rem 0.2rem;
+		}
+		div#enchantEquipment_main .showCalc>tbody>tr>.td3 {
+			padding: 0.2rem 0.2rem;
+			min-width: 2.5rem;
+		}
+		ul#enchantEquipment_selList {
+			list-style: none;
+			margin: 0;
+			padding: 0.4rem 0rem;
+			margin-top: 1rem;
+			display: inline-block;
+			z-index: 5;
+		}
+	}
+	@media screen and (max-width: 22rem) {
+		div#enchantEquipment_main .generateImg {
+			width: 98%!important;
+			margin: 0px!important;
+			min-width: 10rem;
+		}
+	}

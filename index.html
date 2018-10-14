@@ -28,7 +28,6 @@
 	<link rel="stylesheet" type="text/css" href="css/Character_Simulator/Character_Simulator_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
-	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/EnchantEquipment_Base.css" />
 </head>
 
 <body>
@@ -1323,6 +1322,13 @@
 			
 		<article id="Section_3_Page_1" class="MenuPage">
 			<div>
+				<div class="VerInfo_Title_1">4.4.0</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>新增附魔計算器(ver: 1.0)。可從小工具或<a href="EnchantCalc.html">點此</a>進入。
+					<br />(附魔計算器、Enchant Calc、装備強化シミュレーター)</li>
+				</ul>
+			</div>
+			<div>
 				<div class="VerInfo_Title_1">4.3.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1709,31 +1715,6 @@
 				</ul>
 			</div>
 		</div>
-		<div id="Section_4_Page_1" class="MenuPage">
-			<div id="enchantEquipment_main">
-				<ul class="head_menu">
-					<li data-typeno="0" class="_cur" onclick="enchantEquipment_selEquipFieldType(this)">武器</li>
-					<li data-typeno="1" onclick="enchantEquipment_selEquipFieldType(this)">身體裝備</li>
-				</ul>
-				<hr class="hr_1" />
-				<div class="setPotentialBase" id="enchantEquipment_setBasePotential"><span>初始潛力值</span><input type="number" value="1" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'base')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'base')" /></div>
-				<div class="setPotentialBase" style="display:none;" id="enchantEquipment_setEquipBasePotential"><span>基礎潛力值</span><input type="number" value="1" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'equipbase')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'equipBase')" /></div>
-				<div id="enchantEquipment_abilityListSel"></div>
-				<ul id="enchantEquipment_selList"></ul>
-				<ul class="main_menu">
-					<!-- <li onclick="enchantEquip_selList_batchSelection()">批量選取</li> -->
-					<li onclick="enchantEquip_calcBest()">計算</li>
-					<li onclick="enchantEquip_updateDefaultFrameList()">選擇附魔類型</li>
-					<li onclick="enchantEquip_findLowestPotential(100)">尋找最低需求(大於100%)</li>
-					<li onclick="enchantEquip_findLowestPotential(1)">尋找最低需求(大於1%)</li>
-				</ul>
-				<div id="enchantEquipment_showMeterialCost">
-					<div class="_title"><span onclick="enchantEquipment_updateShowMeterialCost(this)"><a data-langtext="Show/Hidden Meterial Cost|,|顯示/隱藏素材耗量"></a></span></div><div class="_main"></div>
-				</div>
-				<div id="enchantEquipment_showText"></div>
-				<ul id="enchantEquipment_defaultFrameList"></ul>
-			</div>
-		</div>
 	</section>
 	<section id="languageList">
 		<a data-langno="0" id="selLang_0" onclick="selectLanguage(this)">English</a>｜<a data-langno="1" id="selLang_1" onclick="selectLanguage(this)">中文</a>｜<a data-langno="2" id="selLang_2" onclick="selectLanguage(this)">日本語</a>
@@ -1745,7 +1726,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 4.3.0｜Update: 2018/9/22
+			Ver: 4.4.0｜Update: 2018/10/14
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
@@ -1792,10 +1773,6 @@
 
 <script type="text/javascript" src="js/AdditionalTool/AdditionalTool_Base.js"></script>
 <script type="text/javascript" src="js/AdditionalTool/SkillAllocation_Simulator.js"></script>
-
-<script type="text/javascript" src="js/AdditionalTool/enchantEquipment/enchantEquipment_Base.js"></script>
-<script type="text/javascript" src="js/AdditionalTool/enchantEquipment/item_list.js"></script>
-<script type="text/javascript" src="js/AdditionalTool/enchantEquipment/enchantEquipment_UI.js"></script>
 
 <script type="text/javascript" src="js/GetReady.js"></script>
 </html>

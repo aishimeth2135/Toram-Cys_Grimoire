@@ -56,12 +56,14 @@
 		/*=====================================================================*/
 	try {
 		(function (){
-			let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター'/* , '附魔(暫時)' */];
+			let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター'];
 			let Ttext = '';
 			for (let i=0; i<Section_4_Menu_List.length; ++i)
 			{
 				Ttext += `<li data-menuno="${i}" onclick="Section_4_Update(this)" id="Section_4_Menu_${i}"><a data-langtext="${Section_4_Menu_List[i]}"></a></li>`;
 			}
+			
+			Ttext += `<li><a href="EnchantCalc.html" data-langtext="Enchant Calc|,|附魔計算|,|装備強化シミュレーター"></a></li>`;
 			
 			document.getElementById('Section_4_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
 			resetInnerLang(document.getElementById('Section_4_Menu'));
@@ -138,14 +140,6 @@
 	catch(e){
 		errorForStop_msg("Initialize SaveSetting false", e);
 	}
-	
-	try {
-		enchantEquip_updateSelList();
-		update_enchantEquipAbilityListSel();
-	}
-	catch(e){
-		errorForStop_msg("Initialize Enchant Equipment System false", e);
-	}
 
 	(function (){
 		let lang = (window.navigator.userLanguage || window.navigator.language).toLowerCase();
@@ -195,5 +189,5 @@
 			return;
 		}
 		document.getElementById('Loading_Page').style.display = 'none';
-	}, 1500);
+	}, 500);
 	

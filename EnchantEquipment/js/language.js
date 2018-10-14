@@ -21,51 +21,6 @@
 			1: 中文
 			2: 日本語 */
 		if (T_langno == getCur_languageNo()) { return; }
-		
-		let armsTitleAry = [];
-
-		switch (T_langno)
-		{
-			case 0:
-				All_WeapType = ['1h-S.', '2h-S.', 'Bow', 'Bowgun', 'Staff', 'Magic.', 'Knuck.', 'Halberd', 'Dual-S.', 'Katana', 'Other'];
-				All_AuType = ['Dagger', 'Shield', 'Arrow', 'Magic.', 'Knuck.', 'Katana', 'Other'];
-				All_bodyType = ['Norm.', 'Dodge', 'Defen.'];
-				
-				cy_character.allWeapType = ['1h Sword', '2h Sword', 'Bow', 'Bowgun', 'Staff', 'Magic Device', 'Knuckle', 'Halberd', 'Katana', 'none'];
-				cy_character.allAuType = ['Dagger', 'Shield', 'Arrow', 'Magic Device', 'Knuckle', 'Katana', 'Other', '1h Sword'];
-				cy_character.allBodyType = ['Normal', 'Dodge', 'Defence', 'none'];
-				
-				armsTitleAry = ['Main Weapon', 'Sub-Weapon', 'Body Armor'];
-				break;
-			case 1:
-				All_WeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '雙劍', '拔刀劍', '其它'];
-				All_AuType = ['小刀', '盾牌', '箭矢', '魔導具', '拳套', '拔刀劍', '其它'];
-				All_bodyType = ['一般', '輕量化', '重量化'];
-				
-				cy_character.allWeapType = ['單手劍', '雙手劍', '弓', '弩', '法杖', '魔導具', '拳套', '旋風槍', '拔刀劍', '空手'];;
-				cy_character.allAuType = ['小刀', '盾牌', '箭矢', '魔導具', '拳套', '拔刀劍', '無', '單手劍'];
-				cy_character.allBodyType = ['一般', '輕量化', '重量化', '無'];
-				
-				armsTitleAry = ['主手裝備', '副手裝備', '身體裝備'];
-				break;
-			case 2:
-				All_WeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '抜刀剣', 'その他'];
-				All_AuType = ['短剣', '盾', '矢', '魔導具', '手甲', '抜刀剣', 'その他'];
-				All_bodyType = ['通常', '軽量化', '重量化'];
-				
-				cy_character.allWeapType = ['片手剣', '両手剣', '弓', '自動弓', '杖', '魔導具', '手甲', '旋風槍', '双剣', '抜刀剣', 'なし'];;
-				cy_character.allAuType = ['短剣', '盾', '矢', '魔導具', '手甲', '抜刀剣', 'なし', '片手剣'];
-				cy_character.allBodyType = ['通常', '軽量化', '重量化', 'なし'];
-				
-				armsTitleAry = ['メイン装備', 'サブ装備', '体装備'];
-				break;
-		}
-
-		// ================================== 技能樹類型、技能樹、技能名稱
-		for (let i=0; i<armsTitleAry.length; ++i)
-		{
-			document.getElementById('armsTitle_' + String(i)).innerHTML = armsTitleAry[i];
-		}
 
 		if (getCur_languageNo() != -1)
 		{
@@ -75,12 +30,7 @@
 		
 		// ================================== 
 		resetInnerLang(document);
-		
-		if ( document.getElementById('site_Skill').getAttribute('data-skillcode') != "" )
-		{
-			show_discription_1();
-			show_discription_2();
-		}
+
 	}
 	
 	function resetInnerLang(_dom){

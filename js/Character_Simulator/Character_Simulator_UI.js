@@ -145,7 +145,7 @@
 		
 		_html = '';
 		_html += '<div style="clear:both;" class="charaSimu_equipSaveLoad_main" style="padding:0;">';
-		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="generateImgTo('CharaSimu_setEquipBase', 'charaSimu_showEquipImage')"><a data-langtext="Generate Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
+		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="generateImgTo('CharaSimu_setEquipBase', 'charaSimu_showEquipImage')"><a data-langtext="Export as .PNG|,|產生圖檔|,|画像ファイル出力"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Clear|,|清空|,|クリア"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
 		_html += '</div>';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));
@@ -166,78 +166,10 @@
 					if ( cy_character.showPassiveSkillDetail && checked_1 && _skill.Sk_calcLv == 0) continue;
 					if ( _skill.Sk_type == 'passive' && (_skill.Sk_charaAddition.length != 0 || _skill.Sk_addDesc != '') )
 					{
-						let _T = '', _text = '';
+						let _text = '';
 						if ( cy_character.showPassiveSkillDetail )
 						{
-							let _obj = _skill.Sk_charaAddition;
-							for (let i=0; i<_obj.length; ++i)
-							{
-								if ( _obj[i].base != '' )
-								{
-									let _splitUnit = (i != 0) ? '｜' : '';
-									if ( _obj[i].base.baseValue == 'none' )
-									{
-										_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>`;
-										continue;
-									}
-									let _unit = ( _obj[i].abilityType == 0 ) ? '%' : _obj[i].base.unit;
-									let _sign = ( _obj[i].value >= 0 ) ? '+' : '';
-									_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>${_sign}${_obj[i].value}<a data-langtext="${_unit}"></a>`;
-								}
-							}
-							if ( _skill.Sk_addDesc != '' )
-							{
-								let _splitUnit = (_obj.length != 0) ? '｜' : '';
-								let SLv = _skill.Sk_calcLv;
-								let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
-								let W_type = cy_character.charaEquipments[0].type;
-								let Au_type = cy_character.charaEquipments[1].type;
-								let B_type = cy_character.charaEquipments[2].type;
-								for (let l=0; l<_ary.length; ++l)
-								{
-									if ( _ary[l].match(/(.+)\[(.+)\]/) )
-									{
-										let armsConfirm_ary = RegExp.$1.split('_');
-										let isConfirm = false;
-										switch ( armsConfirm_ary[0] )
-										{
-											case "M":	//main-weapon
-												if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
-												break;
-											case "S":	//sub-weapon
-												if ( Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
-												break;
-											case 'b':
-												if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
-												break;
-											case "B":	//main-weapon or sub-weapon
-												if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
-												break;
-											case "D":	//main-weapon and sub-weapon
-												let dual_ary = armsConfirm_ary[1].split('+');
-												if ( W_type == cy_character.weap_map[dual_ary[0]] && Au_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
-												break;
-											case "all":	//all
-												isConfirm = true;
-												break;
-											case "noSub":	//no have sub-weapon
-											if ( armsConfirm_ary[1] )
-											{
-												if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && Au_type == 6 ) isConfirm = true;
-												break;
-											}
-											if ( Au_type == 6 ) isConfirm = true;
-											break;
-										}
-										if ( isConfirm )
-										{
-											_text += _splitUnit + eval("`" + RegExp.$2 + "`");
-											break;
-										}
-									}
-									else { console.log('error');console.log( _skill.Sk_addDesc); }
-								}
-							}
+							_text = _skill.getShowDetail();
 						}
 						let _lang_controlLength = 5;
 						switch ( getCur_languageNo() )
@@ -246,7 +178,7 @@
 							case 1: _lang_controlLength = 4.7; break;
 							case 2: _lang_controlLength = 8.25; break;
 						}
-						if ( _text == '') _html += `<tr><td>${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td></tr>`;
+						if ( _text == '') _html += `<tr><td>${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;display:none;">${_text}</td></tr>`;
 						else _html += `<tr><td style="width:${_lang_controlLength}rem;">${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;">${_text}</td></tr>`;
 					}
 				}
@@ -268,7 +200,7 @@
 		document.getElementById('charaSimu_savingSystem_site').style.display = 'none';
 	}
 	function charaSimu_passiveSkill_lvToCalcLv(temp){
-		
+		if ( !confirm('確定要引用嗎？現有的配點將無法復原。\r\nAre you sure you want to do this?') ) return;
 		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
@@ -298,7 +230,9 @@
 		}
 		_skill.Sk_calcLv = t_calcLv;
 		_skill.resetSkillAddition();
-		charaSimu_openPassiveSkillList();
+		let _doc = temp.parentNode.nextSibling;
+		_doc.innerHTML = _skill.getShowDetail();
+		resetInnerLang(_doc);
 	}
 	
 	function updateAllPassiveSkillAddition(){
@@ -375,8 +309,9 @@
 		}
 		let refining_ary = ['E', 'D', 'C', 'B', 'A', 'S'];
 		let t_refining = (t_equipfield.refining >= 10) ? refining_ary[t_equipfield.refining-10] : t_equipfield.refining;
-		
-		if ( t_fieldNo != 5 ) Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed|,|無命名|,|名前なし'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}`;
+		let _stability = '';
+		if ( t_equipfield.fieldName == 'Main_Weapon' || ( t_equipfield.fieldName == 'Sub_Weapon' && ( t_equipfield.type == AuArms_map['Arrow'] || t_equipfield.type == AuArms_map['1hSword'] ) ) ) _stability = t_equipfield.stability;
+		if ( t_fieldNo != 5 ) Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed|,|無命名|,|名前なし'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}${(_stability != "") ? "　( " + _stability + "% )" : ""}`;
 		let T_obj = t_equipfield.fieldAbilitys.ability;
 		
 		Ttext += '<div class="charaSimu_showEquipFieldAbilitys">';
@@ -531,7 +466,7 @@
 		}
 		if ( t_equipfield.fieldName == 'Main_Weapon' || ( t_equipfield.fieldName == 'Sub_Weapon' && ( t_equipfield.type == AuArms_map['Arrow'] || t_equipfield.type == AuArms_map['1hSword'] ) ) )	//主、副手
 		{
-			_html += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1"><a data-langtext="Stability|,|穩定率|,|Stability"></a></span><input value="${t_equipfield.stability}" type="number" class="equipField_stability" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'stability')" placeholder="${t_equipfield.stability}" />%</div>`;
+			_html += `<div class="equipField_blockUnit"><span class="equipField_textTitle_1"><a data-langtext="Stability|,|穩定率|,|安定率"></a></span><input value="${t_equipfield.stability}" type="number" class="equipField_stability" data-fieldno="${t_fieldNo}" onchange="set_equipFieldProp(this, 'stability')" placeholder="${t_equipfield.stability}" />%</div>`;
 		}
 		_html += `</div>`;
 		_html += `<div class="equipField_mainBlock_2"><fieldset><legend><ul class="equipField_fieldAbilitys_menu"><li onclick="open_charaSimu_abilityListMain(0)"><img src="svg/add-icon_0.svg" /><a data-langtext="Add|,|新增能力|,|Add"></a></li><li id="charaSimu_removeAbilityMode_0" onclick="charaSimu_removeAbilityMode(this)"><img src="svg/delete-icon.svg" /><a data-langtext="Remove|,|移除模式|,|Remove"></a></li><li onclick="charaSimu_resetFieldControl(${t_fieldNo}, 'ability')"><img src="svg/reset-icon.svg" /><a data-langtext="Reset|,|重設|,|Reset"></a></li></ul></legend><ul id="equipField_fieldAbilitys_main"></ul></fieldset></div>`;
@@ -921,7 +856,7 @@
 	
 		_html = '';
 		_html += '<div style="clear:both;" class="charaSimu_equipSaveLoad_main" style="padding:0;">';
-		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="generateImgTo('CharaSimu_setEquipBase', 'charaSimu_showEquipImage', {hiddenId:['charaSimu_switchMode_block']})"><a data-langtext="Generate Image|,|產生圖檔|,|General Image"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Reset|,|清空|,|Reset"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
+		_html += `<fieldset style="padding-left:0rem;padding-right:0rem;"><legend style="margin-left:0.3rem;"><ul><li onclick="generateImgTo('CharaSimu_setEquipBase', 'charaSimu_showEquipImage', {hiddenId:['charaSimu_switchMode_block']})"><a data-langtext="Export as .PNG|,|產生圖檔|,|画像ファイル出力"></a></li><li onclick="javascript:document.getElementById('charaSimu_showEquipImage').src = '';"><a data-langtext="Clear|,|清空|,|クリア"></a></li></ul></legend><div><img style="max-width:100%;" id="charaSimu_showEquipImage" src="" /></div></fieldset>`;
 		_html += '</div>';
 		document.getElementById('CharaSimu_setEquipShow').innerHTML = _html;
 		resetInnerLang(document.getElementById('CharaSimu_setEquipShow'));

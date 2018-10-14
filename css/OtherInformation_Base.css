@@ -1,5 +1,5 @@
 
-
+	
 	.VerInfo_ul, .VerInfo_ul_ul {
 		text-shadow:0.1rem 0.1rem 0.5rem #444;
 		padding-top:0.6rem;
@@ -40,4 +40,7 @@
 	
 	.Info_td_title {
 		text-align: right;
+	}
+	.VerInfo_ul a, .VerInfo_ul_ul a {
+		color: #FFF;
 	}

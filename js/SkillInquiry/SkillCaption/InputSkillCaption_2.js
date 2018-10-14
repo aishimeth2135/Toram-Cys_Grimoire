@@ -1959,6 +1959,8 @@
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = 'slow|,|慢';
 										all_SI[20].SI_value = 1;
+										all_SI[25].SI_value = 50 + 5*T_skillLv;
+										all_SI[26].SI_value = '_@降防';
 										all_SI[27].SI_value = '施放期間將處於_&1_，期間內可抵擋一次傷害。抵擋成功後將會追加_&2_。';
 										break;
 									case 1:

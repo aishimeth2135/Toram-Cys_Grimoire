@@ -1,5 +1,6 @@
 	
 	window.onunload = () => {
+		if ( !cy_character ) return;
 		let _charaSave = cy_character.general_saveCode();
 		if ( _charaSave != "[1,[['',9,0,0,0,[],[[],[]],['','']],['',6,0,0,0,[],[],['','']],['',3,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']]],[1,1,1,1,1,['none',1]],'################']" )
 		{
@@ -7,22 +8,27 @@
 		}
 	};
 	
+	function call_loadingPage(fun, fun_args = []/*ary*/, msec){
+		try {
+			let _page = document.getElementById('Loading_Page');
+			let _pro = new Promise((resolve, reject) => {
+				_page.style.display = 'block';
+				resolve('sussess');
+			});
+			_pro.then(() => {return new Promise( (resolve, reject) => {
+				eval("fun(" + fun_args.toString() + ")");
+				resolve('sussess');
+			});}).then((value) => {
+				setTimeout(() => {
+					_page.style.display = 'none';
+				}, msec);
+			});
+		}
+		catch (e){
+			console.log(e);
+		}
+	}
 	
-	// ============================================== [ ReplaceAll ]
-	function replaceAll(Tstring, beReplace, ReplaceTo){
-		return Tstring.replace(new RegExp(beReplace, 'g'),ReplaceTo);
-	}
-	//===========================================================//
-	function _stopBubble(event){
-		event = event || window.event;
-		if (event.stopPropagation)
-		{
-			event.stopPropagation();
-		}
-		else {
-			e.cancelBubble = true;
-		}
-	}
 	//===========================================================//
 	
 	function showWarningMsg(msg, set_msec = 4000){
@@ -82,7 +88,7 @@
 					document.getElementById(add.hiddenId[i]).style.display = 'none';
 				}
 			}
-			resolve('sussess')
+			resolve('sussess');
 		});
 		
 		pro.then(() => { return new Promise((resolve, reject) => {
@@ -103,10 +109,6 @@
 				}
 			})
 		});
-		
-		
-		
-		
 	}
 	
 	//===========================================================//
@@ -151,7 +153,21 @@
 	}
 	
 	
-	
+	// ============================================== [ ReplaceAll ]
+	function replaceAll(Tstring, beReplace, ReplaceTo){
+		return Tstring.replace(new RegExp(beReplace, 'g'),ReplaceTo);
+	}
+	//===========================================================//
+	function _stopBubble(event){
+		event = event || window.event;
+		if (event.stopPropagation)
+		{
+			event.stopPropagation();
+		}
+		else {
+			e.cancelBubble = true;
+		}
+	}
 	/* ---------------------------------------------------- */
 	if (!Array.prototype.indexOf) {
 		Array.prototype.indexOf = function indexOf(member, startFrom) {

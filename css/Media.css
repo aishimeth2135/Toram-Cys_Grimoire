@@ -1,11 +1,11 @@
-	
-	
-	@media screen and (max-width: 35rem), screen and (max-height:  35rem) {
+	@media screen and (max-width: 40rem) {
 		#warningMsg_block {
 			width: 90%!important;
 			margin-left: 5%!important;
 			margin-right: 5%!important;
 		}
+	}
+	@media screen and (max-width: 35rem), screen and (max-height:  35rem) {
 		#Section_1, #Section_2, #Section_3, #Section_4 {
 			padding: 0.8rem 0.2rem;
 		}

@@ -317,6 +317,83 @@
 		}
 	}
 	
+	the_skill.prototype.getShowDetail = function(){
+		if ( this.Sk_type == 'passive' )
+		{
+			let _skill = this;
+			let _text = '';
+			let _obj = _skill.Sk_charaAddition;
+			for (let i=0; i<_obj.length; ++i)
+			{
+				if ( _obj[i].base != '' )
+				{
+					let _splitUnit = (i != 0) ? '｜' : '';
+					if ( _obj[i].base.baseValue == 'none' )
+					{
+						_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>`;
+						continue;
+					}
+					let _unit = ( _obj[i].abilityType == 0 ) ? '%' : _obj[i].base.unit;
+					let _sign = ( _obj[i].value >= 0 ) ? '+' : '';
+					_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>${_sign}${_obj[i].value}<a data-langtext="${_unit}"></a>`;
+				}
+			}
+			if ( _skill.Sk_addDesc != '' )
+			{
+				let _splitUnit = (_obj.length != 0) ? '｜' : '';
+				let SLv = _skill.Sk_calcLv;
+				let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
+				let W_type = cy_character.charaEquipments[0].type;
+				let Au_type = cy_character.charaEquipments[1].type;
+				let B_type = cy_character.charaEquipments[2].type;
+				for (let l=0; l<_ary.length; ++l)
+				{
+					if ( _ary[l].match(/(.+)\[(.+)\]/) )
+					{
+						let armsConfirm_ary = RegExp.$1.split('_');
+						let isConfirm = false;
+						switch ( armsConfirm_ary[0] )
+						{
+							case "M":	//main-weapon
+								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
+								break;
+							case "S":	//sub-weapon
+								if ( Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+								break;
+							case 'b':
+								if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
+								break;
+							case "B":	//main-weapon or sub-weapon
+								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+								break;
+							case "D":	//main-weapon and sub-weapon
+								let dual_ary = armsConfirm_ary[1].split('+');
+								if ( W_type == cy_character.weap_map[dual_ary[0]] && Au_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
+								break;
+							case "all":	//all
+								isConfirm = true;
+								break;
+							case "noSub":	//no have sub-weapon
+							if ( armsConfirm_ary[1] )
+							{
+								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && Au_type == 6 ) isConfirm = true;
+								break;
+							}
+							if ( Au_type == 6 ) isConfirm = true;
+							break;
+						}
+						if ( isConfirm )
+						{
+							_text += _splitUnit + eval("`" + RegExp.$2 + "`");
+							break;
+						}
+					}
+					else { console.log('error');console.log( _skill.Sk_addDesc); }
+				}
+			}
+			return _text;
+		}
+	}	
 	/*=============================================================*/
 	var the_skilltree = function(tST_no, tST_name){
 		this.ST_no = tST_no;     	//Int, NO of SkillTree, For Array
