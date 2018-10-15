@@ -58,7 +58,7 @@
 			document.getElementById('enchantEquipment_showText').innerHTML = cy_enchantEquipment.stepCalc(_stepAry).text + `<div class="by">by Cy's Grimoire.</div>`;
 			document.getElementById('enchantEquipment_setBasePotential').getElementsByTagName('input')[0].value = cy_enchantEquipment.potential_base;
 			resetInnerLang(document.getElementById('enchantEquipment_showText'));
-		}, [], 200);
+		}, [], 64);
 	}
 	
 	function enchantEquipment_updateShowMeterialCost(DOC){

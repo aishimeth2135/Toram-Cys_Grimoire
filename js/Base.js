@@ -11,9 +11,11 @@
 	function call_loadingPage(fun, fun_args = []/*ary*/, msec){
 		try {
 			let _page = document.getElementById('Loading_Page');
+			_page.style.display = 'block';
 			let _pro = new Promise((resolve, reject) => {
-				_page.style.display = 'block';
-				resolve('sussess');
+				setTimeout(() => {
+					resolve('sussess');
+				}, 16);
 			});
 			_pro.then(() => {return new Promise( (resolve, reject) => {
 				eval("fun(" + fun_args.toString() + ")");
