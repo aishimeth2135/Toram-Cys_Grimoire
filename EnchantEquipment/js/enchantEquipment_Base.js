@@ -2104,8 +2104,8 @@
 	cy_enchantAbilityItem.prototype.setSettingValue = function(tvalue = 0){
 		if ( this.base == 'none' ) return;
 
-		if ( tvalue > 0 ) tvalue = this.confirmRange('get', tvalue)[0];
-		if ( tvalue < 0 ) tvalue = this.confirmRange('get', tvalue)[1];
+		if ( !this.confirmRange('max', tvalue) ) tvalue = this.confirmRange('get', tvalue)[0];
+		if ( !this.confirmRange('min', tvalue) ) tvalue = this.confirmRange('get', tvalue)[1];
 		this.value_setting = tvalue;
 	}
 	cy_enchantAbilityItem.prototype.getPotentialUnit = function(calcDouble = true){
