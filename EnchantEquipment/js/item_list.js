@@ -40,19 +40,19 @@
 		new cy_enchantItem('SpecialEnhancement'	, 'guard_rate'				, 'Mana'	, 20		, 'Guard Rate|,|阻擋率|,|Guard率', '%'),
 		new cy_enchantItem('SpecialEnhancement'	, 'guard_power'				, 'Mana'	, 20		, 'Guard Power|,|阻擋力|,|Guard力', '%'),
 		new cy_enchantItem('SpecialEnhancement'	, 'evasion_rate'			, 'Mana'	, 20		, 'Avoid Rate|,|閃躲率|,|Avoid率', '%'),
-		new cy_enchantItem('SpecialEnhancement'	, 'aggor'					, 'Mana'	, 6			, 'Aggro|,|仇恨值|,|ヘイト', '%'),
-		new cy_enchantItem('AwakeElement'		, 'water@elements'			, 'Mana'	, 100		, 'water(Not Base)|,|水屬性(非原屬)|,|水属性(得意でない)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement'		, 'earth@elements'			, 'Mana'	, 100		, 'Earth(Not Base)|,|地屬性(非原屬)|,|地属性(得意でない)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement'		, 'wind@elements'			, 'Mana'	, 100		, 'Wind(Not Base)|,|風屬性(非原屬)|,|風属性(得意でない)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement'		, 'fire@elements'			, 'Mana'	, 100		, 'Fire(Not Base)|,|火屬性(非原屬)|,|火属性(得意でない)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement'		, 'light@elements'			, 'Mana'	, 100		, 'Light(Not Base)|,|光屬性(非原屬)|,|光属性(得意でない)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement'		, 'dark@elements'			, 'Mana'	, 100		, 'Dark(Not Base)|,|暗屬性(非原屬)|,|暗属性(得意でない)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement_base'	, 'water_base@elements'		, 'Mana'	, 10		, 'water(Base)|,|水屬性(原屬)|,|水属性(得意)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement_base'	, 'earth_base@elements'		, 'Mana'	, 10		, 'Earth(Base)|,|地屬性(原屬)|,|地属性(得意)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement_base'	, 'wind_base@elements'		, 'Mana'	, 10		, 'Wind(Base)|,|風屬性(原屬)|,|風属性(得意)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement_base'	, 'fire_base@elements'		, 'Mana'	, 10		, 'Fire(Base)|,|火屬性(原屬)|,|火属性(得意)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement_base'	, 'light_base@elements'		, 'Mana'	, 10		, 'Light(Base)|,|光屬性(原屬)|,|光属性(得意)'	, 'none', 'WeaponOnly'),
-		new cy_enchantItem('AwakeElement_base'	, 'dark_base@elements'		, 'Mana'	, 10		, 'Dark(Base)|,|暗屬性(原屬)|,|暗属性(得意)'	, 'none', 'WeaponOnly')
+		new cy_enchantItem('SpecialEnhancement'	, 'aggor'					, 'Mana'	, 6			, 'Aggro|,|仇恨值|,|ヘイト', '%', '', [10, -10]),
+		new cy_enchantItem('AwakeElement'		, 'water@elements'			, 'Mana'	, 100		, 'water(Not Base)|,|水屬性(非原屬)|,|水属性(得意でない)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement'		, 'earth@elements'			, 'Mana'	, 100		, 'Earth(Not Base)|,|地屬性(非原屬)|,|地属性(得意でない)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement'		, 'wind@elements'			, 'Mana'	, 100		, 'Wind(Not Base)|,|風屬性(非原屬)|,|風属性(得意でない)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement'		, 'fire@elements'			, 'Mana'	, 100		, 'Fire(Not Base)|,|火屬性(非原屬)|,|火属性(得意でない)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement'		, 'light@elements'			, 'Mana'	, 100		, 'Light(Not Base)|,|光屬性(非原屬)|,|光属性(得意でない)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement'		, 'dark@elements'			, 'Mana'	, 100		, 'Dark(Not Base)|,|暗屬性(非原屬)|,|暗属性(得意でない)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement_base'	, 'water_base@elements'		, 'Mana'	, 10		, 'water(Base)|,|水屬性(原屬)|,|水属性(得意)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement_base'	, 'earth_base@elements'		, 'Mana'	, 10		, 'Earth(Base)|,|地屬性(原屬)|,|地属性(得意)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement_base'	, 'wind_base@elements'		, 'Mana'	, 10		, 'Wind(Base)|,|風屬性(原屬)|,|風属性(得意)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement_base'	, 'fire_base@elements'		, 'Mana'	, 10		, 'Fire(Base)|,|火屬性(原屬)|,|火属性(得意)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement_base'	, 'light_base@elements'		, 'Mana'	, 10		, 'Light(Base)|,|光屬性(原屬)|,|光属性(得意)'	, 'none', 'WeaponOnly', [1, 0]),
+		new cy_enchantItem('AwakeElement_base'	, 'dark_base@elements'		, 'Mana'	, 10		, 'Dark(Base)|,|暗屬性(原屬)|,|暗属性(得意)'	, 'none', 'WeaponOnly', [1, 0])
 	);
 	
 	(function(){

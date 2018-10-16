@@ -425,9 +425,9 @@
 		{
 			if ( _potentialUnit*_value > 0 )
 			{
-				_value = 0;
-				DOC.value = 0;
-				showWarningMsg('此為退潛欄位。');
+				_value *= -1;
+				DOC.value = _value;
+				showWarningMsg('此為退潛欄位。已自動轉成負值。');
 			}
 		}
 		else {
@@ -438,16 +438,15 @@
 				showWarningMsg('此為正屬欄位。');
 			}
 		}
-		if ( _abilityItem.base.name.includes('@elements') ) _potentialUnit = cy_enchantEquipment.potentialMax-1;
-		if ( _potentialUnit*_value > cy_enchantEquipment.potentialMax || _value > cy_enchantEquipment.lvPotentialMax || ( _abilityItem.base.name.includes('@elements') && _value > 1 ) )
+		if ( !_abilityItem.confirmRange('max', _value) )
 		{
-			_value = Math.min(parseInt(cy_enchantEquipment.potentialMax/_potentialUnit), cy_enchantEquipment.lvPotentialMax);
+			_value = _abilityItem.confirmRange('get')[0];
 			DOC.value = _value;
 			showWarningMsg('數值超出上限。');
 		}
-		if ( _potentialUnit*_value < -cy_enchantEquipment.potentialMax || _value < -cy_enchantEquipment.lvPotentialMax || ( _abilityItem.base.name.includes('@elements') && _value < 0 ) )
+		if ( !_abilityItem.confirmRange('min', _value) )
 		{
-			_value = Math.max(Math.ceil(-1*cy_enchantEquipment.potentialMax/_potentialUnit), -cy_enchantEquipment.lvPotentialMax);
+			_value = _abilityItem.confirmRange('get')[1];
 			DOC.value = _value;
 			showWarningMsg('數值小於下限。');
 		}
@@ -528,12 +527,11 @@
 			let _value;
 			if ( _doc.getAttribute('data-curcondition') != 'negative' )
 			{
-				_value = Math.min(parseInt(cy_enchantEquipment.potentialMax/_abilityItem[_curno].getPotentialUnit(false)), cy_enchantEquipment.lvPotentialMax);
+				_value = _abilityItem[_curno].confirmRange('get')[0];
 			}
 			else {
-				_value = Math.max(Math.ceil(-1*cy_enchantEquipment.potentialMax/_abilityItem[_curno].getPotentialUnit(false)), -1*cy_enchantEquipment.lvPotentialMax);
+				_value = _abilityItem[_curno].confirmRange('get')[1];
 			}
-			if ( _abilityItem[_curno].base.name.includes('elements@') ) _value = 1;
 			_abilityItem[_curno].setSettingValue(_value);
 			_doc.setAttribute('data-curno', _curno + 1);
 		}
@@ -543,12 +541,11 @@
 			let _value;
 			if ( _doc.getAttribute('data-curcondition') != 'negative' )
 			{
-				_value = Math.min(parseInt(cy_enchantEquipment.potentialMax/_abilityItem[_curno].getPotentialUnit(false)), cy_enchantEquipment.lvPotentialMax);
+				_value = _abilityItem[_curno].confirmRange('get')[0];
 			}
 			else {
-				_value = Math.max(Math.ceil(-1*cy_enchantEquipment.potentialMax/_abilityItem[_curno].getPotentialUnit(false)), -1*cy_enchantEquipment.lvPotentialMax);
+				_value = _value = _abilityItem[_curno].confirmRange('get')[1];
 			}
-			if ( _abilityItem[_curno].base.name.includes('@elements') ) _value = 1;
 			_abilityItem[_curno].setSettingValue(_value);
 		}
 		enchantEquip_updateSelList();

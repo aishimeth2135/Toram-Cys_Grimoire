@@ -213,6 +213,7 @@
 	div#enchantEquipment_showText {
 		background-color: #000;
 		display: inline-block;
+		max-width: 31rem;
 	}
 	div#enchantEquipment_showText .by {
 		text-align: right;

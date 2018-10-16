@@ -129,7 +129,7 @@
 	
 	cy_enchantEquipment_base.prototype.item_addValue = function(item, value, test = false){
 		let _potentialUnit = item.getPotentialUnit(false);
-		if ( item.value + value > this.potentialMax/_potentialUnit && !item.base.name.includes('@elements') )
+		if ( !item.confirmRange('both', item.value + value) )
 		{
 			console.log('error');
 			console.log(item);
@@ -336,7 +336,8 @@
 				let _showStepDetail = ( document.getElementById('enchantEquip_showStepDetail_btn').getAttribute('data-mode') == "1" );
 				let _frame = cy_enchantEquipment.enchantDefaultFrame_list[parseInt(document.getElementById('enchantEquipment_selList').getAttribute('data-frameno'))];
 				let _equipBasePotential_text = ( _frame.needEquipBase ) ? `、<a data-langtext="Base Potential |,|裝備基礎潛力 |,|基礎潜在力 "></a> ${this.potential_equipBase}` : '';
-				let _stepCnt = 0, _html = `<div class="showBasePotential"><a data-langtext="Initial Potential|,|初始潛力值|,|潜在力"></a> ${this.potential}${_equipBasePotential_text}</div>`;
+				let _fieldTypeText = (this.equipFieldType == 0) ? "Weapon|,|武器|,|武器" : "Body Armor|,|身體裝備|,|体装備";
+				let _stepCnt = 0, _html = `<div class="showBasePotential"><a data-langtext="${_fieldTypeText}"></a>、<a data-langtext="Initial Potential|,|初始潛力值|,|潜在力"></a> ${this.potential}${_equipBasePotential_text}</div>`;
 				let _html2 = '<div class="showBasePotential">';
 				for (let i=0; i<this.abilityItem.length; ++i)
 				{
@@ -2006,7 +2007,7 @@
 		return _stepAry;
 	}
 	
-	var cy_enchantItem = function(tcategory, tname, tmaterialType, tpotentialUnit, tshowName, tunit = '', texception = ''){
+	var cy_enchantItem = function(tcategory, tname, tmaterialType, tpotentialUnit, tshowName, tunit = '', texception = '', trange = ''){
 		this.category = tcategory;
 		this.name = tname;
 		this.materialType = tmaterialType;
@@ -2014,6 +2015,7 @@
 		this.showName = tshowName;
 		this.unit = tunit;
 		this.exception = texception;
+		this.range = trange;
 	}
 	
 	var cy_enchantAbilityItem = function(){
@@ -2022,6 +2024,30 @@
 		this.value = 0;
 		this.value_temp = 0;
 		this.value_setting = 0;
+	}
+	cy_enchantAbilityItem.prototype.confirmRange = function(type = 'both', inputValue='none'){
+		if ( this.base == 'none' ) return false;
+		let ptMax = cy_enchantEquipment.potentialMax;
+		let lvMax = cy_enchantEquipment.lvPotentialMax;
+		let max = Math.min(parseInt(ptMax/this.getPotentialUnit(false)), lvMax);
+		let min = -1*max;
+		let _value = this.value;
+		if ( inputValue != 'none' ) _value = inputValue;
+		
+		if ( this.base.range != '' )
+		{
+			if (this.base.range[0] != 'none') max = this.base.range[0];
+			if (this.base.range[1] != 'none') min = this.base.range[1];
+		}
+		
+		switch (type)
+		{
+			case 'both': if ( _value > max || _value < min ) return false; break;
+			case 'max': if ( _value > max ) return false; break;
+			case 'min': if ( _value < min ) return false; break;
+			case 'get': return [max, min]; break;
+		}
+		return true;
 	}
 	
 	cy_enchantAbilityItem.prototype.reset = function(){
@@ -2077,18 +2103,9 @@
 	}
 	cy_enchantAbilityItem.prototype.setSettingValue = function(tvalue = 0){
 		if ( this.base == 'none' ) return;
-		let _potentialUnit = this.getPotentialUnit(false);
-		if ( this.base.name.includes('@elements') ) _potentialUnit = cy_enchantEquipment.potentialMax-1;
-		if ( tvalue >= 0 )
-		{
-			if ( tvalue > parseInt(cy_enchantEquipment.potentialMax/_potentialUnit) ) tvalue = parseInt(cy_enchantEquipment.potentialMax/_potentialUnit);
-			if ( tvalue > cy_enchantEquipment.lvPotentialMax ) tvalue = cy_enchantEquipment.lvPotentialMax;
-		}
-		if ( tvalue < 0 )
-		{
-			if ( tvalue < -1*parseInt(cy_enchantEquipment.potentialMax/_potentialUnit) ) tvalue = -1*parseInt(cy_enchantEquipment.potentialMax/_potentialUnit);
-			if ( tvalue < -1*cy_enchantEquipment.lvPotentialMax ) tvalue = cy_enchantEquipment.lvPotentialMax;
-		}
+
+		if ( tvalue > 0 ) tvalue = this.confirmRange('get', tvalue)[0];
+		if ( tvalue < 0 ) tvalue = this.confirmRange('get', tvalue)[1];
 		this.value_setting = tvalue;
 	}
 	cy_enchantAbilityItem.prototype.getPotentialUnit = function(calcDouble = true){
