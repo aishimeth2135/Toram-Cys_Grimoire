@@ -178,6 +178,9 @@
 	.TextBlock {
 		padding: 0.6rem;
 	}
+	.TextBlock a {
+		color: #FFF;
+	}
 	.Text_Small_1 {
 		font-size:0.9rem;
 	}

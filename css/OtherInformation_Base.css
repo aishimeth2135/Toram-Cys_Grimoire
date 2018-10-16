@@ -1,4 +1,12 @@
-
+	.Author_ {
+		border-spacing: 0.15rem;
+	}
+	.Author_ td {
+		padding: 0.3rem;
+	}
+	.Author_ .td1 {
+		border-right: 1px #AAA solid;
+	}
 	
 	.VerInfo_ul, .VerInfo_ul_ul {
 		text-shadow:0.1rem 0.1rem 0.5rem #444;

@@ -1127,6 +1127,67 @@
 					_stepAry[0].push(_pAry[2].getStepStr(1) + ' & ' + _nAry[0].getStepStr() + ' & ' + _nAry[1].getStepStr());
 					_stepAry[0].push('END@');
 					break;
+				case 'stat% stat cd c':
+					_pAry = []; _nAry = [];
+					{
+						let _ary1 = [this.abilityItem[0], this.abilityItem[1]].sort((a, b) => { return b.getPotentialUnit() - a.getPotentialUnit();});
+						let _ary2 = [this.abilityItem[2], this.abilityItem[3]].sort((a, b) => { return b.getPotentialUnit() - a.getPotentialUnit();});
+						_pAry = [_ary1[0], _ary1[1], _ary2[0], _ary2[1]];
+					}
+					_nAry = negativeValueAbility.sort((a, b) => { return b.getPotentialUnit() - a.getPotentialUnit();});
+					
+					_t1 = this.potential_base - 1 - parseInt(_pAry[1].getPotentialUnit()*1.2) - parseInt(_pAry[2].getPotentialUnit()*1.2);
+					_remain = this.potential_base - 1;;
+					
+					_t2 = -1*_nAry[1].value_setting; _t3 = parseInt(_pAry[2].getPotentialUnit()*1.2)*(_pAry[2].value_setting-1);
+					while ( parseInt(parseInt((_t2-1)*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100)*1.2) > _t3 )
+					{
+						--_t2;
+					}
+					
+					_cnt = 0; _text1 = '';
+					while ( _t1 < _pAry[0].getPotentialUnit()*1 )
+					{
+						_t1 += _nAry[1].getPotentialUnit()*this.negativeValue_rate/100;
+						--_cnt;
+					}
+					if ( -1*(_nAry[1].value_setting - _cnt) >= _t2 ) _cnt -= parseInt(-1*(_nAry[1].value_setting - _cnt + _t2)/2)*2;
+					_t2 = _nAry[1].value_setting - _cnt;
+					if ( _cnt < 0 ) _text1 += (_nAry[1].getStepStr(_cnt) + ' & ');
+					
+					_t1 += parseInt((-1*_cnt)*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100);
+					_t1 = parseInt(_t1/_pAry[0].getPotentialUnit());
+					
+					_stepAry[0].push(_text1 + _pAry[0].getStepStr(_t1));
+					_remain -= _pAry[0].getPotentialUnit()*_t1;
+					_remain += parseInt(_cnt*-1*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100);
+					_stepAry[0].push(_pAry[1].getStepStr(1));
+					_remain -= parseInt(_pAry[1].getPotentialUnit()*1.2);
+					_stepAry[0].push(_pAry[2].getStepStr(1));
+					_remain -= parseInt(_pAry[2].getPotentialUnit()*1.2);
+					_stepAry[0].push(_nAry[1].getStepStr());
+					_remain += parseInt(parseInt(_t2*-1*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100)*1.2);
+					
+					_t3 = 0;
+					while ( (_t3+1)*parseInt(_pAry[2].getPotentialUnit()*1.2) < _remain )
+					{
+						++_t3;
+						if ( _t3 >= _pAry[2].value_setting - 1 ) break;
+					}
+					
+					_stepAry[0].push('stepBy@_' + _pAry[2].getStepStr(_t3));
+					_remain -= parseInt(_pAry[2].getPotentialUnit()*1.2)*_t3;
+					
+					if ( _remain > 0)
+					{
+						_t4 = Math.min(parseInt(_remain/parseInt(_pAry[3].getPotentialUnit()*1.8)), _pAry[3].value_setting-1);
+						_stepAry[0].push('stepBy@_' + _pAry[3].getStepStr(_t4));
+						_stepAry[0].push('END@');
+					}
+					else {
+						_stepAry[0].push('END@');
+					}
+					break;
 			}
 			break;
 			case 1:
@@ -2001,6 +2062,67 @@
 					_stepAry[0].push(_pAry[2].getStepStr(1) + ' & ' + _nAry[0].getStepStr() + ' & ' + _nAry[1].getStepStr());
 					_stepAry[0].push('END@');
 					break;
+				case 'stat% stat cd c':
+					_pAry = []; _nAry = [];
+					{
+						let _ary1 = [this.abilityItem[0], this.abilityItem[1]].sort((a, b) => { return b.getPotentialUnit() - a.getPotentialUnit();});
+						let _ary2 = [this.abilityItem[2], this.abilityItem[3]].sort((a, b) => { return b.getPotentialUnit() - a.getPotentialUnit();});
+						_pAry = [_ary1[0], _ary1[1], _ary2[0], _ary2[1]];
+					}
+					_nAry = negativeValueAbility.sort((a, b) => { return b.getPotentialUnit() - a.getPotentialUnit();});
+					
+					_t1 = this.potential_base - 1 - parseInt(_pAry[1].getPotentialUnit()*1.2) - parseInt(_pAry[2].getPotentialUnit()*1.2);
+					_remain = this.potential_base - 1;;
+					
+					_t2 = -1*_nAry[1].value_setting; _t3 = parseInt(_pAry[2].getPotentialUnit()*1.2)*(_pAry[2].value_setting-1);
+					while ( parseInt(parseInt((_t2-1)*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100)*1.2) > _t3 )
+					{
+						--_t2;
+					}
+					
+					_cnt = 0; _text1 = '';
+					while ( _t1 < _pAry[0].getPotentialUnit()*1 )
+					{
+						_t1 += _nAry[1].getPotentialUnit()*this.negativeValue_rate/100;
+						--_cnt;
+					}
+					if ( -1*(_nAry[1].value_setting - _cnt) >= _t2 ) _cnt -= parseInt(-1*(_nAry[1].value_setting - _cnt + _t2)/2)*2;
+					_t2 = _nAry[1].value_setting - _cnt;
+					if ( _cnt < 0 ) _text1 += (_nAry[1].getStepStr(_cnt) + ' & ');
+					
+					_t1 += parseInt((-1*_cnt)*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100);
+					_t1 = parseInt(_t1/_pAry[0].getPotentialUnit());
+					
+					_stepAry[0].push(_text1 + _pAry[0].getStepStr(_t1));
+					_remain -= _pAry[0].getPotentialUnit()*_t1;
+					_remain += parseInt(_cnt*-1*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100);
+					_stepAry[0].push(_pAry[1].getStepStr(1));
+					_remain -= parseInt(_pAry[1].getPotentialUnit()*1.2);
+					_stepAry[0].push(_pAry[2].getStepStr(1));
+					_remain -= parseInt(_pAry[2].getPotentialUnit()*1.2);
+					_stepAry[0].push(_nAry[1].getStepStr());
+					_remain += parseInt(parseInt(_t2*-1*_nAry[1].getPotentialUnit()*this.negativeValue_rate/100)*1.2);
+					
+					_t3 = 0;
+					while ( (_t3+1)*parseInt(_pAry[2].getPotentialUnit()*1.2) < _remain )
+					{
+						++_t3;
+						if ( _t3 >= _pAry[2].value_setting - 1 ) break;
+					}
+					
+					_stepAry[0].push('stepBy@_' + _pAry[2].getStepStr(_t3));
+					_remain -= parseInt(_pAry[2].getPotentialUnit()*1.2)*_t3;
+					
+					if ( _remain > 0)
+					{
+						_t4 = Math.min(parseInt(_remain/parseInt(_pAry[3].getPotentialUnit()*1.8)), _pAry[3].value_setting-1);
+						_stepAry[0].push('stepBy@_' + _pAry[3].getStepStr(_t4));
+						_stepAry[0].push('END@');
+					}
+					else {
+						_stepAry[0].push('END@');
+					}
+					break;
 			}
 		}
 		
@@ -2166,6 +2288,7 @@
 		new cy_enchantDefaultFrame('Physical'				, '', false, 'noItemCategory@_atk#7% & noItemCategory@_critical_damage#7% & noItemCategory@_str#7% & negative@_natural_hp_regen#-7% & negative@_mdef#-7% & negative@_dodge#-7', 0, ['', '', '', '', '', ''], '+1 +1 +1 -1 -1 -1'),
 		new cy_enchantDefaultFrame('Physical'				, '', false, 'noItemCategory@_agi#7% & noItemCategory@_aspd#16% & critical_damage#16 & critical_rate#16 & negative@_def#-7% & negative@_mdef#-7%', 0, ['', '', '', '', 'Critical', 'Critical'], '+1 +1 +2 -2'),
 		new cy_enchantDefaultFrame('Physical'				, '', false, 'noItemCategory@_critical_rate#16 & noItemCategory@_aspd#16% & agi#7% & agi#10 & negative@_def#-7% & negative@_mdef#-7%', 0, ['', '', '', '', 'Stats', 'Stats'], 'c% aspd% stat stat%'),
+		new cy_enchantDefaultFrame('Physical'				, '', false, 'agi#7% & agi#4 & critical_damage#16 & critical_rate#16 & negative@_natural_hp_regen#-7% & negative@_mdef#-7%', 0, ['', '', 'all', 'all', 'all', 'Attack'], 'stat% stat cd c', 31),
 		new cy_enchantDefaultFrame('Physical_Elements'		, 'Physical(Elements)|,|物理職、屬性|,|物理火力属性', false, 'noItemCategory@_fire_base@elements#1 & noItemCategory@_stronger_against_earth#14 & noItemCategory@_atk#7% & noItemCategory@_critical_rate#16 & negative@_natural_hp_regen#-7% & negative@_dodge#-7', 0, ['', '', '', '', '', ''], '+1 +1 +1 +1 -1 -1'),
 		new cy_enchantDefaultFrame('Physical_Elements'		, '', false, 'noItemCategory@_fire_base@elements#1 & noItemCategory@_stronger_against_earth#14 & noItemCategory@_critical_damage#16 & noItemCategory@_atk#3% & negative@_natural_hp_regen#-7% & negative@_dodge#-7', 0, ['', '', '', '', '', ''], '+1 +1 +1 +1 -1 -1'),
 		new cy_enchantDefaultFrame('Physical_Elements'		, '', false, 'noItemCategory@_fire_base@elements#1 & noItemCategory@_stronger_against_earth#14 & critical_damage#16 & critical_rate#16 & negative@_def#-7% & negative@_mdef#-7%', 0, ['', '', '', '', 'Critical', 'Critical'], '+1 +1 +2 -2'),
@@ -2193,6 +2316,7 @@
 		new cy_enchantDefaultFrame('body_Physical'			, '', false, 'noItemCategory@_str#7% & critical_damage#7% & critical_damage#16 & negative@_matk#-7% & negative@_magic_pierce#-3% & negative@_accuracy#-7', 1, ['', '', '', '', 'Stats|Critical', 'Stats|Critical'], '+1 +2 -2 -1'),
 		new cy_enchantDefaultFrame('body_Physical'			, '', false, 'noItemCategory@_agi#7% & noItemCategory@_aspd#16% & critical_damage#16 & critical_rate#16 & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Critical', 'Critical'], '+1 +1 +2 -1 -1'),
 		new cy_enchantDefaultFrame('body_Physical'			, '', false, 'noItemCategory@_critical_rate#16 & noItemCategory@_aspd#16% & agi#7% & agi#10 & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Stats', 'Stats'], '+1 +1 +2 -1 -1'),
+		new cy_enchantDefaultFrame('body_Physical'			, '', false, 'agi#7% & agi#4 & critical_damage#16 & critical_rate#16 & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', 'all', 'all', 'all', 'Attack'], 'stat% stat cd c', 31),
 		new cy_enchantDefaultFrame('body_Physical_Elements'	, 'Physical(Elements)|,|物理職、屬性|,|物理火力属性', false, 'noItemCategory@_stronger_against_earth#13 & critical_damage#16 & critical_rate#16 & negative@_matk#-7% & negative@_magic_pierce#-3 & negative@_accuracy#-7', 1, ['', '', '', '', 'Critical', 'Critical'], '+1 +2 -2 -1'),
 		new cy_enchantDefaultFrame('body_Physical_Elements'	, '', false, 'noItemCategory@_stronger_against_earth#14 & noItemCategory@_critical_rate#16 & noItemCategory@_dex#4% & negative@_atk#-7% & negative@_accuracy#-3% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
 		new cy_enchantDefaultFrame('body_Physical_Elements'	, '', false, 'noItemCategory@_stronger_against_earth#14 & noItemCategory@_critical_damage#14 & noItemCategory@_str#1% & negative@_atk#-7% & negative@_accuracy#-3% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
@@ -2202,13 +2326,13 @@
 		new cy_enchantDefaultFrame('body_Magic'				, '', false, 'noItemCategory@_stronger_against_earth#14 & matk#4% & negative@_atk#-7% & negative@_physical_pierce#-3 & negative@_accuracy#-3% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1-2 -2'),
 		new cy_enchantDefaultFrame('body_Magic'				, '', false, 'noItemCategory@_stronger_against_earth#14 & noItemCategory@_int#14 & negative@_atk#-7% & negative@_physical_pierce#-3 & negative@_accuracy#-3% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 -2 -2'),
 		new cy_enchantDefaultFrame('body_Magic'				, '', false, 'noItemCategory@_stronger_against_earth#14 & noItemCategory@_int#14 & noItemCategory@_matk#1% & negative@_atk#-7% & negative@_accuracy#-3% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1-2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, 'Tank|,|坦職|,|タンカー', false, 'noItemCategory@_max_hp#7% & noItemCategory@_vit#7% & noItemCategory@_aggor#10 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, '', false, 'noItemCategory@_max_hp#7% & vit#7% & vit#12 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Stats', 'Stats'], '+1 +2 -2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, '', false, 'noItemCategory@_vit#7% & noItemCategory@_aggor#10 & noItemCategory@_critical_rate#16 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_aggor#10 & noItemCategory@_critical_rate#16 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, '', false, 'noItemCategory@_fire_resistance#14 & magic_resistance#7 & physical_resistance#6 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +2 -2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_vit#7% & noItemCategory@_max_hp#7% & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
-		new cy_enchantDefaultFrame('body_Armor'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_vit#7% & noItemCategory@_critical_rate#16 & noItemCategory@_max_hp#1% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +1 +1 +1 -1 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, 'Tank|,|坦職|,|タンカー', false, 'noItemCategory@_max_hp#7% & noItemCategory@_vit#7% & noItemCategory@_aggor#10 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_max_hp#7% & vit#7% & vit#12 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Stats', 'Stats'], '+1 +2 -2 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_vit#7% & noItemCategory@_aggor#10 & noItemCategory@_critical_rate#16 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_aggor#10 & noItemCategory@_critical_rate#16 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & magic_resistance#7 & physical_resistance#6 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +2 -2 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_vit#7% & noItemCategory@_max_hp#7% & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_vit#7% & noItemCategory@_critical_rate#16 & noItemCategory@_max_hp#1% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +1 +1 +1 -1 -1'),
 		new cy_enchantDefaultFrame('Smith'					, 'Smith|,|匠裝|,|スミス向け', false, 'str#14 & dex#14 & negative@_atk#-7% & negative@_matk#-7% & negative@_magic_pierce#-3 & negative@_accuracy#-7', 1, ['', '', 'all', 'all', 'all', 'all'], '+2 -3 -1'),
 		new cy_enchantDefaultFrame('Smith'					, '', false, 'dex#7% & dex#14 & str#11 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', 'all', 'all', ''], 'stat% stat stat')
 	);
