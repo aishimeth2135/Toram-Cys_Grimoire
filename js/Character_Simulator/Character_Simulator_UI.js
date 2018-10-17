@@ -96,7 +96,7 @@
 					return;
 				}
 				let t_lino = temp.getAttribute('data-lino');
-				if ( saveName == /@\s*/ ) saveName = window.localStorage['charaSimu_saveCode_storage' + t_lino].split(')n_')[0];
+				if ( saveName.match(/^@\s*$/) ) saveName = window.localStorage['charaSimu_saveCode_storage' + t_lino].split(')n_')[0];
 				let saveCode = saveName + ')n_' + cy_character.general_saveCode();
 				window.localStorage.setItem('charaSimu_saveCode_storage' + t_lino, saveCode);
 				charaSimu_resetSaveCodeList();
@@ -310,7 +310,7 @@
 		let refining_ary = ['E', 'D', 'C', 'B', 'A', 'S'];
 		let t_refining = (t_equipfield.refining >= 10) ? refining_ary[t_equipfield.refining-10] : t_equipfield.refining;
 		let _stability = '';
-		if ( t_equipfield.fieldName == 'Main_Weapon' || ( t_equipfield.fieldName == 'Sub_Weapon' && ( t_equipfield.type == AuArms_map['Arrow'] || t_equipfield.type == AuArms_map['1hSword'] ) ) ) _stability = t_equipfield.stability;
+		if ( t_equipfield.fieldName == 'Main_Weapon' || ( t_equipfield.fieldName == 'Sub_Weapon' && ( t_equipfield.type == cy_character.au_map['Arrow'] || t_equipfield.type == cy_character.au_map['1hSword'] ) ) ) _stability = t_equipfield.stability;
 		if ( t_fieldNo != 5 ) Ttext += `<a data-langtext="${t_equipfield.name || 'unnamed|,|無命名|,|名前なし'}"></a>${(t_refining != 0) ? " +" + t_refining : ""}<br />【<a data-langtext="${t_armsTypeName}"></a>】${fieldValueTitle}：${t_equipfield.fieldValue}${(_stability != "") ? "　( " + _stability + "% )" : ""}`;
 		let T_obj = t_equipfield.fieldAbilitys.ability;
 		

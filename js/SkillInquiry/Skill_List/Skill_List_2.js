@@ -48,7 +48,7 @@ try {
 				new the_skill(3 , 'Desperate Resist|,|頑強抵抗|,|必死の抵抗'	, 2	, "passive"	, "", "all[處於膽怯、翻覆、昏厥、逼退狀態時，受到的傷害減少]"),        
 				new the_skill(4 , 'Increased Energy|,|魔力增幅|,|更なる魔力'	, 3	, "passive"	, "all[matk#CLv*SLv/40]"),        
 				new the_skill(6 , 'Attack UP|,|提升攻擊力|,|攻撃力up'			, 0	, "passive"	, "all[atk#CLv*SLv/40]"),        
-				new the_skill(7 , 'Whack|,|強打|,|強打'							, 6	, "passive"	, "", "all[造成物理傷害時，總傷害有${SLv}%機率提升${2*SLv}%]"),		// 5
+				new the_skill(7 , 'Whack|,|強打|,|強打'							, 6	, "passive"	, "", "all[造成物理傷害時，有${SLv}%的機率使總傷害提升${2*SLv}%]"),		// 5
 				new the_skill(8 , 'Critical UP|,|提升暴擊率|,|クリティカルup'	, 7	, "passive"	, "all[critical_rate#parseInt((1+SLv)/2), critical_damage#parseInt((1+SLv)/2)%]"),
 				new the_skill(9 , 'Intimidating Power|,|威嚇之力|,|脅威の威力'	, 8	, "passive"	, "all[atk#CLv*SLv/40]"),
 				new the_skill(11, 'Defence UP|,|提升防禦率|,|防御力up'			, 0	, "passive"	, "all[def#CLv*SLv/40, mdef#CLv*SLv/40]"),
