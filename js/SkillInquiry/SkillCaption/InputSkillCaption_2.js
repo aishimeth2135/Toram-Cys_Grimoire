@@ -1311,7 +1311,7 @@
 										all_SI[16].SI_value = '範圍直線傷害';
 										all_SI[17].SI_value = 'quite slow|,|稍慢';
 										all_SI[20].SI_value = 2;
-										all_SI[22].SI_value = '自身位置-目標後方10m處';
+										all_SI[22].SI_value = '自身位置-距離12m處';
 										all_SI[23].SI_value = 3;
 
 										all_SI[27].SI_value = '此技能的傷害受拔刀傷害影響。';	
@@ -1344,7 +1344,7 @@
 								{
 									case 0:
 										all_SI[5].SI_name = '閃躲率+';
-										all_SI[5].SI_value = input_SI_value_bySelection('Weap', ['DualSword'], [5+2*T_skillLv, 5+T_skillLv]);
+										all_SI[5].SI_value = 10 + 2*T_skillLv;
 										all_SI[5].SI_unit = '%。';
 										all_SI[6].SI_name = 'Def';
 										all_SI[6].SI_value = -100 + T_skillLv;
@@ -2777,7 +2777,7 @@
 								switch (No_Branch)
 								{
 									case 0:
-										all_SI[5].SI_value = '此技能為複合傷害，包含_&1_與_&1_。兩部分的傷害最後會相加，並只顯示一個數字。';
+										all_SI[5].SI_value = '此技能為複合傷害，包含_&1_與_&2_。兩部分的傷害最後會相加，並只顯示一個數字。';
 										all_SI[16].SI_value = '單體傷害';
 										all_SI[17].SI_value = 'quite fast|,|稍快';
 										all_SI[20].SI_value = 1;

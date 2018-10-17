@@ -645,9 +645,9 @@
 					if ( cy_character.statList[i].baseName != _ary[1] ) continue;
 					switch ( _ary[0] )
 					{
-						case 'R': return cy_character.statList[i].rate;
-						case 'C': return cy_character.statList[i].constant;
-						case 'E': return cy_character.statList[i].extraRate;
+						case 'R': return cy_character.statList[i].rate; break;
+						case 'C': return cy_character.statList[i].constant; break;
+						case 'E': return cy_character.statList[i].extraRate; break;
 						default: console.log('error');
 					}
 				}
@@ -667,10 +667,9 @@
 		if ( this.baseValue == 'none' ) return this.constant;
 		
 		let B = 0;
-		let C = (this.formula_add.addC == 0) ? this.constant : this.constant + eval(this.formula_add.addC);
-		let R = (this.formula_add.addR == 0) ? (100 + this.rate)/100 : (100 + this.rate + eval(this.formula_add.addR)/100);
+		let C = (this.formula_add.addC == '') ? this.constant : this.constant + eval(this.formula_add.addC);
+		let R = (this.formula_add.addR == '') ? (100 + this.rate)/100 : (100 + this.rate + eval(this.formula_add.addR))/100;
 		let E = this.extraRate;	
-		
 		let ans = 0;
 		
 		if ( Array.isArray(this.formula) )

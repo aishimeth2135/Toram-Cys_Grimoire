@@ -783,7 +783,7 @@
 			if ( cy[i].baseValue != 'none ' && cy[i].calcValue('B') != 0)
 			{
 				hoverTitle += `<span class="_hoverTitle"><span><a data-langtext="Base: |,|基礎值：|,|基礎値："></a>${cy[i].calcValue('B*E')}<a data-langtext="${cy[i].unit}"></a></span>`;
-				if ( cy[i].haveRate ) hoverTitle += `<br /><span><a data-langtext="${cy[i].statName}"></a>${(cy[i].rate >= 0) ? '+' : ''}${cy[i].rate}% | ${cy[i].calcValue('B*(R-1)*E')}</span>`;
+				if ( cy[i].haveRate ) hoverTitle += `<br /><span><a data-langtext="${cy[i].statName}"></a>${(cy[i].calcValue('(R-1)*100') >= 0) ? '+' : ''}${cy[i].calcValue('(R-1)*100')}% | ${cy[i].calcValue('B*(R-1)*E')}</span>`;
 				hoverTitle += `<br /><span><a data-langtext="${cy[i].statName}"></a>${(cy[i].constant >= 0) ? '+' : ''}${cy[i].calcValue('C')}<a data-langtext="${cy[i].unit}"></a></span>`;
 				hoverTitle += '</span>';
 			}
