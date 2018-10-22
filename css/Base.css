@@ -52,7 +52,7 @@
 		padding-top: 3rem;
 		line-height: 2rem;
 		text-align:center;
-		z-index: 30;
+		z-index: 50;
 		background-color:#000;
 		overflow-y: auto;
 	}
