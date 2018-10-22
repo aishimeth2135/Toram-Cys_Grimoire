@@ -19,6 +19,7 @@
 			all_SI[i].SI_name = all_SI[i].def_name;
 			all_SI[i].SI_unit = all_SI[i].def_unit;
 		}
+		all_SI[5].SI_value = "(靜待更新)";
 		for (let i=16; i<all_SI.length; ++i)
 		{
 			all_SI[i].SI_value = 0;

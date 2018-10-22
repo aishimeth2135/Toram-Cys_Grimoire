@@ -1,4 +1,18 @@
 	try {
+		
+		(function(){
+			let doc = document.getElementById('Section_3_Page_1');
+			let _ary = doc.getElementsByClassName('_scope');
+			for (let i=3; i<_ary.length; ++i)
+			{
+				let title = _ary[i].getElementsByClassName('VerInfo_Title_1')[0];
+				let text = _ary[i].getElementsByClassName('VerInfo_ul')[0];
+				title.setAttribute('onclick', 'verInfo_openDetail(this)');
+				title.style.cursor = 'pointer';
+				text.style.display = 'none';
+			}
+		})();
+		
 		(function(){
 			let Ttext = '';
 			for (let i=1; i<11; ++i)

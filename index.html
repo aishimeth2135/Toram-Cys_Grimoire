@@ -125,14 +125,14 @@
 	<section id="Section_1">
 		<div id="site_SkillTreeType">
 			<ul>
-				<li id="skilltree_type_0" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-				</li>
-				<li id="skilltree_type_1" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-				</li>
-				<li id="skilltree_type_2" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-				</li>
-				<li id="skilltree_type_3" style="display:none;" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
-				</li>
+				<li><span id="skilltree_type_0" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+				</span></li>
+				<li><span id="skilltree_type_1" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+				</span></li>
+				<li><span id="skilltree_type_2" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+				</span></li>
+				<!-- <li><span id="skilltree_type_3" onclick="update_of_skilltree_type(this)" onmouseover="onmouseover_of_SkillTreeType(this)" onmouseout="onmouseout_of_SkillTreeType(this)">
+				</span></li> -->
 			</ul>
 		</div>
 		<div id="SkillTreeType_Caption">
@@ -1325,8 +1325,15 @@
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
-			<div>
-				<div class="VerInfo_Title_1">4.3.0</div><hr class="hr_1" />
+		<div class="_scope">
+				<div class="VerInfo_Title_1">4.4.2</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>附魔計算器(Enchant Calc、装備強化シミュレーター)：修正步驟可能造成六格全滿的問題。</li>
+					<li>優化了版本資訊的介面。</li>
+				</ul>
+			</div>
+			<div class="_scope">
+				<div class="VerInfo_Title_1">4.4.1</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>附魔計算器(Enchant Calc、装備強化シミュレーター)：
 						<ul class="VerInfo_ul_ul">
@@ -1335,20 +1342,16 @@
 							<li>微調介面、系統優化。</li>
 						</ul>
 					</li>
-					<li>將武器技能的四階技能資料補充完畢。</li>
-					<li>現在會把介面的一些勾選的偏好設定儲存下來了，而不用每次都要重新勾選。</li>
-					<li>被動技能的記號由「#」改成「*」。</li>
-					<li>其它沒列出來的新增或優化。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.4.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>新增附魔計算器(ver: 1.0)。可從小工具或<a href="EnchantCalc.html">點此</a>進入。
 					<br />(附魔計算器、Enchant Calc、装備強化シミュレーター)</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.3.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1364,7 +1367,7 @@
 					<li>其它沒列出來的新增或優化。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.2.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1377,7 +1380,7 @@
 					</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.1.5</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1390,7 +1393,7 @@
 					</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.1.3</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1405,7 +1408,7 @@
 					<li>系統優化、Bug修正。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.1</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1419,7 +1422,7 @@
 					<li>系統優化、Bug修正。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.0.test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>裝備模擬器(Character Simulator)：
@@ -1432,7 +1435,7 @@
 					<li>系統優化、Bug修正。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">4.0.test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>新增裝備模擬器(Character Simulator)，可點選左上角的<img style="width:16px;height:16px;" src="img/bodomu.png">使用。
@@ -1445,13 +1448,13 @@
 					<li>技能資料的更新有種多到弄不完的感覺......之後再看看吧。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.5.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>利用HTML5的Web Storage於技能配點模擬(SkillPoint Simulator)新增內建的存檔系統。不同瀏覽器檔案會無法共用。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.4.3</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>修正技能查詢(Skill Information)中，切換技能樹時會出現的錯誤。</li>
@@ -1459,14 +1462,14 @@
 					<li>新版裝備模擬器製作當中，有任何建議或想法可到我twitter的置頂貼文留言。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.4.1</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>修正技能查詢(Skill Information)中，完善守備裝備條件錯誤的問題。</li>
 					<li>修正技能配點模擬(SkillPoint Simulator)的技能「破壞之刃」、「治癒術」前置技能設定錯誤的問題。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.4.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>技能查詢(Skill Information)：
@@ -1482,14 +1485,14 @@
 					<li>技能配點模擬的產生文本功能，新增「標出總共使用的技能點」功能。(The "build Text" function of SkillPoint Simulator add 'Show total skill point' function.)</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.3.2.Test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>修正上個版本新增技能時帶來的重大BUG。</li>
 					<li>配合多語系，優化技能查詢的分支系統。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.3.0.Test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>技能名稱推出英文(English)、日文(日本語)版本。</li>
@@ -1504,7 +1507,7 @@
 					<li>多語系為第一次推出，翻譯部分可能隨時修改。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.2.0.Test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>小工具「技能配點」。新增「全部重設」、「清除空的技能樹」、「產生文本」、「存檔系統」四個功能。請自行體會～</li>
@@ -1515,7 +1518,7 @@
 					<li>由於技能配點這次新增不少系統，將此版本定為測試版本。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.1.0.Test</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>頂部選單新增「小工具」。</li>
@@ -1528,7 +1531,7 @@
 					<li>部分介面微調。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.0.2</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>資料查詢部分新增「閃躲與迴避」。</li>
@@ -1539,14 +1542,14 @@
 					<li>部分文字說明調整與新增。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.0.1</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>資料查詢部分新增「經驗值獲得量」。</li>
 					<li>修正錯誤：斧槍技能中的部分技能，裝備篩選的設定錯誤。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.0</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>移除舊版網址，並使用新的網址。</li>
@@ -1583,7 +1586,7 @@
 					</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.0.Test.5</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>頂端選單新增了「版本資訊」。</li>
@@ -1592,7 +1595,7 @@
 					<li>修正上次優化系統造成的Bug。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.0.Test.4</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>手機版的介面作微調。</li>
@@ -1603,7 +1606,7 @@
 					<li>部分系統優化。</li>
 				</ul>
 			</div>
-			<div>
+			<div class="_scope">
 				<div class="VerInfo_Title_1">3.0.Test.2</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>全新的介面。包含手機版的介面。</li>
@@ -1746,7 +1749,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 4.4.1｜Update: 2018/10/17
+			Ver: 4.4.2｜Update: 2018/10/22
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
@@ -1757,7 +1760,7 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="js/plugin/html2canvas.min.js"></script>
 
 <script type="text/javascript" src="js/Base.js"></script>
 

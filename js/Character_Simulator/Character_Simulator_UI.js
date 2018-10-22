@@ -325,12 +325,12 @@
 		
 		if ( t_equipfield.xtals.length != 0 )
 		{
+			let _xtalType = '【<a data-langtext="Crystal|,|鍛晶|,|クリスタ"></a>】';
 			if ( !t_equipfield.xtals[0].isEmpty() )
 			{
-				_xtalType = 'Crystal|,|鍛晶|,|クリスタ';
 				T_obj = t_equipfield.xtals[0].ability;
 				Ttext += `<hr class="showChararEquip_hr1" />`;
-				if ( t_fieldNo != 5 ) Ttext += `【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a>`;
+				if ( t_fieldNo != 5 ) Ttext += `${_xtalType}<a data-langtext="${t_equipfield.xtalNames[0] || 'xtal 1'}"></a>`;
 				Ttext += `<div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{
@@ -343,7 +343,7 @@
 			{
 				T_obj = t_equipfield.xtals[1].ability;
 				Ttext += `<hr class="showChararEquip_hr1" />`;
-				if ( t_fieldNo != 5 ) Ttext += `【<a data-langtext="${_xtalType}"></a>】<a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a>`;
+				if ( t_fieldNo != 5 ) Ttext += `${_xtalType}<a data-langtext="${t_equipfield.xtalNames[1] || 'xtal 2'}"></a>`;
 				Ttext += `<div class="charaSimu_showEquipFieldAbilitys">`;
 				for (let i=0; i<T_obj.length; ++i)
 				{

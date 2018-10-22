@@ -432,9 +432,10 @@
 	var all_skilltree_type = [];
 	
 	all_skilltree_type.push(
-		new the_skilltree_type('Weapon|,|武器技能|,|武器スキル'), 
-		new the_skilltree_type('Buff|,|強化技能|,|強化スキル'), 
-		new the_skilltree_type('Assist|,|輔助技能|,|補助スキル'));
+		new the_skilltree_type('Weapon Skills|,|武器技能|,|武器スキル'), 
+		new the_skilltree_type('Buff Skills|,|強化技能|,|強化スキル'), 
+		new the_skilltree_type('Assist Skills|,|輔助技能|,|補助スキル')/* ,
+		new the_skilltree_type('Smith Skills|,|生產技能|,|') */);
 	
 	
 	//SkillTreeType_List_0~2.js

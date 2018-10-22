@@ -8,6 +8,11 @@
 		}
 	};
 	
+	function verInfo_openDetail(DOC){
+		let text = DOC.parentNode.getElementsByClassName('VerInfo_ul')[0];
+		text.style.display = (text.style.display == 'none') ? 'block' : 'none';
+	}
+	
 	function call_loadingPage(fun, fun_args = []/*ary*/, msec){
 		try {
 			let _page = document.getElementById('Loading_Page');
@@ -80,7 +85,7 @@
 		let screenShot_doc = document.getElementById(screenShotId);
 		let loc_doc = document.getElementById(imgLocId);
 		
-		let hiddenId_oddDisplay = [];
+		let hiddenId_oddDisplay = [], imageNodeSrc = [];
 		let pro = new Promise((resolve, reject) => {	
 			if ( add.hiddenId )
 			{
@@ -90,16 +95,22 @@
 					document.getElementById(add.hiddenId[i]).style.display = 'none';
 				}
 			}
+			let _ary = screenShot_doc.getElementsByTagName('img');
+			for (i=0; i<_ary.length; ++i)
+			{
+				imageNodeSrc.push(_ary[i].getAttribute("src"));
+				_ary[i].setAttribute("src", "");
+			}
 			resolve('sussess');
 		});
 		
 		pro.then(() => { return new Promise((resolve, reject) => {
 			
-				html2canvas(screenShot_doc).then(canvas => {
+				html2canvas(screenShot_doc, {allowTaint:true}).then((canvas) => {
 					let img = canvas.toDataURL('image/png');
 					loc_doc.src = img;
 				});
-				
+				resolve('sussess');
 			})
 		}).then(() => {return new Promise((resolve, reject) => {	//尾
 				if ( add.hiddenId )
@@ -109,6 +120,12 @@
 						document.getElementById(add.hiddenId[i]).style.display = hiddenId_oddDisplay[i];
 					}
 				}
+				let _ary = screenShot_doc.getElementsByTagName('img');
+				for (i=0; i<_ary.length; ++i)
+				{
+					_ary[i].setAttribute("src", imageNodeSrc[i]);
+				}
+				resolve('sussess');
 			})
 		});
 	}
@@ -132,7 +149,7 @@
 	
 	//===========================================================//
 	function update_skillTreeTypeBtnList(){
-		for (let i=0; i<3; ++i)
+		for (let i=0; i<all_skilltree_type.length; ++i)
 		{
 			document.getElementById('skilltree_type_' + i).innerHTML = all_skilltree_type[i].STt_name;
 		}

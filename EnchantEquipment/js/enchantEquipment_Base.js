@@ -48,6 +48,14 @@
 		}
 	}
 	
+	cy_enchantEquipment_base.prototype.isFull = function(){
+		for (let i=0; i<this.abilityItem.length; ++i)
+		{
+			if ( !this.abilityItem[i].exist ) return false;
+		}
+		return true;
+	}
+	
 	cy_enchantEquipment_base.prototype.getBestDistribution = function(N, a, b, maxAry = ['none', 'none'], minAry = ['none', 'none']){
 		let best_a = 1, best_b = 1, min = '?';
 		let hasSwap = false;
@@ -484,11 +492,20 @@
 						_text = _text.substr(0, _text.length - 3);
 						_text += '</td></tr>';
 					}
+					if ( this.isFull() && !isEnd )
+					{
+						let _successRate = -3;
+						_text += '</tbody><tfoot><tr><td colspan="3"><a data-langtext="Success Rate: |,|成功率：|,|成功率："></a>' + _successRate + '%</div></td></tr></tfoot></table>';
+						_html += _text;
+						_textList.push({successRate: _successRate, text: _html});
+						break;
+					}
+					
 					if ( this.potential <= 0 )
 					{
 						let _successRate = parseInt(this.successRateBase + (this.potential*230)/Math.max(_potential_pre, this.potential_equipBase));
 						if ( _successRate < 0 ) _successRate = 0;
-						if ( !isEnd ) _successRate = -1;
+						if ( !isEnd ) _successRate = -2;
 						_text += '</tbody><tfoot><tr><td colspan="3"><a data-langtext="Success Rate: |,|成功率：|,|成功率："></a>' + _successRate + '%</div></td></tr></tfoot></table>';
 						_html += _text;
 						_textList.push({successRate: _successRate, text: _html});
