@@ -170,27 +170,27 @@
 	
 	cy_character_base.prototype.general_skillLvCode = function(){
 		let T_code = '';
-		for (let i=0; i<all_skilltree_type.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 			{
 				let _isEmpty = true;
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
-					if (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_calcLv != 0)
+					if (cy_skillSystem.skillTreeType[i].skillTree[j].skill[k].calcLevel != 0)
 					{
 						_isEmpty = false;
 						break;
 					}
 				}
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
 					if ( _isEmpty )
 					{
 						T_code += "#";
 						break;
 					}
-					switch (all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_calcLv )
+					switch (cy_skillSystem.skillTreeType[i].skillTree[j].skill[k].calcLevel )
 					{
 						case 0: T_code += "C"; break;
 						case 1: T_code += "Y"; break;
@@ -219,13 +219,13 @@
 			let Tstr = loadingCode;
 			
 			let strCnt = 0;
-			for (let i=0; i<all_skilltree_type.length; ++i)
+			for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 			{
 				codeAry.push([]);
-				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 				{
 					codeAry[i].push([]);
-					for (let k=0,T_length=all_skilltree_type[i].STt_skilltree[j].ST_skill.length; k<T_length; ++k)
+					for (let k=0,T_length=cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; k<T_length; ++k)
 					{
 						let T = 0;
 						switch ( Tstr.charAt(strCnt) )
@@ -242,9 +242,7 @@
 							case "A": T = 8; break;
 							case "R": T = 9; break;
 							case "E": T = 10; break;
-							default:
-								alert('Error: Unable to load the code.');
-								return;
+							default: T = 0; break;
 						}
 						codeAry[i][j].push(T);
 						if (Tstr.charAt(strCnt) != "#" || k == T_length - 1)
@@ -255,13 +253,13 @@
 				}
 			}
 			
-			for (let i=0; i<all_skilltree_type.length; ++i)
+			for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 			{
-				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 				{
-					for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+					for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 					{
-						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_calcLv = codeAry[i][j][k];
+						cy_skillSystem.skillTreeType[i].skillTree[j].skill[k].calcLevel = codeAry[i][j][k];
 					}
 				}
 			}
@@ -340,14 +338,14 @@
 			showWarningMsg('Incorrect Code. Please try again.');
 			return;
 		}
-		showWarningMsg('Loading Success.');
+		showWarningMsg('Loading Success.|,|讀取成功。');
 	}
 	
 	
 	
 	var cy_itemAbilitys = function(){
 		this.ability = [];
-		for (let i=0; i<10; ++i)			//能力數量上限: 10
+		for (let i=0; i<10; ++i) //能力數量上限: 10
 		{
 			this.ability.push(new cy_ability());
 		}

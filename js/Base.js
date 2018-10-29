@@ -149,9 +149,9 @@
 	
 	//===========================================================//
 	function update_skillTreeTypeBtnList(){
-		for (let i=0; i<all_skilltree_type.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			document.getElementById('skilltree_type_' + i).innerHTML = all_skilltree_type[i].STt_name;
+			document.getElementById('skilltree_type_' + i).innerHTML = cy_skillSystem.skillTreeType[i].name;
 		}
 	}
 	
@@ -188,6 +188,10 @@
 		}
 	}
 	/* ---------------------------------------------------- */
+	if ( !document.querySelectorAll )
+	{
+		document.querySelectorAll = $;
+	}
 	if (!Array.prototype.indexOf) {
 		Array.prototype.indexOf = function indexOf(member, startFrom) {
 			/*

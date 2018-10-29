@@ -158,12 +158,12 @@
 		
 		if ( armsNo != -1)
 		{
-			for (let i=0; i<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill.length; ++i)
+			for (let i=0; i<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill.length; ++i)
 			{
-				let T_obj = all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[i];
+				let T_obj = cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[i];
 				if ( !(T_obj.armsConfirm(WeapType_Cur, AuType_Cur, bodyType_Cur)) )
 				{
-					document.getElementById('skill_' + (T_obj.Sk_no-1)).className = "Skill_td_unable";
+					document.getElementById('skill_' + (T_obj.no-1)).className = "Skill_td_unable";
 				}
 			}
 		}

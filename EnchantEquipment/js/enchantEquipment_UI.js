@@ -109,7 +109,7 @@
 		{
 			case 'base': 		_t = cy_enchantEquipment.potential_base; break;
 			case 'equipbase': 	_t = cy_enchantEquipment.potential_equipBase; break;
-			case 'lv':			_t = cy_enchantEquipment.lvPotentialMax*10; break;
+			case 'lv':			_t = cy_enchantEquipment.lvPotentialMax; break;
 		}
 		switch (control)
 		{
@@ -174,10 +174,11 @@
 			if ( _itemValue.includes('%') )
 			{
 				_itemType = 0;
-				_itemValue.replace('%', '');
+				_itemValue = _itemValue.replace('%', '');
 			}
-			_itemValue = parseInt(_itemValue);
 			cy_enchantEquipment.abilityItem[i].setInit(_itemName, _itemType);
+			if ( _itemValue == 'MAX_V' ) _itemValue = cy_enchantEquipment.abilityItem[i].confirmRange('get')[0];
+			_itemValue = parseInt(_itemValue);
 			cy_enchantEquipment.abilityItem[i].setSettingValue(_itemValue);
 		}
 		enchantEquip_updateSelList();

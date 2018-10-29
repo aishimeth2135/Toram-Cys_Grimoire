@@ -13,9 +13,11 @@
 		padding:0.4rem 0.7rem;
 		transition: 0.3s;
 		border-radius: 0.5rem 0 0 0.5rem;
+		box-shadow: 0.1rem 0.1rem 0.6rem #666;
+		background-color: rgb(136, 124, 137);
 	}
 	.charaSimu_switchMode span:hover {
-		background-color: var(--charaSimu_mainColor1); 
+		background-color: var(--charaSimu_mainColor1);
 	}
 	#charaSimu_savingSystem_site {
 		padding: 0.4rem;
@@ -431,17 +433,15 @@
 		padding: 0 0.6rem;
 	}
 	.chara_mainHeaderMenu li {
-		border-radius: 0.3rem;
-		border: 2px var(--charaSimu_mainColor1) solid;
+		box-shadow: 0.1rem 0.1rem 0.6rem #666;
 		padding: 0.3rem 0.5rem;
 		display: inline-block;
 		cursor: pointer;
 		margin-left: 0.3rem;
+		background-color: rgb(136, 124, 137);
+		transition: 0.3s;
 	}
-	.chara_mainHeaderMenu li:hover {
-		background-color: var(--charaSimu_mainColor1); 
-	}
-	.chara_mainHeaderMenu li.cur {
+	.chara_mainHeaderMenu li:hover, .chara_mainHeaderMenu li.cur {
 		background-color: var(--charaSimu_mainColor1); 
 	}
 	

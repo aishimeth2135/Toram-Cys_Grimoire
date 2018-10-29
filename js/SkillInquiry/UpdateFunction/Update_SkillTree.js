@@ -26,19 +26,19 @@
 		
 		doc = document.getElementById('site_Skill');
 		doc.style.display = 'none';
-		doc.innerHTML = Build_SkillTree_TableText(tno_stt, tno_st);
+		doc.innerHTML = Build_SkillTree_TableText(tno_stt, tno_st) || '(待建構的技能樹)';
 		doc.setAttribute('data-skillcode', `${tno_stt}_${tno_st}`);
 		doc.setAttribute('data-isinit', 'T');
 		
 		let Skill_InputCt = 0;
-		let Skill_InputCt_max = all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill.length;
+		let Skill_InputCt_max = cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill.length;
 		for (let i=0; i<SkillTable_size; ++i)
 		{
-			let T_obj = all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[Skill_InputCt];
-			if (T_obj.Sk_no == i+1)
+			let T_obj = cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[Skill_InputCt];
+			if (T_obj.no == i+1)
 			{
 				doc = document.getElementById('skill_' + i);
-				doc.innerHTML = T_obj.Sk_name;
+				doc.innerHTML = T_obj.skillName;
 				doc.className = "Skill_td_default";
 				doc.setAttribute('data-skillno', String(Skill_InputCt))
 				if (Skill_InputCt + 1 < Skill_InputCt_max )
@@ -50,6 +50,8 @@
 				let doc = document.getElementById('skill_' + i);
 				doc.innerHTML = '<a data-langtext="(Unknow)|,|(尚未開放)"></a>';
 				doc.setAttribute('onclick', '');
+				doc.setAttribute('onmouseover', '');
+				doc.setAttribute('onmouseout', '');
 			}
 		}
 		$('#site_Skill').fadeIn(400);
@@ -61,11 +63,11 @@
 		for (let i=0; i<All_WeapType.length; ++i)
 		{
 			let no_repeat = true;
-			for (let j=0; (j<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill.length && no_repeat ); ++j)
+			for (let j=0; (j<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill.length && no_repeat ); ++j)
 			{
-				for (let k=0; k<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[j].Sk_W_type.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[j].mainWeaponType.length; ++k)
 				{
-					if (all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[j].Sk_W_type[k] == i)
+					if (cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[j].mainWeaponType[k] == i)
 					{
 						Weap_text += `<div id="WeapArms_${WeapNum}" data-armsno="${i}" class="Arm_button" onclick='updateSite_WeapArms(this)'>${All_WeapType[i]}</div>`;
 						++WeapNum;
@@ -80,11 +82,11 @@
 		for (let i=0; i<All_AuType.length; ++i)
 		{
 			let no_repeat = true;
-			for (let j=0; (j<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill.length && no_repeat ); ++j)
+			for (let j=0; (j<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill.length && no_repeat ); ++j)
 			{
-				for (let k=0; k<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[j].Sk_Au_type.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[j].subWeaponType.length; ++k)
 				{
-					if (all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[j].Sk_Au_type[k] == i)
+					if (cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[j].subWeaponType[k] == i)
 					{
 						Au_text += `<div id="AuArms_${AuNum}" data-armsno="${i}" class="Arm_button" onclick='updateSite_AuArms(this)'>${All_AuType[i]}</div>`;
 						++AuNum;
@@ -99,11 +101,11 @@
 		for (let i=0; i<All_AuType.length; ++i)
 		{
 			let no_repeat = true;
-			for (let j=0; (j<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill.length && no_repeat ); ++j)
+			for (let j=0; (j<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill.length && no_repeat ); ++j)
 			{
-				for (let k=0; k<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[j].Sk_B_type.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[j].bodyArmorType.length; ++k)
 				{
-					if (all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[j].Sk_B_type[k] == i)
+					if (cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[j].bodyArmorType[k] == i)
 					{
 						body_text += `<div id="bodyArms_${bodyNum}" data-armsno="${i}" class="Arm_button" onclick='updateSite_bodyArms(this)'>${All_bodyType[i]}</div>`;
 						++bodyNum;
@@ -223,6 +225,31 @@
 					case 2:
 						SkillTable_size = 15;
 						return Build_SkillTree_Table([[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]);
+				}
+				break;
+			case 3:
+				switch (SkillTree_No)
+				{
+					case 0:
+						SkillTable_size = 15;
+						return Build_SkillTree_Table([[4, 1, 1, 1, 1], [1, 1, -2], [2, 1, -2], [1, 1, 1], [-5]]);
+					case 1:
+						SkillTable_size = 12;
+						return Build_SkillTree_Table([[3, 1, 1, 1, 1], [1, 1, -2], [1, 1, -2], [1]]);
+					case 2:
+						SkillTable_size = 7;
+						return Build_SkillTree_Table([[3, 1, 1], [1, 1], [1, 1]]);
+				}
+				break;
+			case 4:
+				switch (SkillTree_No)
+				{
+					case 0:
+						SkillTable_size = 6;
+						return Build_SkillTree_Table([[1, 1, 1], [1, 1, 1]]);
+					case 1:
+						SkillTable_size = 6;
+						return Build_SkillTree_Table([[1, 1, 1], [1, 1, 1]]);
 				}
 				break;
 		}

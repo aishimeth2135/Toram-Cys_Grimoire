@@ -8,7 +8,7 @@
 		padding-left:0.2rem;
 		list-style:none;
 	}
-	#site_SkillTreeType li, .SkillTreeType_li_current {
+	#site_SkillTreeType li, .SkillTreeType_li_cur {
 		margin:0.2rem;
 		cursor:pointer;
 		background-color:rgb(96, 115, 107);
@@ -19,7 +19,7 @@
 		color:rgb(229, 255, 244);
 		transition: 0.81s;
 	}
-	#site_SkillTreeType li:hover, .SkillTreeType_li_current:hover {
+	#site_SkillTreeType li:hover, .SkillTreeType_li_cur:hover {
 		background-color:rgb(150, 179, 167);
 		box-shadow:inset 0rem 0rem 1rem rgb(214, 255, 238);
 	}

@@ -13,35 +13,35 @@
 	All_BagItem.push(new BagItem('ThePaper', '空白的筆記', "https://i.imgur.com/eNx1Fy9.png", "分類：？。<br>一個空白的筆記，上面有著幾個圓形的汙漬。連它的主人是誰都不得而知了吧。", false));
 	
 	function AddSkillTree_StarStick(){
-		all_skilltree_type[3].STt_skilltree.push(new the_skilltree(1,'魔法？'));
-		all_skilltree_type[3].STt_skilltree[0].ST_skill.push(
-			new the_skill(1,'(天賦)？'),		//0
-			new the_skill(2,'魔力空間'),
-			new the_skill(3,'凝氣爆裂'),		//2
-			new the_skill(4,'技巧封印'),
-			new the_skill(5,'淨化'),			//4
-			new the_skill(6,'光耀之息'),		//5
-			new the_skill(7,'能量衰退'),
-			new the_skill(8,'空間穿梭'),		//7
-			new the_skill(9,'隱化'),			//8
-			new the_skill(10,'魔法陣-重力'),	//9
-			new the_skill(11,'魔法陣-霧氣')		//10
+		cy_skillSystem.skillTreeType[3].skillTree.push(new cy_skillTree(1,'魔法？'));
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill.push(
+			new cy_skill(1,'(天賦)？'),		//0
+			new cy_skill(2,'魔力空間'),
+			new cy_skill(3,'凝氣爆裂'),		//2
+			new cy_skill(4,'技巧封印'),
+			new cy_skill(5,'淨化'),			//4
+			new cy_skill(6,'光耀之息'),		//5
+			new cy_skill(7,'能量衰退'),
+			new cy_skill(8,'空間穿梭'),		//7
+			new cy_skill(9,'隱化'),			//8
+			new cy_skill(10,'魔法陣-重力'),	//9
+			new cy_skill(11,'魔法陣-霧氣')		//10
 			);
 			
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[0].Sk_branch.push('技能效果','靈體','次元靈化','魔力流動','誓約');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[2].Sk_branch.push('技能效果','爆炸');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[4].Sk_branch.push('技能效果','淨化光點');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[5].Sk_branch.push('技能效果','衰弱');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[7].Sk_branch.push('技能效果','穿梭');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[8].Sk_branch.push('技能效果','隱身');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[9].Sk_branch.push('技能效果','重力');
-		all_skilltree_type[3].STt_skilltree[0].ST_skill[10].Sk_branch.push('技能效果','霧氣');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[0].captionBranch.push('技能效果','靈體','次元靈化','魔力流動','誓約');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[2].captionBranch.push('技能效果','爆炸');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[4].captionBranch.push('技能效果','淨化光點');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[5].captionBranch.push('技能效果','衰弱');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[7].captionBranch.push('技能效果','穿梭');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[8].captionBranch.push('技能效果','隱身');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[9].captionBranch.push('技能效果','重力');
+		cy_skillSystem.skillTreeType[3].skillTree[0].skill[10].captionBranch.push('技能效果','霧氣');
 		
 		
 		All_WeapType.push('魔法棒');
-		for (var i=0;i<all_skilltree_type[3].STt_skilltree[0].ST_skill.length;i++)
+		for (var i=0;i<cy_skillSystem.skillTreeType[3].skillTree[0].skill.length;i++)
 		{
-			all_skilltree_type[3].STt_skilltree[0].ST_skill[i].Sk_W_type.push('魔法棒');
+			cy_skillSystem.skillTreeType[3].skillTree[0].skill[i].mainWeaponType.push('魔法棒');
 		}
 		
 	}

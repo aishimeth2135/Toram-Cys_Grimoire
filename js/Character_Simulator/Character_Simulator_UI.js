@@ -101,6 +101,7 @@
 				window.localStorage.setItem('charaSimu_saveCode_storage' + t_lino, saveCode);
 				charaSimu_resetSaveCodeList();
 				temp.parentNode.style.display = 'none';
+				showWarningMsg('Save.|,|已存檔。');
 				break;
 			case 'load':
 				window.localStorage.setItem('charaSimu_saveCode_storage_Auto', ')n_' + cy_character.general_saveCode());
@@ -156,15 +157,15 @@
 	function charaSimu_openPassiveSkillList(){	
 		let checked_1 = document.getElementById('charaSimu_hiddenNoLearnPassiveSkill_showPassiveSkillDetail').checked;
 		let _html = '<table class="charaPassiveSkillList"><tbody>';
-		for (let i=0; i<all_skilltree_type.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 			{
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
-					let _skill = all_skilltree_type[i].STt_skilltree[j].ST_skill[k];
-					if ( cy_character.showPassiveSkillDetail && checked_1 && _skill.Sk_calcLv == 0) continue;
-					if ( _skill.Sk_type == 'passive' && (_skill.Sk_charaAddition.length != 0 || _skill.Sk_addDesc != '') )
+					let _skill = cy_skillSystem.skillTreeType[i].skillTree[j].skill[k];
+					if ( cy_character.showPassiveSkillDetail && checked_1 && _skill.calcLevel == 0) continue;
+					if ( _skill.skillType == 'passive' && (_skill.charaSkillAddition.length != 0 || _skill.Sk_addDesc != '') )
 					{
 						let _text = '';
 						if ( cy_character.showPassiveSkillDetail )
@@ -178,8 +179,8 @@
 							case 1: _lang_controlLength = 4.7; break;
 							case 2: _lang_controlLength = 8.25; break;
 						}
-						if ( _text == '') _html += `<tr><td>${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;display:none;">${_text}</td></tr>`;
-						else _html += `<tr><td style="width:${_lang_controlLength}rem;">${_skill.Sk_name.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.Sk_calcLv}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;">${_text}</td></tr>`;
+						if ( _text == '') _html += `<tr><td>${_skill.skillName.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.calcLevel}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;display:none;">${_text}</td></tr>`;
+						else _html += `<tr><td style="width:${_lang_controlLength}rem;">${_skill.skillName.replace('*', '')}</td><td style="width:4rem;">Lv.<input type="number" value="${_skill.calcLevel}" onchange="set_skillCalcLv(this)" data-skillcode="${i}_${j}_${k}" /></td><td style="text-align:left;">${_text}</td></tr>`;
 					}
 				}
 			}
@@ -201,14 +202,14 @@
 	}
 	function charaSimu_passiveSkill_lvToCalcLv(temp){
 		if ( !confirm('確定要引用嗎？現有的配點將無法復原。\r\nAre you sure you want to do this?') ) return;
-		for (let i=0; i<all_skilltree_type.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 			{
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
-					let _skill = all_skilltree_type[i].STt_skilltree[j].ST_skill[k];
-					_skill.Sk_calcLv = _skill.Sk_lv;
+					let _skill = cy_skillSystem.skillTreeType[i].skillTree[j].skill[k];
+					_skill.calcLevel = _skill.level;
 				}
 			}
 		}
@@ -218,17 +219,17 @@
 	
 	function set_skillCalcLv(temp){
 		let _skillNo = temp.getAttribute('data-skillcode').split('_');
-		let _skill = all_skilltree_type[_skillNo[0]].STt_skilltree[_skillNo[1]].ST_skill[_skillNo[2]];
+		let _skill = cy_skillSystem.skillTreeType[_skillNo[0]].skillTree[_skillNo[1]].skill[_skillNo[2]];
 		
 		let t_calcLv = parseInt(temp.value);
 		
 		if ( t_calcLv < 0 || t_calcLv > 10 )
 		{
-			temp.value = _skill.Sk_calcLv;
+			temp.value = _skill.calcLevel;
 			showWarningMsg("Please enter the correct skill lv. (0~10)");
 			return;
 		}
-		_skill.Sk_calcLv = t_calcLv;
+		_skill.calcLevel = t_calcLv;
 		_skill.resetSkillAddition();
 		let _doc = temp.parentNode.nextSibling;
 		_doc.innerHTML = _skill.getShowDetail();
@@ -236,13 +237,13 @@
 	}
 	
 	function updateAllPassiveSkillAddition(){
-		for (let i=0; i<all_skilltree_type.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 			{
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
-					all_skilltree_type[i].STt_skilltree[j].ST_skill[k].resetSkillAddition();
+					cy_skillSystem.skillTreeType[i].skillTree[j].skill[k].resetSkillAddition();
 				}
 			}
 		}
@@ -791,16 +792,16 @@
 		}
 		
 		__html = '';
-		for (let i=0; i<all_skilltree_type.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 			{
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
-					let _skill = all_skilltree_type[i].STt_skilltree[j].ST_skill[k];
+					let _skill = cy_skillSystem.skillTreeType[i].skillTree[j].skill[k];
 					
-					let SLv = _skill.Sk_calcLv;
-					if ( _skill.Sk_type == 'passive' && _skill.Sk_addDesc != '' && SLv != 0 )
+					let SLv = _skill.calcLevel;
+					if ( _skill.skillType == 'passive' && _skill.Sk_addDesc != '' && SLv != 0 )
 					{
 						let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
 						let W_type = cy_character.charaEquipments[0].type;
@@ -839,7 +840,7 @@
 								}
 								if ( isConfirm )
 								{
-									__html += '<span><span>' + _skill.Sk_name.replace('#', '') + '</span>' + eval("`" + RegExp.$2 + "`") + '</span>';
+									__html += '<span><span>' + _skill.skillName.replace('#', '') + '</span>' + eval("`" + RegExp.$2 + "`") + '</span>';
 									break;
 								}
 							}
@@ -1131,10 +1132,7 @@
 		resetInnerLang(document.getElementById('CharaSimu_setEquipAbility_abilityList'));
 	}
 	
-	
-	
-	
 	document.getElementById('charaSimu_resetCharacter').addEventListener('click', () => {
 		window.localStorage.setItem('charaSimu_saveCode_storage_Auto', ')n_' + cy_character.general_saveCode());
-		cy_character.loading_skillCode("[1,[['',9,0,0,0,[],[[],[]],['','']],['',6,0,0,0,[],[],['','']],['',3,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']]],[1,1,1,1,1,['none',1]],'################']");
+		cy_character.loading_skillCode("[1,[['',9,0,0,0,[],[[],[]],['','']],['',6,0,0,0,[],[],['','']],['',3,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']],['',0,0,0,0,[],[[],[]],['','']]],[1,1,1,1,1,['none',1]],'#####################']");
 	});

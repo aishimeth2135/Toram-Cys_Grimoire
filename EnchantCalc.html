@@ -43,7 +43,7 @@
 					<li data-typeno="1" onclick="enchantEquipment_selEquipFieldType(this)"><a data-langtext="Body Armor|,|身體裝備|,|体装備"></a></li>
 				</ul>
 				<hr class="hr_1" />
-				<div class="setPotentialBase"><span>Lv.160</span><input type="number" value="16" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'lv')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'lv')" /></div>
+				<div class="setPotentialBase"><span>Lv.160</span><input id="enchantEquipment_setLv" type="number" value="16" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'lv')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'lv')" /></div>
 				<div class="setPotentialBase" id="enchantEquipment_setBasePotential"><span><a data-langtext="Potential|,|初始潛力值|,|潛在力"></a></span><input type="number" value="1" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'base')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'base')" /><img src="svg/onlocked.svg" onclick="enchantEquip_lockedPotentialBase(this)" data-mode="0" /></div>
 				<div class="setPotentialBase" style="display:none;" id="enchantEquipment_setEquipBasePotential"><span><a data-langtext="Base Potential|,|裝備基礎潛力|,|基礎潛在力"></a></span><input type="number" value="1" onchange="enchantEquip_setBasePotentialControl(this, 'onchange', 'equipbase')" onfocus="enchantEquip_setBasePotentialControl(this, 'onfocus', 'equipBase')" /></div>
 				<div id="enchantEquipment_abilityListSel"></div>
@@ -88,7 +88,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire | Enchant Calc ~<br />
-			Ver: 1.1｜Update: 2018/10/17
+			Ver: 1.2｜Update: 2018/10/29
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>

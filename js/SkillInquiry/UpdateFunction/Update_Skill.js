@@ -47,9 +47,9 @@
 		document.getElementById('site_Skill').setAttribute('data-curskill', tno_s);
 		
 		let Ttext = '';
-		for (let i=0; i<all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch.length; ++i)
+		for (let i=0; i<cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[tno_s].captionBranch.length; ++i)
 		{
-			let T = all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch[i];
+			let T = cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[tno_s].captionBranch[i];
 			Ttext += `<div id='skillBranch_${i+1}' class= "button_SkillBranch" onclick='updateSite_skillBranch(this)'>${T}</div>`;
 		}
 		document.getElementById('site_SkillBranch').innerHTML = Ttext;
@@ -103,10 +103,6 @@
 	}
 	
 	function onmouseover_of_skill(temp){
-		if (temp.innerHTML == '(尚未開放)')
-		{
-			return;
-		}
 		if ( temp.className.includes('cur') )
 		{
 			return;
@@ -132,10 +128,6 @@
 	}
 	
 	function onmouseout_of_skill(temp){
-		if (temp.innerHTML == '(尚未開放)')
-		{
-			return;
-		}
 		if ( temp.id.includes('cur') )
 		{
 			return;

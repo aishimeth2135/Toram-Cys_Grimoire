@@ -2,6 +2,7 @@
 	try {
 		enchantEquip_updateSelList();
 		update_enchantEquipAbilityListSel();
+		document.getElementById('enchantEquipment_setLv').value = cy_enchantEquipment.lvPotentialMax;
 	}
 	catch(e){
 		errorForStop_msg("Initialize Enchant Equipment System false", e);

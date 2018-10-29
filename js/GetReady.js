@@ -86,15 +86,15 @@
 		/*=====================================================================*/
 		(function(){		//input Skill Allocation - Simulator Skill Tree List
 			let Ttext = '';
-			for (let i=0; i<all_skilltree_type.length; ++i)
+			for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 			{
 				if (i != 0)
 				{
 					Ttext += '<hr class="hr_2" />';
 				}
-				for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+				for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 				{
-					Ttext += `<li id="SkillAlloSimu_STList_${i}_${j}" data-sttno="${i}" data-stno="${j}" onclick="Sel_SkillAlloSimu(this)">${all_skilltree_type[i].STt_skilltree[j].ST_name}</li>`;
+					Ttext += `<li id="SkillAlloSimu_STList_${i}_${j}" data-sttno="${i}" data-stno="${j}" onclick="Sel_SkillAlloSimu(this)">${cy_skillSystem.skillTreeType[i].skillTree[j].name}</li>`;
 				}
 			}
 			document.getElementById('SkillAlloSimu_STList').innerHTML = '<ul>' + Ttext + '</ul>';
@@ -203,5 +203,5 @@
 			return;
 		}
 		document.getElementById('Loading_Page').style.display = 'none';
-	}, 500);
+	}, 800);
 	

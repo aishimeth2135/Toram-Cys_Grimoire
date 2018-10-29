@@ -1,4 +1,9 @@
 	
+	var cy_skillSystem = {
+		skillTreeType: [],
+		skillCaptionItem: []
+	};
+	
 	// ======= 各類按鈕, 預設欄位數量
 	var SkillTree_Size = 7;
 	
@@ -18,81 +23,79 @@
 	body_CurBtn = '';
 	
 	// =============================== [ SkillItem ]
-	var skill_item = function(tSI_No, tSI_name, tSI_value, tSI_unit){
-		this.SI_No = tSI_No;
-		this.SI_name = tSI_name;       //String, SkillItem名稱
-		this.SI_value = tSI_value;     //Number or String, SkillItem值
-		this.SI_unit = tSI_unit;       //String, 單位、後綴
-		this.def_name = tSI_name;
-		this.def_unit = tSI_unit;
+	var cy_skillCaptionItem = function(tno, tname, tvalue, tunit){
+		this.no = tno;
+		this.name = tname;       //String, SkillItem名稱
+		this.value = tvalue;     //Number or String, SkillItem值
+		this.unit = tunit;       //String, 單位、後綴
+		this.def_name = tname;
+		this.def_unit = tunit;
 	}
 	
 	
-	var all_SI = [];
 	// ================================== [ 通用 0~7]
-	all_SI.push(
-		new skill_item(0	, '', '', ''),					//0, 傷害、治癒量......
-		new skill_item(1	, '', '', ''),    				//1,有效atk/matk
-		new skill_item(2	, '+', 0, ''), 					//2, 技能常數
-		new skill_item(3	, ' ×', 0, ''), 					//3, 技能倍率
-		new skill_item(4	, '<u>Add.</u>|,|<u>額外加成</u>', '', ''),		//4
-		new skill_item(5	, '', 0, ''), 						//5, BUFF-1
-		new skill_item(6	, '', 0, ''), 						//6, BUFF-2
-		new skill_item(7	, '', 0, ''), 						//7, BUFF-3
+	cy_skillSystem.skillCaptionItem.push(
+		new cy_skillCaptionItem(0	, '', '', ''),					//0, 傷害、治癒量......
+		new cy_skillCaptionItem(1	, '', '', ''),    				//1,有效atk/matk
+		new cy_skillCaptionItem(2	, '+', 0, ''), 					//2, 技能常數
+		new cy_skillCaptionItem(3	, ' ×', 0, ''), 					//3, 技能倍率
+		new cy_skillCaptionItem(4	, '<u>Add.</u>|,|<u>額外加成</u>', '', ''),		//4
+		new cy_skillCaptionItem(5	, '', 0, ''), 						//5, BUFF-1
+		new cy_skillCaptionItem(6	, '', 0, ''), 						//6, BUFF-2
+		new cy_skillCaptionItem(7	, '', 0, ''), 						//7, BUFF-3
 		
 		//8~15
-		new skill_item(8	, 'Equipping｜|,|適用｜', '', ''),				//8
-		new skill_item(9	, 'MP Cost｜|,|MP消耗｜', 0, ''),				//9
-		new skill_item(10	, 'Range｜|,|射程｜', '', 'm'),				//10
-		new skill_item(11	, 'Category｜|,|類型｜', '', ''),				//11
-		new skill_item(12	, '<br />', '', ''),					//12
-		new skill_item(13	, '<br /><u>', '', '</u>&nbsp;added in Combo.|,|</u>放入連撃。'),//13
-		new skill_item(14	, '', '', ''),  					//14, 遊戲內技能說明
-		new skill_item(15	, '', '', ''),  					//15, 額外說明
+		new cy_skillCaptionItem(8	, 'Equipping｜|,|適用｜', '', ''),				//8
+		new cy_skillCaptionItem(9	, 'MP Cost｜|,|MP消耗｜', 0, ''),				//9
+		new cy_skillCaptionItem(10	, 'Range｜|,|射程｜', '', 'm'),				//10
+		new cy_skillCaptionItem(11	, 'Category｜|,|類型｜', '', ''),				//11
+		new cy_skillCaptionItem(12	, '<br />', '', ''),					//12
+		new cy_skillCaptionItem(13	, '<br /><u>', '', '</u>&nbsp;added in Combo.|,|</u>放入連撃。'),//13
+		new cy_skillCaptionItem(14	, '', '', ''),  					//14, 遊戲內技能說明
+		new cy_skillCaptionItem(15	, '', '', ''),  					//15, 額外說明
 		
 		// ================================== [ 變動 16~24]
-		new skill_item(16	, 'Skill Type｜|,|作用方式：', '', ''),			//16
-		new skill_item(17	, 'Action Time｜|,|動作時間：', '', ''),			//17
-		new skill_item(18	, 'Casting Time｜|,|詠唱時間：', '', ' secs.|,|秒'),			//18
-		new skill_item(19	, 'Charging Time｜|,|蓄力時間：', '', ' secs.|,|秒'),			//19
-		new skill_item(20	, 'Hit Count｜|,|傷害次數：', '', ' times|,|次'),			//20
-		new skill_item(21	, 'Frequency｜|,|作用次數：', '', ' times|,|次'),			//21
-		new skill_item(22	, 'AOE Center｜|,|<br>範圍中心：', '', ''),		//22
-		new skill_item(23	, 'AOE Radius｜|,|影響半徑：', '', 'm'),			//23
-		new skill_item(24	, 'Duration｜|,|<br />持續時間：', '', ' secs.|,|秒'),		//24
+		new cy_skillCaptionItem(16	, 'Skill Type｜|,|作用方式：', '', ''),			//16
+		new cy_skillCaptionItem(17	, 'Action Time｜|,|動作時間：', '', ''),			//17
+		new cy_skillCaptionItem(18	, 'Casting Time｜|,|詠唱時間：', '', ' secs.|,|秒'),			//18
+		new cy_skillCaptionItem(19	, 'Charging Time｜|,|蓄力時間：', '', ' secs.|,|秒'),			//19
+		new cy_skillCaptionItem(20	, 'Hit Count｜|,|傷害次數：', '', ' times|,|次'),			//20
+		new cy_skillCaptionItem(21	, 'Frequency｜|,|作用次數：', '', ' times|,|次'),			//21
+		new cy_skillCaptionItem(22	, 'AOE Center｜|,|<br>範圍中心：', '', ''),		//22
+		new cy_skillCaptionItem(23	, 'AOE Radius｜|,|影響半徑：', '', 'm'),			//23
+		new cy_skillCaptionItem(24	, 'Duration｜|,|<br />持續時間：', '', ' secs.|,|秒'),		//24
 		
 		// ================================== [ 機率 ]
-		new skill_item(25	, 'After successful hit, there is |,|_@命中成功後，有', '', '% chance to make the enemy |,|%機率使敵人'),	//25
-		new skill_item(26	, '', '', '。'),	//異常狀態			//26
+		new cy_skillCaptionItem(25	, 'After successful hit, there is |,|_@命中成功後，有', '', '% chance to make the enemy |,|%機率使敵人'),	//25
+		new cy_skillCaptionItem(26	, '', '', '。'),	//異常狀態			//26
 		
-		new skill_item(27	, '', '', ''),							//27, 額外說明
-		new skill_item(28	, '', '', ''), 							//28, 額外說明
-		new skill_item(29	, '', '', '')); 							//29, 額外說明
+		new cy_skillCaptionItem(27	, '', '', ''),							//27, 額外說明
+		new cy_skillCaptionItem(28	, '', '', ''), 							//28, 額外說明
+		new cy_skillCaptionItem(29	, '', '', '')); 							//29, 額外說明
 	
 	
 	/*=============================================================*/
-	var SkillItem_Gain = function(tSG_Sbranch, tSG_SINo, tSG_value, tW_Type, tAu_Type, tB_Type){
-		this.SG_Sbranch = tSG_Sbranch;  			 //String, 判定之Branch location in array
-		this.SG_SINo = tSG_SINo;               //String, 判定之Skill_ItemNo
-		this.SG_value = tSG_value;               //Number or String, 輸入SkillItem之值
-		this.W_Type = tW_Type;                   //String, 符合條件之WeaponType
-		this.Au_Type = tAu_Type;                 //String, 符合條件之AuxType
-		this.B_Type = tB_Type;                   //String, 符合條件之BodyType
+	var cy_skillGain = function(tcaptionBranchConfirm, titemNoConfirm, taddValue, tmainWeaponConfirm, tsubWeaponConfirm, tbodyArmorConfirm){
+		this.captionBranchConfirm = tcaptionBranchConfirm;  //String, 判定之Branch location in array
+		this.itemNoConfirm = titemNoConfirm;				//String, 判定之Skill_ItemNo
+		this.addValue = taddValue;             			  	//Number or String, 輸入SkillItem之值
+		this.mainWeaponConfirm = tmainWeaponConfirm;		//String, 符合條件之WeaponType
+		this.subWeaponConfirm = tsubWeaponConfirm;			//String, 符合條件之AuxType
+		this.bodyArmorConfirm = tbodyArmorConfirm;			//String, 符合條件之BodyType
 	}
 	
-	var all_SI_gain = [];
 	//Skill_Item_Gain_List.js
 	
-	function InputGainToSkill(SName, SBranch, SINo, InputValue, W_type, Au_Type, B_Type){
-		for (let i=0; i<all_skilltree_type.length; ++i)
+	function InputGainToSkill(SName, SBranch, SINo, InputValue, W_type, subWeaponConfirm, bodyArmorConfirm){
+		for (let i=0; i<cy_skillSystem.skillTreeType.length; ++i)
 		{
-			for (let j=0; j<all_skilltree_type[i].STt_skilltree.length; ++j)
+			for (let j=0; j<cy_skillSystem.skillTreeType[i].skillTree.length; ++j)
 			{
-				for (let k=0; k<all_skilltree_type[i].STt_skilltree[j].ST_skill.length; ++k)
+				for (let k=0; k<cy_skillSystem.skillTreeType[i].skillTree[j].skill.length; ++k)
 				{
-					if ( all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_name.includes(SName) )
+					if ( cy_skillSystem.skillTreeType[i].skillTree[j].skill[k].skillName.includes(SName) )
 					{
-						all_skilltree_type[i].STt_skilltree[j].ST_skill[k].Sk_Gain.push(new SkillItem_Gain(SBranch, SINo, InputValue, W_type, Au_Type, B_Type));
+						cy_skillSystem.skillTreeType[i].skillTree[j].skill[k].equipGain.push(new cy_skillGain(SBranch, SINo, InputValue, W_type, subWeaponConfirm, bodyArmorConfirm));
 					}
 				}
 			}
@@ -100,34 +103,34 @@
 	}
 	
 	/*=============================================================*/
-	var the_skill = function(tSk_no, tSk_name, tSk_Pre, tSk_type, baseAbilityStr, tSk_addDesc = ""){
-		this.Sk_no = tSk_no;     //Int
-		this.name = tSk_name; //String
-		this.Sk_pre = tSk_Pre;
-		this.Sk_lv = 0;
-		this.Sk_W_type  = [];   //Array of String<WeaponType>
-		this.Sk_Au_type = [];   //Array of String<AuxiliaryWeaponType>
-		this.Sk_B_type  = [];   //Array of String<BodyType>
-		this.Sk_branch  = ['技能效果'];   //Array of String<SkillBranch>
-		this.Sk_Gain = [];
+	var cy_skill = function(tno, tskillName, tpreSkill, tskillType, baseAbilityStr, tSk_addDesc = ""){
+		this.no = tno;     //Int
+		this.showName = tskillName; //String
+		this.preSkill = tpreSkill;
+		this.level = 0;
+		this.mainWeaponType  = [];   //Array of String<WeaponType>
+		this.subWeaponType = [];   //Array of String<AuxiliaryWeaponType>
+		this.bodyArmorType  = [];   //Array of String<BodyType>
+		this.captionBranch  = ['技能效果'];   //Array of String<SkillBranch>
+		this.equipGain = [];
 		
-		this.Sk_type = tSk_type;
+		this.skillType = tskillType;
 		//this.Sk_baseAbility = tSk_baseAbility;
-		this.Sk_calcLv = 0;
+		this.calcLevel = 0;
 		
-		Object.defineProperty(this, 'Sk_name', {
+		Object.defineProperty(this, 'skillName', {
 			get: function(){
-				let _t = ( this.Sk_type == 'passive' ) ? '*' : '';
-				return _t + '<a data-langtext="' + this.name + '"></a>';		
+				let _t = ( this.skillType == 'passive' ) ? '*' : '';
+				return _t + '<a data-langtext="' + this.showName + '"></a>';		
 			},
 			set: function(value){
 				console.log("warring: " + value);
 			}
 		});
 		
-		this.Sk_charaAddition = [];
-		this.Sk_charaAddition_list = [];
-		this.Sk_charaAddition_armsConfirm = [];
+		this.charaSkillAddition = [];
+		this.charaSkillAddition_list = [];
+		this.charaSkillAddition_armsConfirm = [];
 		
 		this.Sk_addDesc = tSk_addDesc;
 		
@@ -144,8 +147,8 @@
 				return;
 			}
 			let t_ary = _list[i].match(/(.+)\[(.+)\]/);
-			this.Sk_charaAddition_armsConfirm.push(t_ary[1]);
-			this.Sk_charaAddition_list.push([]);
+			this.charaSkillAddition_armsConfirm.push(t_ary[1]);
+			this.charaSkillAddition_list.push([]);
 			_additionStr = t_ary[2].split(/\s*,\s*(?!\s*[a-zA-Z0-9_]+\s*\))/);
 			
 			for (let i=0; i<_additionStr.length; ++i)
@@ -153,37 +156,37 @@
 				if (_additionStr[i].match(/(.+)#.+%/) )
 				{
 					let isHave = false;
-					for (let j=0; j<this.Sk_charaAddition.length; ++j)
+					for (let j=0; j<this.charaSkillAddition.length; ++j)
 					{
-						if ( this.Sk_charaAddition[j].base.baseName == RegExp.$1 && this.Sk_charaAddition[j].abilityType == 0 )
+						if ( this.charaSkillAddition[j].base.baseName == RegExp.$1 && this.charaSkillAddition[j].abilityType == 0 )
 						{
 							isHave = true;
 						}
 					}
 					if ( isHave ) continue;
 					
-					this.Sk_charaAddition.push(new cy_ability());
+					this.charaSkillAddition.push(new cy_ability());
 					//console.log(RegExp.$1);
-					this.Sk_charaAddition[_cnt].setInit(RegExp.$1, 0);
+					this.charaSkillAddition[_cnt].setInit(RegExp.$1, 0);
 					++_cnt;
 					continue;
 				}
 				if (_additionStr[i].match(/(.+)#.+/) )
 				{
 					let isHave = false;
-					for (let j=0; j<this.Sk_charaAddition.length; ++j)
+					for (let j=0; j<this.charaSkillAddition.length; ++j)
 					{
-						//console.log(`${this.Sk_charaAddition[j].base.baseName}, ${RegExp.$1}, ${this.Sk_charaAddition[j].abilityType}`);
-						if ( this.Sk_charaAddition[j].base.baseName == RegExp.$1 && this.Sk_charaAddition[j].abilityType == 1 )
+						//console.log(`${this.charaSkillAddition[j].base.baseName}, ${RegExp.$1}, ${this.charaSkillAddition[j].abilityType}`);
+						if ( this.charaSkillAddition[j].base.baseName == RegExp.$1 && this.charaSkillAddition[j].abilityType == 1 )
 						{
 							isHave = true;
 						}
 					}
 					if ( isHave ) continue;
 					
-					this.Sk_charaAddition.push(new cy_ability());
+					this.charaSkillAddition.push(new cy_ability());
 					//console.log(RegExp.$1);
-					this.Sk_charaAddition[_cnt].setInit(RegExp.$1, 1);
+					this.charaSkillAddition[_cnt].setInit(RegExp.$1, 1);
 					++_cnt;
 					continue;
 				}
@@ -192,12 +195,12 @@
 				return;
 			}
 		}
-		//console.log(this.Sk_charaAddition);
-		for (let i=0; i<this.Sk_charaAddition_armsConfirm.length; ++i)
+		//console.log(this.charaSkillAddition);
+		for (let i=0; i<this.charaSkillAddition_armsConfirm.length; ++i)
 		{
-			for (let j=0; j<this.Sk_charaAddition.length; ++j)
+			for (let j=0; j<this.charaSkillAddition.length; ++j)
 			{
-				this.Sk_charaAddition_list[i].push("0");
+				this.charaSkillAddition_list[i].push("0");
 			}
 			
 			let t_ary = _list[i].match(/(.+)\[(.+)\]/);
@@ -208,18 +211,18 @@
 				if (_additionStr[j].match(/(.+)#([^%]+)%/) )
 				{
 					let isHave = false;
-					for (let k=0; k<this.Sk_charaAddition.length; ++k)
+					for (let k=0; k<this.charaSkillAddition.length; ++k)
 					{
-						if ( this.Sk_charaAddition[k].base.baseName == RegExp.$1 && this.Sk_charaAddition[k].abilityType == 0 ) this.Sk_charaAddition_list[i][k] = RegExp.$2;
+						if ( this.charaSkillAddition[k].base.baseName == RegExp.$1 && this.charaSkillAddition[k].abilityType == 0 ) this.charaSkillAddition_list[i][k] = RegExp.$2;
 					}
 					continue;
 				}
 				if (_additionStr[j].match(/(.+)#([^%]+)/) )
 				{
 					let isHave = false;
-					for (let k=0; k<this.Sk_charaAddition.length; ++k)
+					for (let k=0; k<this.charaSkillAddition.length; ++k)
 					{
-						if ( this.Sk_charaAddition[k].base.baseName == RegExp.$1 && this.Sk_charaAddition[k].abilityType == 1 ) this.Sk_charaAddition_list[i][k] = RegExp.$2;
+						if ( this.charaSkillAddition[k].base.baseName == RegExp.$1 && this.charaSkillAddition[k].abilityType == 1 ) this.charaSkillAddition_list[i][k] = RegExp.$2;
 					}
 					continue;
 				}
@@ -229,40 +232,40 @@
 		}
 	}
 	
-	the_skill.prototype.armsConfirm = function(T_W, T_Au, T_B){
+	cy_skill.prototype.armsConfirm = function(T_W, T_Au, T_B){
 		if (T_W != -1)
 		{
-			for (let i=0;i<this.Sk_W_type.length;++i)
+			for (let i=0;i<this.mainWeaponType.length;++i)
 			{
-				if (T_W == this.Sk_W_type[i] || this.Sk_W_type[i] == 10) return true;
+				if (T_W == this.mainWeaponType[i] || this.mainWeaponType[i] == 10) return true;
 			}
 		}
 		if (T_Au != -1)
 		{
-			for (let i=0;i<this.Sk_Au_type.length;++i)
+			for (let i=0;i<this.subWeaponType.length;++i)
 			{
-				if (T_Au == this.Sk_Au_type[i] || this.Sk_Au_type[i] == 6) return true;
+				if (T_Au == this.subWeaponType[i] || this.subWeaponType[i] == 6) return true;
 			}
 		}
 		if (T_B != -1)
 		{
-			for (let i=0; i<this.Sk_B_type.length; ++i)
+			for (let i=0; i<this.bodyArmorType.length; ++i)
 			{
-				if (T_B == this.Sk_B_type[i]) return true;
+				if (T_B == this.bodyArmorType[i]) return true;
 			}
 		}
 		return false;
 	}
 	
-	the_skill.prototype.resetSkillAddition = function(W_type = '', Au_type = '', B_type = ''){
+	cy_skill.prototype.resetSkillAddition = function(W_type = '', S_type = '', B_type = ''){
 		W_type = W_type || cy_character.charaEquipments[0].type;
-		Au_type = Au_type || cy_character.charaEquipments[1].type;
+		S_type = S_type || cy_character.charaEquipments[1].type;
 		B_type = B_type || cy_character.charaEquipments[2].type;
 		
-		for (let i=0; i<this.Sk_charaAddition_armsConfirm.length; ++i)
+		for (let i=0; i<this.charaSkillAddition_armsConfirm.length; ++i)
 		{
 			let isConfirm = false;
-			let t_ary = this.Sk_charaAddition_armsConfirm[i].split(',');
+			let t_ary = this.charaSkillAddition_armsConfirm[i].split(',');
 			for (let j=0; j<t_ary.length; ++j)
 			{
 				let armsConfirm_ary = t_ary[j].split('_');
@@ -273,17 +276,17 @@
 						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
 						break;
 					case "S":	//sub-weapon
-						if ( Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+						if ( S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
 						break;
 					case 'b':
 						if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
 						break;
 					case "B":	//main-weapon or sub-weapon
-						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
 						break;
 					case "D":	//main-weapon and sub-weapon
 						let dual_ary = armsConfirm_ary[1].split('+');
-						if ( W_type == cy_character.weap_map[dual_ary[0]] && Au_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
+						if ( W_type == cy_character.weap_map[dual_ary[0]] && S_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
 						break;
 					case "all":	//all
 						isConfirm = true;
@@ -291,25 +294,25 @@
 					case "noSub":	//no have sub-weapon
 						if ( armsConfirm_ary[1] )
 						{
-							if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && Au_type == 6 ) isConfirm = true;
+							if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && S_type == 6 ) isConfirm = true;
 							break;
 						}
-						if ( Au_type == 6 ) isConfirm = true;
+						if ( S_type == 6 ) isConfirm = true;
 						break;
 				}
 				
 				
-				for (let j=0; j<this.Sk_charaAddition_list[i].length; ++j)
+				for (let j=0; j<this.charaSkillAddition_list[i].length; ++j)
 				{
-					let SLv = this.Sk_calcLv;
+					let SLv = this.calcLevel;
 					let CLv = cy_character.characterLv;
-					if ( !isConfirm || this.Sk_calcLv == 0)
+					if ( !isConfirm || this.calcLevel == 0)
 					{
-						this.Sk_charaAddition[j].setValue(0);
+						this.charaSkillAddition[j].setValue(0);
 						continue;
 					}
 					
-					this.Sk_charaAddition[j].setValue(eval(this.Sk_charaAddition_list[i][j]));
+					this.charaSkillAddition[j].setValue(eval(this.charaSkillAddition_list[i][j]));
 				}
 				if ( isConfirm ) break;
 			}
@@ -317,12 +320,12 @@
 		}
 	}
 	
-	the_skill.prototype.getShowDetail = function(){
-		if ( this.Sk_type == 'passive' )
+	cy_skill.prototype.getShowDetail = function(){
+		if ( this.skillType == 'passive' )
 		{
 			let _skill = this;
 			let _text = '';
-			let _obj = _skill.Sk_charaAddition;
+			let _obj = _skill.charaSkillAddition;
 			for (let i=0; i<_obj.length; ++i)
 			{
 				if ( _obj[i].base != '' )
@@ -341,10 +344,10 @@
 			if ( _skill.Sk_addDesc != '' )
 			{
 				let _splitUnit = (_obj.length != 0) ? '｜' : '';
-				let SLv = _skill.Sk_calcLv;
+				let SLv = _skill.calcLevel;
 				let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
 				let W_type = cy_character.charaEquipments[0].type;
-				let Au_type = cy_character.charaEquipments[1].type;
+				let S_type = cy_character.charaEquipments[1].type;
 				let B_type = cy_character.charaEquipments[2].type;
 				for (let l=0; l<_ary.length; ++l)
 				{
@@ -358,17 +361,17 @@
 								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
 								break;
 							case "S":	//sub-weapon
-								if ( Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+								if ( S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
 								break;
 							case 'b':
 								if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
 								break;
 							case "B":	//main-weapon or sub-weapon
-								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || Au_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
 								break;
 							case "D":	//main-weapon and sub-weapon
 								let dual_ary = armsConfirm_ary[1].split('+');
-								if ( W_type == cy_character.weap_map[dual_ary[0]] && Au_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
+								if ( W_type == cy_character.weap_map[dual_ary[0]] && S_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
 								break;
 							case "all":	//all
 								isConfirm = true;
@@ -376,10 +379,10 @@
 							case "noSub":	//no have sub-weapon
 							if ( armsConfirm_ary[1] )
 							{
-								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && Au_type == 6 ) isConfirm = true;
+								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && S_type == 6 ) isConfirm = true;
 								break;
 							}
-							if ( Au_type == 6 ) isConfirm = true;
+							if ( S_type == 6 ) isConfirm = true;
 							break;
 						}
 						if ( isConfirm )
@@ -394,34 +397,34 @@
 			return _text;
 		}
 	}	
-	/*=============================================================*/
-	var the_skilltree = function(tST_no, tST_name){
-		this.ST_no = tST_no;     	//Int, NO of SkillTree, For Array
-		this.name = tST_name; 	//String
-		this.ST_skill = [];     	//Array of Object<Skill>
-		this.ST_beSel = false;
-		Object.defineProperty(this, 'ST_name', {
+	/* =============================================================*/
+	var cy_skillTree = function(tno, tname){
+		this.no = tno;     	//Int, NO of SkillTree, For Array
+		this.showName = tname; 	//String
+		this.skill = [];     	//Array of Object<Skill>
+		this.selected = false;
+		Object.defineProperty(this, 'name', {
 			get: function(){
-				return '<a data-langtext="' + this.name + '"></a>';		
+				return '<a data-langtext="' + this.showName + '"></a>';		
 			},
 			set: function(value){
 				console.log("warring: " + value);
 			}
 		});
 	}
-	the_skilltree.prototype.Sk_No_FindLocation = function(No){
-		for (let i=0;i <this.ST_skill.length; ++i)
+	cy_skillTree.prototype.getSkillIndexByNo = function(no){
+		for (let i=0;i <this.skill.length; ++i)
 		{
-			if (No == this.ST_skill[i].Sk_no) return i;
+			if (no == this.skill[i].no) return i;
 		}
 	}
 	
-	var the_skilltree_type = function(tSTt_name){
-		this.name = tSTt_name;
-		this.STt_skilltree = [];	//Array of Object<SkillTree>
-		Object.defineProperty(this, 'STt_name', {
+	var cy_skillTreeType = function(tname){
+		this.showName = tname;
+		this.skillTree = [];	//Array of Object<SkillTree>
+		Object.defineProperty(this, 'name', {
 			get: function(){
-				return '<a data-langtext="' + this.name + '"></a>';		
+				return '<a data-langtext="' + this.showName + '"></a>';		
 			},
 			set: function(value){
 				console.log("warring: " + value);
@@ -429,63 +432,59 @@
 		});
 	};
 	
-	var all_skilltree_type = [];
-	
-	all_skilltree_type.push(
-		new the_skilltree_type('Weapon Skills|,|武器技能|,|武器スキル'), 
-		new the_skilltree_type('Buff Skills|,|強化技能|,|強化スキル'), 
-		new the_skilltree_type('Assist Skills|,|輔助技能|,|補助スキル')/* ,
-		new the_skilltree_type('Smith Skills|,|生產技能|,|') */);
+	cy_skillSystem.skillTreeType.push(
+		new cy_skillTreeType('Weapon Skills|,|武器技能|,|武器スキル'), 
+		new cy_skillTreeType('Buff Skills|,|強化技能|,|強化スキル'), 
+		new cy_skillTreeType('Assist Skills|,|輔助技能|,|補助スキル'),
+		new cy_skillTreeType('Production Skills|,|生產技能|,|生活関連スキル'),
+		new cy_skillTreeType('Skill-Tree Books|,|技能書|,|'));
 	
 	
 	//SkillTreeType_List_0~2.js
 	
 	/*=============================================================*/
-	function input_SI_value_bySelection(T_gear, ArmsName, value){
+	function input_value_bySelection(gear, ArmsName, value){
 		/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
-		if ( T_gear == 'Weap_Au' )
+		if ( gear == 'Weap_Au' )
 		{
-			T_gearAry = [WeapType_Cur, AuType_Cur];
+			gearAry = [WeapType_Cur, AuType_Cur];
 			T_mapAry = [
 				{'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10},
 				{'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}
 			];
-			if ( T_gearAry[0] == -1 && T_gearAry[1] == -1)
+			if ( gearAry[0] == -1 && gearAry[1] == -1)
 			{
 				return value[value.length-1];
 			}
-			for (let T=0; T<T_gearAry.length; ++T)
+			for (let T=0; T<gearAry.length; ++T)
 			{
-				if ( T_gearAry[T] != -1 )
+				if ( gearAry[T] != -1 )
 				{
 					for (let i=0; i<ArmsName.length; ++i)
 					{
-						if (T_gearAry[T] == T_mapAry[T][ArmsName[i]])
-						{
-							return value[i];
-						}
+						if (gearAry[T] == T_mapAry[T][ArmsName[i]]) return value[i];
 					}
 				}
 			}
 			return value[value.length-1];
 		}
 		
-		if ( T_gear == 'Weap' )
+		if ( gear == 'Weap' )
 		{
-			T_gear = WeapType_Cur;
+			gear = WeapType_Cur;
 			T_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		}
-		if ( T_gear == 'Au' )
+		if ( gear == 'Au' )
 		{
-			T_gear = AuType_Cur;
+			gear = AuType_Cur;
 			T_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6};
 		}
-		if ( T_gear != -1 )
+		if ( gear != -1 )
 		{
 			for (let i=0; i<ArmsName.length; ++i)
 			{
-				if (T_gear == T_map[ArmsName[i]])
+				if (gear == T_map[ArmsName[i]])
 				{
 					return value[i];
 				}
@@ -502,7 +501,7 @@
 		for (let i=0; i<BranchAry.length; ++i)
 		{
 			Tstring = replaceAll(Tstring, '_&amp;' + i + '_', '<span onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</span>');
-			Tstring = replaceAll(Tstring, '_&&;' + i + '_', '<span onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</span>');
+			Tstring = replaceAll(Tstring, '_&;' + i + '_', '<span onclick="BranchText_onclick(this.innerHTML)">' + BranchAry[i] + '</span>');
 		}
 		return Tstring;
 	}
@@ -524,9 +523,9 @@
 	
 	document.getElementById('ShowCaption_Body_1_openBtn').addEventListener('click', function(){
 		let temp = this;
-		let T_modeno = parseInt(temp.getAttribute('data-modeno'));
+		let _modeno = parseInt(temp.getAttribute('data-modeno'));
 		
-		switch (T_modeno)
+		switch (_modeno)
 		{
 			case 0:
 				temp.innerHTML = '<a data-langtext="Hid Skill Information|,|&gt;&nbsp;隱藏遊戲內技能說明"></a>';

@@ -1,157 +1,101 @@
 
-	function updateSite_skillCaption_1(tno_stt, tno_st, tno_s){
-		/* switch (getCur_languageNo())
-		{
-			case 0:
-				en_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
-				break;                   
-			case 1:                      
-				zh_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
-				break;                   
-			case 2:                      
-				jp_input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
-				break;
-		} */
-		input_skillCaptionSI_1(tno_stt, tno_st, tno_s);
+	function updateSite_skillCaption_1(no_skillTreeType, no_skillTree, no_skill){
+		input_skillCaptionSI_1(no_skillTreeType, no_skillTree, no_skill);
 		show_discription_1();
 	}
-	function updateSite_skillCaption_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo){
-		/* switch (getCur_languageNo())
-		{
-			case 0:
-				en_input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
-				break;
-			case 1:
-				zh_input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
-				break;
-			case 2:
-				jp_input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
-				break;
-		} */
-		input_skillCaptionSI_2(Tno_skillTreeType, Tno_skillTree, Tno_skill, skillBranchNo);
+	function updateSite_skillCaption_2(no_skillTreeType, no_skillTree, no_skill, skillBranchNo){
+		input_skillCaptionSI_2(no_skillTreeType, no_skillTree, no_skill, skillBranchNo);
 		show_discription_2();
 	}
 				
-	function armsDoor(T_W, T_Au, T_B){			//三部位中任一項符合
-		if (T_W != -1 && WeapType_Cur != -1)
-		{
-			if (T_W == WeapType_Cur)
-			{
-				return true;
-			}
-		}
-		if (T_Au != -1 && AuType_Cur != -1)
-		{
-			if (T_Au == AuType_Cur)
-			{
-				return true;
-			}
-		}
-		if (T_B != -1 && bodyType_Cur != -1)
-		{
-			if (T_B == bodyType_Cur)
-			{
-				return true;
-			}
-		}
+	function armsDoor(mainType, subType, bodyType){			//三部位中任一項符合
+		if (mainType != -1 && WeapType_Cur != -1 && mainType == WeapType_Cur) return true;
+		if (subType != -1 && AuType_Cur != -1 && subType == AuType_Cur) return true;
+		if (bodyType != -1 && bodyType_Cur != -1 && bodyType == bodyType_Cur) return true;
 		return false;
 	}
 	
 	function show_discription_1(){
-	//	$('#ShowCaption_Body_1').fadeIn(350);
+		let SI = cy_skillSystem.skillCaptionItem;
 		let ShowCaption_1_text = '';
 		for (let i=8; i<=13; ++i)
 		{
-			if (all_SI[i].SI_value != '' && all_SI[i].SI_value != 0)
+			if (SI[i].value != '' && SI[i].value != 0)
 			{
 				if (ShowCaption_1_text != '') ShowCaption_1_text += '<br />';
-				ShowCaption_1_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
+				ShowCaption_1_text += `<a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
 			}
 		}
-		if (all_SI[14].SI_value == '')
-		{
-			all_SI[14].SI_value = '(待補)';
-		}
+		if (SI[14].value == '') SI[14].value = '(待補)';
 		document.getElementById('ShowCaption_1').innerHTML = ShowCaption_1_text;
 		resetInnerLang(document.getElementById('ShowCaption_1'));
-		document.getElementById('ShowCaption_2').innerHTML = all_SI[14].SI_value;
+		document.getElementById('ShowCaption_2').innerHTML = SI[14].value;
 		resetInnerLang(document.getElementById('ShowCaption_2'));
-		document.getElementById('ShowCaption_3').innerHTML = all_SI[15].SI_value;
+		document.getElementById('ShowCaption_3').innerHTML = SI[15].value;
 		resetInnerLang(document.getElementById('ShowCaption_3'));
 	}
 	
 	function show_discription_2(){
+		let SI = cy_skillSystem.skillCaptionItem;
 		$('#ShowCaption_5').fadeIn(250);
 		//ShowCaption_4
 		let ShowCaption_4_text = '';
 		for (let i=16; i<=24; ++i)
 		{
-			if (all_SI[i].SI_value != '' && all_SI[i].SI_value != 0)
+			if (SI[i].value != '' && SI[i].value != 0)
 			{
 				if (ShowCaption_4_text == '')
 				{
-					ShowCaption_4_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
+					ShowCaption_4_text += `<a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
 				}
 				else {
-					ShowCaption_4_text += `<br /><a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
+					ShowCaption_4_text += `<br /><a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
 				}
 			}
 		}
 		
 		//ShowCaption_5
 		let ShowCaption_5_text = '';
-		if (all_SI[0].SI_value != '')
+		if (SI[0].value != '')
+			ShowCaption_5_text += `<a data-langtext="${SI[0].value}"></a>`;
+		if (SI[1].value != '')
 		{
-			ShowCaption_5_text += `<a data-langtext="${all_SI[0].SI_value}"></a>`;
+			if (SI[2].value != '' && SI[2].value != 0)
+				ShowCaption_5_text += `<br />(<a data-langtext="${SI[1].value}"></a><a data-langtext="${SI[2].name}"></a><a data-langtext="${SI[2].value}"></a><a data-langtext="${SI[2].unit}"></a>)`;
+			else
+				ShowCaption_5_text += `<br /><a data-langtext="${SI[1].value}"></a>`;
 		}
-		if (all_SI[1].SI_value != '')
+		if (SI[3].value != 0)
 		{
-			if (all_SI[2].SI_value != '' && all_SI[2].SI_value != 0)
+			if (SI[4].value != '' && SI[4].value != 0)
 			{
-				ShowCaption_5_text += `<br />(<a data-langtext="${all_SI[1].SI_value}"></a><a data-langtext="${all_SI[2].SI_name}"></a><a data-langtext="${all_SI[2].SI_value}"></a><a data-langtext="${all_SI[2].SI_unit}"></a>)`;
+				ShowCaption_5_text += `<a data-langtext="${SI[3].name}"></a>(<a data-langtext="${SI[3].value}"></a>+<a data-langtext="${SI[4].name}"></a>)%`;
+				ShowCaption_5_text += `<br /><a data-langtext="${SI[4].name}"></a>=<a data-langtext="${SI[4].value}"></a>`; 
 			}
 			else {
-				ShowCaption_5_text += `<br /><a data-langtext="${all_SI[1].SI_value}"></a>`;
-			}
-		}
-		if (all_SI[3].SI_value != 0)
-		{
-			if (all_SI[4].SI_value != '' && all_SI[4].SI_value != 0)
-			{
-				ShowCaption_5_text += `<a data-langtext="${all_SI[3].SI_name}"></a>(<a data-langtext="${all_SI[3].SI_value}"></a>+<a data-langtext="${all_SI[4].SI_name}"></a>)%`;
-				ShowCaption_5_text += `<br /><a data-langtext="${all_SI[4].SI_name}"></a>=<a data-langtext="${all_SI[4].SI_value}"></a>`; 
-			}
-			else {
-				ShowCaption_5_text += `<a data-langtext="${all_SI[3].SI_name}"></a><a data-langtext="${all_SI[3].SI_value}"></a>%`;
+				ShowCaption_5_text += `<a data-langtext="${SI[3].name}"></a><a data-langtext="${SI[3].value}"></a>%`;
 			}
 		}
 		for (let i=5; i<=7; ++i)
 		{
-			if (all_SI[i].SI_value != '' && all_SI[i].SI_value != 0)
+			if (SI[i].value != '' && SI[i].value != 0)
 			{
 				if (ShowCaption_5_text == '')
-				{
-					ShowCaption_5_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
-				}
-				else {
-					ShowCaption_5_text += `<br /><a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
-				}
+					ShowCaption_5_text += `<a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
+				else
+					ShowCaption_5_text += `<br /><a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
 			}
 		}
 		
 		//ShowCaption_6
 		let ShowCaption_6_text = '';
-		if (all_SI[25].SI_value != 0)
-		{
-			ShowCaption_6_text += `<a data-langtext="${all_SI[25].SI_name}"></a><a data-langtext="${all_SI[25].SI_value}"></a><a data-langtext="${all_SI[25].SI_unit}"></a><a data-langtext="${all_SI[26].SI_name}"></a><a data-langtext="${all_SI[26].SI_value}"></a><a data-langtext="${all_SI[26].SI_unit}"></a>`;
-		}
+		if (SI[25].value != 0)
+			ShowCaption_6_text += `<a data-langtext="${SI[25].name}"></a><a data-langtext="${SI[25].value}"></a><a data-langtext="${SI[25].unit}"></a><a data-langtext="${SI[26].name}"></a><a data-langtext="${SI[26].value}"></a><a data-langtext="${SI[26].unit}"></a>`;
 			
 		for (let i=27; i<=29; ++i)
 		{
-			if (all_SI[i].SI_value != '' && all_SI[i].SI_value != 0)
-			{
-				ShowCaption_6_text += `<a data-langtext="${all_SI[i].SI_name}"></a><a data-langtext="${all_SI[i].SI_value}"></a><a data-langtext="${all_SI[i].SI_unit}"></a>`;
-			}
+			if (SI[i].value != '' && SI[i].value != 0)
+				ShowCaption_6_text += `<a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
 		}
 
 		let _regObj;
@@ -177,7 +121,7 @@
 		for (let i=0; i<_ary.length; ++i)
 		{
 			_ary[i].innerHTML = Build_TextButton_1(_ary[i].innerHTML);
-			_ary[i].innerHTML = build_branch_onclick(_ary[i].innerHTML, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
+			_ary[i].innerHTML = build_branch_onclick(_ary[i].innerHTML, cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[tno_s].captionBranch);
 		}
 		document.getElementById('ShowCaption_6').innerHTML = ShowCaption_6_text;
 		resetInnerLang(document.getElementById('ShowCaption_6'));
@@ -185,8 +129,8 @@
 		for (let i=0; i<_ary.length; ++i)
 		{
 			_ary[i].innerHTML = Build_TextButton_1(_ary[i].innerHTML);
-			_ary[i].innerHTML = build_branch_onclick(_ary[i].innerHTML, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch);
-			//console.log(build_branch_onclick(_ary[i].innerHTML, all_skilltree_type[tno_stt].STt_skilltree[tno_st].ST_skill[tno_s].Sk_branch));
+			_ary[i].innerHTML = build_branch_onclick(_ary[i].innerHTML, cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[tno_s].captionBranch);
+			//console.log(build_branch_onclick(_ary[i].innerHTML, cy_skillSystem.skillTreeType[tno_stt].skillTree[tno_st].skill[tno_s].captionBranch));
 		}
 	}
 	
