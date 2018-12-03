@@ -16,7 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="css/Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/InformationInquiry_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/OtherInformation_Base.css" />
-	<link rel="stylesheet" type="text/css" href="css/Media.css" />
 	
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillInquiry_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/SkillInquiry/SkillTreeType.css" />
@@ -29,6 +28,8 @@
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/LevelExpCalc.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/Media.css" />
 </head>
 
 <body>
@@ -1375,8 +1376,8 @@
 		</article>
 			
 		<article id="Section_3_Page_1" class="MenuPage">
-		<div class="_scope">
-			<div class="VerInfo_Title_1">4.6</div><hr class="hr_1" />
+			<div class="_scope">
+				<div class="VerInfo_Title_1">4.6</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>新增「升級經驗值計算器」（Level Exp Calc、経験値計算機）。可用於計算角色升級的所需總經驗，以及所需的任務道具組數。</li>
 					<li>「資料查詢」部分新增「製作裝備的潛力值加成」及「寵物經驗值」。</li>
@@ -1384,7 +1385,8 @@
 					<li>優化技能查詢某部分的系統。</li>
 				</ul>
 			</div>
-			<div class="VerInfo_Title_1">4.5</div><hr class="hr_1" />
+			<div class="_scope">
+				<div class="VerInfo_Title_1">4.5</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>附魔計算器(Enchant Calc、装備強化シミュレーター)：更新至Ver1.2。
 						<ul class="VerInfo_ul_ul">
@@ -1397,7 +1399,8 @@
 					<li>稍大幅度的系統優化，因此可能產生預期外的BUG。如有發現還請回報。</li>
 				</ul>
 			</div>
-			<div class="VerInfo_Title_1">4.4.2</div><hr class="hr_1" />
+			<div class="_scope">
+				<div class="VerInfo_Title_1">4.4.2</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>附魔計算器(Enchant Calc、装備強化シミュレーター)：修正步驟可能造成六格全滿的問題。</li>
 					<li>優化了版本資訊的介面。</li>
@@ -1834,7 +1837,7 @@
 			<div id="LevelExpCalc_tableMain">
 				<ul id="LevelExpCalc_tableMain_menu"></ul>
 				<span id="LevelExpCalc_tableMain_tableScope_SwichSMEXP" data-mode="stk"><img src="svg/Switch_Icon_blackblue.svg" /><a class="_cur" data-langtext="STKs Required|,|所需組數|,|必要セット"></a>｜<a data-langtext="Mission Complete|,|任務回報次數|,|クエスト報告回数"></a></span>
-				<span><a data-langtext="|,|等級間距"></a><input id="LevelExpCalc_tableMain_tableScope_lvStep" value="5" type="number" /><a data-langtext="Level per Interval|,||,|レベル毎に"></a></span>
+				<div style="padding: 0.6rem;margin-top:0.2rem;"><a data-langtext="|,|等級間距"></a><input id="LevelExpCalc_tableMain_tableScope_lvStep" value="5" type="number" /><a data-langtext="Level per Interval|,||,|レベル毎に"></a></div>
 				<br /><div id="LevelExpCalc_tableMain_tableScope"></div>
 			</div><br />
 			<fieldset class="_generateImg">
