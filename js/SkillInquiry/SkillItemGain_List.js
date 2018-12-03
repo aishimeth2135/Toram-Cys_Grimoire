@@ -4,16 +4,6 @@ try {
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6};
 		
 		//劍術
-		InputGainToSkill('威力攻擊', 0, 25, 50, WeapArms_map['1hSword'], -1, -1);
-		InputGainToSkill('威力攻擊', 0, 25, 50, WeapArms_map['DualSword'], -1, -1);
-		InputGainToSkill('威力攻擊', 0, 3, 50, WeapArms_map['2hSword'], -1, -1);
-		InputGainToSkill('威力攻擊', 0, 10, 1, WeapArms_map['2hSword'], -1, -1);
-		
-		InputGainToSkill('迅捷攻擊', 0, 9, -100, WeapArms_map['1hSword'], -1, -1);
-		InputGainToSkill('迅捷攻擊', 0, 9, -100, WeapArms_map['DualSword'], -1, -1);
-		InputGainToSkill('迅捷攻擊', 0, 3, 50, WeapArms_map['2hSword'], -1, -1);
-		InputGainToSkill('迅捷攻擊', 0, 28, 25, WeapArms_map['2hSword'], -1, -1);
-		InputGainToSkill('迅捷攻擊', 0, 10, 1, WeapArms_map['2hSword'], -1, -1);
 		
 		InputGainToSkill('橫掃千軍', 0, 27, '此技能不會被迴避', WeapArms_map['1hSword'], -1, -1);
 		InputGainToSkill('橫掃千軍', 0, 27, '此技能不會被迴避', WeapArms_map['DualSword'], -1, -1);

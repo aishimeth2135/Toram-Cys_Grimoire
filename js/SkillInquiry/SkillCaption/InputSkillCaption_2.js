@@ -9,10 +9,12 @@
 		let T_no_S = cy_skillSystem.skillTreeType[No_STT].skillTree[No_ST].skill[No_S].no;
 		
 		let T_skillLv = get_skillLv();
+		let SLV = get_skillLv();
 		
 		let _t1 = '', _t2 = '', _t3 = '';
 		
 		let SI = cy_skillSystem.skillCaptionItem;
+		let _set = cy_skillSystem.setCaptionItem;
 		
 		//初始化Skill Item
 		for (let i=0; i<=7; ++i)
@@ -28,6 +30,29 @@
 			SI[i].unit = SI[i].def_unit;
 		}
 		
+		let _title = {
+			Damage: "Damage:|,|傷害：|,|ダメージ："
+		};
+		let equip = {
+			main: {type: "main", value: WeapType_Cur},
+			sub: {type: "sub", AuType_Cur},
+			body: {type: "body", bodyType_Cur}
+		};
+		let ct_type = {
+			ATK: "Valid ATK|,|有效ATK",
+			MATK: "Valid MATK|,|有效MATK"
+		};
+		let skill_type = {
+			Single: "單體傷害"
+		};
+		let speed = {
+			ExFast: 'extremely fast|,|極快',
+			Fast: 'fast|,|快'
+		};
+		let aliment = {
+			Flinch: "Flinch|,|_@膽怯"
+		}
+		
 		//根據技能編號及分支名稱輸入value
 		switch (No_STT)
 		{
@@ -41,15 +66,15 @@
 								switch (No_Branch)
 								{
 									case 0:
-										SI[0].value = 'Damage:|,|傷害：|,|ダメージ：';
-										SI[1].value = 'Valid Atk|,|有效Atk';
-										SI[2].value = 50 + 5*T_skillLv;
-										SI[3].value = 100 + 5*T_skillLv;
-										SI[16].value = '單體傷害';
-										SI[17].value = 'fast|,|快';
-										SI[20].value = 1;
-										SI[25].value = 5*T_skillLv;
-										SI[26].value = 'Flinch|,|_@膽怯';
+										_set('title', _title.Damage);
+										_set('ct_type', ct_type.ATK);
+										_set('constant', 50 + 5*SLV);
+										_set('rate', [150 + 5*SLV, 100 + 5*SLV], equip.main, ['2hSword']);
+										_set('skill_type', skill_type.Single);
+										_set('action_speed', speed.Fast);
+										_set('damage_count', 1);
+										_set('aliment_chance', [5*SLV, 25+5*SLV], equip.main, ['2hSword']);
+										_set('aliment_name', aliment.Flinch);
 										break;
 								}
 								break;
@@ -57,19 +82,23 @@
 								switch (No_Branch)
 								{
 									case 0:
-										SI[0].value = 'Damage:|,|傷害：|,|ダメージ：';
-										SI[1].value = 'Valid Atk|,|有效Atk';
-										SI[2].value = 150 + 5*T_skillLv;
-										SI[3].value = 150 + 10*T_skillLv;
-										SI[16].value = '單體傷害';
-										SI[17].value = 'extremely fast|,|極快';
-										SI[20].value = 1;
-										SI[27].name = 'If the skill hits, in |,|若技能未被迴避，';
-										SI[27].value = 5 + 5*parseInt(T_skillLv/6);
-										SI[27].unit = ' secs. |,|秒';
-										SI[28].name = 'crit rate +|,|內自身暴擊率+';
-										SI[28].value = 25;
-										SI[28].unit = '.|,|。';
+										_set('title', _title.Damage);
+										_set('ct_type', ct_type.ATK);
+										_set('constant', 150 + 5*SLV);
+										_set('rate', [200 + 10*SLV, 150 + 10*SLV], equip.main, ['2hSword']);
+										_set('skill_type', skill_type.Single);
+										_set('action_speed', speed.ExFast);
+										_set('damage_count', 1);
+										_set('add_0', {
+											name: 'If the skill hits, in |,|若技能未被迴避，',
+											value: 5 + 5*parseInt(T_skillLv/6),
+											unit: ' secs. |,|秒'
+										});
+										_set('add_1', {
+											name: 'crit rate +|,|內自身暴擊率+',
+											value: [50, 25],
+											unit: '.|,|。'
+										}, equip.main, ['2hSword']);
 										break;
 								}
 								break;
@@ -556,7 +585,7 @@
 										SI[0].value = 'Damage:|,|傷害：|,|ダメージ：';
 										SI[1].value = 'Valid Atk|,|有效Atk';
 										SI[2].value = 300 + 40*T_skillLv;
-										SI[3].value = 1300 + 5*T_skillLv;
+										SI[3].value = 300 + 5*T_skillLv;
 										SI[16].value = '單體傷害';
 										SI[17].value = 'fast|,|快';
 										SI[20].value = 1;

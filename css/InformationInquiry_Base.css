@@ -7,7 +7,10 @@
 		margin:0.6rem;
 		font-size:0.9rem;
 	}
-	
+	#Description_Site_1 td>span {
+		text-decoration: underline;
+		cursor: pointer;
+	}
 	#Description_Site_1 ul, #Description_Site_2 ul {
 		background-color:rgb(76, 76, 76);
 		text-shadow:0.1rem 0.1rem 0.5rem #444;

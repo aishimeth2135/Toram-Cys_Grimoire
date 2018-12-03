@@ -306,9 +306,8 @@
 			let codeAry = eval(saveCode);
 			this.characterLv = codeAry[0];
 			for (let i=0; i<codeAry[1].length; ++i)
-			{
 				this.charaEquipments[i].loading_saveCode('', codeAry[1][i]);
-			}
+			
 			let _listCnt = 0;
 			for (let i=0; i<codeAry[2].length; ++i)
 			{
@@ -346,27 +345,19 @@
 	var cy_itemAbilitys = function(){
 		this.ability = [];
 		for (let i=0; i<10; ++i) //能力數量上限: 10
-		{
 			this.ability.push(new cy_ability());
-		}
 	}
 	cy_itemAbilitys.prototype.close = function(){
 		for (let i=0; i<this.ability.length; ++i)
-		{
 			this.ability[i].close();
-		}
 	}
 	cy_itemAbilitys.prototype.open = function(){
 		for (let i=0; i<this.ability.length; ++i)
-		{
 			this.ability[i].open();
-		}
 	}
 	cy_itemAbilitys.prototype.isEmpty = function(){
 		for (let i=0; i<this.ability.length; ++i)
-		{
 			if (this.ability[i].base != '') return false;
-		}
 		return true;
 	}
 	
@@ -385,9 +376,7 @@
 		if ( haveXtal )
 		{
 			for (let i=0; i<2; ++i)			//兩顆
-			{
 				this.xtals.push(new cy_itemAbilitys());
-			}
 		}
 		
 		this.isAble = tisAble;
@@ -396,17 +385,13 @@
 		this.isAble = false;
 		this.fieldAbilitys.close();
 		for (let i=0; i<this.xtals.length; ++i)
-		{
 			this.xtals[i].close();
-		}
 	}
 	cy_equipmentField.prototype.open = function(){
 		this.isAble = true;
 		this.fieldAbilitys.open();
 		for (let i=0; i<this.xtals.length; ++i)
-		{
 			this.xtals[i].open();
-		}
 	}
 	
 	cy_equipmentField.prototype.reset = function(controlStr){

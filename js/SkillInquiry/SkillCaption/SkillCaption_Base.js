@@ -45,12 +45,9 @@
 			if (SI[i].value != '' && SI[i].value != 0)
 			{
 				if (ShowCaption_4_text == '')
-				{
 					ShowCaption_4_text += `<a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
-				}
-				else {
+				else 
 					ShowCaption_4_text += `<br /><a data-langtext="${SI[i].name}"></a><a data-langtext="${SI[i].value}"></a><a data-langtext="${SI[i].unit}"></a>`;
-				}
 			}
 		}
 		
@@ -72,9 +69,8 @@
 				ShowCaption_5_text += `<a data-langtext="${SI[3].name}"></a>(<a data-langtext="${SI[3].value}"></a>+<a data-langtext="${SI[4].name}"></a>)%`;
 				ShowCaption_5_text += `<br /><a data-langtext="${SI[4].name}"></a>=<a data-langtext="${SI[4].value}"></a>`; 
 			}
-			else {
+			else
 				ShowCaption_5_text += `<a data-langtext="${SI[3].name}"></a><a data-langtext="${SI[3].value}"></a>%`;
-			}
 		}
 		for (let i=5; i<=7; ++i)
 		{

@@ -11,17 +11,6 @@
 		document.getElementById('Section_4_Menu_' + T_No).className = 'SectionMenu_CurBtn';
 		if (document.getElementById('ATool_MenuBlock_' + T_No)) document.getElementById('ATool_MenuBlock_' + T_No).style.display = 'block';
 		if (document.getElementById('ATool_MenuList_' + T_No)) document.getElementById('ATool_MenuList_' + T_No).style.display = 'block';
-		
-		switch (T_No)
-		{
-			case "0":
-				if( $(window).scrollTop() <= 68.8)
-				{
-					document.getElementById("ATool_MenuBlock").style.top = 68.8 - parseFloat($(window).scrollTop()) + 'px';
-					
-				}
-				break;
-		}
 	
 		if ( Section_4_Page_Current != -1 )
 		{

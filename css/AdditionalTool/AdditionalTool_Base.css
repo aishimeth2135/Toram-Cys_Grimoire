@@ -145,9 +145,9 @@
 	}
 	
 	#ATool_MenuBlock {
-		position: fixed;
+		position: sticky;
 		top:0.2rem;
-		right:20%;
+		right:0.2rem;
 		z-index: 12;
 	}
 	

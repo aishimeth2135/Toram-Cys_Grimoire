@@ -40,7 +40,7 @@
 		
 		/*=====================================================================*/
 		(function (){
-			let Section_2_Menu_List = ['傷害類型', '慣性類型', '特殊技能類型', '異常狀態', '基本公式、說明', '能力說明與公式', '經驗值獲得量', '閃躲與迴避'];
+			let Section_2_Menu_List = ['傷害類型', '慣性類型', '特殊技能類型', '異常狀態', '基本公式、說明', '能力說明與公式', '經驗值獲得量', '閃躲與迴避', '製作裝備的潛力值加成', '寵物經驗值'];
 			let Ttext = '';
 			for (let i=0; i<Section_2_Menu_List.length; ++i)
 			{
@@ -61,6 +61,15 @@
 			
 			document.getElementById('Section_3_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
 		})();
+		(function (){
+			let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター', 'Level Exp Calc|,|升級經驗值計算|,|経験値計算機'];
+			let Ttext = '';
+			Ttext += `<li><a href="EnchantCalc.html" data-langtext="Enchant Calc|,|附魔計算|,|装備強化シミュレーター"></a></li>`;
+			for (let i=0; i<Section_4_Menu_List.length; ++i)
+				Ttext += `<li data-menuno="${i}" onclick="Section_4_Update(this)" id="Section_4_Menu_${i}"><a data-langtext="${Section_4_Menu_List[i]}"></a></li>`;
+			
+			document.getElementById('Section_4_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
+		})();
 		
 		Section_3_Update(document.getElementById('Section_3_Menu_1'));
 	} catch(e) {
@@ -69,19 +78,6 @@
 		
 		/*=====================================================================*/
 	try {
-		(function (){
-			let Section_4_Menu_List = ['SkillPoint Simulator|,|技能配點|,|スキルシミュレーター'];
-			let Ttext = '';
-			for (let i=0; i<Section_4_Menu_List.length; ++i)
-			{
-				Ttext += `<li data-menuno="${i}" onclick="Section_4_Update(this)" id="Section_4_Menu_${i}"><a data-langtext="${Section_4_Menu_List[i]}"></a></li>`;
-			}
-			
-			Ttext += `<li><a href="EnchantCalc.html" data-langtext="Enchant Calc|,|附魔計算|,|装備強化シミュレーター"></a></li>`;
-			
-			document.getElementById('Section_4_Menu').innerHTML = '<ul>' + Ttext + '</ul>';
-			resetInnerLang(document.getElementById('Section_4_Menu'));
-		})();
 		
 		/*=====================================================================*/
 		(function(){		//input Skill Allocation - Simulator Skill Tree List
@@ -179,11 +175,11 @@
 		if( $(window).scrollTop() <= 68.8)
 		{
 			$("#Btn_ToTop").hide(600);
-			document.getElementById("ATool_MenuBlock").style.top = 68.8 - parseFloat($(window).scrollTop()) + 'px';
+			//document.getElementById("ATool_MenuBlock").style.top = 68.8 - parseFloat($(window).scrollTop()) + 'px';
 		}
 		else {
 			$("#Btn_ToTop").show(600);
-			document.getElementById("ATool_MenuBlock").style.top = "0.2rem";
+			//document.getElementById("ATool_MenuBlock").style.top = "0.2rem";
 		}
 	});
 	

@@ -23,9 +23,8 @@
 		color:#FFF;
 		margin: 1px;
 	}
-	
-	a {
-		//color: #FFF;
+	input, textarea {
+		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif;
 	}
 	
 	* {
@@ -172,6 +171,9 @@
 	}
 	#Section_2, #Section_3, #Section_4 {
 		display: none;
+	}
+	#Section_4 {
+		position: relative;
 	}
 	/*===============================================================*/
 	

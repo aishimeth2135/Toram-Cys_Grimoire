@@ -17,7 +17,6 @@
 		margin: 0.2rem;
 	}
 	div#enchantEquipment_main .setPotentialBase>input {
-		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif;
 		background-color: transparent;
 		border: 0;
 		border-bottom: 1px #EEE solid;
@@ -162,7 +161,6 @@
 		color: #EEE;
 		text-align: center;
 		font-size: 0.9rem;
-		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif; 
 	}
 	
 	ul#enchantEquipment_selList .noSelect {

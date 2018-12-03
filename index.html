@@ -28,11 +28,13 @@
 	<link rel="stylesheet" type="text/css" href="css/Character_Simulator/Character_Simulator_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/AdditionalTool_Base.css" />
 	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/SkillAllocation_Simulator.css" />
+	<link rel="stylesheet" type="text/css" href="css/AdditionalTool/LevelExpCalc.css" />
 </head>
 
 <body>
 
 	<div id="Loading_Page" data-errormsg="">Loading...
+		<p>點選左上角的波多姆可使用角色模擬器。</p>
 		<p>可以在網頁下方更改語言。
 		<br />You can switch the language at the bottom of the page.
 		<br />ページの下に言語の切り替えができます。
@@ -211,7 +213,8 @@
 					</tr>
 					<tr>
 						<td class="Table_Title_1">魔法傷害</td>
-						<td>無法發生暴擊，但不會被迴避及閃躲，可視為必定命中成功。其值會受目標的Mdef與魔法抗性減免。<br />(有NPC說迴避夠高時就能迴避魔法傷害，但至今依然沒有實例)</td>
+						<td>無法發生暴擊，但不會被迴避及閃躲，可視為必定命中成功。其值會受目標的Mdef與魔法抗性減免。
+						<br />（有NPC說迴避夠高時就能迴避魔法傷害，但至今依然沒有實例）</td>
 					</tr>
 				</table>
 			</div>
@@ -240,10 +243,9 @@
 						<td>本次傷害：原傷害×普攻慣性率%</td>
 					</tr>
 					<tr>
-						<td>
-							下次普攻傷害：原傷害×(普攻慣性率-普攻慣性增減率)%<br />
-							下次物理傷害：原傷害×(物理慣性率+物理慣性增減率)%<br />
-							下次魔法傷害：原傷害×(魔法慣性率+魔法慣性增減率)%
+						<td>下次普攻傷害：原傷害×(普攻慣性率-普攻慣性增減率)%
+						<br />下次物理傷害：原傷害×(物理慣性率+物理慣性增減率)%
+						<br />下次魔法傷害：原傷害×(魔法慣性率+魔法慣性增減率)%
 						</td>
 					</tr>
 					<tr>
@@ -251,10 +253,9 @@
 						<td>本次傷害：原傷害×物理慣性率%</td>
 					</tr>
 					<tr>
-						<td>
-							下次普攻傷害：原傷害×(普攻慣性率+普攻慣性增減率)%<br />
-							下次物理傷害：原傷害×(物理慣性率-物理慣性增減率)%<br />
-							下次魔法傷害：原傷害×(魔法慣性率-魔法慣性增減率)%
+						<td>下次普攻傷害：原傷害×(普攻慣性率+普攻慣性增減率)%
+						<br />下次物理傷害：原傷害×(物理慣性率-物理慣性增減率)%
+						<br />下次魔法傷害：原傷害×(魔法慣性率-魔法慣性增減率)%
 						</td>
 					</tr>
 					<tr>
@@ -262,10 +263,9 @@
 						<td>本次傷害：原傷害×魔法慣性率%</td>
 					</tr>
 					<tr>
-						<td>
-							下次普攻傷害：原傷害×(普攻慣性率+普攻慣性增減率)%<br />
-							下次物理傷害：原傷害×(物理慣性率+物理慣性增減率)%<br />
-							下次魔法傷害：原傷害×(魔法慣性率-魔法慣性增減率)%
+						<td>下次普攻傷害：原傷害×(普攻慣性率+普攻慣性增減率)%
+						<br />下次物理傷害：原傷害×(物理慣性率+物理慣性增減率)%
+						<br />下次魔法傷害：原傷害×(魔法慣性率-魔法慣性增減率)%
 						</td>
 					</tr>
 				</table></p>
@@ -273,7 +273,7 @@
 					<li>一敵人在未受到任何傷害時，三種慣性率皆為100%，也就是會造成原傷害。</li>
 					<li>而各慣性率的上限都是250%，下限都是50%。</li>
 					<li>組隊時，同一名敵人的慣性是受所有隊伍成員影響的。</li>
-					<li>某些傷害可能雖為物理傷害(會根據物理慣性率造成傷害)，但不一定是物理慣性(被減少的不會是物理慣性率)。</li>
+					<li>某些傷害可能雖為物理傷害（會根據物理慣性率造成傷害），但不一定是物理慣性（被減少的不會是物理慣性率）。</li>
 					<li>無慣性的傷害不受慣性率影響，也就是無論如何都是100%。也當然不會影響任何種類的慣性率。追加類傷害則會依循原傷害的慣性率。</li>
 				</ul>
 				<p>這邊附上_@慣性類型範例。</p>
@@ -603,7 +603,9 @@
 				<ul class="Desc_ul_1">
 					<li>擊殺一怪物時，若與該怪物的等級差距在4等以內，獲得的經驗值將會大幅提高。</li>
 					<li>等級越近，經驗值提升的倍率也越高。與怪物相同等級時能獲得最多經驗值。</li>
-					<li>等級差距超過4等後，獲得的經驗值稱為「正常值」。意即倍率會以1倍為基礎往下扣。</li>
+					<li>部位破壞、裝備、道具、勳章提供的經驗加成是直接乘上去。其中部位破壞是獨立出來的。</li>
+					<li>經驗值簡式：基礎經驗×等差影響×部位破壞影響×道具、裝備與勳章影響</li>
+					<li>等級差距超過4等後，獲得的經驗值稱為「正常值」。意即倍率會以1倍為基礎往下扣。詳情可見下表。</li>
 				</ul>
 				<p><table>
 					<tr><td class="Table_Head_1">等級差距</td><td class="Table_Head_1">經驗值倍率</td></tr>
@@ -644,6 +646,52 @@
 					<tr><td class="Table_Title_1">迴避</td><td>迴避攻擊的目標頭上會冒出「Miss」字樣。除此之外不會發生任何事。</td></tr>
 					<tr><td class="Table_Title_1">閃躲</td><td>閃躲攻擊的目標身上會冒出「閃躲」字樣。<br />玩家在閃躲時會有特效，並瞬間移動一段距離。一般來說，移動後角色與敵方的距離會跟移動前一樣。(這邊附上_@閃躲移動補述)<br />此外，在特別條件下，閃躲還可以觸發特別的普攻攻擊或技能。</td></tr>
 				</table></p>
+			</div>
+			<div id="Desc_Page_8" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>使用技能「製作裝備」時，製作出來的裝備將具有潛力值。而潛力值的多寡將受角色的能力數值（STR、DEX、INT、AGI、VIT）影響。</li>
+					<li>潛力值的加成為「能力數值基礎值」。意即裝備或技能的加成都沒有效果。</li>
+					<li>以下列出各裝備的潛力值加成。</li>
+				</ul>
+				<p><table>
+					<tr><td class="Table_Head_1">裝備</td><td class="Table_Head_1">潛力值加成</td></tr>
+					<tr><td class="Table_Title_1">單手劍</td><td>(STR+DEX)/20</td></tr>
+					<tr><td class="Table_Title_1">雙手劍</td><td>STR/10</td></tr>
+					<tr><td class="Table_Title_1">弓</td><td>(STR+DEX)/20</td></tr>
+					<tr><td class="Table_Title_1">弩</td><td>DEX/10</td></tr>
+					<tr><td class="Table_Title_1">法杖</td><td>INT/10</td></tr>
+					<tr><td class="Table_Title_1">魔導具</td><td>(INT+AGI)/20</td></tr>
+					<tr><td class="Table_Title_1">拳套</td><td>AGI/10</td></tr>
+					<tr><td class="Table_Title_1">旋風槍</td><td>(STR+AGI)/20</td></tr>
+					<tr><td class="Table_Title_1">拔刀劍</td><td>(DEX+AGI)/20</td></tr>
+					<tr><td class="Table_Title_1">身體裝備</td><td>VIT/10</td></tr>
+				</table></p>
+				<ul>
+					<li>以上計算皆無條件捨棄小數。</li>
+					<li>小提醒：裝備拔刀劍時AGI並不會提升攻擊力，但AGI卻是潛力值的來源，屬一例外。（和其他裝備都不一樣）</li>
+				</ul>
+			</div>
+			<div id="Desc_Page_9" class="Desc_Page">
+				<ul class="Desc_ul_1">
+					<li>寵物獲得的經驗值和玩家不太一樣，並沒有相差4等內時的額外加成。但有所謂的「親密度影響」。</li>
+					<li>「親密度影響」：親密度每提升1%，獲得的經驗量就增加10%，最高達1000%（親密度100%時）。而親密度為0時，僅會獲得極少量的經驗。</li>
+					<li>等級越近，經驗值提升的倍率也越高。這點和玩家類似。</li>
+					<li>部位破壞及飼料提供的經驗加成是直接乘上去，兩者互相獨立。角色的裝備、道具、勳章不影響寵物獲得的經驗量。</li>
+					<li>經驗值簡式：基礎經驗×等差影響×親密度影響×部位破壞影響×飼料影響</li>
+					<li>等級差距在10級以內時，獲得的經驗值皆為1倍。之後隨著差距拉大往下扣。詳情可見下表</li>
+				</ul>
+				<p><table>
+					<tr><td class="Table_Head_1">等級差距</td><td class="Table_Head_1">經驗值倍率</td></tr>
+					<tr><td class="Table_Title_1">0~9</td><td>原始量值(1倍)</td></tr>
+					<tr><td class="Table_Title_1">10~19</td><td>0.99~0.90倍</td></tr>
+					<tr><td class="Table_Title_1">20~29</td><td>0.88~0.70倍</td></tr>
+					<tr><td class="Table_Title_1">30~39</td><td>0.67~0.40倍</td></tr>
+					<tr><td class="Table_Title_1">40~46</td><td>0.36~0.12倍</td></tr>
+					<tr><td class="Table_Title_1">47以上</td><td>一律0.1倍</td></tr>
+				</table></p>
+				<ul>
+					<li>寵物就算餵最好的食物，一次最多只會增加40%親密度。因此若要幫寵物練等，最好保持定時餵食的習慣，讓親密度維持在100%，才能事半功倍。</li>
+				</ul>
 			</div>
 		</article>
 		
@@ -1328,6 +1376,14 @@
 			
 		<article id="Section_3_Page_1" class="MenuPage">
 		<div class="_scope">
+			<div class="VerInfo_Title_1">4.6</div><hr class="hr_1" />
+				<ul class="VerInfo_ul">
+					<li>新增「升級經驗值計算器」（Level Exp Calc、経験値計算機）。可用於計算角色升級的所需總經驗，以及所需的任務道具組數。</li>
+					<li>「資料查詢」部分新增「製作裝備的潛力值加成」及「寵物經驗值」。</li>
+					<li>修正附魔模擬器的小BUG。（無關緊要的BUG而已）</li>
+					<li>優化技能查詢某部分的系統。</li>
+				</ul>
+			</div>
 			<div class="VerInfo_Title_1">4.5</div><hr class="hr_1" />
 				<ul class="VerInfo_ul">
 					<li>附魔計算器(Enchant Calc、装備強化シミュレーター)：更新至Ver1.2。
@@ -1643,17 +1699,17 @@
 		</div>
 		<hr class="hr_3" />
 		<div id="ATool_MenuBlock">
-				<div id="ATool_MenuBlock_0" class="MenuPage">
-					<div id="SkillAlloSimu_skillLvSum">Point: 0</div>
-				</div>
-				<div class="ATool_Btn_2 MenuPage" id="ATool_Menu" onclick="open_ATool_MenuList()">
-					<svg width="24" height="24">
-						<circle cx="4" cy="15" r="3" fill="white" />
-						<circle cx="12" cy="15" r="3" fill="white" />
-						<circle cx="20" cy="15" r="3" fill="white" />
-					</svg>
-				</div>
+			<div id="ATool_MenuBlock_0" class="MenuPage">
+				<div id="SkillAlloSimu_skillLvSum">Point: 0</div>
 			</div>
+			<div class="ATool_Btn_2 MenuPage" id="ATool_Menu" onclick="open_ATool_MenuList()">
+				<svg width="24" height="24">
+					<circle cx="4" cy="15" r="3" fill="white" />
+					<circle cx="12" cy="15" r="3" fill="white" />
+					<circle cx="20" cy="15" r="3" fill="white" />
+				</svg>
+			</div>
+		</div>
 		<div id="ATool_MenuList">
 			<div id="ATool_MenuList_Main">
 				<div class="closeBtn_1" onclick="open_ATool_MenuList()">&gt;&nbsp;Close</div>
@@ -1679,6 +1735,19 @@
 						<input type="checkbox" id="SkillAlloSimu_Setting_closeMenuList" onclick="saveSetting()" checked /> <label for="SkillAlloSimu_Setting_closeMenuList"><span id="SkillAlloSimu_Setting_closeMenuList_text"><a data-langtext="Close this menu after selected any button.|,|選取按鈕後關閉此選單"></a></span></label><br />
 						<input type="checkbox" id="SkillAlloSimu_Setting_closeSTList" onclick="saveSetting()" /> <label for="SkillAlloSimu_Setting_closeSTList"><span id="SkillAlloSimu_Setting_closeSTList_text"><a data-langtext="Close skill tree menu after selected any skill tree.|,|選取任意技能樹後關閉清單"></a></span></label>
 					</div>
+				</div>
+				<div id="ATool_MenuList_1" class="MenuPage">
+					<fieldset id="LevelExpCalc_setTableColorStyle">
+						<legend class="_title"><a data-langtext="Customize Table Color|,|自訂表格顏色"></a></legend>
+						<div class="_subTitle"><a data-langtext="By editing the below color code.|,|編輯下列字串可自訂表格顏色。"></a>
+						<br /><a data-langtext="Instructions: [background-color]+[(font)color], separate by &quot;,&quot;.|,|（格式：[背景顏色（background-color）]+[字體顏色（color）]。每部分以「,」隔開。不符合的格式會被自動清除。）"></a>
+						<br /><a data-langtext="Incompatible code will be removed. Type &quot;@&quot; to return to preset.|,|（留白可取消、輸入「@」可恢復預設值。）"></a></div>
+						<textarea></textarea>
+						<p>
+							<div class="_subTitle"><a data-langtext="（預覽）"></a></div>
+							<table class="_table1"></table>
+						</p>
+					</fieldset>
 				</div>
 			</div>
 			<div id="ATool_MenuList_Second" class="MenuPage">
@@ -1753,6 +1822,36 @@
 				</ul>
 			</div>
 		</div>
+		<div id="Section_4_Page_1" class="MenuPage">
+			<div id="LevelExpCalc_head">
+				<div><a data-langtext="Character Level|,|角色等級|,|パラレベル"></a>
+					<div><input type="number" class="_input1" />～<input type="number" class="_input2" /></div>
+				</div>
+				<div><a data-langtext="Total EXP Needed|,|所需總經驗|,|必要経験値"></a>
+					<div id="LevelExpCalc_showExp"></div>
+				</div>
+			</div><br />
+			<div id="LevelExpCalc_tableMain">
+				<ul id="LevelExpCalc_tableMain_menu"></ul>
+				<span id="LevelExpCalc_tableMain_tableScope_SwichSMEXP" data-mode="stk"><img src="svg/Switch_Icon_blackblue.svg" /><a class="_cur" data-langtext="STKs Required|,|所需組數|,|必要セット"></a>｜<a data-langtext="Mission Complete|,|任務回報次數|,|クエスト報告回数"></a></span>
+				<span><a data-langtext="|,|等級間距"></a><input id="LevelExpCalc_tableMain_tableScope_lvStep" value="5" type="number" /><a data-langtext="Level per Interval|,||,|レベル毎に"></a></span>
+				<br /><div id="LevelExpCalc_tableMain_tableScope"></div>
+			</div><br />
+			<fieldset class="_generateImg">
+				<legend>
+					<ul>
+						<li id="LevelExpCalc_TabletoPng">
+							<a data-langtext="Export as .PNG|,|產生圖檔|,|画像ファイル出力"></a>
+						</li>
+						<li onclick="javascript:document.getElementById('LevelExpCalc_showImage').src = '';">
+							<a data-langtext="Clear|,|清空|,|クリア"></a>
+						</li>
+					</ul>
+				</legend>
+				<div><img style="max-width:100%;" id="LevelExpCalc_showImage" src="" />
+				</div>
+			</fieldset>
+		</div>
 	</section>
 	<section id="languageList">
 		<a data-langno="0" id="selLang_0" onclick="selectLanguage(this)">English</a>｜<a data-langno="1" id="selLang_1" onclick="selectLanguage(this)">中文</a>｜<a data-langno="2" id="selLang_2" onclick="selectLanguage(this)">日本語</a>
@@ -1764,7 +1863,7 @@
 		<br /><a href="https://tw.toram.jp/" target="_blank">中文官方網站</a>｜<a href="https://twitter.com/toram_pr" target="_blank">官方Twitter</a>
 		<p>
 			~ ToramOnline - Cy's Grimoire ~<br />
-			Ver: 4.5｜Update: 2018/10/29
+			Ver: 4.6｜Update: 2018/12/3
 		</p>
 		<p><a href="https://home.gamer.com.tw/homeindex.php?owner=mushroom2135" target="_blank">巴哈小屋</a>｜<a href="https://twitter.com/Cyteria_w" target="_blank">Twitter: Cyteria_w</a></p>
 	</footer>
@@ -1815,4 +1914,5 @@
 <script type="text/javascript" src="js/AdditionalTool/SkillAllocation_Simulator.js"></script>
 
 <script type="text/javascript" src="js/GetReady.js"></script>
+<script type="text/javascript" src="js/AdditionalTool/LevelExpCalc.js"></script>
 </html>

@@ -8,6 +8,7 @@
 		}
 	};
 	
+	
 	function verInfo_openDetail(DOC){
 		let text = DOC.parentNode.getElementsByClassName('VerInfo_ul')[0];
 		text.style.display = (text.style.display == 'none') ? 'block' : 'none';

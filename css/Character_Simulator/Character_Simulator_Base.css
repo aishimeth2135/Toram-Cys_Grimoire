@@ -64,9 +64,6 @@
 		text-shadow: 0.1rem 0.1rem 1rem #666;
 		z-index: 23;
 	}
-	#CharaSimu_main input {
-		font-family: 'Itim'
-	}
 	
 	#CharaSimu_main input::-webkit-input-placeholder { /* WebKit browsers */
 		color: #AAA;

@@ -1,7 +1,58 @@
 	
 	var cy_skillSystem = {
 		skillTreeType: [],
-		skillCaptionItem: []
+		skillCaptionItem: [],
+		setCaptionItem: function(attr, set, equip, equip_type) {
+			let item;
+			let t = cy_skillSystem.skillCaptionItem;
+			for (let i=0; i<t.length; ++i)
+			{
+				if (t[i].attrName == attr)
+				{
+					item = t[i];
+					break;
+				}
+			}
+			if ( !equip && !equip_type )
+			{
+				if (typeof set != "object")
+				{
+					item.value = set;
+					return;
+				}
+				item.name = set.name || item.name;
+				item.value = set.value || item.value;
+				item.unit = set.unit || item.unit;
+				return;
+			}
+			let _equlpList;
+			switch (equip.type)
+			{
+				case 'main':
+					_equlpList = ['1hSword', '2hSword', 'Bow', 'Bowgun', 'Staff', 'MagicDevice', 'Knuckles', 'Halberd', 'DualSword', 'Katana', 'Other'];
+					break;
+				case 'sub':
+					_equlpList = ['Dagger', 'Shield', 'Arrow', 'MagicDevice', 'Knuckles', 'Katana', 'Other'];
+					break;
+				case 'body':
+					_equlpList = ['Normal', 'Dodge', 'Defense'];
+					break;
+			}
+			equip = _equlpList[equip.value];
+			let loc = equip_type.indexOf(equip);
+			if (loc == -1) loc = equip_type.length;
+			if ( Array.isArray(set) )
+			{
+				item.value = set[loc];
+				return;
+			}
+			if (set.name)
+				item.name = set.name[loc] || set.name;
+			if (set.value)
+				item.value = set.value[loc] || set.value;
+			if (set.unit)
+				item.unit = set.unit[loc] || set.unit;
+		}
 	};
 	
 	// ======= 各類按鈕, 預設欄位數量
@@ -23,8 +74,8 @@
 	body_CurBtn = '';
 	
 	// =============================== [ SkillItem ]
-	var cy_skillCaptionItem = function(tno, tname, tvalue, tunit){
-		this.no = tno;
+	var cy_skillCaptionItem = function(tattrName, tname, tvalue, tunit){
+		this.attrName = tattrName;
 		this.name = tname;       //String, SkillItem名稱
 		this.value = tvalue;     //Number or String, SkillItem值
 		this.unit = tunit;       //String, 單位、後綴
@@ -35,43 +86,43 @@
 	
 	// ================================== [ 通用 0~7]
 	cy_skillSystem.skillCaptionItem.push(
-		new cy_skillCaptionItem(0	, '', '', ''),					//0, 傷害、治癒量......
-		new cy_skillCaptionItem(1	, '', '', ''),    				//1,有效atk/matk
-		new cy_skillCaptionItem(2	, '+', 0, ''), 					//2, 技能常數
-		new cy_skillCaptionItem(3	, ' ×', 0, ''), 					//3, 技能倍率
-		new cy_skillCaptionItem(4	, '<u>Add.</u>|,|<u>額外加成</u>', '', ''),		//4
-		new cy_skillCaptionItem(5	, '', 0, ''), 						//5, BUFF-1
-		new cy_skillCaptionItem(6	, '', 0, ''), 						//6, BUFF-2
-		new cy_skillCaptionItem(7	, '', 0, ''), 						//7, BUFF-3
+		new cy_skillCaptionItem('title'		, '', '', ''),					//0, 傷害、治癒量......
+		new cy_skillCaptionItem('ct_type'	, '', '', ''),    				//1,有效atk/matk
+		new cy_skillCaptionItem('constant'	, '+', 0, ''), 					//2, 技能常數
+		new cy_skillCaptionItem('rate'		, ' ×', 0, ''), 					//3, 技能倍率
+		new cy_skillCaptionItem('rate_add'	, '<u>Add.</u>|,|<u>額外加成</u>', '', ''),		//4
+		new cy_skillCaptionItem('buff_0'	, '', 0, ''), 						//5, BUFF-1
+		new cy_skillCaptionItem('buff_1'	, '', 0, ''), 						//6, BUFF-2
+		new cy_skillCaptionItem('buff_2'	, '', 0, ''), 						//7, BUFF-3
 		
 		//8~15
-		new cy_skillCaptionItem(8	, 'Equipping｜|,|適用｜', '', ''),				//8
-		new cy_skillCaptionItem(9	, 'MP Cost｜|,|MP消耗｜', 0, ''),				//9
-		new cy_skillCaptionItem(10	, 'Range｜|,|射程｜', '', 'm'),				//10
-		new cy_skillCaptionItem(11	, 'Category｜|,|類型｜', '', ''),				//11
-		new cy_skillCaptionItem(12	, '<br />', '', ''),					//12
-		new cy_skillCaptionItem(13	, '<br /><u>', '', '</u>&nbsp;added in Combo.|,|</u>放入連撃。'),//13
-		new cy_skillCaptionItem(14	, '', '', ''),  					//14, 遊戲內技能說明
-		new cy_skillCaptionItem(15	, '', '', ''),  					//15, 額外說明
+		new cy_skillCaptionItem('equip_type'	, 'Equipping｜|,|適用｜', '', ''),				//8
+		new cy_skillCaptionItem('mp_cost'		, 'MP Cost｜|,|MP消耗｜', 0, ''),				//9
+		new cy_skillCaptionItem('range'			, 'Range｜|,|射程｜', '', 'm'),				//10
+		new cy_skillCaptionItem('category'		, 'Category｜|,|類型｜', '', ''),				//11
+		new cy_skillCaptionItem('poration'		, '<br />', '', ''),					//12
+		new cy_skillCaptionItem('combo'			, '<br /><u>', '', '</u>&nbsp;added in Combo.|,|</u>放入連撃。'),//13
+		new cy_skillCaptionItem('caption'		, '', '', ''),  					//14, 遊戲內技能說明
+		new cy_skillCaptionItem('sub_caption'	, '', '', ''),  					//15, 額外說明
 		
 		// ================================== [ 變動 16~24]
-		new cy_skillCaptionItem(16	, 'Skill Type｜|,|作用方式：', '', ''),			//16
-		new cy_skillCaptionItem(17	, 'Action Time｜|,|動作時間：', '', ''),			//17
-		new cy_skillCaptionItem(18	, 'Casting Time｜|,|詠唱時間：', '', ' secs.|,|秒'),			//18
-		new cy_skillCaptionItem(19	, 'Charging Time｜|,|蓄力時間：', '', ' secs.|,|秒'),			//19
-		new cy_skillCaptionItem(20	, 'Hit Count｜|,|傷害次數：', '', ' times|,|次'),			//20
-		new cy_skillCaptionItem(21	, 'Frequency｜|,|作用次數：', '', ' times|,|次'),			//21
-		new cy_skillCaptionItem(22	, 'AOE Center｜|,|<br>範圍中心：', '', ''),		//22
-		new cy_skillCaptionItem(23	, 'AOE Radius｜|,|影響半徑：', '', 'm'),			//23
-		new cy_skillCaptionItem(24	, 'Duration｜|,|<br />持續時間：', '', ' secs.|,|秒'),		//24
+		new cy_skillCaptionItem('skill_type'	, 'Skill Type｜|,|作用方式：', '', ''),			//16
+		new cy_skillCaptionItem('action_speed'	, 'Action Speed｜|,|動作時間：', '', ''),			//17
+		new cy_skillCaptionItem('casting_time'	, 'Casting Time｜|,|詠唱時間：', '', ' secs.|,|秒'),			//18
+		new cy_skillCaptionItem('charging_time'	, 'Charging Time｜|,|蓄力時間：', '', ' secs.|,|秒'),			//19
+		new cy_skillCaptionItem('damage_count'	, 'Hit Count｜|,|傷害次數：', '', ' times|,|次'),			//20
+		new cy_skillCaptionItem('frequency'		, 'Frequency｜|,|作用次數：', '', ' times|,|次'),			//21
+		new cy_skillCaptionItem('AOE_center'	, 'AOE Center｜|,|<br>範圍中心：', '', ''),		//22
+		new cy_skillCaptionItem('AOE_radius'	, 'AOE Radius｜|,|影響半徑：', '', 'm'),			//23
+		new cy_skillCaptionItem('duration'		, 'Duration｜|,|<br />持續時間：', '', ' secs.|,|秒'),		//24
 		
 		// ================================== [ 機率 ]
-		new cy_skillCaptionItem(25	, 'After successful hit, there is |,|_@命中成功後，有', '', '% chance to make the enemy |,|%機率使敵人'),	//25
-		new cy_skillCaptionItem(26	, '', '', '。'),	//異常狀態			//26
+		new cy_skillCaptionItem('aliment_chance'	, 'After successful hit, there is |,|_@命中成功後，有', '', '% chance to make the enemy |,|%機率使敵人'),	//25
+		new cy_skillCaptionItem('aliment_name'	, '', '', '。'),	//異常狀態			//26
 		
-		new cy_skillCaptionItem(27	, '', '', ''),							//27, 額外說明
-		new cy_skillCaptionItem(28	, '', '', ''), 							//28, 額外說明
-		new cy_skillCaptionItem(29	, '', '', '')); 							//29, 額外說明
+		new cy_skillCaptionItem('add_0'	, '', '', ''),							//27, 額外說明
+		new cy_skillCaptionItem('add_1'	, '', '', ''), 							//28, 額外說明
+		new cy_skillCaptionItem('add_2'	, '', '', '')); 							//29, 額外說明
 	
 	
 	/*=============================================================*/
@@ -437,7 +488,7 @@
 		new cy_skillTreeType('Buff Skills|,|強化技能|,|強化スキル'), 
 		new cy_skillTreeType('Assist Skills|,|輔助技能|,|補助スキル'),
 		new cy_skillTreeType('Production Skills|,|生產技能|,|生活関連スキル'),
-		new cy_skillTreeType('Skill-Tree Books|,|技能書|,|'));
+		new cy_skillTreeType('Skill-Tree Books|,|技能書|,|スキル習得用アイテム'));
 	
 	
 	//SkillTreeType_List_0~2.js
@@ -446,7 +497,7 @@
 	function input_value_bySelection(gear, ArmsName, value){
 		/* let WeapArms_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6}; */
-		if ( gear == 'Weap_Au' )
+		if (gear == 'Weap_Au')
 		{
 			gearAry = [WeapType_Cur, AuType_Cur];
 			T_mapAry = [
@@ -470,17 +521,17 @@
 			return value[value.length-1];
 		}
 		
-		if ( gear == 'Weap' )
+		if (gear == 'Weap')
 		{
 			gear = WeapType_Cur;
 			T_map = {'1hSword': 0, '2hSword': 1, 'Bow': 2, 'Bowgun': 3, 'Staff': 4, 'MagicDevice': 5, 'Knuckles': 6, 'Halberd': 7, 'DualSword': 8, 'Katana': 9, 'Other': 10};
 		}
-		if ( gear == 'Au' )
+		if (gear == 'Au')
 		{
 			gear = AuType_Cur;
 			T_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6};
 		}
-		if ( gear != -1 )
+		if (gear != -1)
 		{
 			for (let i=0; i<ArmsName.length; ++i)
 			{

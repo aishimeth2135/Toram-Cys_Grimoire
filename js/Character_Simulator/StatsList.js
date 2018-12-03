@@ -70,7 +70,7 @@
 				new cy_statBase('Fractional Barrier|,|百分比屏障|,|割合バリア'				, 'Fractional Barrier|,|百分比屏障|,|割合バリア'						, 'fractional_barrier'		, false	, false	, true	, 0		, '%'),
 				new cy_statBase('Barrier Cooldown|,|屏障速度|,|バリア速度'					, 'Barrier Cooldown|,|屏障速度|,|バリア速度'							, 'barrier_cooldown'		, false	, false	, true	, 100	, '%'),
 				new cy_statBase('Reflect|,|傷害反射|,|ダメージ反射'							, 'Reflect|,|傷害反射|,|ダメージ反射'									, 'reflect'					, false , false	, true	, 0		, '%'),
-				new cy_statBase('Additional Melee|,|物理追擊|,|物理追撃'					, 'Additional Melee|,|物裡追擊|,|物理追撃'								, 'additional_meele'		, false	, false	, true	, 0		, '%'),
+				new cy_statBase('Additional Melee|,|物理追擊|,|物理追撃'					, 'Additional Melee|,|物理追擊|,|物理追撃'								, 'additional_meele'		, false	, false	, true	, 0		, '%'),
 				new cy_statBase('Additional Magic|,|魔法追擊|,|魔法追撃'					, 'Additional Magic|,|魔法追擊|,|魔法追撃'								, 'additional_magic'		, false	, false	, true	, 0		, '%'),
 				new cy_statBase('Anticipate|,|看穿|,|先読み'								, 'Anticipate|,|看穿|,|先読み'											, 'anticipate'				, false	, false	, true	, 0		, '%', 100),
 				new cy_statBase('Guard Break|,|破防|,|防御崩し'								, 'Guard Break|,|破防|,|防御崩し'										, 'guard_break'				, false	, false	, true	, 0		, '%', 100),
@@ -78,16 +78,16 @@
 				new cy_statBase('Tumble Unavailable|,|封印翻覆|,|転倒付与停止'				, 'Tumble Unavailable|,|封印翻覆|,|転倒付与停止'						, 'tumble_unavailable'		, false	, false	, true	, 'none'),
 				new cy_statBase('Stun Unavailable|,|封印昏厥|,|気絶付与停止'				, 'Stun Unavailable|,|封印昏厥|,|気絶付与停止'							, 'stun_unavailable'		, false	, false	, true	, 'none'),
 				new cy_statBase('Recoil Damage|,|反作用傷害|,|反動ダメージ'					, 'Recoil Damage|,|反作用傷害|,|反動ダメージ'							, 'recoil_damage'			, false	, false	, true	, 0		, '%', '', '', 1, 2),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](STR|,|ATK[提升<|>減少](STR|,|ATK[アップ<|>ダウン](STR'									, 'atk_%str'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](DEX|,|ATK[提升<|>減少](DEX|,|ATK[アップ<|>ダウン](DEX'									, 'atk_%dex'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](INT|,|ATK[提升<|>減少](INT|,|ATK[アップ<|>ダウン](INT'									, 'atk_%int'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](AGI|,|ATK[提升<|>減少](AGI|,|ATK[アップ<|>ダウン](AGI'									, 'atk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'ATK [UP<|>DOWN](VIT|,|ATK[提升<|>減少](VIT|,|ATK[アップ<|>ダウン](VIT'									, 'atk_%vit'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'MATK [UP<|>DOWN](STR|,|MATK[提升<|>減少](STR|,|MATK[アップ<|>ダウン](STR'									, 'matk_%str'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'MATK [UP<|>DOWN](DEX|,|MATK[提升<|>減少](DEX|,|MATK[アップ<|>ダウン](DEX'									, 'matk_%dex'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'MATK [UP<|>DOWN](INT|,|MATK[提升<|>減少](INT|,|MATK[アップ<|>ダウン](INT'									, 'matk_%int'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'MATK [UP<|>DOWN](AGI|,|MATK[提升<|>減少](AGI|,|MATK[アップ<|>ダウン](AGI'									, 'matk_%agi'				, false , 'hid'	, true	, 0		, '%)'),
-				new cy_statBase('' , 'MATK [UP<|>DOWN](VIT|,|MATK[提升<|>減少](VIT|,|MATK[アップ<|>ダウン](VIT'									, 'matk_%vit'				, false , 'hid'	, true	, 0		, '%)'));
+				new cy_statBase('' , 'ATK [UP<|>DOWN](STR|,|ATK[提升<|>減少]（STR|,|ATK[アップ<|>ダウン]（STR'									, 'atk_%str'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](DEX|,|ATK[提升<|>減少]（DEX|,|ATK[アップ<|>ダウン]（DEX'									, 'atk_%dex'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](INT|,|ATK[提升<|>減少]（INT|,|ATK[アップ<|>ダウン]（INT'									, 'atk_%int'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](AGI|,|ATK[提升<|>減少]（AGI|,|ATK[アップ<|>ダウン]（AGI'									, 'atk_%agi'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'ATK [UP<|>DOWN](VIT|,|ATK[提升<|>減少]（VIT|,|ATK[アップ<|>ダウン]（VIT'									, 'atk_%vit'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'MATK [UP<|>DOWN](STR|,|MATK[提升<|>減少]（STR|,|MATK[アップ<|>ダウン]（STR'								, 'matk_%str'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'MATK [UP<|>DOWN](DEX|,|MATK[提升<|>減少]（DEX|,|MATK[アップ<|>ダウン]（DEX'								, 'matk_%dex'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'MATK [UP<|>DOWN](INT|,|MATK[提升<|>減少]（INT|,|MATK[アップ<|>ダウン]（INT'								, 'matk_%int'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'MATK [UP<|>DOWN](AGI|,|MATK[提升<|>減少]（AGI|,|MATK[アップ<|>ダウン]（AGI'								, 'matk_%agi'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'),
+				new cy_statBase('' , 'MATK [UP<|>DOWN](VIT|,|MATK[提升<|>減少]（VIT|,|MATK[アップ<|>ダウン]（VIT'								, 'matk_%vit'				, false , 'hid'	, true	, 0		, '%)|,|%）|,|%）'));
 		} catch(e) {
 			errorForStop_msg("Initialize Base-Stat-list false.", e);
 		}

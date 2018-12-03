@@ -43,9 +43,7 @@
 	
 	cy_enchantEquipment_base.prototype.resetCalcStep = function(){
 		for (let i=0; i<this.abilityItem.length; ++i)
-		{
 			this.abilityItem[i].value_temp = 0;
-		}
 	}
 	
 	cy_enchantEquipment_base.prototype.isFull = function(){
@@ -109,9 +107,7 @@
 	cy_enchantEquipment_base.prototype.get_curAdditionalRate = function(expInput = 'none'){
 		let categoryCountDistribution = [];
 		for (let i=0; i<this.categoryList.length; ++i)
-		{
 			categoryCountDistribution.push(0);
-		}
 		let _o = (expInput == 'none') ? this.abilityItem : expInput;
 		for (let i=0; i<_o.length; ++i)
 		{
@@ -364,6 +360,8 @@
 					if ( stepAry[captionNo][i] == '' || stepAry[captionNo][i] == 'ByADD@' ) continue;
 					let _text = '';
 					let _item = stepAry[captionNo][i].split(/\s+&\s+/);
+					while (_item[_item.length-1] == "")
+						--_item.length;
 					_item = _item.sort((a, b) => {
 						let _a = a, _b = b;
 						_a = _a.split('#')[1].replace('%', '');
@@ -541,18 +539,14 @@
 		}
 		catch(e) {
 			console.log(e);
+			console.log(stepAry);
 			return {text: "", successRate: -1};
 		}
 	}
 	
 	cy_enchantEquipment_base.prototype.best_performCalc = function(){
-		/* let categoryDistribution = []; */
 		let positiveValueAbility = [];
 		let negativeValueAbility = [];
-		/* for (let i=0; i<this.categoryList.length; ++i)
-		{
-			categoryDistribution.push({category: this.categoryList[i], value: 0});
-		} */
 		for (let i=0; i<this.abilityItem.length; ++i)
 		{
 			for (let j=0; j<this.categoryList.length; ++j)
@@ -561,19 +555,10 @@
 				{
 					if ( this.abilityItem[i].value_setting < 0 ) negativeValueAbility.push(this.abilityItem[i]); 
 					else positiveValueAbility.push(this.abilityItem[i]);
-					/* ++categoryDistribution[j].value; */
 					break;
 				}
 			}
 		}
-		
-		/* categoryDistribution.sort((a, b) => { return b.value-a.value; });
-		let distributionStr = '';
-		for (let i=0; i<categoryDistribution.length; ++i)
-		{
-			if ( categoryDistribution[i].value > 0 ) distributionStr += categoryDistribution[i].value + '_';
-		}
-		distributionStr = distributionStr.substr(0, distributionStr.length-1); */
 		
 		let _stepAry = [[]], _text = '';
 		
@@ -584,9 +569,7 @@
 		if ( _frameName == '' ) return;
 		
 		for (let i=0; i<this.abilityItem.length; ++i)
-		{
 			this.abilityItem[i].value_temp = 0;
-		}
 		
 		let _curItem, _pAry = [], _nAry = [], _cnt = 0, _t1 = 0, _t2 = 0, _t3 = 0, _t4 = 0, _t5 = 0, _remain = 0, _text1 = '', haveAdd = false, add_t = 0;
 		switch (this.equipFieldType)
@@ -1919,7 +1902,7 @@
 						_stepAry[1].push('END@');
 						_stepAry[2].push('END@');
 					}
-					if ( _pAry[0].getPotentialUnit() == 10)
+					if ( _pAry[0].getPotentialUnit() == 10 && _pAry[1].getPotentialUnit() != 10)
 					{
 						let _L = _stepAry.length;
 						this.resetCalcStep();
@@ -2350,6 +2333,7 @@
 		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & magic_resistance#7 & physical_resistance#6 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +2 -2 -1'),
 		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_vit#7% & noItemCategory@_max_hp#7% & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', '', 'all'], '+1 +1 +1 -2 -1'),
 		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_fire_resistance#14 & noItemCategory@_vit#7% & noItemCategory@_critical_rate#MAX_V & noItemCategory@_max_hp#1% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +1 +1 +1 -1 -1'),
+		new cy_enchantDefaultFrame('body_Tank'				, '', false, 'noItemCategory@_vit#5% & noItemCategory@_max_hp#1% & physical_resistance#7 & magic_resistance#7 & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', '', 'Defense', 'Defense'], '+1 +1 +2 -1 -1'),
 		new cy_enchantDefaultFrame('Smith'					, 'Smith|,|匠裝|,|スミス向け', false, 'str#14 & dex#14 & negative@_atk#-7% & negative@_matk#-7% & negative@_magic_pierce#-3 & negative@_accuracy#-7', 1, ['', '', 'all', 'all', 'all', 'all'], '+2 -3 -1'),
 		new cy_enchantDefaultFrame('Smith'					, '', false, 'dex#7% & dex#14 & str#11 & negative@_atk#-7% & negative@_matk#-7% & negative@_accuracy#-7', 1, ['', '', '', 'all', 'all', ''], 'stat% stat stat')
 	);

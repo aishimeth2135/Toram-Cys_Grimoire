@@ -9,6 +9,10 @@
 		let T_no_S = cy_skillSystem.skillTreeType[No_STT].skillTree[No_ST].skill[No_S].no;
 		let T_skillLv = get_skillLv();
 		let SI = cy_skillSystem.skillCaptionItem;
+		
+		let SLV = get_skillLv();
+		let _set = cy_skillSystem.setCaptionItem;
+		
 		//初始化Skill Item
 		for (let i=8; i<=15; ++i)
 		{
@@ -16,7 +20,21 @@
 			SI[i].name = SI[i].def_name;
 			SI[i].unit = SI[i].def_unit;
 		}
-			
+		let equip = {
+			main: {type: "main", value: WeapType_Cur},
+			sub: {type: "sub", AuType_Cur},
+			body: {type: "body", bodyType_Cur}
+		};
+		let equip_type = {
+			Sword: '1h Sword / 2h Sword|,|單手劍/雙手劍'
+		};
+		let poration = {
+			Physical: '物理傷害/物理慣性。'
+		};
+		let combo = {
+			Can: 'Can be |,|可以'
+		};
+		
 		//根據技能編號輸入value
 		switch (No_STT)
 		{
@@ -27,24 +45,24 @@
 						switch (T_no_S)
 						{
 							case 1:
-								SI[8].value = '1h Sword / 2h Sword|,|單手劍/雙手劍';
-								SI[9].value = 100;
-								SI[10].value = 2;
-								SI[11].value = '傷害、瞬發';
-								SI[12].value = '物理傷害/物理慣性。';
-								SI[13].value = 'Can be |,|可以';
-								SI[14].value = '使用武器蠻橫地打人，<br />一定機率使敵人膽怯。';
-								SI[15].value = '能造成控制效果、速度不慢的基礎技能。裝備單手劍時有很高的膽怯機率加成。';
+								_set('equip_type', equip_type.Sword);
+								_set('mp_cost', 100);
+								_set('range', [3, 2], equip.main, ["2hSword"]);
+								_set('category', '傷害、瞬發');
+								_set('poration', poration.Physical);
+								_set('combo', combo.Can);
+								_set('caption', '使用武器蠻橫地打人，<br />一定機率使敵人膽怯。');
+								_set('sub_caption', '能造成控制效果、速度不慢的基礎技能。裝備單手劍時有很高的膽怯機率加成。');
 								break;
 							case 2:
-								SI[8].value = '1h Sword / 2h Sword|,|單手劍/雙手劍';
-								SI[9].value = 200;
-								SI[10].value = 2;
-								SI[11].value = '傷害、瞬發、狀態';
-								SI[12].value = '物理傷害/物理慣性。';
-								SI[13].value = 'Can be |,|可以';
-								SI[14].value = '迅速敏捷地給予強力一擊。<br />成功發動後數秒內，<br />暴擊率增加25。';
-								SI[15].value = '速度極快的技能，且附帶增加暴擊率的狀態。裝備單手劍時MP消耗減半；裝備雙手劍時增加的暴擊率會轉為兩倍。';
+								_set('equip_type', equip_type.Sword);
+								_set('mp_cost', [200, 100], equip.main, ["2hSword"]);
+								_set('range', [3, 2], equip.main, ["2hSword"]);
+								_set('category', '傷害、瞬發、狀態');
+								_set('poration', poration.Physical);
+								_set('combo', combo.Can);
+								_set('caption', '迅速敏捷地給予強力一擊。<br />成功發動後數秒內，<br />暴擊率增加25。');
+								_set('sub_caption', '速度極快的技能，且附帶增加暴擊率的狀態。裝備單手劍時MP消耗減半；裝備雙手劍時增加的暴擊率會轉為兩倍。');
 								break;
 							case 3:
 								SI[8].value = '1h Sword / 2h Sword|,|單手劍/雙手劍';

@@ -96,9 +96,8 @@
 		document.getElementById('enchantEquipment_showText').innerHTML = '';
 		document.getElementById('enchantEquipment_showMeterialCost').getElementsByClassName('_main')[0].innerHTML = '';
 		for (let i=0; i<cy_enchantEquipment.abilityItem.length; ++i)
-		{
 			cy_enchantEquipment.abilityItem[i].reset();
-		}
+		
 		cy_enchantEquipment.curMenuNo = 0;
 		enchantEquip_updateSelList();
 	}
@@ -195,12 +194,8 @@
 			document.getElementById('enchantEquipment_defaultFrameList').style.display = 'none';
 		}
 		if ( !cy_enchantEquipment.potential_base_locked )
-		{
 			enchantEquip_findLowestPotential(100);
-		}
-		else {
-			enchantEquip_calcBest();
-		}
+		else enchantEquip_calcBest();
 	}
 	
 	function enchantEquip_selDefaultFrameListCategory(DOC){
@@ -213,9 +208,7 @@
 		for (let i=0; i<_liNode.length; ++i)
 		{
 			if ( _liNode[i].className == '_cur' )
-			{
 				_liNode[i].className = '';
-			}
 		}
 		DOC.className = '_cur';
 		cy_enchantEquipment.curMenuNo = _no;
@@ -335,9 +328,8 @@
 	function enchantEquip_openSettingAbility(DOC){
 		try {
 			if ( document.getElementById('enchantEquipment_defaultFrameList').style.display == 'block' )
-			{
 				document.getElementById('enchantEquipment_defaultFrameList').style.display = 'none';
-			}
+			
 			let _doc = document.getElementById('enchantEquipment_abilityListSel');
 			if ( !DOC )
 			{
@@ -354,9 +346,8 @@
 			
 			let _divAry = _doc.getElementsByClassName('listScope');
 			for (let i=0; i<_divAry.length; ++i)
-			{
 				_divAry[i].style.display = 'none';
-			}
+			
 			switch (_condition)
 			{
 				case 'all': case 'negative':
