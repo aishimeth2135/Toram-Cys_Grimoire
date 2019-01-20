@@ -628,6 +628,14 @@
 								SI[15].value = '可從遠處快速接近敵方的技能，且會重置普攻而發動拔刀斬。施放完畢後，可獲得<u>專注狀態</u>的效果。';
 								break;
 							case 8:
+								SI[8].value = '雙劍';
+								SI[9].value = 600;
+								SI[11].value = '傷害、瞬發';
+								SI[13].value = 'Can be |,|可以';
+								SI[14].value = '';
+								SI[15].value = '';
+								break;
+							case 9:
 								SI[8].value = '無限制';
 								SI[9].value = 100;
 								SI[11].value = '狀態、瞬發';
@@ -635,7 +643,7 @@
 								SI[14].value = '短時間增加閃躲率，<br />但大幅降低 DEF 與 MDEF。';
 								SI[15].value = '狀態持續期間，可大幅增加閃躲率的狀態技能。有大幅扣除防禦力的副作用。裝備雙劍時，技能持續時間將極大幅上升。';
 								break;
-							case 9:
+							case 10:
 								SI[8].value = '無限制';
 								SI[9].value = 200;
 								SI[11].value = '狀態、瞬發';
@@ -644,17 +652,33 @@
 								SI[14].value = '短時間内強化拔刀威力，<br />閃躲發動時，將追加強力反擊。';
 								SI[15].value = '狀態持續期間，可將閃躲反擊轉為強力範圍傷害。並同時提升拔刀傷害。裝備雙劍時，技能持續時間將極大幅上升，並額外提升武器Atk。';
 								break;
-							case 10:
+							case 11:
+								SI[8].value = '雙劍';
+								SI[9].value = 600;
+								SI[11].value = '傷害、瞬發';
+								SI[13].value = 'Can be |,|可以';
+								SI[14].value = '';
+								SI[15].value = '';
+								break;
+							case 12:
 								SI[8].value = '雙劍';
 								SI[11].value = '被動、加成';
 								SI[14].value = '增加雙劍的 ASPD，<br />並減輕雙劍的負面素質。';
 								SI[15].value = '能補足雙劍要領所扣除的命中，同時多出了少量的命中。並大量增加攻擊速度。';
 								break;
-							case 11:
+							case 13:
 								SI[8].value = '無限制';
 								SI[11].value = '被動、加成/增幅';
 								SI[14].value = '增加 AGI 與拔刀術威力 。 <br />(首次攻擊 / 閃躲反擊 / 發動特定技能後等情況下)';
 								SI[15].value = '學習後，能大幅提升拔刀傷害，同時增加Agi。';
+								break;
+							case 14:
+								SI[8].value = '雙劍';
+								SI[9].value = 900;
+								SI[11].value = '狀態、瞬發';
+								SI[13].value = 'Can not be |,|無法';
+								SI[14].value = '';
+								SI[15].value = '';
 								break;
 						}
 						break;

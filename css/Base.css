@@ -1,34 +1,18 @@
 	
-	@font-face {
-		font-family: Tfont-1;
-		src: local(Microsoft JhengHei);
-	}
-	
-	@font-face {
-		font-family: Tfont-1;
-		font-style: normal;
-		font-weight: 400;
-		unicode-range: U+3040-30FF, U+31F0-31FF;
-		src: url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.eot);
-		src: url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.eot?#iefix) format('embedded-opentype'), 
-			 url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.woff2) format('woff2'),
-			 url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.woff) format('woff'),
-			 url(https://fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.ttf) format('truetype');
-	}
-	
 	body {
-		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif;
+		font-family: 'Itim', mfont, Microsoft JhengHei, sans-serif;
 		font-size:0.9rem;
 		background-color:#000000;
 		color:#FFF;
 		margin: 1px;
 	}
 	input, textarea {
-		font-family: 'Itim', Tfont-1, Microsoft JhengHei, sans-serif;
+		font-family: 'Itim', mfont, Microsoft JhengHei, sans-serif;
 	}
 	
 	* {
 		box-sizing: border-box;
+		font: inherit;
 	}
 	/*z-index
 	10: Btn_ToTop

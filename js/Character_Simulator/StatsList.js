@@ -103,7 +103,7 @@
 					case 'natural_mp_regen'			: _cy.formula = "1 +getV('max_mp')/100"; break;
 					case 'atk'						:
 						_cy.formula = [0, [
-						"getV('CLv') +getV('weaponatk') +2*getV('str') +2*getV('dex')",
+						"getV('CLv') +getV('weaponatk') +( getV('1_type') != 7 ? (2*getV('str') +2*getV('dex')) : (getV('str') +2*getV('dex') +getV('agi')))",
 						"getV('CLv') +getV('weaponatk') +3*getV('str') +getV('dex')",
 						"getV('CLv') +getV('weaponatk') +getV('str') +3*getV('dex') + ((getV('1_type') == 2) ? getV('1_value') : 0)",
 						"getV('CLv') +getV('weaponatk') +4*getV('dex') + ((getV('1_type') == 2) ? getV('1_value') : 0)",

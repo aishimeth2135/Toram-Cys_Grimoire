@@ -29,7 +29,7 @@ document.getElementById('Section_4_Menu_1').addEventListener('click', function t
 			}
 		};
 		
-		let range = [170, 1]; /* RANGE */
+		let range = [175, 1]; /* RANGE */
 		let doc = document.getElementById('LevelExpCalc_head');
 		let a = doc.getElementsByClassName('_input1')[0];
 		let b = doc.getElementsByClassName('_input2')[0];
@@ -40,12 +40,15 @@ document.getElementById('Section_4_Menu_1').addEventListener('click', function t
 		if ( b_v > range[0] ) b_v = range[0];
 		if ( a_v < range[1] ) a_v = range[1];
 		if ( b_v < range[1] ) b_v = range[1];
+		
 		if ( a_v > b_v )
 		{
-			let t = a.value;
-			a.value = b.value;
-			b.value = t;
+			let t = a_v;
+			a_v = b_v;
+			b_v = t;
 		}
+		a.value = a_v;
+		b.value = b_v;
 		document.getElementById('LevelExpCalc_showExp').innerHTML = levelExpCalc.toFormat(a_v, b_v);
 		
 		doc = document.getElementById('LevelExpCalc_tableMain');
@@ -92,7 +95,7 @@ document.getElementById('Section_4_Menu_1').addEventListener('click', function t
 		_table += '</tbody><tfoot><tr><td class="_tdHead"><a data-langtext="總和"></a></td>';
 		for (let i=0; i<_lis.length; ++i)
 		{
-			let _exp = levelExpCalc.calcSumExp(1, b_v);
+			let _exp = levelExpCalc.calcSumExp(a_v, b_v);
 			let _t;
 			let mode = document.getElementById('LevelExpCalc_tableMain_tableScope_SwichSMEXP').getAttribute('data-mode');
 			switch (mode)
@@ -137,7 +140,7 @@ document.getElementById('Section_4_Menu_1').addEventListener('click', function t
 	doc.addEventListener('change', inputChange );
 	
 	{
-		let range = [170, 1]; /* RANGE */
+		let range = [175, 1]; /* RANGE */
 		doc = document.getElementById('LevelExpCalc_head').getElementsByClassName('_input1')[0];
 		doc.value = range[1];
 		doc.addEventListener('change', inputChange);

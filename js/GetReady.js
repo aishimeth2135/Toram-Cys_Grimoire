@@ -1,5 +1,4 @@
 	try {
-		
 		(function(){
 			let doc = document.getElementById('Section_3_Page_1');
 			let _ary = doc.getElementsByClassName('_scope');

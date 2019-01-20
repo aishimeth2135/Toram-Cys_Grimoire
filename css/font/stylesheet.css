@@ -1,0 +1,73 @@
+@font-face {
+    font-family: mfont;
+    src: url('SawarabiGothic-Regular.woff2') format('woff2'),
+        url('SawarabiGothic-Regular.woff') format('woff');
+	unicode-range: U+3040-30FF, U+31F0-31FF;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Patrick Hand SC';
+    src: url('PatrickHandSC-Regular.woff2') format('woff2'),
+        url('PatrickHandSC-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Itim';
+    src: url('Itim-Regular.woff2') format('woff2'),
+        url('Itim-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mfont;
+    src: url('NotoSansTC-Light-Alphabetic.woff2') format('woff2'),
+        url('NotoSansTC-Light-Alphabetic.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mfont;
+    src: url('NotoSansTC-Bold-Alphabetic.woff2') format('woff2'),
+        url('NotoSansTC-Bold-Alphabetic.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mfont;
+    src: url('NotoSansTC-Black-Alphabetic.woff2') format('woff2'),
+        url('NotoSansTC-Black-Alphabetic.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mfont;
+    src: url('NotoSansTC-Medium-Alphabetic.woff2') format('woff2'),
+        url('NotoSansTC-Medium-Alphabetic.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mfont;
+    src: url('NotoSansTC-Regular-Alphabetic.woff2') format('woff2'),
+        url('NotoSansTC-Regular-Alphabetic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mfont;
+    src: url('NotoSansTC-Thin-Alphabetic.woff2') format('woff2'),
+        url('NotoSansTC-Thin-Alphabetic.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+

@@ -52,6 +52,33 @@
 				item.value = set.value[loc] || set.value;
 			if (set.unit)
 				item.unit = set.unit[loc] || set.unit;
+		},
+		skill: {
+			MAIN_WEAPON: 0,
+			SUB_WEAPON: 1,
+			BODY_ARMOR: 2,
+			MAIN_WEAPON_LIST: {
+				OneHandSword: 0,
+				TwoHandSword: 1,
+				Bow: 2,
+				Bowgun: 3,
+				Staff: 4,
+				MagicDevice: 5,
+				Knuckles: 6,
+				Halberd: 7,
+				DualSword: 8,
+				Katana: 9,
+				Other: 10
+			},
+			SUB_WEAPON_LIST: {
+				Dagger: 0,
+				Shield: 1,
+				Arrow: 2,
+				MagicDevice: 3,
+				Knuckles: 4,
+				Katana: 5,
+				Other: 6
+			}
 		}
 	};
 	
@@ -282,152 +309,95 @@
 			}
 		}
 	}
-	
-	cy_skill.prototype.armsConfirm = function(T_W, T_Au, T_B){
-		if (T_W != -1)
-		{
-			for (let i=0;i<this.mainWeaponType.length;++i)
+	let AuArms_map = {'Dagger': 0, 'Shield': 1, 'Arrow': 2, 'MagicDevice': 3, 'Knuckles': 4, 'Katana': 5, 'Other': 6};
+	cy_skill.prototype = {
+		setCaptionBranch: function(){
+			let args = arguments;
+			for (let i=0; i<args.length; ++i)
+				this.captionBranch.push(args[i]);
+			return this;
+		},
+		setEquipType: function(equip, typeArgs){
+			let t;
+			switch (equip)
 			{
-				if (T_W == this.mainWeaponType[i] || this.mainWeaponType[i] == 10) return true;
+				case 0:
+					t = this.mainWeaponType;
+					break;
+				case 1:
+					t = this.subWeaponType;
+					break;
+				case 2:
+					t = this.bodyArmorType;
+					break;
 			}
-		}
-		if (T_Au != -1)
-		{
-			for (let i=0;i<this.subWeaponType.length;++i)
-			{
-				if (T_Au == this.subWeaponType[i] || this.subWeaponType[i] == 6) return true;
-			}
-		}
-		if (T_B != -1)
-		{
-			for (let i=0; i<this.bodyArmorType.length; ++i)
-			{
-				if (T_B == this.bodyArmorType[i]) return true;
-			}
-		}
-		return false;
-	}
-	
-	cy_skill.prototype.resetSkillAddition = function(W_type = '', S_type = '', B_type = ''){
-		W_type = W_type || cy_character.charaEquipments[0].type;
-		S_type = S_type || cy_character.charaEquipments[1].type;
-		B_type = B_type || cy_character.charaEquipments[2].type;
+			if (t == null)
+				return;
+			for (let i=0; i<typeArgs.length; ++i)
+				t.push(typeArgs[i]);
+			return this;
+		},
 		
-		for (let i=0; i<this.charaSkillAddition_armsConfirm.length; ++i)
-		{
-			let isConfirm = false;
-			let t_ary = this.charaSkillAddition_armsConfirm[i].split(',');
-			for (let j=0; j<t_ary.length; ++j)
+		armsConfirm: function(T_W, T_Au, T_B){
+			if (T_W != -1)
 			{
-				let armsConfirm_ary = t_ary[j].split('_');
-				
-				switch ( armsConfirm_ary[0] )
+				for (let i=0;i<this.mainWeaponType.length;++i)
 				{
-					case "M":	//main-weapon
-						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
-						break;
-					case "S":	//sub-weapon
-						if ( S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
-						break;
-					case 'b':
-						if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
-						break;
-					case "B":	//main-weapon or sub-weapon
-						if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
-						break;
-					case "D":	//main-weapon and sub-weapon
-						let dual_ary = armsConfirm_ary[1].split('+');
-						if ( W_type == cy_character.weap_map[dual_ary[0]] && S_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
-						break;
-					case "all":	//all
-						isConfirm = true;
-						break;
-					case "noSub":	//no have sub-weapon
-						if ( armsConfirm_ary[1] )
-						{
-							if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && S_type == 6 ) isConfirm = true;
-							break;
-						}
-						if ( S_type == 6 ) isConfirm = true;
-						break;
+					if (T_W == this.mainWeaponType[i] || this.mainWeaponType[i] == 10) return true;
 				}
-				
-				
-				for (let j=0; j<this.charaSkillAddition_list[i].length; ++j)
+			}
+			if (T_Au != -1)
+			{
+				for (let i=0;i<this.subWeaponType.length;++i)
 				{
-					let SLv = this.calcLevel;
-					let CLv = cy_character.characterLv;
-					if ( !isConfirm || this.calcLevel == 0)
-					{
-						this.charaSkillAddition[j].setValue(0);
-						continue;
-					}
+					if (T_Au == this.subWeaponType[i] || this.subWeaponType[i] == 6) return true;
+				}
+			}
+			if (T_B != -1)
+			{
+				for (let i=0; i<this.bodyArmorType.length; ++i)
+				{
+					if (T_B == this.bodyArmorType[i]) return true;
+				}
+			}
+			return false;
+		},
+		
+		resetSkillAddition: function(W_type = '', S_type = '', B_type = ''){
+			W_type = W_type || cy_character.charaEquipments[0].type;
+			S_type = S_type || cy_character.charaEquipments[1].type;
+			B_type = B_type || cy_character.charaEquipments[2].type;
+			
+			for (let i=0; i<this.charaSkillAddition_armsConfirm.length; ++i)
+			{
+				let isConfirm = false;
+				let t_ary = this.charaSkillAddition_armsConfirm[i].split(',');
+				for (let j=0; j<t_ary.length; ++j)
+				{
+					let armsConfirm_ary = t_ary[j].split('_');
 					
-					this.charaSkillAddition[j].setValue(eval(this.charaSkillAddition_list[i][j]));
-				}
-				if ( isConfirm ) break;
-			}
-			if ( isConfirm ) break;
-		}
-	}
-	
-	cy_skill.prototype.getShowDetail = function(){
-		if ( this.skillType == 'passive' )
-		{
-			let _skill = this;
-			let _text = '';
-			let _obj = _skill.charaSkillAddition;
-			for (let i=0; i<_obj.length; ++i)
-			{
-				if ( _obj[i].base != '' )
-				{
-					let _splitUnit = (i != 0) ? '｜' : '';
-					if ( _obj[i].base.baseValue == 'none' )
+					switch ( armsConfirm_ary[0] )
 					{
-						_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>`;
-						continue;
-					}
-					let _unit = ( _obj[i].abilityType == 0 ) ? '%' : _obj[i].base.unit;
-					let _sign = ( _obj[i].value >= 0 ) ? '+' : '';
-					_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>${_sign}${_obj[i].value}<a data-langtext="${_unit}"></a>`;
-				}
-			}
-			if ( _skill.Sk_addDesc != '' )
-			{
-				let _splitUnit = (_obj.length != 0) ? '｜' : '';
-				let SLv = _skill.calcLevel;
-				let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
-				let W_type = cy_character.charaEquipments[0].type;
-				let S_type = cy_character.charaEquipments[1].type;
-				let B_type = cy_character.charaEquipments[2].type;
-				for (let l=0; l<_ary.length; ++l)
-				{
-					if ( _ary[l].match(/(.+)\[(.+)\]/) )
-					{
-						let armsConfirm_ary = RegExp.$1.split('_');
-						let isConfirm = false;
-						switch ( armsConfirm_ary[0] )
-						{
-							case "M":	//main-weapon
-								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
-								break;
-							case "S":	//sub-weapon
-								if ( S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
-								break;
-							case 'b':
-								if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
-								break;
-							case "B":	//main-weapon or sub-weapon
-								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
-								break;
-							case "D":	//main-weapon and sub-weapon
-								let dual_ary = armsConfirm_ary[1].split('+');
-								if ( W_type == cy_character.weap_map[dual_ary[0]] && S_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
-								break;
-							case "all":	//all
-								isConfirm = true;
-								break;
-							case "noSub":	//no have sub-weapon
+						case "M":	//main-weapon
+							if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
+							break;
+						case "S":	//sub-weapon
+							if ( S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+							break;
+						case 'b':
+							if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
+							break;
+						case "B":	//main-weapon or sub-weapon
+							if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+							break;
+						case "D":	//main-weapon and sub-weapon
+							let dual_ary = armsConfirm_ary[1].split('+');
+							if ( W_type == cy_character.weap_map[dual_ary[0]] && S_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
+							break;
+						case "all":	//all
+							isConfirm = true;
+							break;
+						case "noSub":	//no have sub-weapon
 							if ( armsConfirm_ary[1] )
 							{
 								if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && S_type == 6 ) isConfirm = true;
@@ -435,19 +405,106 @@
 							}
 							if ( S_type == 6 ) isConfirm = true;
 							break;
-						}
-						if ( isConfirm )
-						{
-							_text += _splitUnit + eval("`" + RegExp.$2 + "`");
-							break;
-						}
 					}
-					else { console.log('error');console.log( _skill.Sk_addDesc); }
+					
+					
+					for (let j=0; j<this.charaSkillAddition_list[i].length; ++j)
+					{
+						let SLv = this.calcLevel;
+						let CLv = cy_character.characterLv;
+						if ( !isConfirm || this.calcLevel == 0)
+						{
+							this.charaSkillAddition[j].setValue(0);
+							continue;
+						}
+						
+						this.charaSkillAddition[j].setValue(eval(this.charaSkillAddition_list[i][j]));
+					}
+					if ( isConfirm ) break;
 				}
+				if ( isConfirm ) break;
 			}
-			return _text;
+		},
+		
+		getShowDetail: function(){
+			if ( this.skillType == 'passive' )
+			{
+				let _skill = this;
+				let _text = '';
+				let _obj = _skill.charaSkillAddition;
+				for (let i=0; i<_obj.length; ++i)
+				{
+					if ( _obj[i].base != '' )
+					{
+						let _splitUnit = (i != 0) ? '｜' : '';
+						if ( _obj[i].base.baseValue == 'none' )
+						{
+							_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>`;
+							continue;
+						}
+						let _unit = ( _obj[i].abilityType == 0 ) ? '%' : _obj[i].base.unit;
+						let _sign = ( _obj[i].value >= 0 ) ? '+' : '';
+						_text += `${_splitUnit}<a data-langtext="${_obj[i].base.statName}"></a>${_sign}${_obj[i].value}<a data-langtext="${_unit}"></a>`;
+					}
+				}
+				if ( _skill.Sk_addDesc != '' )
+				{
+					let _splitUnit = (_obj.length != 0) ? '｜' : '';
+					let SLv = _skill.calcLevel;
+					let _ary = _skill.Sk_addDesc.split(/\s+&\s+/);
+					let W_type = cy_character.charaEquipments[0].type;
+					let S_type = cy_character.charaEquipments[1].type;
+					let B_type = cy_character.charaEquipments[2].type;
+					for (let l=0; l<_ary.length; ++l)
+					{
+						if ( _ary[l].match(/(.+)\[(.+)\]/) )
+						{
+							let armsConfirm_ary = RegExp.$1.split('_');
+							let isConfirm = false;
+							switch ( armsConfirm_ary[0] )
+							{
+								case "M":	//main-weapon
+									if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] ) isConfirm = true;
+									break;
+								case "S":	//sub-weapon
+									if ( S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+									break;
+								case 'b':
+									if ( B_type == cy_character.body_map[armsConfirm_ary[1]] ) isConfirm = true;
+									break;
+								case "B":	//main-weapon or sub-weapon
+									if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] || S_type == cy_character.au_map[armsConfirm_ary[1]] ) isConfirm = true;
+									break;
+								case "D":	//main-weapon and sub-weapon
+									let dual_ary = armsConfirm_ary[1].split('+');
+									if ( W_type == cy_character.weap_map[dual_ary[0]] && S_type == cy_character.au_map[dual_ary[1]] ) isConfirm = true;
+									break;
+								case "all":	//all
+									isConfirm = true;
+									break;
+								case "noSub":	//no have sub-weapon
+								if ( armsConfirm_ary[1] )
+								{
+									if ( W_type == cy_character.weap_map[armsConfirm_ary[1]] && S_type == 6 ) isConfirm = true;
+									break;
+								}
+								if ( S_type == 6 ) isConfirm = true;
+								break;
+							}
+							if ( isConfirm )
+							{
+								_text += _splitUnit + eval("`" + RegExp.$2 + "`");
+								break;
+							}
+						}
+						else { console.log('error');console.log( _skill.Sk_addDesc); }
+					}
+				}
+				return _text;
+			}
 		}
-	}	
+	};
+	
 	/* =============================================================*/
 	var cy_skillTree = function(tno, tname){
 		this.no = tno;     	//Int, NO of SkillTree, For Array

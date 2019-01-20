@@ -180,8 +180,8 @@
 						SkillTable_size = 14;
 						return Build_SkillTree_Table([[2, 1, 1, 1, 1], [1, 1, 1, 1], [1, 1, -3],[1, -4]]);
 					case 4:
-						SkillTable_size = 11;
-						return Build_SkillTree_Table([[4, 1, 1, 1], [1, 1, 1], [1, -2],[1, -2]]);
+						SkillTable_size = 14;
+						return Build_SkillTree_Table([[4, 1, 1, -2], [1, 1, 1, 1], [1, 1, -2],[1, 1, -2]]);
 					case 5:
 						SkillTable_size = 14;
 						return Build_SkillTree_Table([[4, 2, 2, 1], [1], [2, 1, 1], [-2], [1, -3], [1, 1, -2]]);

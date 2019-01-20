@@ -183,7 +183,7 @@ try {
 		//雙劍
 		InputGainToSkill('步步為營', 0, 24,90, WeapArms_map['DualSword'], -1, -1);
 		
-		InputGainToSkill('劍閃', 0, 3, 50, WeapArms_map['DualSword'], -1, -1);
+		InputGainToSkill('劍閃', 1, 3, 50, WeapArms_map['DualSword'], -1, -1);
 		InputGainToSkill('劍閃', 0, 24, 100, WeapArms_map['DualSword'], -1, -1);
 		InputGainToSkill('劍閃', 0, 6, 25, WeapArms_map['DualSword'], -1, -1);
 		

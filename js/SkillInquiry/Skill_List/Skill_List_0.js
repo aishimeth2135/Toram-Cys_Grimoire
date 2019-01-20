@@ -162,31 +162,40 @@ try {
 	/*======================================================================================
 	======================================================================================*/		
 		cy_skillSystem.skillTreeType[0].skillTree[4].skill.push(
-			new cy_skill(1	, 'Dual Sword Mastery|,|雙劍要領|,|デュアルマスタリ', 0	, "passive"	, "D_1hSword+1hSword[accuracy#3*SLv%, critical_rate#8*SLv%]", "all[角色可以裝備兩把單手劍]"),
-			new cy_skill(2	, 'Twin Slash|,|雙弧斬|,|ツインスラッシュ'			, 1	, "active"	, ""),
-			new cy_skill(3	, 'Spinning Slash|,|破空刃|,|エアスライド'			, 2	, "active"	, ""),		// 2
-			new cy_skill(4	, 'Phantom Slash|,|幻影劍|,|ファントムレイヴ'		, 3	, "active"	, ""),		// 3
-			new cy_skill(5	, 'Cross Parry|,|禦空破陣|,|パリングソード'			, 1	, "active"	, ""),		// 4
-			new cy_skill(6	, 'Charging Slash|,|猛爆斬|,|ドラグーンソード'		, 5	, "active"	, ""),        
-			new cy_skill(7	, 'Shadowstep|,|劍影|,|回り込み'					, 6	, "active"	, ""),		// 6
-			new cy_skill(8	, 'Reflex|,|步步為營|,|ステップリアクター'			, 1	, "active"	, ""),        
-			new cy_skill(9	, 'Flash Blast|,|劍閃|,|フィロ・エクレール'			, 8	, "active"	, ""),		// 8
-			new cy_skill(10, 'Dual Sword Control|,|雙劍鍛鍊|,|双剣の鍛錬'		, 1	, "passive"	, "D_1hSword+1hSword[accuracy#5+3*SLv%, aspd#50*SLv]"),
-			new cy_skill(11, 'God Speed|,|神速軌跡|,|神速の軌跡'				, 10, "passive"	, "D_1hSword+1hSword[unsheathe_attack%#15+SLv, agi#SLv +Math.max(SLv-5, 0)] & all[unsheathe_attack%#5+SLv, agi#SLv +Math.max(SLv-5, 0)]"));
-		for (let i=0; i<=6; ++i)
-		{
-			cy_skillSystem.skillTreeType[0].skillTree[4].skill[i].mainWeaponType.push(WeapArms_map['DualSword']);
-		}
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[7].mainWeaponType.push(WeapArms_map['DualSword'], WeapArms_map['Other']);
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[8].mainWeaponType.push(WeapArms_map['DualSword'], WeapArms_map['Other']);
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[9].mainWeaponType.push(WeapArms_map['DualSword']);
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[10].mainWeaponType.push(WeapArms_map['Other']);
-			
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[2].captionBranch.push('迴旋斬','風壓');
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[3].captionBranch.push('幻影迷蹤','即死');
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[4].captionBranch.push('防守架勢','反擊之勢');
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[6].captionBranch.push('專注');
-		cy_skillSystem.skillTreeType[0].skillTree[4].skill[8].captionBranch.push('二重閃光');
+			new cy_skill(1	, 'Dual Sword Mastery|,|雙劍要領|,|デュアルマスタリ', 0	, "passive"	, "D_1hSword+1hSword[accuracy#3*SLv%, critical_rate#8*SLv%]", "all[角色可以裝備兩把單手劍]")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),
+			new cy_skill(2	, 'Twin Slash|,|雙弧斬|,|ツインスラッシュ'			, 1	, "active"	, "")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),
+			new cy_skill(3	, 'Spinning Slash|,|破空刃|,|エアスライド'			, 2	, "active"	, "")
+				.setCaptionBranch('迴旋斬','風壓')
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),
+			new cy_skill(4	, 'Phantom Slash|,|幻影劍|,|ファントムレイヴ'		, 3	, "active"	, "")
+				.setCaptionBranch('幻影迷蹤','即死')
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),		// 3
+			new cy_skill(5	, 'Cross Parry|,|禦空破陣|,|パリングソード'			, 1	, "active"	, "")
+				.setCaptionBranch('防守架勢','反擊之勢')
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),		// 4
+			new cy_skill(6	, 'Charging Slash|,|猛爆斬|,|ドラグーンソード'		, 5	, "active"	, "")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),        
+			new cy_skill(7	, 'Shadowstep|,|劍影|,|回り込み'					, 6	, "active"	, "")
+				.setCaptionBranch('專注')
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),		// 6
+			new cy_skill(8	, 'Shining Cross|,|閃光交叉|,|シャイニングクロス'	, 7	, "active"	, "")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),		// 6
+			new cy_skill(9	, 'Reflex|,|步步為營|,|ステップリアクター'			, 1	, "active"	, "")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword, cy_skillSystem.skill.MAIN_WEAPON_LIST.Other]),
+			new cy_skill(10	, 'Flash Blast|,|劍閃|,|フィロ・エクレール'			, 9	, "active"	, "")
+				.setCaptionBranch('二重閃光')
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword, cy_skillSystem.skill.MAIN_WEAPON_LIST.Other]),		// 8
+			new cy_skill(11	, 'Storm Reaper|,|疾風收割|,|シュツルムリーパー'	, 10, "active"	, "")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),		// 8
+			new cy_skill(12, 'Dual Sword Control|,|雙劍鍛鍊|,|双剣の鍛錬'		, 1	, "passive"	, "D_1hSword+1hSword[accuracy#5+3*SLv%, aspd#50*SLv]")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword]),
+			new cy_skill(13, 'God Speed|,|神速軌跡|,|神速の軌跡'				, 12, "passive"	, "D_1hSword+1hSword[unsheathe_attack%#15+SLv, agi#SLv +Math.max(SLv-5, 0)] & all[unsheathe_attack%#5+SLv, agi#SLv +Math.max(SLv-5, 0)]")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword, cy_skillSystem.skill.MAIN_WEAPON_LIST.Other]),
+			new cy_skill(14, 'Saber Aura|,|劍舞靈光|,|セイバーオーラ'			, 13, "active"	, "")
+				.setEquipType(cy_skillSystem.skill.MAIN_WEAPON, [cy_skillSystem.skill.MAIN_WEAPON_LIST.DualSword])
+		);
 		
 	/*======================================================================================
 	======================================================================================*/	

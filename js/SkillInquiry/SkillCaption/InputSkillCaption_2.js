@@ -1202,10 +1202,10 @@
 								{
 									case 0:
 										SI[5].name = '命中';
-										SI[5].value = 3*T_skillLv;
+										SI[5].value = -55 + 3*T_skillLv;
 										SI[5].unit = '%。';
 										SI[6].name = '暴擊率';
-										SI[6].value = 8*T_skillLv;
+										SI[6].value = -80 + 8*T_skillLv;
 										SI[6].unit = '%。';
 										SI[27].value = '習得此技能後，方可以同時裝備兩把單手劍。<br />裝備兩把單手劍時，命中-55%，暴擊率-80%，此技能將可抵消大部分副作用。';
 										break;
@@ -1372,6 +1372,14 @@
 								switch (No_Branch)
 								{
 									case 0:
+										SI[5].value = "（靜待更新）";
+										break;
+								}
+								break;
+							case 9:
+								switch (No_Branch)
+								{
+									case 0:
 										SI[5].name = '閃躲率+';
 										SI[5].value = 10 + 2*T_skillLv;
 										SI[5].unit = '%。';
@@ -1386,7 +1394,7 @@
 										break;
 								}
 								break;
-							case 9:
+							case 10:
 								switch (No_Branch)
 								{
 									case 0:
@@ -1417,7 +1425,15 @@
 										break;
 								}
 								break;
-							case 10:
+							case 11:
+								switch (No_Branch)
+								{
+									case 0:
+										SI[5].value = "（靜待更新）";
+										break;
+								}
+								break;
+							case 12:
 								switch (No_Branch)
 								{
 									case 0:
@@ -1431,7 +1447,7 @@
 									break;
 								}
 								break;
-							case 11:
+							case 13:
 								switch (No_Branch)
 								{
 									case 0:
@@ -1443,6 +1459,14 @@
 										SI[6].unit = '%。';
 										SI[16].value = '被動加成';
 									break;
+								}
+								break;
+							case 14:
+								switch (No_Branch)
+								{
+									case 0:
+										SI[5].value = "（靜待更新）";
+										break;
 								}
 								break;
 						}
