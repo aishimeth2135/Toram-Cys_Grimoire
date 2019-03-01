@@ -29,7 +29,7 @@ document.getElementById('Section_4_Menu_1').addEventListener('click', function t
 			}
 		};
 		
-		let range = [175, 1]; /* RANGE */
+		let range = [180, 1]; /* RANGE */
 		let doc = document.getElementById('LevelExpCalc_head');
 		let a = doc.getElementsByClassName('_input1')[0];
 		let b = doc.getElementsByClassName('_input2')[0];
@@ -140,7 +140,7 @@ document.getElementById('Section_4_Menu_1').addEventListener('click', function t
 	doc.addEventListener('change', inputChange );
 	
 	{
-		let range = [175, 1]; /* RANGE */
+		let range = [180, 1]; /* RANGE */
 		doc = document.getElementById('LevelExpCalc_head').getElementsByClassName('_input1')[0];
 		doc.value = range[1];
 		doc.addEventListener('change', inputChange);
