@@ -1,7 +1,7 @@
 	
 	function enchantEquip_lockedPotentialBase(DOC){
 		let _mode = DOC.getAttribute('data-mode');
-		if ( _mode == "0" )
+		if (_mode == "0")
 		{
 			DOC.setAttribute('src', 'svg/locked.svg');
 			DOC.setAttribute('data-mode', 1);
@@ -17,7 +17,7 @@
 	}
 	
 	function enchantEquip_showStepDetail(DOC){
-		if ( DOC.getAttribute('data-mode') == "0" )
+		if (DOC.getAttribute('data-mode') == "0")
 		{
 			DOC.setAttribute('data-mode', 1);
 			DOC.className = 'showStepDetail_cur';
