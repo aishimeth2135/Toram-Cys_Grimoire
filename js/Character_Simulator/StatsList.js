@@ -135,8 +135,9 @@
 						"getV('CLv') +4*getV('int') +getV('dex') +0.5*getV('weaponatk')",
 						"getV('CLv') +2*getV('int') +getV('dex') +getV('agi')",
 						"getV('CLv') +1.5*getV('int') +getV('dex')",
-						"getV('CLv') +3*getV('int') +getV('dex') +1"]]; break;
+						"getV('CLv') +3*getV('int') +getV('dex') +1"]];
 						_cy.formula_add.addC = "getV('matk_%str') +getV('matk_%dex') +getV('matk_%int') +getV('matk_%agi') +getV('matk_%vit')";
+						break;
 					case 'stability'				:
 						_cy.formula = [0, [
 						"getV('0_stability') +(getV('str') +3*getV('dex'))/40",
@@ -168,7 +169,7 @@
 						"( (getV('1_type') == 1) ? getV('1_value') : 0) +getV('2_value') +getV('3_value') +getV('4_value') +0.4*getV('CLv') +0.1*getV('int')"]]; break;
 					case 'physical_resistance'		: _cy.formula_add.addC = "getV('2_refining') +getV('3_refining') +getV('4_refining')"; break;
 					case 'magical_resistance'		: _cy.formula_add.addC = "getV('2_refining') +getV('3_refining') +getV('4_refining')"; break;
-					case 'ailment_resistance'		: _cy.formula = "getV('Cmen')/5"; break;
+					case 'ailment_resistance'		: _cy.formula = "getV('Cmen')/3.4"; break;
 					case 'critical_rate'			: _cy.formula = "25 +getV('Ccrt')/3.4"; break;	
 					case 'critical_damage'			: _cy.formula = "150 +getV('str')/5"; break;
 					case 'accuracy'					: _cy.formula = "getV('CLv') +getV('dex')"; break;

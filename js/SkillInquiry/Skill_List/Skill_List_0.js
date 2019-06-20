@@ -251,7 +251,7 @@ try {
 			new cy_skill(9	, 'Zantei Settetsu|,|斬釘截鐵|,|斬釘截鉄'	, 8	, "active"	, ""),		// 8
 			new cy_skill(10, 'Bushido|,|武士道|,|武士道'				, 0	, "passive"	, "M_Katana[max_hp#10*SLv, max_mp#10*SLv, atk#parseInt((SLv+7)/5)%, weaponatk#3*SLv%] & all[max_hp#10*SLv, max_mp#10*SLv]"),		// 9
 			new cy_skill(11, 'Shukuchi|,|縮地法|,|縮地法'				, 10, "passive"	, ""),	// 10
-			new cy_skill(12, 'Two-Handed|,|雙手合持|,|両手持ち'		, 10, "passive"	, "noSub_Katana[accuracy#SLv%, stability#SLv, critical_rate#SLv] & noSub[accuracy#SLv%, stability#parseInt(SLv/2), critical_rate#parseInt(SLv/2)]", "noSub_Katana[暴擊發生時，傷害公式中的有效Atk提升至原本的${100+5*SLv}%]"),	// 11
+			new cy_skill(12, 'Two-Handed|,|雙手合持|,|両手持ち'		, 10, "passive"	, "noSub_Katana[accuracy#SLv%, stability#SLv, critical_rate#SLv, weaponatk#SLv%] & noSub[accuracy#SLv%, stability#parseInt(SLv/2), critical_rate#parseInt(SLv/2), weaponatk#SLv%]", "noSub_Katana[暴擊發生時，傷害公式中的有效Atk提升至原本的${100+5*SLv}%]"),	// 11
 			new cy_skill(13, 'Meikyo Shisui|,|明鏡止水|,|明鏡止水'		, 12, "active"	, ""),	// 12
 			new cy_skill(14, 'Kairiki Ranshin|,|怪力亂神|,|怪力乱神'	, 13, "active"	, ""));	// 13
 		for (let i=0; i<=8; ++i)
