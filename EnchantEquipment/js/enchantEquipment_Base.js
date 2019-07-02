@@ -25,7 +25,7 @@
 		negativeValue_rate: 30,
 		slotCount: 6,
 		potentialMax: 70,
-		lvPotentialMax: 18,
+		lvPotentialMax: 19,
 		itemList: [],
 		categoryList: [],
 		categoryList_name: [
