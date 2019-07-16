@@ -469,30 +469,35 @@
 	
 	/* ================================================= */
 	function SkillAlloSimu_resetSaveCodeList(){
-		if ( !window.localStorage )
-		{
-			showWarningMsg('This browser version does not support Web Storage.');
-			document.getElementById('charaSimu_SaveCode_dataList').innerHTML = 'This browser version does not support Web Storage.';
-			return;
-		}
-		Ttext = '<ul>', storage_size = 5;
-		for (let i=0; i<storage_size; ++i)
-		{
-			let _storage = window.localStorage['SkillAlloSimu_SaveCode_storage' + i];
-			let _title = '(No Data)';
-			let _loadCode = '';
-			if ( _storage )
+		try {
+			if ( !window.localStorage )
 			{
-				let reg = /.*\)n_/;
-				_title = _storage.match(reg)[0].replace(')n_', '');
-				//console.log(_title);
-				_loadCode = _storage.replace(reg, '');
+				showWarningMsg('This browser version does not support Web Storage.');
+				document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = 'This browser version does not support Web Storage.';
+				return;
 			}
-			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_CopyFromStorage(this)"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="SkillAlloSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_LoadFromStorage(this)"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
+			Ttext = '<ul>', storage_size = 5;
+			for (let i=0; i<storage_size; ++i)
+			{
+				let _storage = window.localStorage['SkillAlloSimu_SaveCode_storage' + i];
+				let _title = '(No Data)';
+				let _loadCode = '';
+				if ( _storage )
+				{
+					let reg = /.*\)n_/;
+					_title = _storage.match(reg)[0].replace(')n_', '');
+					//console.log(_title);
+					_loadCode = _storage.replace(reg, '');
+				}
+				Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_CopyFromStorage(this)"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="SkillAlloSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="SkillAlloSimu_LoadFromStorage(this)"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
+			}
+			Ttext += '</ul>';
+			document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = Ttext;
+			resetInnerLang(document.getElementById('SkillAlloSimu_SaveCode_dataList'));
 		}
-		Ttext += '</ul>';
-		document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = Ttext;
-		resetInnerLang(document.getElementById('SkillAlloSimu_SaveCode_dataList'));
+		catch (e){
+			document.getElementById('SkillAlloSimu_SaveCode_dataList').innerHTML = '離線版本無法使用存檔功能，請利用存檔代碼。';
+		}	
 	}
 	
 	function SkillAlloSimu_open_Second(temp){

@@ -147,7 +147,8 @@
 		})();
 	}
 	catch(e){
-		errorForStop_msg("Initialize SaveSetting false", e);
+		//showWarningMsg("離線版本無法儲存設定記錄。");
+		//errorForStop_msg("Initialize SaveSetting false", e);
 	}
 
 	(function (){

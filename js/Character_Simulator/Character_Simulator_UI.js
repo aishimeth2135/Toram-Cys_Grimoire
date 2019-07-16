@@ -54,32 +54,37 @@
 		doc.getElementsByTagName('input')[0].focus();
 	}
 	function charaSimu_resetSaveCodeList(){
-		if ( !window.localStorage )
-		{
-			showWarningMsg('This browser version does not support Web Storage.');
-			document.getElementById('charaSimu_SaveCode_dataList').innerHTML = 'This browser version does not support Web Storage.';
-			return;
-		}
-		Ttext = '<ul>', storage_size = 5;
-		for (let i=0; i<storage_size; ++i)
-		{
-			let _storage = window.localStorage['charaSimu_saveCode_storage' + i];
-			let _title = '(No Data)';
-			let _loadCode = '';
-			if ( _storage )
+		try {
+			if ( !window.localStorage )
 			{
-				let reg = /.*\)n_/;
-				_title = _storage.match(reg)[0].replace(')n_', '');
-				//console.log(_title);
-				_loadCode = _storage.replace(reg, '');
+				showWarningMsg('This browser version does not support Web Storage.');
+				document.getElementById('charaSimu_SaveCode_dataList').innerHTML = 'This browser version does not support Web Storage.';
+				return;
 			}
-			Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="charaSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
+			Ttext = '<ul>', storage_size = 5;
+			for (let i=0; i<storage_size; ++i)
+			{
+				let _storage = window.localStorage['charaSimu_saveCode_storage' + i];
+				let _title = '(No Data)';
+				let _loadCode = '';
+				if ( _storage )
+				{
+					let reg = /.*\)n_/;
+					_title = _storage.match(reg)[0].replace(')n_', '');
+					//console.log(_title);
+					_loadCode = _storage.replace(reg, '');
+				}
+				Ttext += `<li>${_title}<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-lino="${i}" onclick="charaSimu_SaveToStorage_setTitle(this)"><a data-langtext="Save|,|存檔|,|Save"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li>`;
+			}
+			let _loadCode = '';
+			if ( window.localStorage['charaSimu_saveCode_storage_Auto'] ) _loadCode = window.localStorage['charaSimu_saveCode_storage_Auto'].split(')n_')[1]; 
+			Ttext += `<li>Auto Save<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li></ul>`;
+			document.getElementById('charaSimu_SaveCode_dataList').innerHTML = Ttext;
+			resetInnerLang(document.getElementById('charaSimu_SaveCode_dataList'));
 		}
-		let _loadCode = '';
-		if ( window.localStorage['charaSimu_saveCode_storage_Auto'] ) _loadCode = window.localStorage['charaSimu_saveCode_storage_Auto'].split(')n_')[1]; 
-		Ttext += `<li>Auto Save<div><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'copy')"><a data-langtext="Copy|,|複製|,|Copy"></a></span><span data-loadingcode="${_loadCode}" onclick="charaSimu_storageControl(this, 'load')"><a data-langtext="Load|,|讀取|,|Load"></a></span></div></li></ul>`;
-		document.getElementById('charaSimu_SaveCode_dataList').innerHTML = Ttext;
-		resetInnerLang(document.getElementById('charaSimu_SaveCode_dataList'));
+		catch (e){
+			document.getElementById('charaSimu_SaveCode_dataList').innerHTML = '離線版本無法使用存檔功能，請利用存檔代碼。';
+		}
 	}
 	
 	function charaSimu_storageControl(temp, control){
