@@ -28,9 +28,9 @@ try {
 			new cy_skill(7	, 'Spiral Air|,|真空刃|,|スパイラルエアー'		, 6	, "active"	, ""),        
 			new cy_skill(8	, 'Buster Blade|,|風暴氣流|,|バスターブレード'	, 7	, "active"	, ""),		// 7
 			new cy_skill(9	, 'Sword Tempest|,|破壞之刃|,|ソードテンペスト'	, 7	, "active"	, ""),		
-			new cy_skill(10, 'Sword Mastery|,|劍術要領|,|ブレードマスタリ'	, 0	, "passive"	, "M_1hSword[atk#parseInt((SLv+7)/5)%, weaponatk#3*SLv%]"),
-			new cy_skill(11, 'Quick Slash|,|劍速提升|,|素早い斬撃'			, 10, "passive"	, "M_1hSword[aspd#10*SLv, aspd#SLv%]"),
-			new cy_skill(12, 'Sword Techniques|,|大師級劍術|,|匠の剣術'		, 11, "passive"	, "", "M_1hSword[「劍術技能」中的攻擊技能，總傷害提升${2*SLv}%]"),
+			new cy_skill(10, 'Sword Mastery|,|劍術要領|,|ブレードマスタリ'	, 0	, "passive"	, "M_1hSword,M_2hSword[atk#parseInt((SLv+7)/5)%, weaponatk#3*SLv%]"),
+			new cy_skill(11, 'Quick Slash|,|劍速提升|,|素早い斬撃'			, 10, "passive"	, "M_1hSword,M_2hSword[aspd#10*SLv, aspd#SLv%]"),
+			new cy_skill(12, 'Sword Techniques|,|大師級劍術|,|匠の剣術'		, 11, "passive"	, "", "M_1hSword,M_2hSword[「劍術技能」中的攻擊技能，總傷害提升${2*SLv}%]"),
 			new cy_skill(13, 'War Cry|,|戰吼|,|ウォークライ'					, 11, "active"	, ""),
 			new cy_skill(14, 'Berserk|,|狂戰士之怒|,|バーサーク'				, 13, "active"	, ""));
 		for (let i=0; i<cy_skillSystem.skillTreeType[0].skillTree[0].skill.length; i++)
