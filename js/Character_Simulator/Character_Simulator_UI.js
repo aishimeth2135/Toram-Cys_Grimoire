@@ -740,7 +740,7 @@
 			case 'Cstat0': case 'Cstat1': case 'Cstat2': case 'Cstat3': case 'Cstat4':
 				let _loc1 = parseInt(varName.charAt(varName.length-1));
 				temp.value = parseInt(temp.value);
-				temp.value = ( temp.value < 0 || temp.value > 255 || temp.value == '') ? cy_character.statPoint[_loc1].baseValue : temp.value;
+				temp.value = ( temp.value < 0 || temp.value > 510 || temp.value == '') ? cy_character.statPoint[_loc1].baseValue : temp.value;
 				cy_character.statPoint[_loc1].baseValue = parseInt(temp.value);
 				break;
 			case 'Caddition':
